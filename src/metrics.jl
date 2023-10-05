@@ -1,4 +1,4 @@
-using CoEvo: GroupStatisticalMeasurement
+using CoEvo.Measurements: BasicStatisticalMeasurement, GroupStatisticalMeasurement
 Base.@kwdef struct DistanceError <: SpeciesMetric
     name::String="DistanceError"
 end
