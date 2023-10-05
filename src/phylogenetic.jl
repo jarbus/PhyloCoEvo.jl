@@ -16,6 +16,7 @@ using CoEvo.Species.Recombiners.Abstract: Recombiner
 using CoEvo.Species.Recombiners.Interfaces: recombine
 using CoEvo.Species.Mutators.Abstract: Mutator
 using CoEvo.Species.Mutators.Interfaces: mutate
+using CoEvo.Ecosystems.Utilities.Counters: next!
 
 struct PhylogeneticNode
     id::Int
@@ -65,7 +66,7 @@ function PhylogeneticSpecies(
     )
 end
 
-function PhylogeneticTreeSpecies(id::String, pop::Dict{Int, I}) where {I <: Individual}
+function PhylogeneticSpecies(id::String, pop::Dict{Int, I}) where {I <: Individual}
     return PhylogeneticSpecies(
         id, 
         pop, 
@@ -122,7 +123,7 @@ Generate a new population of individuals using genotype and phenotype configurat
 - `indiv_id_counter::Counter`: Counter for generating unique individual IDs.
 - `gene_id_counter::Counter`: Counter for generating unique gene IDs.
 """
-function create_species(
+function CoEvo.create_species(
     species_creator::PhylogeneticSpeciesCreator,
     rng::AbstractRNG, 
     indiv_id_counter::Counter = Counter(),
@@ -153,12 +154,12 @@ Core reproduction phase of the evolutionary algorithm.
 # Returns
 - A new `PhylogeneticSpecies` containing the next generation population and their children.
 """
-function create_species(
+function CoEvo.create_species(
     species_creator::PhylogeneticSpeciesCreator,
     rng::AbstractRNG, 
     indiv_id_counter::Counter,  
     gene_id_counter::Counter,  
-    species::AbstractSpecies,
+    species::PhylogeneticSpecies,
     evaluation::Evaluation
 ) 
     new_pop = replace(species_creator.replacer, rng, species, evaluation)
@@ -168,6 +169,6 @@ function create_species(
         new_children = mutate(mutator, rng, gene_id_counter, new_children)
     end
     new_children = Dict(indiv.id => indiv for indiv in new_children)
-    new_species = PhylogeneticSpecies(species_creator.id, new_pop, new_children)
+    new_species = PhylogeneticSpecies(species_creator.id, new_pop, new_children, species.tree)
     return new_species
 end
