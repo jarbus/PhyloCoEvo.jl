@@ -3,7 +3,7 @@ Base.@kwdef struct DistanceError <: SpeciesMetric
     name::String="DistanceError"
 end
 
-function measure(
+function CoEvo.measure(
     ::Reporter{DistanceError},
     species_evaluations::Dict{<:AbstractSpecies, <:Evaluation},
     ::Vector{<:Observation}
@@ -16,4 +16,17 @@ function measure(
     )
     measurement = GroupStatisticalMeasurement(species_measurements)
     return measurement
+end
+
+
+function CoEvo.archive!(
+    ::BasicArchiver, 
+    gen::Int, 
+    report::BasicReport{DistanceError, GroupStatisticalMeasurement}
+)
+    for (species_id, measurement) in report.measurement.measurements
+        println("----")
+        println("Distance Error for species ", species_id)
+        println("Error: ", measurement.mean)
+    end
 end
