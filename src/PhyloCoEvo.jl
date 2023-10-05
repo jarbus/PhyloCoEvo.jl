@@ -1,5 +1,5 @@
 module PhyloCoEvo
-
-# Write your package code here.
-
+export PhylogeneticSpeciesCreator, PhylogeneticSpecies, create_species
+include("./phylogenetic.jl")
+include("./metrics.jl")
 end
