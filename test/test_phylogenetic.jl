@@ -57,7 +57,7 @@ using CoEvo: BasicVectorGenotype
             reporters = Reporter[
                 BasicReporter(metric = AllSpeciesFitness()),
                 BasicReporter(metric = GenotypeSum()),
-                BasicReporter(metric = DistanceError())
+                BasicReporter(metric = DistanceError()),
                 BasicReporter(metric = TreeStatisticsMetric())
             ],
             archiver = BasicArchiver(),
@@ -72,8 +72,28 @@ using CoEvo: BasicVectorGenotype
 end
 
 @testset "PhylogeneticTree" begin
+    n_pop = 10
+    genesis_pop = Dict(i=>Individual(i,BasicVectorGenotype([0]),Int[]) for i in 1:n_pop)
+    tree = PhyloCoEvo.PhylogeneticTree(genesis_pop)
     @testset "Genesis" begin
-        genesis_pop = Dict(i=>Individual(i,BasicVectorGenotype([0]),Int[]) for i in 1:10)
-
+        @test length(tree.tree) == n_pop
+        @test length(tree.genesis) == n_pop
+        for gen_ind in tree.genesis
+            @test tree.tree[gen_ind.id] == gen_ind
+        end
+        @test isnothing(tree.mrca)
+    end
+    @testset "add_children!" begin
+        children = Dict(i=>
+            Individual(i,BasicVectorGenotype([0]),[rand(1:n_pop)])
+            for i in n_pop+1:2n_pop)
+        PhyloCoEvo.add_children!(tree, children)
+        @test length(tree.tree) == 2n_pop
+        @test length(tree.genesis) == n_pop
+        for (id, child) in children
+            @test tree.tree[id].id == child.id
+            @test tree.tree[id].parent.id == child.parent_ids[1]
+            @test child.id in [c.id for c in tree.tree[id].parent.children]
+        end
     end
 end

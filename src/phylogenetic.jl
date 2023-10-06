@@ -40,10 +40,12 @@ function PhylogeneticTree(genesis_pop::Dict{Int, <:Individual})
 end
 function add_children!(tree::PhylogeneticTree, children::Dict{Int, <:Individual})
     for (id, child) in children
-        @assert id ∉ keys(tree.tree)
-        parent = tree.tree[child.parent]
-        child_node = PhylogeneticNode(id, parent, [])
-        push!(parent.children, child_node)
+        @assert id ∉ keys(tree.tree) "id: $id, keys: $(keys(tree.tree))"
+        @assert length(child.parent_ids) == 1
+        parent_id = child.parent_ids[1]
+        parent_node = tree.tree[parent_id]
+        child_node = PhylogeneticNode(id, parent_node, [])
+        push!(parent_node.children, child_node)
         tree.tree[id] = child_node
     end
 end
@@ -187,6 +189,7 @@ function CoEvo.create_species(
         new_children = mutate(mutator, rng, gene_id_counter, new_children)
     end
     new_children = Dict(indiv.id => indiv for indiv in new_children)
+    add_children!(species.tree, new_children)
     new_species = PhylogeneticSpecies(species_creator.id, new_pop, new_children, species.tree)
     return new_species
 end
