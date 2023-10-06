@@ -58,6 +58,7 @@ using CoEvo: BasicVectorGenotype
                 BasicReporter(metric = AllSpeciesFitness()),
                 BasicReporter(metric = GenotypeSum()),
                 BasicReporter(metric = DistanceError())
+                BasicReporter(metric = TreeStatisticsMetric())
             ],
             archiver = BasicArchiver(),
         )

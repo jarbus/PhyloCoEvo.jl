@@ -1,6 +1,6 @@
 module PhyloCoEvo
 export PhylogeneticSpeciesCreator, PhylogeneticSpecies, create_species,
-       DistanceError, EstimationPerformer, PhylogeneticMatchMaker
+       DistanceError, EstimationPerformer, PhylogeneticMatchMaker, TreeStatisticsMetric
 include("./phylogenetic.jl")
 include("./metrics.jl")
 include("./estimation-performer.jl")
