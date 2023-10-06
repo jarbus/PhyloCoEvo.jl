@@ -25,12 +25,29 @@ struct PhylogeneticNode
 end
 
 struct PhylogeneticTree
+    genesis::Vector{PhylogeneticNode}
     tree::Dict{Int,PhylogeneticNode}
+    mrca::Union{PhylogeneticNode, Nothing}
 end
 
 function PhylogeneticTree()
-    return PhylogeneticTree(Dict{Int,PhylogeneticNode}())
+    error("Genesis population must be provided for PhylogeneticTree")
 end
+function PhylogeneticTree(genesis_pop::Dict{Int, <:Individual})
+    genesis = [PhylogeneticNode(indiv.id, nothing, []) for indiv in values(genesis_pop)]
+    tree = Dict(node.id => node for node in genesis)
+    return PhylogeneticTree(genesis, tree, nothing)
+end
+function add_children!(tree::PhylogeneticTree, children::Dict{Int, <:Individual})
+    for (id, child) in children
+        @assert id ∉ keys(tree.tree)
+        parent = tree.tree[child.parent]
+        child_node = PhylogeneticNode(id, parent, [])
+        push!(parent.children, child_node)
+        tree.tree[id] = child_node
+    end
+end
+
 
 """
     PhylogeneticSpecies{P <: PhenotypeCreator, I <: Individual}
@@ -71,7 +88,7 @@ function PhylogeneticSpecies(id::String, pop::Dict{Int, I}) where {I <: Individu
         id, 
         pop, 
         Dict{Int, I}(), 
-        PhylogeneticTree()
+        PhylogeneticTree(pop)
     )
 end
 
@@ -116,6 +133,7 @@ end
 
 """
 Generate a new population of individuals using genotype and phenotype configurations.
+TODO: add pop to phylotree
 
 # Arguments
 - `creator::SpeciesCfg`: Creator for the species.
