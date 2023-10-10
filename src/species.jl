@@ -24,10 +24,12 @@ struct PhylogeneticNode
     children::Vector{PhylogeneticNode}
 end
 
-struct PhylogeneticTree
+mutable struct PhylogeneticTree
     genesis::Vector{PhylogeneticNode}
     tree::Dict{Int,PhylogeneticNode}
+    leaves::Dict{Int,PhylogeneticNode}
     mrca::Union{PhylogeneticNode, Nothing}
+    distances::Dict{Int, Dict{Int, Int}}
 end
 
 function PhylogeneticTree()
@@ -36,7 +38,8 @@ end
 function PhylogeneticTree(genesis_pop::Dict{Int, <:Individual})
     genesis = [PhylogeneticNode(indiv.id, nothing, []) for indiv in values(genesis_pop)]
     tree = Dict(node.id => node for node in genesis)
-    return PhylogeneticTree(genesis, tree, nothing)
+    leaves = Dict(node.id => node for node in genesis)
+    return PhylogeneticTree(genesis, tree, leaves, nothing)
 end
 function add_children!(tree::PhylogeneticTree, children::Dict{Int, <:Individual})
     for (id, child) in children
@@ -46,7 +49,34 @@ function add_children!(tree::PhylogeneticTree, children::Dict{Int, <:Individual}
         parent_node = tree.tree[parent_id]
         child_node = PhylogeneticNode(id, parent_node, [])
         push!(parent_node.children, child_node)
+        tree.leaves[id] = child_node
+        delete!(tree.leaves, parent_id)
         tree.tree[id] = child_node
+    end
+end
+
+function add_distance!(tree::PhylogeneticTree, id1::Int, id2::Int, distance::Int)
+    if id1 ∉ keys(tree.distances)
+        tree.distances[id1] = Dict{Int, Int}()
+    end
+    tree.distances[id1][id2] = distance
+    tree.distances[id2][id1] = distance
+end
+
+function compute_n_offspring(tree::PhylogeneticTree)
+    n_offspring = Dict{Int, Int}()
+    for (id, node) in tree.leaves
+        n_offspring[id] = 0
+    end
+end
+
+function compute_distances!(tree::PhylogeneticTree)
+    cur_pointers = Dict{PhylogeneticNode, Vector{Vector{Int}}}()
+    next_pointers = Dict{PhylogeneticNode, Vector{Vector{Int}}}()
+    for node in values(tree.leaves)
+        cur_pointers[node] = [[0]]
+    end
+    while length(cur_pointers) > 0
     end
 end
 
