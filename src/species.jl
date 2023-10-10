@@ -1,6 +1,7 @@
 using Random: AbstractRNG
 using DataStructures: OrderedDict
 using CoEvo
+using PhylogeneticTrees
 
 
 using CoEvo.Species.Abstract: AbstractSpecies, SpeciesCreator
@@ -18,68 +19,15 @@ using CoEvo.Species.Mutators.Abstract: Mutator
 using CoEvo.Species.Mutators.Interfaces: mutate
 using CoEvo.Ecosystems.Utilities.Counters: next!
 
-struct PhylogeneticNode
-    id::Int
-    parent::Union{PhylogeneticNode, Nothing}
-    children::Vector{PhylogeneticNode}
-end
 
-mutable struct PhylogeneticTree
-    genesis::Vector{PhylogeneticNode}
-    tree::Dict{Int,PhylogeneticNode}
-    leaves::Dict{Int,PhylogeneticNode}
-    mrca::Union{PhylogeneticNode, Nothing}
-    distances::Dict{Int, Dict{Int, Int}}
-end
-
-function PhylogeneticTree()
-    error("Genesis population must be provided for PhylogeneticTree")
-end
-function PhylogeneticTree(genesis_pop::Dict{Int, <:Individual})
-    genesis = [PhylogeneticNode(indiv.id, nothing, []) for indiv in values(genesis_pop)]
-    tree = Dict(node.id => node for node in genesis)
-    leaves = Dict(node.id => node for node in genesis)
-    return PhylogeneticTree(genesis, tree, leaves, nothing)
-end
 function add_children!(tree::PhylogeneticTree, children::Dict{Int, <:Individual})
     for (id, child) in children
         @assert id ∉ keys(tree.tree) "id: $id, keys: $(keys(tree.tree))"
         @assert length(child.parent_ids) == 1
         parent_id = child.parent_ids[1]
-        parent_node = tree.tree[parent_id]
-        child_node = PhylogeneticNode(id, parent_node, [])
-        push!(parent_node.children, child_node)
-        tree.leaves[id] = child_node
-        delete!(tree.leaves, parent_id)
-        tree.tree[id] = child_node
+        add_child!(tree, parent_id, id)
     end
 end
-
-function add_distance!(tree::PhylogeneticTree, id1::Int, id2::Int, distance::Int)
-    if id1 ∉ keys(tree.distances)
-        tree.distances[id1] = Dict{Int, Int}()
-    end
-    tree.distances[id1][id2] = distance
-    tree.distances[id2][id1] = distance
-end
-
-function compute_n_offspring(tree::PhylogeneticTree)
-    n_offspring = Dict{Int, Int}()
-    for (id, node) in tree.leaves
-        n_offspring[id] = 0
-    end
-end
-
-function compute_distances!(tree::PhylogeneticTree)
-    cur_pointers = Dict{PhylogeneticNode, Vector{Vector{Int}}}()
-    next_pointers = Dict{PhylogeneticNode, Vector{Vector{Int}}}()
-    for node in values(tree.leaves)
-        cur_pointers[node] = [[0]]
-    end
-    while length(cur_pointers) > 0
-    end
-end
-
 
 """
     PhylogeneticSpecies{P <: PhenotypeCreator, I <: Individual}
@@ -120,7 +68,7 @@ function PhylogeneticSpecies(id::String, pop::Dict{Int, I}) where {I <: Individu
         id, 
         pop, 
         Dict{Int, I}(), 
-        PhylogeneticTree(pop)
+        PhylogeneticTree(collect(keys(pop)))
     )
 end
 
