@@ -29,6 +29,18 @@ function add_children!(tree::PhylogeneticTree, children::Dict{Int, <:Individual}
     end
 end
 
+struct PhylogeneticDistanceData
+    mrca::Union{Int, Nothing}
+    pairwise_distances::Dict{Tuple{Int,Int}, Int}
+    mrca_distances::Dict{Int, Int}
+end
+PhylogeneticDistanceData() = PhylogeneticDistanceData(nothing, Dict(), Dict())
+function PhylogeneticDistanceData(tree::PhylogeneticTree, ids::Set{Int}) 
+    mrca, pairwise_distances, mrca_distances = compute_pairwise_distances(tree, ids)
+    PhylogeneticDistanceData(mrca, pairwise_distances, mrca_distances)
+end
+
+
 """
     PhylogeneticSpecies{P <: PhenotypeCreator, I <: Individual}
 
@@ -41,11 +53,13 @@ Represents a species population and its offspring, with a phylogenetic tree.
 - `children::OrderedDict{Int, I}`: Offspring of the population.
 - `tree::PhylogeneticTree`: Phylogenetic tree of the population.
 """
+
 struct PhylogeneticSpecies{I <: Individual} <: AbstractSpecies
     id::String
     pop::Dict{Int, I}
     children::Dict{Int, I}
     tree::PhylogeneticTree
+    dist_data::PhylogeneticDistanceData
 end
 
 # Constructors
@@ -53,22 +67,27 @@ function PhylogeneticSpecies(
     id::String,
     pop::Vector{<:Individual},
     children::Vector{<:Individual},
-    tree::PhylogeneticTree
+    tree::PhylogeneticTree,
+    dist_data::PhylogeneticDistanceData
 )
     return PhylogeneticSpecies(
         id,
         Dict(indiv.id => indiv for indiv in pop),
         Dict(indiv.id => indiv for indiv in children),
-        tree
+        tree,
+        dist_data
     )
 end
 
 function PhylogeneticSpecies(id::String, pop::Dict{Int, I}) where {I <: Individual}
+    tree = PhylogeneticTree(collect(keys(pop)))
+    dist_data = PhylogeneticDistanceData(tree, Set(collect(keys(pop))))
     return PhylogeneticSpecies(
         id, 
         pop, 
         Dict{Int, I}(), 
-        PhylogeneticTree(collect(keys(pop)))
+        tree,
+        dist_data
     )
 end
 
@@ -167,7 +186,11 @@ function CoEvo.create_species(
         new_children = mutate(mutator, rng, gene_id_counter, new_children)
     end
     new_children = Dict(indiv.id => indiv for indiv in new_children)
+    # Update tree and compute distance data
     add_children!(species.tree, new_children)
-    new_species = PhylogeneticSpecies(species_creator.id, new_pop, new_children, species.tree)
+    ids = Set([collect(keys(new_pop)); collect(keys(new_children))])
+    dist_data = PhylogeneticDistanceData(species.tree, ids)
+
+    new_species = PhylogeneticSpecies(species_creator.id, new_pop, new_children, species.tree, dist_data)
     return new_species
 end
