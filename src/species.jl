@@ -132,7 +132,6 @@ end
 
 """
 Generate a new population of individuals using genotype and phenotype configurations.
-TODO: add pop to phylotree
 
 # Arguments
 - `creator::SpeciesCfg`: Creator for the species.
