@@ -11,7 +11,8 @@ end
 
 Base.@kwdef struct TreeStatisticsMeasurement <: Measurement
     n_nodes::Int
-    per_distance_statistics::IntGroupStatisticalMeasurement
+    per_distance_fitness_error_stats::IntGroupStatisticalMeasurement
+    per_distance_interaction_error_stats::IntGroupStatisticalMeasurement
     total_distance_statistics::BasicStatisticalMeasurement
     distance_to_mrca::BasicStatisticalMeasurement
 end
@@ -20,41 +21,103 @@ Base.@kwdef struct GroupTreeStatisticsMeasurement <: Measurement
     measurements::Dict{String, TreeStatisticsMeasurement}
 end
 
+function filter_pairwise_distances(pairwise_distances::Dict{Tuple{Int, Int}, Int}, ids::Set{Int})
+    filtered_pairwise_distances = Dict{Tuple{Int, Int}, Int}()
+    for ((id1, id2), dist) in pairwise_distances
+        (id1 <= id2) && dist <= 5 && id1 ∈ ids && id2 ∈ ids && (filtered_pairwise_distances[(id1, id2)] = pairwise_distances[(id1, id2)])
+    end
+    return filtered_pairwise_distances
+end
+
 function CoEvo.measure(
     ::Reporter{TreeStatisticsMetric},
-    species_evaluations::Dict{<:AbstractSpecies, <:Evaluation},
+    species_evaluations::Dict{<:AbstractSpecies, <:OutcomeScalarFitnessEvaluation},
     ::Vector{<:Observation}
 )
     
     species_measurements = Dict{String, TreeStatisticsMeasurement}()
 
+    @assert length(species_evaluations) == 2 "TreeStatisticsMetric only works for two species"
+
+
+    dist_int_diffs = Dict{Int, Vector{Float64}}(i => Vector{Float64}() for i in 0:10)
+    species = collect(keys(species_evaluations))
+    species1_pop = species_evaluations[species[1]].fitnesses |> keys |> collect |> Set
+    species2_pop = species_evaluations[species[2]].fitnesses |> keys |> collect |> Set
+    species1_pd = filter_pairwise_distances(species[1].dist_data.pairwise_distances, species1_pop)
+    species2_pd = filter_pairwise_distances(species[2].dist_data.pairwise_distances, species2_pop)
+    for ((ind_a1,ind_a2), dist_a) in species1_pd
+        outcomes_a1 = species_evaluations[species[1]].outcomes[ind_a1]
+        outcomes_a2 = species_evaluations[species[1]].outcomes[ind_a2]
+        for ((ind_b1,ind_b2), dist_b) in species2_pd
+            dist = dist_a + dist_b
+            outcome_1 = outcomes_a1[ind_b1]
+            outcome_2 = outcomes_a2[ind_b2]
+            estimation_error = abs(outcome_1 - outcome_2)
+            push!(dist_int_diffs[dist], estimation_error)
+
+            outcome_3 = outcomes_a1[ind_b2]
+            outcome_4 = outcomes_a2[ind_b1]
+            estimation_error = abs(outcome_3 - outcome_4)
+            push!(dist_int_diffs[dist], estimation_error)
+        end
+    end
+    
     for (species, evals) in species_evaluations
-        ids = Set([collect(keys(species.pop));
-                   collect(keys(species.children))])
         mrca, pairwise_distances, mrca_distances = 
             species.dist_data.mrca,
             species.dist_data.pairwise_distances,
             species.dist_data.mrca_distances
         
-        distance_differences = Dict{Int, Vector{Float64}}()
+        # Compute fitness differences for each distance
+        dist_fit_diffs = Dict{Int, Vector{Float64}}()
         for (id1, fit1) in evals.fitnesses
             for (id2, fit2) in evals.fitnesses
                 id1 == id2 && continue
                 (id1, id2) ∉ keys(pairwise_distances) && continue
                 distance = pairwise_distances[id1, id2]
                 estimation_error = abs(fit1 - fit2)
-                if !haskey(distance_differences, distance)
-                    distance_differences[distance] = Vector{Float64}()
+                if !haskey(dist_fit_diffs, distance)
+                    dist_fit_diffs[distance] = Vector{Float64}()
                 end
-                push!(distance_differences[distance], estimation_error)
+                push!(dist_fit_diffs[distance], estimation_error)
             end
         end
+
+        # Compute interaction differences for each distance
+        # this is too costly
+        # dist_int_diffs = Dict{Int, Vector{Float64}}()
+        # for (inda1, outs1) in evals.outcomes, (indb1, out1) in outs1
+        #     for (inda2, outs2) in evals.outcomes, (indb2, out2) in outs1
+        #         (inda1, inda2) ∉ keys(pairwise_distances) && continue
+        #         dist_across_species = pairwise_distances[inda1, inda2]
+        #         found_other_distance = false
+        #         for (other_species, other_evals) in species_evaluations
+        #             other_species == species && continue
+        #             @assert indb1 ∈ keys(other_evals.outcomes)
+        #             @assert indb2 ∈ keys(other_evals.outcomes)
+        #             (indb1, indb2) ∉ keys(other_species.dist_data.pairwise_distances) && break
+        #             found_other_distance = true
+        #             dist_across_species += other_species.dist_data.pairwise_distances[indb1, indb2]
+        #         end
+        #         estimation_error = abs(out1 - out2)
+        #         if !haskey(dist_int_diffs, dist_across_species)
+        #             dist_int_diffs[dist_across_species] = Vector{Float64}()
+        #         end
+        #         push!(dist_int_diffs[dist_across_species], estimation_error)
+        #     end
+        # end
+
         
         # Collect distributional data for TreeStatisticsMeasurement
         n_nodes = length(species.tree.tree)
-        per_distance_statistics = Dict{Int, BasicStatisticalMeasurement}()
-        for (distance, errors) in distance_differences
-            per_distance_statistics[distance] = BasicStatisticalMeasurement(errors)
+        per_distance_fitness_error_stats = Dict{Int, BasicStatisticalMeasurement}()
+        for (distance, errors) in dist_fit_diffs
+            per_distance_fitness_error_stats[distance] = BasicStatisticalMeasurement(errors)
+        end
+        per_distance_interaction_error_stats = Dict{Int, BasicStatisticalMeasurement}()
+        for (distance, errors) in dist_int_diffs
+            per_distance_interaction_error_stats[distance] = BasicStatisticalMeasurement(errors)
         end
         total_distance_statistics = collect(values(pairwise_distances))
         mrca_distances = collect(values(mrca_distances))
@@ -62,8 +125,11 @@ function CoEvo.measure(
         # Create TreeStatisticsMeasurement
         species_measurements[species.id] = TreeStatisticsMeasurement(
             n_nodes=n_nodes,
-            per_distance_statistics=IntGroupStatisticalMeasurement(
-                per_distance_statistics
+            per_distance_fitness_error_stats=IntGroupStatisticalMeasurement(
+                per_distance_fitness_error_stats
+            ),
+            per_distance_interaction_error_stats=IntGroupStatisticalMeasurement(
+                per_distance_interaction_error_stats
             ),
             total_distance_statistics=BasicStatisticalMeasurement(
                 total_distance_statistics
@@ -108,14 +174,21 @@ function CoEvo.archive!(
         print("Distance to MRCA:\n   ")
         display_stats(measurement.distance_to_mrca)
 
-        println("Per-distance statistics:")
-        per_dist_stats = measurement.per_distance_statistics.measurements
-        for distance in sort(collect(keys(per_dist_stats)))
+        println("Per-distance fitness statistics:")
+        per_dist_fit_err_stats = measurement.per_distance_fitness_error_stats.measurements
+        for distance in sort(collect(keys(per_dist_fit_err_stats)))
             print(format_stat(distance))
-            display_stats(per_dist_stats[distance])
+            display_stats(per_dist_fit_err_stats[distance])
         end
-        print("Total distance statistics:\n   ")
+
+        println("Per-distance interaction statistics:")
+        per_dist_int_err_stats = measurement.per_distance_interaction_error_stats.measurements
+        for distance in sort(collect(keys(per_dist_int_err_stats)))
+            print(format_stat(distance))
+            display_stats(per_dist_int_err_stats[distance])
+        end
+
+        print("Total distance statistics:\n     ")
         display_stats(measurement.total_distance_statistics)
     end
 end
-
