@@ -1,4 +1,5 @@
 using CoEvo.Measurements: BasicStatisticalMeasurement, GroupStatisticalMeasurement
+using JLD2
 using PhylogeneticTrees
 
 Base.@kwdef struct TreeStatisticsMetric <: SpeciesMetric
@@ -190,5 +191,17 @@ function CoEvo.archive!(
 
         print("Total distance statistics:\n     ")
         display_stats(measurement.total_distance_statistics)
+    end
+    per_dist_int_err_stats = first(report.measurement.measurements).second.per_distance_interaction_error_stats.measurements
+    writemethod = gen > 1 ? "a" : "w"
+    jldopen("tree-stats.jld2", writemethod) do file
+        file["$gen"] = Dict()
+        for (distance, stats) in per_dist_int_err_stats
+            file["$gen"]["$distance"] = Dict()
+            for field in fieldnames(typeof(stats))
+                file["$gen"]["$distance"]["$field"] = getfield(stats, field)
+            end
+
+        end
     end
 end
