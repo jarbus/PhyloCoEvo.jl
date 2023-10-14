@@ -4,7 +4,7 @@ using PhylogeneticTrees
 
 Base.@kwdef struct TreeStatisticsMetric <: SpeciesMetric
     name::String="TreeStatistics"
-    path::String="TreeStatistics.jld2"
+    path::String="data/TreeStatistics.jld2"
 end
 
 struct IntGroupStatisticalMeasurement <: Measurement
@@ -172,7 +172,7 @@ function display_stats(stat_measure::BasicStatisticalMeasurement)
 end
 
 function CoEvo.archive!(
-    ::BasicArchiver, 
+    archiver::BasicArchiver, 
     gen::Int, 
     report::BasicReport{TreeStatisticsMetric, GroupTreeStatisticsMeasurement}
 )
@@ -205,12 +205,13 @@ function CoEvo.archive!(
     end
     if report.to_save
         # Log stats to jld2
+        met_path = joinpath(archiver.jld2_path, report.metric.path)
         per_dist_int_err_stats = first(report.measurement.measurements).second.per_distance_interaction_error_stats.measurements
         # load existing data
         if gen == 1
             data = Dict("gen" => Dict())
         else
-            data = load("tree-stats.jld2")
+            data = load(met_path)
         end
         data["gen"]["$gen"] = Dict()
         for (distance, stats) in per_dist_int_err_stats
@@ -220,7 +221,7 @@ function CoEvo.archive!(
             end
         end
         # write data to tree-stats.jld2
-        save("tree-stats.jld2", data)
+        save(met_path, data)
         # Make violin plot of per_distance_interaction_errors
         # per_dist_int_err = first(report.measurement.measurements).second.per_distance_interaction_errors
         # if gen % 10 == 0

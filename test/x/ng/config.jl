@@ -3,6 +3,8 @@ using CoEvo: Individual
 using CoEvo: BasicVectorGenotype
 
 @testset "NumbersGameTest" begin
+
+    XDIR = dirname(@__FILE__)
     function dummy_eco_creator(;
         id::String = "test",
         trial::Int = 1,
@@ -57,9 +59,11 @@ using CoEvo: BasicVectorGenotype
             reporters = Reporter[
                 # BasicReporter(metric = AllSpeciesFitness()),
                 BasicReporter(metric = GenotypeSum()),
-                BasicReporter(metric = TreeStatisticsMetric())
+                BasicReporter(metric = TreeStatisticsMetric(),
+                              save_interval = 1,
+                              print_interval = 1)
             ],
-            archiver = BasicArchiver(),
+            archiver = BasicArchiver(jld2_path = XDIR),
         )
         return eco_creator
     
