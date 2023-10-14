@@ -2,7 +2,7 @@ using Random
 using CoEvo: Individual
 using CoEvo: BasicVectorGenotype
 
-@testset "EcosystemRun" begin
+@testset "NumbersGameTest" begin
     function dummy_eco_creator(;
         id::String = "test",
         trial::Int = 1,
@@ -55,7 +55,7 @@ using CoEvo: BasicVectorGenotype
             ),
             performer = EstimationPerformer(n_workers = 1),
             reporters = Reporter[
-                BasicReporter(metric = AllSpeciesFitness()),
+                # BasicReporter(metric = AllSpeciesFitness()),
                 BasicReporter(metric = GenotypeSum()),
                 BasicReporter(metric = TreeStatisticsMetric())
             ],
@@ -66,6 +66,6 @@ using CoEvo: BasicVectorGenotype
     end
     
     eco_creator = dummy_eco_creator(n_pop = 100)
-    eco = evolve!(eco_creator, n_gen=1)
+    eco = evolve!(eco_creator, n_gen=20)
     @test true
 end

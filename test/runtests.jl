@@ -5,5 +5,5 @@ using Test
 
 @testset "PhyloCoEvo.jl" begin
     # Write your tests here.
-    include("test_phylogenetic.jl")
+    include("x/ng/config.jl")
 end
