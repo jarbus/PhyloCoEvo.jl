@@ -209,19 +209,14 @@ function CoEvo.archive!(
         met_path = joinpath(archiver.jld2_path, report.metric.path)
         met_key = report.metric.key
         per_dist_int_err_stats = first(report.measurement.measurements).second.per_distance_interaction_error_stats.measurements
-        # load existing data
-        data = gen == 1 ? Dict("gen" => Dict()) : load(met_path)
-
-        # Save per-distance interaction errors to data
-        data["gen"]["$gen"] = Dict(met_key => Dict("dist_int_errors" => Dict()))
-        for (distance, stats) in per_dist_int_err_stats
-            data["gen"]["$gen"]["$met_key"]["dist_int_errors"]["$distance"] = Dict()
-            # save all attributes of stats, which is a BasicStatisticalMeasurement
-            for field in fieldnames(typeof(stats))
-                data["gen"]["$gen"]["$met_key"]["dist_int_errors"]["$distance"]["$field"] = getfield(stats, field)
+        write_method = isfile(met_path) ? "w" : "a+"
+        jldopen(met_path, write_method) do file
+            for (distance, stats) in per_dist_int_err_stats
+                # save all attributes of stats, which is a BasicStatisticalMeasurement
+                for field in fieldnames(typeof(stats))
+                    file["gen/$gen/$met_key/dist_int_errors/$distance/$field"] = getfield(stats, field)
+                end
             end
         end
-
-        save(met_path, data)
     end
 end
