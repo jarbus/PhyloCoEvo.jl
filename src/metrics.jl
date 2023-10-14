@@ -4,7 +4,8 @@ using PhylogeneticTrees
 
 Base.@kwdef struct TreeStatisticsMetric <: SpeciesMetric
     name::String="TreeStatistics"
-    path::String="data/TreeStatistics.jld2"
+    path::String="data/archive.jld2"
+    key::String="tree_stats" # per-generation key
 end
 
 struct IntGroupStatisticalMeasurement <: Measurement
@@ -206,26 +207,21 @@ function CoEvo.archive!(
     if report.to_save
         # Log stats to jld2
         met_path = joinpath(archiver.jld2_path, report.metric.path)
+        met_key = report.metric.key
         per_dist_int_err_stats = first(report.measurement.measurements).second.per_distance_interaction_error_stats.measurements
         # load existing data
-        if gen == 1
-            data = Dict("gen" => Dict())
-        else
-            data = load(met_path)
-        end
-        data["gen"]["$gen"] = Dict()
+        data = gen == 1 ? Dict("gen" => Dict()) : load(met_path)
+
+        # Save per-distance interaction errors to data
+        data["gen"]["$gen"] = Dict(met_key => Dict("dist_int_errors" => Dict()))
         for (distance, stats) in per_dist_int_err_stats
-            data["gen"]["$gen"]["$distance"] = Dict()
+            data["gen"]["$gen"]["$met_key"]["dist_int_errors"]["$distance"] = Dict()
+            # save all attributes of stats, which is a BasicStatisticalMeasurement
             for field in fieldnames(typeof(stats))
-                data["gen"]["$gen"]["$distance"]["$field"] = getfield(stats, field)
+                data["gen"]["$gen"]["$met_key"]["dist_int_errors"]["$distance"]["$field"] = getfield(stats, field)
             end
         end
-        # write data to tree-stats.jld2
+
         save(met_path, data)
-        # Make violin plot of per_distance_interaction_errors
-        # per_dist_int_err = first(report.measurement.measurements).second.per_distance_interaction_errors
-        # if gen % 10 == 0
-        #     plot_per_distance_errors(per_dist_int_err)
-        # end
     end
 end
