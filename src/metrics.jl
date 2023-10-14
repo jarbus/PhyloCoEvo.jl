@@ -4,6 +4,7 @@ using PhylogeneticTrees
 
 Base.@kwdef struct TreeStatisticsMetric <: SpeciesMetric
     name::String="TreeStatistics"
+    path::String="TreeStatistics.jld2"
 end
 
 struct IntGroupStatisticalMeasurement <: Measurement
@@ -13,6 +14,7 @@ end
 Base.@kwdef struct TreeStatisticsMeasurement <: Measurement
     n_nodes::Int
     per_distance_fitness_error_stats::IntGroupStatisticalMeasurement
+    per_distance_interaction_errors::Dict{Int, Vector{Float64}}
     per_distance_interaction_error_stats::IntGroupStatisticalMeasurement
     total_distance_statistics::BasicStatisticalMeasurement
     distance_to_mrca::BasicStatisticalMeasurement
@@ -61,6 +63,12 @@ function CoEvo.measure(
             outcome_4 = outcomes_a2[ind_b1]
             estimation_error = abs(outcome_3 - outcome_4)
             push!(dist_int_diffs[dist], estimation_error)
+        end
+    end
+    # remove all empty distances
+    for (dist, errors) in dist_int_diffs
+        if length(errors) == 0
+            delete!(dist_int_diffs, dist)
         end
     end
     
@@ -129,6 +137,7 @@ function CoEvo.measure(
             per_distance_fitness_error_stats=IntGroupStatisticalMeasurement(
                 per_distance_fitness_error_stats
             ),
+            per_distance_interaction_errors=dist_int_diffs,
             per_distance_interaction_error_stats=IntGroupStatisticalMeasurement(
                 per_distance_interaction_error_stats
             ),
@@ -167,41 +176,55 @@ function CoEvo.archive!(
     gen::Int, 
     report::BasicReport{TreeStatisticsMetric, GroupTreeStatisticsMeasurement}
 )
-    for (species_id, measurement) in report.measurement.measurements
-        println("----")
-        println("Tree Statistics for species ", species_id)
-        println("Number of nodes: ", measurement.n_nodes)
+    if report.to_print
+        for (species_id, measurement) in report.measurement.measurements
+            println("----")
+            println("Tree Statistics for species ", species_id)
+            println("Number of nodes: ", measurement.n_nodes)
 
-        print("Distance to MRCA:\n   ")
-        display_stats(measurement.distance_to_mrca)
+            print("Distance to MRCA:\n   ")
+            display_stats(measurement.distance_to_mrca)
 
-        println("Per-distance fitness statistics:")
-        per_dist_fit_err_stats = measurement.per_distance_fitness_error_stats.measurements
-        for distance in sort(collect(keys(per_dist_fit_err_stats)))
-            print(format_stat(distance))
-            display_stats(per_dist_fit_err_stats[distance])
-        end
-
-        println("Per-distance interaction statistics:")
-        per_dist_int_err_stats = measurement.per_distance_interaction_error_stats.measurements
-        for distance in sort(collect(keys(per_dist_int_err_stats)))
-            print(format_stat(distance))
-            display_stats(per_dist_int_err_stats[distance])
-        end
-
-        print("Total distance statistics:\n     ")
-        display_stats(measurement.total_distance_statistics)
-    end
-    per_dist_int_err_stats = first(report.measurement.measurements).second.per_distance_interaction_error_stats.measurements
-    writemethod = gen > 1 ? "a" : "w"
-    jldopen("tree-stats.jld2", writemethod) do file
-        file["$gen"] = Dict()
-        for (distance, stats) in per_dist_int_err_stats
-            file["$gen"]["$distance"] = Dict()
-            for field in fieldnames(typeof(stats))
-                file["$gen"]["$distance"]["$field"] = getfield(stats, field)
+            println("Per-distance fitness statistics:")
+            per_dist_fit_err_stats = measurement.per_distance_fitness_error_stats.measurements
+            for distance in sort(collect(keys(per_dist_fit_err_stats)))
+                print(format_stat(distance))
+                display_stats(per_dist_fit_err_stats[distance])
             end
 
+            println("Per-distance interaction statistics:")
+            per_dist_int_err_stats = measurement.per_distance_interaction_error_stats.measurements
+            for distance in sort(collect(keys(per_dist_int_err_stats)))
+                print(format_stat(distance))
+                display_stats(per_dist_int_err_stats[distance])
+            end
+
+            print("Total distance statistics:\n     ")
+            display_stats(measurement.total_distance_statistics)
         end
+    end
+    if report.to_save
+        # Log stats to jld2
+        per_dist_int_err_stats = first(report.measurement.measurements).second.per_distance_interaction_error_stats.measurements
+        # load existing data
+        if gen == 1
+            data = Dict("gen" => Dict())
+        else
+            data = load("tree-stats.jld2")
+        end
+        data["gen"]["$gen"] = Dict()
+        for (distance, stats) in per_dist_int_err_stats
+            data["gen"]["$gen"]["$distance"] = Dict()
+            for field in fieldnames(typeof(stats))
+                data["gen"]["$gen"]["$distance"]["$field"] = getfield(stats, field)
+            end
+        end
+        # write data to tree-stats.jld2
+        save("tree-stats.jld2", data)
+        # Make violin plot of per_distance_interaction_errors
+        # per_dist_int_err = first(report.measurement.measurements).second.per_distance_interaction_errors
+        # if gen % 10 == 0
+        #     plot_per_distance_errors(per_dist_int_err)
+        # end
     end
 end
