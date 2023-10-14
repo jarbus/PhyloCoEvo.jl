@@ -209,7 +209,7 @@ function CoEvo.archive!(
         met_path = joinpath(archiver.jld2_path, report.metric.path)
         met_key = report.metric.key
         per_dist_int_err_stats = first(report.measurement.measurements).second.per_distance_interaction_error_stats.measurements
-        write_method = isfile(met_path) ? "w" : "a+"
+        write_method = (!isfile(met_path) || gen==1) ? "w" : "a+"
         jldopen(met_path, write_method) do file
             for (distance, stats) in per_dist_int_err_stats
                 # save all attributes of stats, which is a BasicStatisticalMeasurement
