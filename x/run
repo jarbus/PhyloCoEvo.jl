@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# find directories or symlinks
+xdirs=$(find . -mindepth 2 -maxdepth 2 -type d -o -type l | fzf --multi)
+
+IFS=$'\n'
+for xdir in $xdirs; do
+    echo "Running $xdir"
+    julia $xdir/config.jl > $xdir/run.log &
+    echo "Completed $xdir"
+done
+unset IFS
+
+wait
