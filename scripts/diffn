@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Check if at least two files are provided
+if [ "$#" -lt 2 ]; then
+  echo "Usage: $0 file1 file2 [file3 ...]"
+  exit 1
+fi
+
+# Get the first file
+first_file="$1"
+
+# Show changes between first and second file 
+echo "$first_file"
+diff -u "$2" "$first_file" | grep '^[+][^+-]'
+echo 
+
+echo "$2"
+diff -u "$first_file" "$2" | grep '^[+][^+-]'
+echo 
+
+# Loop through all other files to compare with the first file
+shift  # Remove first file from the arguments list
+shift  # Remove second file from the arguments list
+for file in "$@"; do
+  echo "$file"
+  # only show lines that are different, don't show file name
+  diff -u "$first_file" "$file" | grep '^[+][^+-]'
+  echo
+done
