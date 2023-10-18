@@ -21,6 +21,7 @@ function run_seeds {
     # and run config.jl in each
     for i in $(ls $dir); do
         if [ -d "$dir/$i" ]; then
+            git rev-parse HEAD > $xdir/run.log
             julia $dir/$i/config.jl >> $dir/$i/run.log &
         fi
     done
@@ -38,7 +39,6 @@ xdirs=$(find . -mindepth 2 -maxdepth 2 -type d -o -type l | fzf --multi)
 IFS=$'\n'
 for xdir in $xdirs; do
     echo "Running $xdir"
-    git rev-parse HEAD > $xdir/run.log
     create_seeds $nseeds $xdir
     run_seeds $xdir
 done
