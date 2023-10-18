@@ -25,6 +25,10 @@ Base.@kwdef struct GroupTreeStatisticsMeasurement <: Measurement
     measurements::Dict{String, TreeStatisticsMeasurement}
 end
 
+function CoEvo.Ecosystems.Reporters.Types.Basic.Methods.get_size(genotype::BasicVectorGenotype)
+    return length(genotype.genes)
+end
+
 function filter_pairwise_distances(pairwise_distances::Dict{Tuple{Int, Int}, Int}, ids::Set{Int})
     filtered_pairwise_distances = Dict{Tuple{Int, Int}, Int}()
     for ((id1, id2), dist) in pairwise_distances
