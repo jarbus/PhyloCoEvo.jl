@@ -2,3 +2,5 @@
 *.jld2
 *.txt
 *.png
+*.log
+x/**/config.jl
