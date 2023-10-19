@@ -54,5 +54,6 @@ unset IFS
 wait
 
 end=$(date +%s)
+echo "End time: $(date)"
 runtime=$((end-start))
 echo "Total runtime: $runtime seconds"

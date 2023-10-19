@@ -1,0 +1,15 @@
+#!/bin/bash
+
+function stream_gens(){
+		tail -n 2000 -f $1 | awk -v fname="$1" '/Generation: [0-9]+0/ {print fname ": " $0}'
+}
+
+IFS=$'\n'
+xdirs=$(find . -mindepth 2 -maxdepth 2 -type d -o -type l | fzf --multi)
+logs=$(find $xdirs -name run.log)
+
+for log in $logs; do
+		stream_gens $log &
+done
+unset IFS
+wait
