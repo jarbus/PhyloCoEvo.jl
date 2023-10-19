@@ -11,14 +11,16 @@ struct SortingNetworkChromosome{N} <: Gene
     codons::NTuple{N, SortingNetworkCodon}
 end
 
-struct SortingNetworkGenotype{N} <: Gene
+struct SortingNetworkGenotype{N} <: Genotype
     chromosomes::NTuple{N, SortingNetworkChromosome}
+    n_inputs::Int # number of inputs
 end
 
 
 struct SortingNetworkGenotypeCreator <: GenotypeCreator
     n_chromosomes::Int
     n_codons_per_chromosome::Int
+    n_inputs::Int
 end
 
 function CoEvo.create_genotypes(
@@ -33,7 +35,8 @@ function CoEvo.create_genotypes(
             [ SortingNetworkChromosome(
                 [ SortingNetworkCodon(next!(gene_id_counter), rand(rng, UInt8))
                 for i in 1:genotype_creator.n_codons_per_chromosome] |> Tuple
-            ) for i in 1:genotype_creator.n_chromosomes] |> Tuple
+            ) for i in 1:genotype_creator.n_chromosomes] |> Tuple,
+            genotype_creator.n_inputs
         ) for i in 1:n_pop
     ]
 
