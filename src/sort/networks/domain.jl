@@ -1,3 +1,4 @@
+export SortingNetworkDomain, Partial
 # TODO fill this in, can use the stateless environment creator
 using CoEvo.Ecosystems.Metrics.Outcomes.Types.NumbersGame: NumbersGame as NumbersGameMetrics
 using .NumbersGameMetrics: NumbersGameMetric, Control, Sum, Gradient, Focusing, Relativism

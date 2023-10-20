@@ -2,9 +2,6 @@ module PhyloCoEvo
 export PhylogeneticSpeciesCreator, PhylogeneticSpecies, create_species,
        EstimationPerformer, PhylogeneticMatchMaker, TreeStatisticsMetric,
        OutcomeScalarFitnessEvaluator, OutcomeScalarFitnessEvaluation,
-       SortingNetworkGenotypeCreator, SortingNetworkGenotype, create_genotypes,
-       SortingNetworkPhenotypeCreator, SortingNetworkPhenotype, create_phenotype,
-       SortingNetworkDomain, SortingNetworkMetric,
        reset!
 include("./species.jl")
 include("./evaluation.jl")

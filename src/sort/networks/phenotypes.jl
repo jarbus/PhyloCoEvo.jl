@@ -1,4 +1,4 @@
-export create_phenotype, act!
+export create_phenotype, act!, SortingNetworkPhenotypeCreator, SortingNetworkPhenotype, create_phenotype
 
 using CoEvo.Ecosystems.Species.Phenotypes.Abstract: Phenotype, PhenotypeCreator
 using CoEvo.Ecosystems.Species.Phenotypes.Interfaces: act!, reset!
