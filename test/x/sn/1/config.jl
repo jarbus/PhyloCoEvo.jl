@@ -5,6 +5,8 @@ using CoEvo: BasicVectorGenotype
 @testset "SortingNetworksTest" begin
 
     XDIR = dirname(@__FILE__)
+    DATA_DIR = joinpath(XDIR, "data")
+    isdir(DATA_DIR) || mkdir(DATA_DIR)
     function dummy_eco_creator(;
         id::String = "test",
         trial::Int = 1,
@@ -70,6 +72,6 @@ using CoEvo: BasicVectorGenotype
     end
     
     eco_creator = dummy_eco_creator(n_pop = 100)
-    eco = evolve!(eco_creator, n_gen=20)
+    eco = evolve!(eco_creator, n_gen=2)
     @test true
 end

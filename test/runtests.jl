@@ -7,5 +7,5 @@ using Test
     # Write your tests here.
     #include("x/ng/1/config.jl")
     include("sorting-networks.jl")
-    include("x/sn/config.jl")
+    include("x/sn/1/config.jl")
 end
