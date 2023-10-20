@@ -1,4 +1,5 @@
 export SortingNetworkGenotypeCreator, SortingNetworkGenotype, create_genotypes
+
 using Random: AbstractRNG
 using CoEvo.Ecosystems.Species.Genotypes.Abstract: Gene
 using CoEvo.Ecosystems.Utilities.Counters: next!
