@@ -26,7 +26,6 @@ function compare!(a::Int64, b::Int64, v::Array{Int64, 1})
     end
 end
 
-netsort(numbers::NTuple{N, Int64}, snp::SortingNetworkPhenotype) where {N} = netsort(snp, numbers)
 function netsort(snp::SortingNetworkPhenotype, numbers::NTuple{N, Int64}) where {N}
     arr = [n for n in numbers]
     for (a, b) in eachrow(snp.network)

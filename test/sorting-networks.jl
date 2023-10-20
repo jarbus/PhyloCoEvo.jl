@@ -39,7 +39,6 @@
         snp = SortingNetworkPhenotype([1 2;], 2)
         @test [1,2] == PhyloCoEvo.netsort(snp, (1, 2))
         @test [1,2] == PhyloCoEvo.netsort(snp, (2, 1))
-        @test [1,2] == PhyloCoEvo.netsort((2, 1), snp)
 
         # Wikipedia example, 4 inputs
         # __________
