@@ -5,6 +5,7 @@ using Test
 
 @testset "PhyloCoEvo.jl" begin
     # Write your tests here.
-    #include("x/ng/config.jl")
+    #include("x/ng/1/config.jl")
     include("sorting-networks.jl")
+    include("x/sn/config.jl")
 end
