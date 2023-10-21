@@ -9,6 +9,33 @@
     phenotype = create_phenotype(snpc, genotypes[1])
     domain = SortingNetworkDomain(Partial())
 
+    @testset "Genotype" begin
+        # no activate comparators
+        Codon = PhyloCoEvo.SortingNetworkCodon
+        codons = (Codon(1, 0b0000000000100001),)
+        genotype = SortingNetworkGenotype(codons, 1)
+        phenotype = create_phenotype(snpc, genotype)
+        @test phenotype.n == 1
+        @test phenotype.network == zeros(Int64, 0, 2)
+                                    
+        # one active comparator, encoding 2 1
+        codons = (Codon(1, 0b1111111100100001),)
+        genotype = SortingNetworkGenotype(codons, 1)
+        phenotype = create_phenotype(snpc, genotype)
+        @test phenotype.n == 1
+        @test phenotype.network == [2 1]
+
+        # two active comparators encoding 15 7, 3 1,
+        # one inactive comparator encoding 7 3
+        codons = (Codon(1, 0b1111101111110111),
+                  Codon(2, 0b1101111100110001),
+                  Codon(3, 0b0000001101110011))
+        genotype = SortingNetworkGenotype(codons, 16)
+        snpc = SortingNetworkPhenotypeCreator(16)
+        phenotype = create_phenotype(snpc, genotype)
+        @test phenotype.n == 16
+        @test phenotype.network == [15 7; 3 1]
+    end
 
     @testset "Phenotype" begin
         function permute(arr)

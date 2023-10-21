@@ -34,9 +34,17 @@ function netsort(snp::SortingNetworkPhenotype, numbers::NTuple{N, Int64}) where 
     return arr
 end
 
-function CoEvo.create_phenotype(phenotype_creator::SortingNetworkPhenotypeCreator, geno::Genotype)::Phenotype
-    # TODO: implement
-    SortingNetworkPhenotype(zeros(Int64, phenotype_creator.n, phenotype_creator.n), phenotype_creator.n)
+function CoEvo.create_phenotype(phenotype_creator::SortingNetworkPhenotypeCreator, geno::SortingNetworkGenotype)    
+    network = zeros(Int64, length(geno.codons), 2)
+    num_active = 0
+    for (i, codon) in enumerate(geno.codons)
+        active = count_ones(codon.data & 0b1111111100000000) > 3
+        !active && continue
+        num_active += 1
+        network[num_active, 1] = ((codon.data & 0b11110000) >> 4) |> Int64
+        network[num_active, 2] = ((codon.data & 0b00001111) >> 0) |> Int64
+    end
+    SortingNetworkPhenotype(network[1:num_active,:], phenotype_creator.n)
 end
 
 function CoEvo.act!(snp::SortingNetworkPhenotype, tcp::SortingNetworkTestCasePhenotype)
