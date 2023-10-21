@@ -14,19 +14,38 @@ Base.@kwdef struct SortingNetworkTestCaseMutator <: Mutator
 end
 
 function CoEvo.mutate(
-    mutator::SortingNetworkMutator, 
+    ::SortingNetworkMutator, 
     rng::AbstractRNG, 
-    ::Counter,
+    gene_id_counter::Counter,
     geno::SortingNetworkGenotype
 )
-    # TODO implement SortingNetworkMutator
+    # Perform one activation flip
+    new_codons = [codon for codon in geno.codons]
+    index = rand(rng, 1:length(new_codons))
+    activation_id = new_codons[index].id
+    activation_data = new_codons[index].data ⊻ (1 << rand(rng, 7:15))
+    new_codons[index] = SortingNetworkCodon(activation_id, activation_data)
+    # Perform one bit flip
+    active_codons = is_active.(new_codons)
+    if any(active_codons)
+        index = rand(rng, findall(active_codons))
+        bitflip_data = new_codons[index].data ⊻ (1 << rand(rng, 0:7))
+        bitflip_id = next!(gene_id_counter)
+        new_codons[index] = SortingNetworkCodon(bitflip_id, bitflip_data)
+    end
+    return SortingNetworkGenotype(Tuple(new_codons), geno.n_inputs)
 end
 
 function CoEvo.mutate(
-    mutator::SortingNetworkTestCaseMutator, 
+    ::SortingNetworkTestCaseMutator, 
     rng::AbstractRNG, 
     ::Counter,
     geno::SortingNetworkTestCaseGenotype
 )
-    # TODO implement SortingNetworkTestCaseMutator
+    # swap two inputs
+    new_inputs = [i for i in geno.inputs]
+    index = rand(rng, 1:length(new_inputs))
+    swap_index = rand(rng, 1:length(new_inputs))
+    new_inputs[index], new_inputs[swap_index] = new_inputs[swap_index], new_inputs[index]
+    return SortingNetworkTestCaseGenotype(geno.id, Tuple(new_inputs))
 end

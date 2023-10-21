@@ -122,6 +122,29 @@
             @test [3,4,2,1] == PhyloCoEvo.netsort(snp, (4,3,2,1))
         end
     end
+
+
+    @testset "Mutator" begin
+        snm = SortingNetworkMutator()
+        # test one inactive comparator
+        Codon = PhyloCoEvo.SortingNetworkCodon
+        codons = (Codon(1, 0b0000000000100001),)
+        genotype = SortingNetworkGenotype(codons, 1)
+        new_geno = mutate(snm, rng, gene_id_counter, genotype)
+        # test that one of the first 8 activation bits is flipped
+        @test count_ones(new_geno.codons[1].data & 0b1111111100000000) == 1
+        # test that one of the last 8 bit flip bits is flipped
+        @test new_geno.codons[1].data & 0b0000000011111111 == 0b0000000000100001
+
+        # test one active comparator
+        codons = (Codon(1, 0b1111111100100001),)
+        genotype = SortingNetworkGenotype(codons, 1)
+        new_geno = mutate(snm, rng, gene_id_counter, genotype)
+        # test that one of the first 8 activation bits is flipped (8 zeros at the end)
+        @test count_zeros(new_geno.codons[1].data & 0b1111111100000000) == 9
+        # test that one of the last 8 bit flip bits is flipped
+        @test count_ones(new_geno.codons[1].data & 0b0000000011111111) ∈ [1, 3]
+    end
 end
 
 @testset "SortingNetworkTestCase" begin
@@ -136,4 +159,18 @@ end
     @test sort([sntcgenotypes[1].inputs...]) == 1:16
     phenotype = create_phenotype(sntcpc, sntcgenotypes[1])
 
+    @testset "Mutator" begin
+        sntcm = SortingNetworkTestCaseMutator()
+        # test one swap
+        genotype = SortingNetworkTestCaseGenotype(1, (1,2,3,4))
+        new_geno = mutate(sntcm, rng, gene_id_counter, genotype)
+        # test that two inputs are different than 1:4
+        @test sum([new_geno.inputs...] .== 1:4) == 2
+        @test sort([new_geno.inputs...]) == 1:4
+        # test two swaps
+        genotype = SortingNetworkTestCaseGenotype(1, (1,2,3,4))
+        new_geno = mutate(sntcm, rng, gene_id_counter, genotype)
+        new_geno = mutate(sntcm, rng, gene_id_counter, new_geno)
+        @test sort([new_geno.inputs...]) == 1:4
+    end
 end
