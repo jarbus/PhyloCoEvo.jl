@@ -1,4 +1,4 @@
-export SortingNetworkGenotypeCreator, SortingNetworkGenotype, create_genotypes, SortingNetworkTestCaseGenotypeCreator
+export SortingNetworkGenotypeCreator, SortingNetworkGenotype, create_genotypes, SortingNetworkTestCaseGenotypeCreator, SortingNetworkTestCaseGenotype
 
 using Random: AbstractRNG, shuffle
 using CoEvo.Ecosystems.Species.Genotypes.Abstract: Gene
@@ -26,6 +26,10 @@ end
 
 struct SortingNetworkTestCaseGenotypeCreator <: GenotypeCreator
     n_inputs::Int
+end
+
+function is_active(codon::SortingNetworkCodon)
+    count_ones(codon.data & 0b1111111100000000) > 3
 end
 
 function CoEvo.create_genotypes(
