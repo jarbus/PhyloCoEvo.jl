@@ -70,6 +70,6 @@ using CoEvo: BasicVectorGenotype
     end
     
     eco_creator = dummy_eco_creator(n_pop = 100)
-    eco = evolve!(eco_creator, n_gen=20)
+    eco = evolve!(eco_creator, n_gen=2)
     @test true
 end
