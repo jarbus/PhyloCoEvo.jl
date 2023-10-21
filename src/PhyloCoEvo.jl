@@ -11,4 +11,5 @@ include("./matchmaker.jl")
 include("./sorting-networks/genotypes.jl")
 include("./sorting-networks/phenotypes.jl")
 include("./sorting-networks/domain.jl")
+include("./sorting-networks/mutator.jl")
 end
