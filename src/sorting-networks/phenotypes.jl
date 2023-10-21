@@ -1,4 +1,4 @@
-export create_phenotype, act!, SortingNetworkPhenotypeCreator, SortingNetworkPhenotype, create_phenotype
+export create_phenotype, act!, SortingNetworkPhenotypeCreator, SortingNetworkPhenotype, SortingNetworkTestCasePhenotype, SortingNetworkTestCasePhenotypeCreator, create_phenotype
 
 using CoEvo.Ecosystems.Species.Phenotypes.Abstract: Phenotype, PhenotypeCreator
 using CoEvo.Ecosystems.Species.Phenotypes.Interfaces: act!, reset!
@@ -45,6 +45,10 @@ function CoEvo.create_phenotype(phenotype_creator::SortingNetworkPhenotypeCreato
         network[num_active, 2] = ((codon.data & 0b00001111) >> 0) |> Int64
     end
     SortingNetworkPhenotype(network[1:num_active,:], phenotype_creator.n)
+end
+
+function CoEvo.create_phenotype(phenotype_creator::SortingNetworkTestCasePhenotypeCreator, geno::SortingNetworkTestCaseGenotype)
+    SortingNetworkTestCasePhenotype(geno.inputs)
 end
 
 function CoEvo.act!(snp::SortingNetworkPhenotype, tcp::SortingNetworkTestCasePhenotype)

@@ -1,13 +1,17 @@
 @testset "SortingNetworks" begin
+    # Test that everything runs
     sngc = SortingNetworkGenotypeCreator(1, 1)
     snpc = SortingNetworkPhenotypeCreator(1)
+    # create sorting network genotypes and phenotypes
     rng = StableRNG(1)
     gene_id_counter = Counter(0)
     n_pop = 1
-    genotypes = create_genotypes(sngc, rng, gene_id_counter, n_pop)
-    @test length(genotypes) == 1
-    phenotype = create_phenotype(snpc, genotypes[1])
+    sngenotypes = create_genotypes(sngc, rng, gene_id_counter, n_pop)
+    @test length(sngenotypes) == 1
+    phenotype = create_phenotype(snpc, sngenotypes[1])
+    # create sorting network domain
     domain = SortingNetworkDomain(Partial())
+
 
     @testset "Genotype" begin
         # no activate comparators
@@ -118,4 +122,18 @@
             @test [3,4,2,1] == PhyloCoEvo.netsort(snp, (4,3,2,1))
         end
     end
+end
+
+@testset "SortingNetworkTestCase" begin
+    # create sorting network test case genotypes and phenotypes
+    rng = StableRNG(1)
+    gene_id_counter = Counter(0)
+    n_pop = 1
+    sntcgc = SortingNetworkTestCaseGenotypeCreator(16)
+    sntcpc = SortingNetworkTestCasePhenotypeCreator(16)
+    sntcgenotypes = create_genotypes(sntcgc, rng, gene_id_counter, n_pop)
+    @test length(sntcgenotypes) == 1
+    @test sort([sntcgenotypes[1].inputs...]) == 1:16
+    phenotype = create_phenotype(sntcpc, sntcgenotypes[1])
+
 end
