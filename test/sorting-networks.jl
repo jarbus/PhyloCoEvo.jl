@@ -1,5 +1,5 @@
 @testset "SortingNetworks" begin
-    sngc = SortingNetworkGenotypeCreator(1, 1, 1)
+    sngc = SortingNetworkGenotypeCreator(1, 1)
     snpc = SortingNetworkPhenotypeCreator(1)
     rng = StableRNG(1)
     gene_id_counter = Counter(0)

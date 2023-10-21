@@ -6,22 +6,20 @@ using CoEvo.Ecosystems.Utilities.Counters: next!
 
 struct SortingNetworkCodon <: Gene
     id::Int
-    bits::UInt8
+    # data bits
+    # 1-8: whether comparator is active
+    # 9-12: 4 bit number representing first line
+    # 13-16: 4 bit number representing second line
+    data::UInt16
 end
-
-struct SortingNetworkChromosome{N} <: Gene
-    codons::NTuple{N, SortingNetworkCodon}
-end
-
+# TODO: make the genotype bit strings instead of UInt8
 struct SortingNetworkGenotype{N} <: Genotype
-    chromosomes::NTuple{N, SortingNetworkChromosome}
+    codons::NTuple{N, SortingNetworkCodon}
     n_inputs::Int # number of inputs
 end
 
-
 struct SortingNetworkGenotypeCreator <: GenotypeCreator
-    n_chromosomes::Int
-    n_codons_per_chromosome::Int
+    n_codons::Int
     n_inputs::Int
 end
 
@@ -34,13 +32,10 @@ function CoEvo.create_genotypes(
     # TODO: initialize networks with the first half of the codons of successful networks per hillis
     genotypes = [
         SortingNetworkGenotype(
-            [ SortingNetworkChromosome(
-                [ SortingNetworkCodon(next!(gene_id_counter), rand(rng, UInt8))
-                for i in 1:genotype_creator.n_codons_per_chromosome] |> Tuple
-            ) for i in 1:genotype_creator.n_chromosomes] |> Tuple,
+            [SortingNetworkCodon(next!(gene_id_counter), rand(rng, UInt16))
+                for i in 1:genotype_creator.n_codons] |> Tuple,
             genotype_creator.n_inputs
-        ) for i in 1:n_pop
-    ]
+        ) for i in 1:n_pop]
 
     return genotypes
 end
