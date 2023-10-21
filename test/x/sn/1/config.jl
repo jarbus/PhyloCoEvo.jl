@@ -2,7 +2,7 @@ using Random
 using CoEvo: Individual
 using CoEvo: BasicVectorGenotype
 
-@testset "SortingNetworksTest" begin
+@testset "SortingNetworksIntegrationTest" begin
 
     XDIR = dirname(@__FILE__)
     DATA_DIR = joinpath(XDIR, "data")
@@ -15,7 +15,6 @@ using CoEvo: BasicVectorGenotype
         species_id1::String = "a",
         species_id2::String = "b",
         interaction_id::String = "SortingNetworks",
-        default_vector::Vector{Float64} = fill(0.0, 1),
         n_elite::Int = 10
     )
         eco_creator = BasicEcosystemCreator(
@@ -26,24 +25,24 @@ using CoEvo: BasicVectorGenotype
                 species_id1 => PhylogeneticSpeciesCreator(
                     id = species_id1,
                     n_pop = n_pop,
-                    geno_creator = BasicVectorGenotypeCreator(default_vector = default_vector),
-                    phenotype_creator = DefaultPhenotypeCreator(),
+                    geno_creator = SortingNetworkGenotypeCreator(16, 4),
+                    phenotype_creator = SortingNetworkPhenotypeCreator(4),
                     evaluator = OutcomeScalarFitnessEvaluator(),
                     replacer = GenerationalReplacer(n_elite = n_elite),
                     selector = FitnessProportionateSelector(n_parents = n_pop),
                     recombiner = CloneRecombiner(),
-                    mutators = [NoiseInjectionMutator(noise_std = 0.1)],
+                    mutators = [SortingNetworkMutator()],
                 ),
                 species_id2 => PhylogeneticSpeciesCreator(
                     id = species_id2,
                     n_pop = n_pop,
-                    geno_creator = BasicVectorGenotypeCreator(default_vector = default_vector),
-                    phenotype_creator = DefaultPhenotypeCreator(),
+                    geno_creator = SortingNetworkTestCaseGenotypeCreator(4),
+                    phenotype_creator = SortingNetworkTestCasePhenotypeCreator(4),
                     evaluator = OutcomeScalarFitnessEvaluator(),
                     replacer = GenerationalReplacer(n_elite = n_elite),
                     selector = FitnessProportionateSelector(n_parents = n_pop),
                     recombiner = CloneRecombiner(),
-                    mutators = [NoiseInjectionMutator(noise_std = 0.1)],
+                    mutators = [SortingNetworkTestCaseMutator()],
                 ),
             ),
             job_creator = BasicJobCreator(
@@ -51,7 +50,7 @@ using CoEvo: BasicVectorGenotype
                 interactions = Dict(
                     interaction_id => BasicInteraction(
                         id = interaction_id,
-                        environment_creator = StatelessEnvironmentCreator(NumbersGameDomain(:Sum)),
+                        environment_creator = StatelessEnvironmentCreator(SortingNetworkDomain(Partial())),
                         species_ids = [species_id1, species_id2],
                         matchmaker = PhylogeneticMatchMaker(type = :plus),
                     ),
@@ -59,8 +58,9 @@ using CoEvo: BasicVectorGenotype
             ),
             performer = EstimationPerformer(n_workers = 1),
             reporters = Reporter[
+                # TODO define metric for sorting networks
                 # BasicReporter(metric = AllSpeciesFitness()),
-                BasicReporter(metric = GenotypeSum()),
+                # BasicReporter(metric = GenotypeSum()),
                 BasicReporter(metric = TreeStatisticsMetric(),
                               save_interval = 1,
                               print_interval = 1)

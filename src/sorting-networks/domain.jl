@@ -12,8 +12,8 @@ struct SortingNetworkDomain{O <: AbstractSortingNetworkMetric} <: Domain{O}
     outcome_metric::O
 end
 
-function get_outcome_set(
-    environment::StatelessEnvironment{D, <:SortingNetworkPhenotype}) where {D <: SortingNetworkDomain}
+function CoEvo.get_outcome_set(
+        environment::StatelessEnvironment{D, Phenotype}) where {D <: SortingNetworkDomain}
 
     if environment.phenotypes[1] isa SortingNetworkPhenotype
         result = netsort(environment.phenotypes[1], environment.phenotypes[2])
@@ -28,7 +28,8 @@ function get_outcome_set(
     end
 end
 
-function get_outcome_set(::Partial, results::Vector{<:Int64})
+function CoEvo.get_outcome_set(::Partial, results::Vector{<:Int64})
     # For partial, we just want the number of correct numbers
-    return sum(results .== 1:length(results))
+    correct = sum(results .== 1:length(results))
+    return Float64[correct, length(results) - correct]
 end

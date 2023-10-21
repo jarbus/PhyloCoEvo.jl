@@ -1,7 +1,7 @@
 @testset "SortingNetworks" begin
     # Test that everything runs
-    sngc = SortingNetworkGenotypeCreator(1, 1)
-    snpc = SortingNetworkPhenotypeCreator(1)
+    sngc = SortingNetworkGenotypeCreator(1, 2)
+    snpc = SortingNetworkPhenotypeCreator(2)
     # create sorting network genotypes and phenotypes
     rng = StableRNG(1)
     gene_id_counter = Counter(0)
@@ -17,16 +17,16 @@
         # no activate comparators
         Codon = PhyloCoEvo.SortingNetworkCodon
         codons = (Codon(1, 0b0000000000100001),)
-        genotype = SortingNetworkGenotype(codons, 1)
+        genotype = SortingNetworkGenotype(codons, 2)
         phenotype = create_phenotype(snpc, genotype)
-        @test phenotype.n == 1
+        @test phenotype.n == 2
         @test phenotype.network == zeros(Int64, 0, 2)
                                     
         # one active comparator, encoding 2 1
-        codons = (Codon(1, 0b1111111100100001),)
-        genotype = SortingNetworkGenotype(codons, 1)
+        codons = (Codon(1, 0b1111111100010000),)
+        genotype = SortingNetworkGenotype(codons, 2)
         phenotype = create_phenotype(snpc, genotype)
-        @test phenotype.n == 1
+        @test phenotype.n == 2
         @test phenotype.network == [2 1]
 
         # two active comparators encoding 15 7, 3 1,
@@ -38,7 +38,7 @@
         snpc = SortingNetworkPhenotypeCreator(16)
         phenotype = create_phenotype(snpc, genotype)
         @test phenotype.n == 16
-        @test phenotype.network == [15 7; 3 1]
+        @test phenotype.network == [16 8; 4 2]
     end
 
     @testset "Phenotype" begin
@@ -111,6 +111,8 @@
             test_size(16)
             @test true
         end
+
+        # TODO: test that wires are valid with smaller networks
 
         @testset "IncorrectSorting" begin
             # Empty network
