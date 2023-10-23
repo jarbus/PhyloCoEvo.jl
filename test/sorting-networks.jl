@@ -176,3 +176,40 @@ end
         @test sort([new_geno.inputs...]) == 1:4
     end
 end
+
+
+@testset "SortingNetworkDomain" begin
+
+    domain = SortingNetworkDomain(Partial())
+
+    # Wikipedia example, correct, 4 inputs
+    # __________
+    # _|___|____
+    # _|_|___|__
+    # ___|_|____
+    # Test that a network with comparators results in 
+    # full fitness in the outcome when tested against a correct list
+    snp = SortingNetworkPhenotype([1 3; 2 4; 1 2; 3 4; 2 3;], 4)
+    sntc = SortingNetworkTestCasePhenotype((4,3,2,1))
+    env = StatelessEnvironment(domain, [snp, sntc])
+    outcome = get_outcome_set(env)
+    @test outcome == [4.0, 0.0]
+
+    # Test that a network with no comparators results in 
+    # zero fitness in the outcome when tested against an incorrect list
+    snp = SortingNetworkPhenotype(zeros(Int,0,2), 4)
+    sntc = SortingNetworkTestCasePhenotype((4,3,2,1))
+    env = StatelessEnvironment(domain, [snp, sntc])
+    outcome = get_outcome_set(env)
+    @test outcome == [0.0, 4.0]
+
+
+    # Test that a network which sorts two numbers correctly
+    # and two numbers incorrectly results in a fitness of 2.0
+    # for network and inputs
+    snp = SortingNetworkPhenotype([1 4; ], 4)
+    sntc = SortingNetworkTestCasePhenotype((4,3,2,1))
+    env = StatelessEnvironment(domain, [snp, sntc])
+    outcome = get_outcome_set(env)
+    @test outcome == [2.0, 2.0]
+end
