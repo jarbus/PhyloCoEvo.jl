@@ -1,7 +1,7 @@
 /Manifest.toml
-*.jld2
 *.txt
 *.png
 *.log
-x/**/config.jl
+# ignore all *.jld2 files in test
+test/x/**/**/data/*.jld2
 old
