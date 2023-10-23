@@ -158,8 +158,31 @@ end
     sntcpc = SortingNetworkTestCasePhenotypeCreator(16)
     sntcgenotypes = create_genotypes(sntcgc, rng, gene_id_counter, n_pop)
     @test length(sntcgenotypes) == 1
+    @test sum([sntcgenotypes[1].inputs...] .== 1:16) ∈ 12:16
     @test sort([sntcgenotypes[1].inputs...]) == 1:16
     phenotype = create_phenotype(sntcpc, sntcgenotypes[1])
+
+    x = PhyloCoEvo.swap(rng,4,0)
+    @test x == 1:4
+
+    x = PhyloCoEvo.swap(rng,4,1)
+    @test length(x) == 4
+    @test sum(x .== 1:4) == 2
+
+    x = PhyloCoEvo.swap(rng,16,2)
+    @test length(x) == 16
+    @test sum(x .== 1:16) ∈ 12:16
+
+    x = PhyloCoEvo.swap(rng,16,100)
+    @test length(x) == 16
+    @test sum(x .== 1:16) ∉ 14:16
+
+    # Test that initial test case is nearly sorted
+    sntcgenotypes = create_genotypes(sntcgc, rng, gene_id_counter, 5)
+    for sntcg in sntcgenotypes
+        @test sum([sntcg.inputs...] .== 1:16) ∈ 12:16
+    end
+
 
     @testset "Mutator" begin
         sntcm = SortingNetworkTestCaseMutator()
