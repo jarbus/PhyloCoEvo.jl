@@ -45,7 +45,7 @@ function CoEvo.mutate(
     # swap two inputs
     new_inputs = [i for i in geno.inputs]
     index = rand(rng, 1:length(new_inputs))
-    swap_index = rand(rng, 1:length(new_inputs))
+    swap_index = rand(rng, setdiff(1:length(new_inputs), index))
     new_inputs[index], new_inputs[swap_index] = new_inputs[swap_index], new_inputs[index]
     return SortingNetworkTestCaseGenotype(geno.id, Tuple(new_inputs))
 end
