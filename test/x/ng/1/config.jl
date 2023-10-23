@@ -5,6 +5,8 @@ using CoEvo: BasicVectorGenotype
 @testset "NumbersGameTest" begin
 
     XDIR = dirname(@__FILE__)
+    DATA_DIR = joinpath(XDIR, "data")
+    isdir(DATA_DIR) || mkdir(DATA_DIR)
     function dummy_eco_creator(;
         id::String = "test",
         trial::Int = 1,
