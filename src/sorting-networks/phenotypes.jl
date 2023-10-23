@@ -55,13 +55,3 @@ end
 function CoEvo.create_phenotype(phenotype_creator::SortingNetworkTestCasePhenotypeCreator, geno::SortingNetworkTestCaseGenotype)
     SortingNetworkTestCasePhenotype(geno.inputs)
 end
-
-function CoEvo.act!(snp::SortingNetworkPhenotype, tcp::SortingNetworkTestCasePhenotype)
-end
-
-function CoEvo.act!(phenotype::Phenotype)
-    # return act!(phenotype, nothing)
-end
-
-function CoEvo.Ecosystems.Species.Phenotypes.Interfaces.reset!(phenotype::SortingNetworkPhenotype)
-end
