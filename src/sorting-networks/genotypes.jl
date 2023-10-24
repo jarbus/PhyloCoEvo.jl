@@ -31,6 +31,9 @@ end
 function is_active(codon::SortingNetworkCodon)
     count_ones(codon.data & 0b1111111100000000) > 3
 end
+function num_active(geno::SortingNetworkGenotype)
+    sum(is_active.(geno.codons))
+end
 
 function CoEvo.create_genotypes(
     genotype_creator::SortingNetworkGenotypeCreator,
