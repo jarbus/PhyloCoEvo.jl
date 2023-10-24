@@ -92,8 +92,8 @@ function CoEvo.archive!(
             file["gen/$gen/$met_key/best_sorter_percent"] = report.measurement.best_sorter_percent
             file["gen/$gen/$met_key/best_sorter_size"] = report.measurement.best_sorter_size
             file["gen/$gen/$met_key/best_sorter_n_inputs"] = report.measurement.best_sorter_n_inputs
-            save_statistical(file, "gen/$gen/$met_key/sn_fitnesses/$field", sn_fit_stats)
-            save_statistical(file, "gen/$gen/$met_key/tc_fitnesses/$field", tc_fit_stats)
+            save_statistical(file, "gen/$gen/$met_key/sn_fitnesses/", sn_fit_stats)
+            save_statistical(file, "gen/$gen/$met_key/tc_fitnesses/", tc_fit_stats)
         end
     end
 end
