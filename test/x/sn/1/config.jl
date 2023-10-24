@@ -58,9 +58,10 @@ using CoEvo: BasicVectorGenotype
             ),
             performer = EstimationPerformer(n_workers = 1),
             reporters = Reporter[
-                # TODO define metric for sorting networks
                 # BasicReporter(metric = AllSpeciesFitness()),
                 # BasicReporter(metric = GenotypeSum()),
+                BasicReporter(metric = SortedMetric()),
+
                 BasicReporter(metric = TreeStatisticsMetric(),
                               save_interval = 1,
                               print_interval = 1)

@@ -54,7 +54,24 @@
             return perms
         end
 
-        function create_insertion_sort_network(n::Int)
+        function create_insertion_sort_genotype(n::Int)
+            num_codons = Int(n * (n - 1) / 2)
+
+            codons = PhyloCoEvo.SortingNetworkCodon[]
+            c = 1
+            for i in 1:n-1
+                for j in i:-1:1
+                    codon = 0b1111111100000000
+                    codon = codon | ((j-1) << 4)
+                    codon = codon | (j << 0)
+                    codon = PhyloCoEvo.SortingNetworkCodon(c, codon)
+                    push!(codons, codon)
+                end
+            end
+            SortingNetworkGenotype(Tuple(codons), n)
+        end
+
+        function create_insertion_sort_phenotype(n::Int)
             num_comparators = Int(n * (n - 1) / 2)
             network = zeros(Int64, num_comparators, 2)
             comparator = 1
@@ -91,25 +108,37 @@
             # _|_|_|___
             # __|_|___
             # ___|_____
-            snp = create_insertion_sort_network(4)
+            sng = create_insertion_sort_genotype(4) # test raw phenotype
+            sngp = create_phenotype(snpc, sng)      # test genotype->phenotype
+            snp = create_insertion_sort_phenotype(4)
             sorted = [1, 2, 3, 4]
             for perm in permute(sorted)
                 @assert sorted == PhyloCoEvo.netsort(snp, Tuple(perm))
+                @assert sorted == PhyloCoEvo.netsort(sngp, Tuple(perm))
             end
             @test true
 
             # Test all possible combinations of zeros and ones are sorted correctly for size 16
             function test_size(n)
-                snp = create_insertion_sort_network(n)
+                snp = create_insertion_sort_phenotype(n)
+                snpc = SortingNetworkPhenotypeCreator(n)
+                sng = create_insertion_sort_genotype(n)
+                sngp = create_phenotype(snpc, sng)
                 for i in 0:2^n
                     # create a 16-bit vector of zeros and ones of i
                     bits = [Int(d) for d in digits(i, base=2, pad=n)]
                     sorted = sort(bits)
                     @assert sorted == PhyloCoEvo.netsort(snp, Tuple(bits))
+                    @assert sorted == PhyloCoEvo.netsort(sngp, Tuple(bits))
                 end
             end
             test_size(16)
             @test true
+
+            # Test percent_sorted
+            @test PhyloCoEvo.percent_sorted(sng) == 1.0
+            sng_missing = SortingNetworkGenotype(sng.codons[1:5], 16)
+            @test PhyloCoEvo.percent_sorted(sng_missing) < 1.0
         end
 
         # TODO: test that wires are valid with smaller networks
