@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function stream_gens(){
-		tail -n 2000 -f $1 | awk -v fname="$1" '/Generation: [0-9]+0/ {print fname ": " $0}'
+		tail -n 2000 -f $1 | awk -v fname="$1" '/Generation: [0-9]+0$/ {print fname ": " $0}'
 }
 
 IFS=$'\n'
