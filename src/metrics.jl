@@ -215,10 +215,7 @@ function CoEvo.archive!(
         per_dist_int_err_stats = first(report.measurement.measurements).second.per_distance_interaction_error_stats.measurements
         jldopen(met_path, "a+") do file
             for (distance, stats) in per_dist_int_err_stats
-                # save all attributes of stats, which is a BasicStatisticalMeasurement
-                for field in fieldnames(typeof(stats))
-                    file["gen/$gen/$met_key/dist_int_errors/$distance/$field"] = getfield(stats, field)
-                end
+                save_statistical(file, "gen/$gen/$met_key/dist_int_errors/$distance", stats)
             end
         end
     end
