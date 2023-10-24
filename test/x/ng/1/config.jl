@@ -4,9 +4,7 @@ using CoEvo: BasicVectorGenotype
 
 @testset "NumbersGameTest" begin
 
-    XDIR = dirname(@__FILE__)
-    DATA_DIR = joinpath(XDIR, "data")
-    isdir(DATA_DIR) || mkdir(DATA_DIR)
+    XDIR = initialize_x(dirname(@__FILE__))
     function dummy_eco_creator(;
         id::String = "test",
         trial::Int = 1,

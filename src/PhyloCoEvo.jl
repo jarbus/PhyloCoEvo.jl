@@ -1,4 +1,5 @@
 module PhyloCoEvo
+export initialize_x
 export PhylogeneticSpeciesCreator, PhylogeneticSpecies, create_species,
        EstimationPerformer, PhylogeneticMatchMaker, TreeStatisticsMetric,
        OutcomeScalarFitnessEvaluator, OutcomeScalarFitnessEvaluation,
@@ -13,4 +14,5 @@ include("./sorting-networks/phenotypes.jl")
 include("./sorting-networks/domain.jl")
 include("./sorting-networks/mutator.jl")
 include("./sorting-networks/metrics.jl")
+include("./utils.jl")
 end

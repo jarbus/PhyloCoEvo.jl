@@ -4,9 +4,7 @@ using CoEvo: BasicVectorGenotype
 
 @testset "SortingNetworksIntegrationTest" begin
 
-    XDIR = dirname(@__FILE__)
-    DATA_DIR = joinpath(XDIR, "data")
-    isdir(DATA_DIR) || mkdir(DATA_DIR)
+    XDIR = initialize_x(dirname(@__FILE__))
     function dummy_eco_creator(;
         id::String = "test",
         trial::Int = 1,
@@ -58,7 +56,7 @@ using CoEvo: BasicVectorGenotype
             ),
             performer = EstimationPerformer(n_workers = 1),
             reporters = Reporter[
-                # BasicReporter(metric = AllSpeciesFitness()),
+                BasicReporter(metric = AllSpeciesFitness()),
                 # BasicReporter(metric = GenotypeSum()),
                 BasicReporter(metric = SortedMetric()),
 
