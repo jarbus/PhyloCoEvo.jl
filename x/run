@@ -20,7 +20,7 @@ function run_seeds {
     # iterate over all children directories
     # and run config.jl in each
     for i in $(ls $dir); do
-        if [ -d "$dir/$i" ]; then
+        if [ -d "$dir/$i" ] && [ -f "$dir/$i/config.jl" ]; then
             runlog="$dir/$i/run.log"
             git rev-parse HEAD > $runlog
             julia $dir/$i/config.jl >> $runlog &
