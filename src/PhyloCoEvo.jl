@@ -4,6 +4,7 @@ export PhylogeneticSpeciesCreator, PhylogeneticSpecies, create_species,
        EstimationPerformer, PhylogeneticMatchMaker, TreeStatisticsMetric,
        OutcomeScalarFitnessEvaluator, OutcomeScalarFitnessEvaluation,
        reset!
+include("./utils.jl")
 include("./species.jl")
 include("./evaluation.jl")
 include("./metrics.jl")
@@ -14,5 +15,4 @@ include("./sorting-networks/phenotypes.jl")
 include("./sorting-networks/domain.jl")
 include("./sorting-networks/mutator.jl")
 include("./sorting-networks/metrics.jl")
-include("./utils.jl")
 end
