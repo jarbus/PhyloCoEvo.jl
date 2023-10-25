@@ -14,6 +14,7 @@ nc = NameConfig()
 iderrs = [agg(load(InteractionDistanceErrors(1:5), nc, pi)) for pi in p]
 sfs = [agg(load(SortFits(), nc, pi)) for pi in p]
 spc = [agg(load(BestSortPercentage(), nc, pi)) for pi in p]
+ss = [agg(load(BestSortSize(), nc, pi)) for pi in p]
 
 dist_plots = [plot(iderr, title=iderr[1].xname) for iderr in iderrs]
 plot(dist_plots..., xlabel="Generation", ylabel="Error",)
@@ -30,5 +31,11 @@ run(`kitten icat $figname`)
 percentage_plots = [plot(sp, title=sp[1].xname) for sp in spc]
 plot(percentage_plots..., xlabel="Generation", ylabel="Percentage Solved",)
 figname=joinpath(mediadir, "percentages.png")
+savefig(figname)
+run(`kitten icat $figname`)
+
+size_plots = [plot(s, title=s[1].xname) for s in ss]
+plot(size_plots..., xlabel="Generation", ylabel="Size",)
+figname=joinpath(mediadir, "sizes.png")
 savefig(figname)
 run(`kitten icat $figname`)
