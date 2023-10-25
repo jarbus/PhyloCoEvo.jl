@@ -4,20 +4,19 @@ using CoEvo
 using PhylogeneticTrees
 
 
-using CoEvo.Species.Abstract: AbstractSpecies, SpeciesCreator
-using CoEvo.Species.Genotypes.Abstract: GenotypeCreator
-using CoEvo.Species.Genotypes.Interfaces: create_genotypes
-using CoEvo.Species.Phenotypes.Abstract: PhenotypeCreator
-using CoEvo.Species.Evaluators.Abstract: Evaluator, Evaluation
-using CoEvo.Species.Replacers.Abstract: Replacer
-using CoEvo.Species.Replacers.Interfaces: replace
-using CoEvo.Species.Selectors.Abstract: Selector
-using CoEvo.Species.Selectors.Interfaces: select
-using CoEvo.Species.Recombiners.Abstract: Recombiner
-using CoEvo.Species.Recombiners.Interfaces: recombine
-using CoEvo.Species.Mutators.Abstract: Mutator
-using CoEvo.Species.Mutators.Interfaces: mutate
-using CoEvo.Ecosystems.Utilities.Counters: next!
+using CoEvo.Individuals: Individual
+using CoEvo.Species: AbstractSpecies
+using CoEvo.SpeciesCreators: SpeciesCreator
+using CoEvo.Genotypes: GenotypeCreator
+using CoEvo.Genotypes: create_genotypes
+using CoEvo.Phenotypes: PhenotypeCreator
+using CoEvo.Evaluators: Evaluator, Evaluation
+using CoEvo.Replacers: Replacer, replace
+using CoEvo.Selectors: Selector, select
+using CoEvo.Recombiners: Recombiner, recombine
+using CoEvo.Mutators: Mutator, mutate
+using CoEvo.Counters: count!, Counter
+using CoEvo.Counters.Basic: BasicCounter
 
 
 function add_children!(tree::PhylogeneticTree, children::Dict{Int, <:Individual})
@@ -139,16 +138,16 @@ Generate a new population of individuals using genotype and phenotype configurat
 - `indiv_id_counter::Counter`: Counter for generating unique individual IDs.
 - `gene_id_counter::Counter`: Counter for generating unique gene IDs.
 """
-function CoEvo.create_species(
+function CoEvo.SpeciesCreators.create_species(
     species_creator::PhylogeneticSpeciesCreator,
     rng::AbstractRNG, 
-    indiv_id_counter::Counter = Counter(),
-    gene_id_counter::Counter = Counter(),
+    indiv_id_counter::Counter = BasicCounter(),
+    gene_id_counter::Counter = BasicCounter(),
 )
     genos = create_genotypes(
         species_creator.geno_creator, rng, gene_id_counter, species_creator.n_pop
     ) 
-    indiv_ids = next!(indiv_id_counter, species_creator.n_pop)
+    indiv_ids = count!(indiv_id_counter, species_creator.n_pop)
     pop = Dict(
         indiv_id => Individual(indiv_id, geno, Int[]) 
         for (indiv_id, geno) in zip(indiv_ids, genos)
@@ -170,7 +169,7 @@ Core reproduction phase of the evolutionary algorithm.
 # Returns
 - A new `PhylogeneticSpecies` containing the next generation population and their children.
 """
-function CoEvo.create_species(
+function CoEvo.SpeciesCreators.create_species(
     species_creator::PhylogeneticSpeciesCreator,
     rng::AbstractRNG, 
     indiv_id_counter::Counter,  

@@ -1,8 +1,10 @@
-using CoEvo.Measurements: BasicStatisticalMeasurement, GroupStatisticalMeasurement
+using CoEvo.Measurements: Measurement
+using CoEvo.Measurements.Statistical: BasicStatisticalMeasurement, GroupStatisticalMeasurement
+using CoEvo.Metrics: Metric
 using JLD2
 using PhylogeneticTrees
 
-Base.@kwdef struct TreeStatisticsMetric <: SpeciesMetric
+Base.@kwdef struct TreeStatisticsMetric <: Metric
     name::String="TreeStatistics"
     path::String="data/archive.jld2"
     key::String="tree_stats" # per-generation key
@@ -25,7 +27,7 @@ Base.@kwdef struct GroupTreeStatisticsMeasurement <: Measurement
     measurements::Dict{String, TreeStatisticsMeasurement}
 end
 
-function CoEvo.Ecosystems.Reporters.Types.Basic.Methods.get_size(genotype::BasicVectorGenotype)
+function CoEvo.Genotypes.get_size(genotype::CoEvo.Genotypes.Vectors.BasicVectorGenotype)
     return length(genotype.genes)
 end
 
@@ -37,12 +39,11 @@ function filter_pairwise_distances(pairwise_distances::Dict{Tuple{Int, Int}, Int
     return filtered_pairwise_distances
 end
 
-function CoEvo.measure(
-    ::Reporter{TreeStatisticsMetric},
+function CoEvo.Metrics.measure(
+    ::CoEvo.Reporters.Basic.BasicReporter{TreeStatisticsMetric},
     species_evaluations::Dict{<:AbstractSpecies, <:OutcomeScalarFitnessEvaluation},
-    ::Vector{<:Observation}
 )
-    
+    # TODO rewrite this code to only sample a subset of the pairwise distances 
     species_measurements = Dict{String, TreeStatisticsMeasurement}()
 
     @assert length(species_evaluations) == 2 "TreeStatisticsMetric only works for two species"
@@ -176,10 +177,10 @@ function display_stats(stat_measure::BasicStatisticalMeasurement)
     )
 end
 
-function CoEvo.archive!(
-    archiver::BasicArchiver, 
+function CoEvo.Archivers.archive!(
+    archiver::CoEvo.Archivers.Basic.BasicArchiver, 
     gen::Int, 
-    report::BasicReport{TreeStatisticsMetric, GroupTreeStatisticsMeasurement}
+    report::CoEvo.Reporters.Basic.BasicReport{TreeStatisticsMetric, GroupTreeStatisticsMeasurement}
 )
     if report.to_print
         for (species_id, measurement) in report.measurement.measurements
@@ -210,7 +211,7 @@ function CoEvo.archive!(
     end
     if report.to_save
         # Log stats to jld2
-        met_path = joinpath(archiver.jld2_path, report.metric.path)
+        met_path = joinpath(archiver.archive_path, report.metric.path)
         met_key = report.metric.key
         per_dist_int_err_stats = first(report.measurement.measurements).second.per_distance_interaction_error_stats.measurements
         jldopen(met_path, "a+") do file

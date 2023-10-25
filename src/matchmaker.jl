@@ -1,9 +1,9 @@
-using CoEvo.Ecosystems.Interactions.MatchMakers.Abstract: MatchMaker
+using CoEvo.MatchMakers: MatchMaker
 # using CoEvo.Ecosystems.Species.Abstract: AbstractSpecies
 # using Random: AbstractRNG
 
-using CoEvo.Ecosystems.Interactions.MatchMakers.Matches.Basic: BasicMatch
-import CoEvo.Ecosystems.Interactions.MatchMakers.Interfaces: make_matches
+import CoEvo.MatchMakers: make_matches
+import CoEvo.Matches.Basic: BasicMatch
 
 """
     PhylogeneticMatchMaker <: MatchMaker

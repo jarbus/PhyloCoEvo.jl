@@ -1,6 +1,12 @@
 using Random
-using CoEvo: Individual
-using CoEvo: BasicVectorGenotype
+using CoEvo.Individuals: Individual
+using CoEvo.Genotypes.Vectors: BasicVectorGenotypeCreator
+using CoEvo.Phenotypes.Defaults: DefaultPhenotypeCreator
+using CoEvo.Replacers.Generational: GenerationalReplacer
+using CoEvo.Selectors.FitnessProportionate: FitnessProportionateSelector
+using CoEvo.Recombiners.Clone: CloneRecombiner
+using CoEvo.Mutators.Vectors: BasicVectorMutator
+
 
 @testset "NumbersGameTest" begin
 
@@ -20,8 +26,8 @@ using CoEvo: BasicVectorGenotype
             id = id,
             trial = trial,
             rng = rng,
-            species_creators = Dict(
-                species_id1 => PhylogeneticSpeciesCreator(
+            species_creators = [
+                PhylogeneticSpeciesCreator(
                     id = species_id1,
                     n_pop = n_pop,
                     geno_creator = BasicVectorGenotypeCreator(default_vector = default_vector),
@@ -30,9 +36,9 @@ using CoEvo: BasicVectorGenotype
                     replacer = GenerationalReplacer(n_elite = n_elite),
                     selector = FitnessProportionateSelector(n_parents = n_pop),
                     recombiner = CloneRecombiner(),
-                    mutators = [NoiseInjectionMutator(noise_std = 0.1)],
+                    mutators = [BasicVectorMutator(noise_standard_deviation = 0.1)],
                 ),
-                species_id2 => PhylogeneticSpeciesCreator(
+                PhylogeneticSpeciesCreator(
                     id = species_id2,
                     n_pop = n_pop,
                     geno_creator = BasicVectorGenotypeCreator(default_vector = default_vector),
@@ -41,19 +47,19 @@ using CoEvo: BasicVectorGenotype
                     replacer = GenerationalReplacer(n_elite = n_elite),
                     selector = FitnessProportionateSelector(n_parents = n_pop),
                     recombiner = CloneRecombiner(),
-                    mutators = [NoiseInjectionMutator(noise_std = 0.1)],
+                    mutators = [BasicVectorMutator(noise_standard_deviation = 0.1)],
                 ),
-            ),
+            ],
             job_creator = BasicJobCreator(
                 n_workers = 1,
-                interactions = Dict(
+                interactions = [
                     interaction_id => BasicInteraction(
                         id = interaction_id,
                         environment_creator = StatelessEnvironmentCreator(NumbersGameDomain(:Sum)),
                         species_ids = [species_id1, species_id2],
                         matchmaker = PhylogeneticMatchMaker(type = :plus),
                     ),
-                ),
+                ],
             ),
             performer = EstimationPerformer(n_workers = 1),
             reporters = Reporter[

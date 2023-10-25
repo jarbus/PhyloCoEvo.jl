@@ -13,7 +13,7 @@ Base.@kwdef struct SortingNetworkTestCaseMutator <: Mutator
     swap_prob::Float64 = 0.1
 end
 
-function CoEvo.mutate(
+function CoEvo.Mutators.mutate(
     ::SortingNetworkMutator, 
     rng::AbstractRNG, 
     gene_id_counter::Counter,
@@ -30,13 +30,13 @@ function CoEvo.mutate(
     if any(active_codons)
         index = rand(rng, findall(active_codons))
         bitflip_data = new_codons[index].data ⊻ (1 << rand(rng, 0:7))
-        bitflip_id = next!(gene_id_counter)
+        bitflip_id = count!(gene_id_counter)
         new_codons[index] = SortingNetworkCodon(bitflip_id, bitflip_data)
     end
     return SortingNetworkGenotype(Tuple(new_codons), geno.n_inputs)
 end
 
-function CoEvo.mutate(
+function CoEvo.Mutators.mutate(
     ::SortingNetworkTestCaseMutator, 
     rng::AbstractRNG, 
     ::Counter,
