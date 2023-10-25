@@ -1,5 +1,5 @@
 *.txt
-*.png
+#*.png
 *.log
 # ignore all *.jld2 files in test
 test/x/**/**/data/*.jld2
