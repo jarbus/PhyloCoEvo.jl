@@ -1,10 +1,10 @@
 export OutcomeScalarFitnessEvaluation, OutcomeScalarFitnessEvaluator
 
 using DataStructures: OrderedDict
-using CoEvo.Species.Abstract: AbstractSpecies
-using CoEvo.Species.Individuals: Individual
-using CoEvo.Species.Evaluators.Abstract: Evaluation, Evaluator
-using CoEvo.Species.Evaluators.Interfaces: create_evaluation, get_ranked_ids
+using CoEvo.Species: AbstractSpecies
+using CoEvo.Individuals: Individual
+using CoEvo.Evaluators: Evaluation, Evaluator, create_evaluation
+using CoEvo.Evaluators.ScalarFitness: ScalarFitnessEvaluator, ScalarFitnessEvaluation
 
 struct OutcomeScalarFitnessEvaluation <: Evaluation
     species_id::String
@@ -17,7 +17,7 @@ Base.@kwdef struct OutcomeScalarFitnessEvaluator <: Evaluator
     epsilon::Float64 = 1e-6
 end
 
-function CoEvo.create_evaluation(
+function CoEvo.Evaluators.create_evaluation(
     evaluator::OutcomeScalarFitnessEvaluator,
     species::AbstractSpecies,
     outcomes::Dict{Int, Dict{Int, Float64}}
@@ -35,8 +35,8 @@ function CoEvo.create_evaluation(
     return evaluation
 end
 
-function CoEvo.select(
-    selector::FitnessProportionateSelector,
+function CoEvo.Selectors.select(
+    selector::CoEvo.Selectors.FitnessProportionate.FitnessProportionateSelector,
     rng::AbstractRNG, 
     new_pop::Dict{Int, <:Individual},
     evaluation::OutcomeScalarFitnessEvaluation
@@ -51,8 +51,8 @@ function CoEvo.select(
     return select(selector, rng, new_pop, scalar_fitness_evaluation)
 end
 
-function CoEvo.replace(
-    replacer::GenerationalReplacer,
+function CoEvo.Replacers.replace(
+    replacer::CoEvo.Replacers.GenerationalReplacer,
     rng::AbstractRNG, 
     species::AbstractSpecies,
     evaluation::OutcomeScalarFitnessEvaluation
@@ -62,12 +62,3 @@ function CoEvo.replace(
     scalar_fitness_evaluation = ScalarFitnessEvaluation(evaluation.species_id, evaluation.fitnesses, [])
     return replace(replacer, rng, species, scalar_fitness_evaluation)
 end
-
-
-function CoEvo.get_ranked_ids(evaluator::OutcomeScalarFitnessEvaluation, ids::Vector{Int})
-    ranked_ids = filter(
-        indiv_id -> indiv_id in ids, keys(evaluator.fitnesses)
-    )
-    return ranked_ids
-end
-

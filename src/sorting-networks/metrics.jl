@@ -1,6 +1,6 @@
 export SortedMetric
 
-Base.@kwdef struct SortedMetric <: SpeciesMetric
+Base.@kwdef struct SortedMetric <: Metric
     name::String="Sorted"
     path::String="data/archive.jld2"
     key::String="sorted" # per-generation key
@@ -30,10 +30,10 @@ function percent_sorted(genotype::SortingNetworkGenotype)
 end
 
 
-function CoEvo.measure(
-    ::Reporter{SortedMetric},
+function CoEvo.Metrics.measure(
+    ::CoEvo.Reporters.Reporter{SortedMetric},
     species_evaluations::Dict{<:AbstractSpecies, <:OutcomeScalarFitnessEvaluation},
-    ::Vector{<:Observation}
+    # ::Vector{<:Observation}
 )
     best_score = 0
     best_comparators = 0
@@ -67,10 +67,10 @@ function CoEvo.measure(
     measurement
 end
 
-function CoEvo.archive!(
-    archiver::BasicArchiver, 
+function CoEvo.Archivers.archive!(
+    archiver::CoEvo.Archivers.Basic.BasicArchiver, 
     gen::Int, 
-    report::BasicReport{SortedMetric, SortingNetworkMeasurement}
+    report::CoEvo.Reporters.Basic.BasicReport{SortedMetric, SortingNetworkMeasurement}
 )
     if report.to_print
         println("----")
@@ -83,7 +83,7 @@ function CoEvo.archive!(
         display_stats(report.measurement.tc_fitnesses)
     end
     if report.to_save
-        met_path = joinpath(archiver.jld2_path, report.metric.path)
+        met_path = joinpath(archiver.archive_path, report.metric.path)
         met_key = report.metric.key
         sn_fit_stats = report.measurement.sn_fitnesses
         tc_fit_stats = report.measurement.tc_fitnesses

@@ -1,5 +1,5 @@
 export initialize_x
-using CoEvo: BasicStatisticalMeasurement
+using CoEvo.Measurements.Statistical: BasicStatisticalMeasurement
 function initialize_x(path::String)
     """Takes in an experiment directory as input, creates data directory"""
     @assert isdir(path) "Path $(path) does not exist"
