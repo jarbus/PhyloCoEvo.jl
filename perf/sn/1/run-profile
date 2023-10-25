@@ -1,0 +1,14 @@
+#!/bin/bash
+# Script to convert a test to a profile
+test_to_profile="../../../test/x/sn/1/config.jl"
+echo "using PProf"       > config.jl
+echo "using StableRNGs" >> config.jl
+echo "using CoEvo"      >> config.jl
+echo "using PhyloCoEvo" >> config.jl
+echo "using Test"       >> config.jl
+# copy config to directory
+cat $test_to_profile >> config.jl
+# add line to profile
+sed -i 's/evolve!/ @pprof evolve!/' config.jl
+sed -i 's/n_gen=2/n_gen=20/' config.jl
+julia -i config.jl
