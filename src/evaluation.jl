@@ -36,7 +36,7 @@ function CoEvo.Evaluators.create_evaluation(
     return evaluation
 end
 
-function replace(
+function CoEvo.Replacers.replace(
     replacer::CoEvo.Replacers.Generational.GenerationalReplacer,
     rng::AbstractRNG, 
     species::AbstractSpecies,
@@ -48,7 +48,7 @@ function replace(
     return new_population
 end
 
-function select(
+function CoEvo.Selectors.select(
     selector::CoEvo.Selectors.FitnessProportionate.FitnessProportionateSelector,
     random_number_generator::AbstractRNG, 
     new_population::Vector{<:Individual},
