@@ -18,7 +18,7 @@ using CoEvo.Counters.Basic: BasicCounter
 using CoEvo.MatchMakers.AllvsAll: AllvsAllMatchMaker
 
 
-@testset "NumbersGameTest" begin
+@testset "SortingNetworkTest" begin
 
     XDIR = initialize_x(dirname(@__FILE__))
     function dummy_eco_creator(;
