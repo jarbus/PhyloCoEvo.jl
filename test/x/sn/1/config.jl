@@ -83,9 +83,9 @@ using CoEvo.MatchMakers.AllvsAll: AllvsAllMatchMaker
             reporters = Reporter[
                 # BasicReporter(metric = AllSpeciesFitness()),
                 # BasicReporter(metric = GenotypeSum()),
-                # BasicReporter(metric = TreeStatisticsMetric(),
-                #               save_interval = 1,
-                #               print_interval = 1)
+                BasicReporter(metric = SortedMetric(),
+                              save_interval = 1,
+                              print_interval = 1)
             ],
             archiver = BasicArchiver(archive_path = XDIR),
         )

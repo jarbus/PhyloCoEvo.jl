@@ -31,27 +31,32 @@ end
 
 
 function CoEvo.Metrics.measure(
-    ::CoEvo.Reporters.Reporter{SortedMetric},
-    species_evaluations::Dict{<:AbstractSpecies, <:OutcomeScalarFitnessEvaluation},
-    # ::Vector{<:Observation}
+    ::SortedMetric,
+    state::State
 )
     best_score = 0
     best_comparators = 0
     best_n_inputs = 0
     sn_fitnesses = Float64[]
     tc_fitnesses = Float64[]
-    for (species, evaluation) in species_evaluations
-        genotype = first(species.pop)[2].geno
+    for (species, evaluation) in zip(state.species, state.evaluations)
+        genotype = species.population[1].genotype
         if genotype isa SortingNetworkGenotype
-            sn_fitnesses = collect(values(evaluation.fitnesses))
-            best_fitness = maximum(sn_fitnesses)
-            best_id = findfirst(v->v==best_fitness, evaluation.fitnesses)
-            best_genotype = best_id ∈ keys(species.pop) ? species.pop[best_id].geno : species.children[best_id].geno
+            sn_fitnesses = [r.fitness for r in evaluation.records]
+            best_id = evaluation.records[argmax(sn_fitnesses)].id
+            pop_idx = findfirst(ind -> ind.id == best_id, species.population)
+            if pop_idx == nothing 
+                child_idx = findfirst(ind -> ind.id == best_id, species.children)
+                best_genotype = species.children[child_idx].genotype
+            else
+                best_genotype = species.population[pop_idx].genotype
+            end
+
             best_score = percent_sorted(best_genotype)
             best_comparators = num_active(best_genotype)
             best_n_inputs = best_genotype.n_inputs
         elseif genotype isa SortingNetworkTestCaseGenotype
-            tc_fitnesses = collect(values(evaluation.fitnesses))
+            tc_fitnesses = [r.fitness for r in evaluation.records]
         else
             error("Unknown genotype $(typeof(species.pop[1].geno)) in SortedMetric")
         end
@@ -69,9 +74,9 @@ end
 
 function CoEvo.Archivers.archive!(
     archiver::CoEvo.Archivers.Basic.BasicArchiver, 
-    gen::Int, 
     report::CoEvo.Reporters.Basic.BasicReport{SortedMetric, SortingNetworkMeasurement}
 )
+    gen=report.generation
     if report.to_print
         println("----")
         println("SortedMetric:")
