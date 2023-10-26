@@ -15,7 +15,7 @@ struct SortingNetworkGenotype{N} <: Genotype
     n_inputs::Int # number of inputs
 end
 
-struct SortingNetworkGenotypeCreator <: GenotypeCreator
+struct SortingNetworkGenotypeCreator <: CoEvo.Genotypes.GenotypeCreator
     n_codons::Int
     n_inputs::Int
 end
@@ -25,7 +25,7 @@ struct SortingNetworkTestCaseGenotype{N} <: Genotype
     inputs::NTuple{N, Int64}
 end
 
-struct SortingNetworkTestCaseGenotypeCreator <: GenotypeCreator
+struct SortingNetworkTestCaseGenotypeCreator <: CoEvo.Genotypes.GenotypeCreator
     n_inputs::Int
 end
 

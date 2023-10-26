@@ -4,10 +4,10 @@ using CoEvo
 using PhylogeneticTrees
 
 
-using CoEvo.Individuals: Individual
+using CoEvo.Individuals: Basic.BasicIndividual, Individual, create_individuals
 using CoEvo.Species: AbstractSpecies
 using CoEvo.SpeciesCreators: SpeciesCreator
-using CoEvo.Genotypes: GenotypeCreator
+# using CoEvo.Genotypes: GenotypeCreator
 using CoEvo.Genotypes: create_genotypes
 using CoEvo.Phenotypes: PhenotypeCreator
 using CoEvo.Evaluators: Evaluator, Evaluation
@@ -19,12 +19,11 @@ using CoEvo.Counters: count!, Counter
 using CoEvo.Counters.Basic: BasicCounter
 
 
-function add_children!(tree::PhylogeneticTree, children::Dict{Int, <:Individual})
-    for (id, child) in children
-        @assert id ∉ keys(tree.tree) "id: $id, keys: $(keys(tree.tree))"
+function add_children!(tree::PhylogeneticTree, children::Vector{<:Individual})
+    for child in children
+        @assert child.id ∉ keys(tree.tree) "id: $id, keys: $(keys(tree.tree))"
         @assert length(child.parent_ids) == 1
-        parent_id = child.parent_ids[1]
-        add_child!(tree, parent_id, id)
+        add_child!(tree, child.parent_ids[1], child.id)
     end
 end
 
@@ -55,39 +54,10 @@ Represents a species population and its offspring, with a phylogenetic tree.
 
 struct PhylogeneticSpecies{I <: Individual} <: AbstractSpecies
     id::String
-    pop::Dict{Int, I}
-    children::Dict{Int, I}
+    pop::Vector{I}
+    children::Vector{I}
     tree::PhylogeneticTree
     dist_data::PhylogeneticDistanceData
-end
-
-# Constructors
-function PhylogeneticSpecies(
-    id::String,
-    pop::Vector{<:Individual},
-    children::Vector{<:Individual},
-    tree::PhylogeneticTree,
-    dist_data::PhylogeneticDistanceData
-)
-    return PhylogeneticSpecies(
-        id,
-        Dict(indiv.id => indiv for indiv in pop),
-        Dict(indiv.id => indiv for indiv in children),
-        tree,
-        dist_data
-    )
-end
-
-function PhylogeneticSpecies(id::String, pop::Dict{Int, I}) where {I <: Individual}
-    tree = PhylogeneticTree(collect(keys(pop)))
-    dist_data = PhylogeneticDistanceData(tree, Set(collect(keys(pop))))
-    return PhylogeneticSpecies(
-        id, 
-        pop, 
-        Dict{Int, I}(), 
-        tree,
-        dist_data
-    )
 end
 
 
@@ -110,17 +80,20 @@ Defines the parameters for species generation.
 - `reporters::Vector{R}`: A list of reporters for gathering species metrics.
 """
 Base.@kwdef struct PhylogeneticSpeciesCreator{
-    G <: GenotypeCreator,
-    P <: PhenotypeCreator,
-    E <: Evaluator,
-    RP <: Replacer,
-    S <: Selector,
-    RC <: Recombiner,
-    M <: Mutator,
-} <: SpeciesCreator
+    G <: CoEvo.Genotypes.GenotypeCreator,
+    I <: CoEvo.Individuals.IndividualCreator,
+    P <: CoEvo.Phenotypes.PhenotypeCreator,
+    E <: CoEvo.Evaluators.Evaluator,
+    RP <: CoEvo.Replacers.Replacer,
+    S <: CoEvo.Selectors.Selector,
+    RC <: CoEvo.Recombiners.Recombiner,
+    M <: CoEvo.Mutators.Mutator,
+} <: CoEvo.SpeciesCreators.SpeciesCreator
     id::String
-    n_pop::Int
-    geno_creator::G
+    n_population::Int
+    n_children::Int
+    genotype_creator::G
+    individual_creator::I
     phenotype_creator::P
     evaluator::E
     replacer::RP
@@ -129,66 +102,59 @@ Base.@kwdef struct PhylogeneticSpeciesCreator{
     mutators::Vector{M}
 end
 
-"""
-Generate a new population of individuals using genotype and phenotype configurations.
-
-# Arguments
-- `creator::SpeciesCfg`: Creator for the species.
-- `rng::AbstractRNG`: Random number generator.
-- `indiv_id_counter::Counter`: Counter for generating unique individual IDs.
-- `gene_id_counter::Counter`: Counter for generating unique gene IDs.
-"""
 function CoEvo.SpeciesCreators.create_species(
     species_creator::PhylogeneticSpeciesCreator,
-    rng::AbstractRNG, 
-    indiv_id_counter::Counter = BasicCounter(),
-    gene_id_counter::Counter = BasicCounter(),
+    random_number_generator::AbstractRNG, 
+    individual_id_counter::Counter,
+    gene_id_counter::Counter
 )
-    genos = create_genotypes(
-        species_creator.geno_creator, rng, gene_id_counter, species_creator.n_pop
-    ) 
-    indiv_ids = count!(indiv_id_counter, species_creator.n_pop)
-    pop = Dict(
-        indiv_id => Individual(indiv_id, geno, Int[]) 
-        for (indiv_id, geno) in zip(indiv_ids, genos)
+    population = create_individuals(
+        species_creator.individual_creator, 
+        random_number_generator, 
+        species_creator.genotype_creator, 
+        species_creator.n_population, 
+        individual_id_counter, 
+        gene_id_counter
     )
-    return PhylogeneticSpecies(species_creator.id, pop)
+    children = create_individuals(
+        species_creator.individual_creator, 
+        random_number_generator, 
+        species_creator.genotype_creator, 
+        species_creator.n_children, 
+        individual_id_counter, 
+        gene_id_counter
+    )
+    ind_ids = [ind.id for ind in population] 
+    tree = PhylogeneticTree(ind_ids)
+    dist_data = PhylogeneticDistanceData(tree, Set(ind_ids))
+    PhylogeneticSpecies(species_creator.id, population, children, tree, dist_data)
 end
 
-"""
-Core reproduction phase of the evolutionary algorithm.
-
-# Arguments
-- `creator::SpeciesCfg`: Creator for the species.
-- `rng::AbstractRNG`: Random number generator.
-- `indiv_id_counter::Counter`: Counter for generating unique individual IDs.
-- `gene_id_counter::Counter`: Counter for generating unique gene IDs.
-- `species::Species`: Current species.
-- `results::Vector{<:InteractionResult`: Interaction results of the individuals.
-
-# Returns
-- A new `PhylogeneticSpecies` containing the next generation population and their children.
-"""
 function CoEvo.SpeciesCreators.create_species(
     species_creator::PhylogeneticSpeciesCreator,
-    rng::AbstractRNG, 
-    indiv_id_counter::Counter,  
+    random_number_generator::AbstractRNG, 
+    individual_id_counter::Counter,  
     gene_id_counter::Counter,  
     species::PhylogeneticSpecies,
     evaluation::Evaluation
 ) 
-    new_pop = replace(species_creator.replacer, rng, species, evaluation)
-    parents = select(species_creator.selector, rng, new_pop, evaluation)
-    new_children = recombine(species_creator.recombiner, rng, indiv_id_counter, parents)
+    new_population = replace(
+        species_creator.replacer, random_number_generator, species, evaluation
+    )
+    parents = select(
+        species_creator.selector, random_number_generator, new_population, evaluation
+    )
+    new_children = recombine(
+        species_creator.recombiner, random_number_generator, individual_id_counter, parents
+    )
     for mutator in species_creator.mutators
-        new_children = mutate(mutator, rng, gene_id_counter, new_children)
+        new_children = mutate(mutator, random_number_generator, gene_id_counter, new_children)
     end
-    new_children = Dict(indiv.id => indiv for indiv in new_children)
     # Update tree and compute distance data
     add_children!(species.tree, new_children)
-    ids = Set([collect(keys(new_pop)); collect(keys(new_children))])
+    ids = Set(vcat([ind.id for ind in new_population],[child.id for child in new_children]))
     dist_data = PhylogeneticDistanceData(species.tree, ids)
-
-    new_species = PhylogeneticSpecies(species_creator.id, new_pop, new_children, species.tree, dist_data)
+    
+    new_species = PhylogeneticSpecies(species_creator.id, new_population, new_children, species.tree, dist_data)
     return new_species
 end
