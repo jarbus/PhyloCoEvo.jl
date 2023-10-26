@@ -17,6 +17,7 @@ using CoEvo.Recombiners: Recombiner, recombine
 using CoEvo.Mutators: Mutator, mutate
 using CoEvo.Counters: count!, Counter
 using CoEvo.Counters.Basic: BasicCounter
+using CoEvo.States.Basic: BasicCoevolutionaryState
 
 
 function add_children!(tree::PhylogeneticTree, children::Vector{<:Individual})
@@ -54,7 +55,7 @@ Represents a species population and its offspring, with a phylogenetic tree.
 
 struct PhylogeneticSpecies{I <: Individual} <: AbstractSpecies
     id::String
-    pop::Vector{I}
+    population::Vector{I}
     children::Vector{I}
     tree::PhylogeneticTree
     dist_data::PhylogeneticDistanceData
@@ -124,7 +125,7 @@ function CoEvo.SpeciesCreators.create_species(
         individual_id_counter, 
         gene_id_counter
     )
-    ind_ids = [ind.id for ind in population] 
+    ind_ids = vcat([ind.id for ind in population], [ind.id for ind in children])
     tree = PhylogeneticTree(ind_ids)
     dist_data = PhylogeneticDistanceData(tree, Set(ind_ids))
     PhylogeneticSpecies(species_creator.id, population, children, tree, dist_data)
@@ -150,11 +151,29 @@ function CoEvo.SpeciesCreators.create_species(
     for mutator in species_creator.mutators
         new_children = mutate(mutator, random_number_generator, gene_id_counter, new_children)
     end
+
     # Update tree and compute distance data
     add_children!(species.tree, new_children)
     ids = Set(vcat([ind.id for ind in new_population],[child.id for child in new_children]))
     dist_data = PhylogeneticDistanceData(species.tree, ids)
     
     new_species = PhylogeneticSpecies(species_creator.id, new_population, new_children, species.tree, dist_data)
+    return new_species
+end
+
+
+function CoEvo.Ecosystems.Basic.construct_new_species(
+    state::BasicCoevolutionaryState, species_creators::Vector{<:PhylogeneticSpeciesCreator}
+)
+    new_species = [
+        CoEvo.SpeciesCreators.create_species(
+            species_creators[index],
+            state.random_number_generator, 
+            state.individual_id_counter,
+            state.gene_id_counter,
+            state.species[index],
+            state.evaluations[index]
+        ) for (index) in eachindex(species_creators)
+    ]
     return new_species
 end

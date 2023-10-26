@@ -1,5 +1,6 @@
 using CoEvo.Measurements: Measurement
 using CoEvo.Measurements.Statistical: BasicStatisticalMeasurement, GroupStatisticalMeasurement
+using CoEvo.States: State
 using CoEvo.Metrics: Metric
 using JLD2
 using PhylogeneticTrees
@@ -41,8 +42,9 @@ end
 
 function CoEvo.Metrics.measure(
     ::CoEvo.Reporters.Basic.BasicReporter{TreeStatisticsMetric},
-    species_evaluations::Dict{<:AbstractSpecies, <:OutcomeScalarFitnessEvaluation},
+    state::State
 )
+    species_evaluations = state.evaluations
     # TODO rewrite this code to only sample a subset of the pairwise distances 
     species_measurements = Dict{String, TreeStatisticsMeasurement}()
 
@@ -51,13 +53,13 @@ function CoEvo.Metrics.measure(
 
     dist_int_diffs = Dict{Int, Vector{Float64}}(i => Vector{Float64}() for i in 0:10)
     species = collect(keys(species_evaluations))
-    species1_pop = species_evaluations[species[1]].fitnesses |> keys |> collect |> Set
-    species2_pop = species_evaluations[species[2]].fitnesses |> keys |> collect |> Set
+    species1_pop = [ind.id for ind in state.species[1].population] |> Set
+    species2_pop = [ind.id for ind in state.species[2].population] |> Set
     species1_pd = filter_pairwise_distances(species[1].dist_data.pairwise_distances, species1_pop)
     species2_pd = filter_pairwise_distances(species[2].dist_data.pairwise_distances, species2_pop)
     for ((ind_a1,ind_a2), dist_a) in species1_pd
-        outcomes_a1 = species_evaluations[species[1]].outcomes[ind_a1]
-        outcomes_a2 = species_evaluations[species[1]].outcomes[ind_a2]
+        outcomes_a1 = state.evaluations[1].outcomes[ind_a1]
+        outcomes_a2 = state.evaluations[1].outcomes[ind_a2]
         for ((ind_b1,ind_b2), dist_b) in species2_pd
             dist = dist_a + dist_b
             outcome_1 = outcomes_a1[ind_b1]
@@ -78,7 +80,7 @@ function CoEvo.Metrics.measure(
         end
     end
     
-    for (species, evals) in species_evaluations
+    for (species, evals) in zip(state.species, state.evaluations)
         mrca, pairwise_distances, mrca_distances = 
             species.dist_data.mrca,
             species.dist_data.pairwise_distances,
