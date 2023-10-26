@@ -9,12 +9,13 @@ using CoEvo.Domains.NumbersGame: NumbersGameDomain
 using CoEvo.Environments.Stateless: StatelessEnvironmentCreator
 using CoEvo.Interactions.Basic: BasicInteraction
 using CoEvo.Jobs.Basic: BasicJobCreator
-using CoEvo.Reporters: Reporter, Basic.BasicReporter
+using CoEvo.Reporters: Reporter, Basic.BasicReporter, Runtime.RuntimeReporter
 using CoEvo.Metrics.Genotypes: GenotypeSum
 using CoEvo.Archivers.Basic: BasicArchiver
 using CoEvo.Ecosystems: evolve!, Basic.BasicEcosystemCreator
 using CoEvo.States.Basic: BasicCoevolutionaryStateCreator
 using CoEvo.Counters.Basic: BasicCounter
+using CoEvo.MatchMakers.AllvsAll: AllvsAllMatchMaker
 
 @testset "NumbersGameTest" begin
 
@@ -38,7 +39,7 @@ using CoEvo.Counters.Basic: BasicCounter
                 PhylogeneticSpeciesCreator(
                     id = species_id1,
                     n_population = n_pop,
-                    n_children = 0,
+                    n_children = n_pop,
                     genotype_creator = CoEvo.Genotypes.Vectors.BasicVectorGenotypeCreator(default_vector = default_vector),
                     phenotype_creator = DefaultPhenotypeCreator(),
                     individual_creator = BasicIndividualCreator(),
@@ -51,7 +52,7 @@ using CoEvo.Counters.Basic: BasicCounter
                 PhylogeneticSpeciesCreator(
                     id = species_id2,
                     n_population = n_pop,
-                    n_children = 0,
+                    n_children = n_pop,
                     genotype_creator = CoEvo.Genotypes.Vectors.BasicVectorGenotypeCreator(default_vector = default_vector),
                     individual_creator = BasicIndividualCreator(),
                     phenotype_creator = DefaultPhenotypeCreator(),
@@ -69,7 +70,7 @@ using CoEvo.Counters.Basic: BasicCounter
                         id = interaction_id,
                         environment_creator = StatelessEnvironmentCreator(NumbersGameDomain(:Sum)),
                         species_ids = [species_id1, species_id2],
-                        matchmaker = PhylogeneticMatchMaker(type = :plus),
+                        matchmaker = AllvsAllMatchMaker(),
                     ),
                 ],
             ),
@@ -77,12 +78,13 @@ using CoEvo.Counters.Basic: BasicCounter
             individual_id_counter = BasicCounter(0),
             gene_id_counter = BasicCounter(0),
             state_creator = BasicCoevolutionaryStateCreator(),
+            runtime_reporter = RuntimeReporter(),
             reporters = Reporter[
                 # BasicReporter(metric = AllSpeciesFitness()),
-                BasicReporter(metric = GenotypeSum()),
-                BasicReporter(metric = TreeStatisticsMetric(),
-                              save_interval = 1,
-                              print_interval = 1)
+                # BasicReporter(metric = GenotypeSum()),
+                # BasicReporter(metric = TreeStatisticsMetric(),
+                #               save_interval = 1,
+                #               print_interval = 1)
             ],
             archiver = BasicArchiver(archive_path = XDIR),
         )

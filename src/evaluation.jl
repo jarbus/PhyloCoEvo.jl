@@ -1,14 +1,14 @@
 export OutcomeScalarFitnessEvaluation, OutcomeScalarFitnessEvaluator
 
-using DataStructures: OrderedDict
+using DataStructures: SortedDict
 using CoEvo.Species: AbstractSpecies
 using CoEvo.Individuals: Individual
 using CoEvo.Evaluators: create_evaluation
-using CoEvo.Evaluators.ScalarFitness: ScalarFitnessEvaluator, ScalarFitnessEvaluation
+using CoEvo.Evaluators.ScalarFitness: ScalarFitnessEvaluator, ScalarFitnessEvaluation, ScalarFitnessRecord
 
 struct OutcomeScalarFitnessEvaluation <: CoEvo.Evaluators.Evaluation
     species_id::String
-    fitnesses::OrderedDict{Int, Float64}
+    records::Vector{ScalarFitnessRecord}
     outcomes::Dict{Int, Dict{Int, Float64}}
 end
 
@@ -19,8 +19,9 @@ end
 
 function CoEvo.Evaluators.create_evaluation(
     evaluator::OutcomeScalarFitnessEvaluator,
+    rng::AbstractRNG,
     species::AbstractSpecies,
-    outcomes::Dict{Int, Dict{Int, Float64}}
+    outcomes::Dict{Int, SortedDict{Int, Float64}}
 ) 
     """Wrapper around ScalarFitnessEvaluator to create OutcomeScalarFitnessEvaluation
     """
@@ -29,36 +30,31 @@ function CoEvo.Evaluators.create_evaluation(
         epsilon = evaluator.epsilon
     )
     scalar_fitness_evaluation = create_evaluation(
-        scalar_fitness_evaluator, species, outcomes
+        scalar_fitness_evaluator, rng, species, outcomes
     )
-    evaluation = OutcomeScalarFitnessEvaluation(species.id, scalar_fitness_evaluation.fitnesses, outcomes)
+    evaluation = OutcomeScalarFitnessEvaluation(species.id, scalar_fitness_evaluation.records, outcomes)
     return evaluation
 end
 
-function CoEvo.Selectors.select(
-    selector::CoEvo.Selectors.FitnessProportionate.FitnessProportionateSelector,
-    rng::AbstractRNG, 
-    new_pop::Dict{Int, <:Individual},
-    evaluation::OutcomeScalarFitnessEvaluation
-)
-    """Wrapper around FitnessProportionateSelector to select individuals given OutcomeScalarFitnessEvaluation
-    """
-    scalar_fitness_evaluation = ScalarFitnessEvaluation(
-        evaluation.species_id,
-        evaluation.fitnesses,
-        []
-    )
-    return select(selector, rng, new_pop, scalar_fitness_evaluation)
-end
-
-function CoEvo.Replacers.replace(
-    replacer::CoEvo.Replacers.GenerationalReplacer,
+function replace(
+    replacer::CoEvo.Replacers.Generational.GenerationalReplacer,
     rng::AbstractRNG, 
     species::AbstractSpecies,
     evaluation::OutcomeScalarFitnessEvaluation
 )
-    """Wrapper around GenerationalReplacer to replace individuals given OutcomeScalarFitnessEvaluation
-    """
-    scalar_fitness_evaluation = ScalarFitnessEvaluation(evaluation.species_id, evaluation.fitnesses, [])
-    return replace(replacer, rng, species, scalar_fitness_evaluation)
+    println("len evaluation.records: ", length(evaluation.records))
+    sf_evaluation = ScalarFitnessEvaluation(evaluation.species_id, evaluation.records)
+    new_population = CoEvo.Replacers.replace(replacer, rng, species, sf_evaluation)
+    return new_population
+end
+
+function select(
+    selector::CoEvo.Selectors.FitnessProportionate.FitnessProportionateSelector,
+    random_number_generator::AbstractRNG, 
+    new_population::Vector{<:Individual},
+    evaluation::OutcomeScalarFitnessEvaluation
+)
+    sf_evaluation = ScalarFitnessEvaluation(evaluation.species_id, evaluation.records)
+    selected_population = CoEvo.Selectors.select(selector, random_number_generator, new_population, sf_evaluation)
+    return selected_population
 end
