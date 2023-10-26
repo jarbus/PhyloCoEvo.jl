@@ -41,7 +41,7 @@ function filter_pairwise_distances(pairwise_distances::Dict{Tuple{Int, Int}, Int
 end
 
 function CoEvo.Metrics.measure(
-    ::CoEvo.Reporters.Basic.BasicReporter{TreeStatisticsMetric},
+    ::TreeStatisticsMetric,
     state::State
 )
     species_evaluations = state.evaluations
@@ -52,11 +52,10 @@ function CoEvo.Metrics.measure(
 
 
     dist_int_diffs = Dict{Int, Vector{Float64}}(i => Vector{Float64}() for i in 0:10)
-    species = collect(keys(species_evaluations))
     species1_pop = [ind.id for ind in state.species[1].population] |> Set
     species2_pop = [ind.id for ind in state.species[2].population] |> Set
-    species1_pd = filter_pairwise_distances(species[1].dist_data.pairwise_distances, species1_pop)
-    species2_pd = filter_pairwise_distances(species[2].dist_data.pairwise_distances, species2_pop)
+    species1_pd = filter_pairwise_distances(state.species[1].dist_data.pairwise_distances, species1_pop)
+    species2_pd = filter_pairwise_distances(state.species[2].dist_data.pairwise_distances, species2_pop)
     for ((ind_a1,ind_a2), dist_a) in species1_pd
         outcomes_a1 = state.evaluations[1].outcomes[ind_a1]
         outcomes_a2 = state.evaluations[1].outcomes[ind_a2]
@@ -88,12 +87,13 @@ function CoEvo.Metrics.measure(
         
         # Compute fitness differences for each distance
         dist_fit_diffs = Dict{Int, Vector{Float64}}()
-        for (id1, fit1) in evals.fitnesses
-            for (id2, fit2) in evals.fitnesses
+        for rec1 in evals.records
+            for rec2 in evals.records
+                id1, id2 = rec1.id, rec2.id
                 id1 == id2 && continue
                 (id1, id2) ∉ keys(pairwise_distances) && continue
                 distance = pairwise_distances[id1, id2]
-                estimation_error = abs(fit1 - fit2)
+                estimation_error = abs(rec1.fitness - rec2.fitness)
                 if !haskey(dist_fit_diffs, distance)
                     dist_fit_diffs[distance] = Vector{Float64}()
                 end
@@ -171,7 +171,7 @@ end
 
 function display_stats(stat_measure::BasicStatisticalMeasurement)
     display_stats(
-        stat_measure.n,
+        stat_measure.n_samples,
         stat_measure.minimum,
         stat_measure.mean,
         stat_measure.std,
@@ -181,7 +181,6 @@ end
 
 function CoEvo.Archivers.archive!(
     archiver::CoEvo.Archivers.Basic.BasicArchiver, 
-    gen::Int, 
     report::CoEvo.Reporters.Basic.BasicReport{TreeStatisticsMetric, GroupTreeStatisticsMeasurement}
 )
     if report.to_print
@@ -218,7 +217,7 @@ function CoEvo.Archivers.archive!(
         per_dist_int_err_stats = first(report.measurement.measurements).second.per_distance_interaction_error_stats.measurements
         jldopen(met_path, "a+") do file
             for (distance, stats) in per_dist_int_err_stats
-                save_statistical(file, "gen/$gen/$met_key/dist_int_errors/$distance", stats)
+                save_statistical(file, "gen/$(report.generation)/$met_key/dist_int_errors/$distance", stats)
             end
         end
     end

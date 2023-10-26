@@ -1,7 +1,7 @@
 module PhyloCoEvo
 export initialize_x
 export PhylogeneticSpeciesCreator, PhylogeneticSpecies, create_species,
-       EstimationPerformer, PhylogeneticMatchMaker, TreeStatisticsMetric,
+       EstimationPerformer, TreeStatisticsMetric,
        OutcomeScalarFitnessEvaluator, OutcomeScalarFitnessEvaluation,
        reset!
 include("./utils.jl")
