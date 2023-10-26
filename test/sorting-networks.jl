@@ -1,10 +1,12 @@
+using CoEvo.Counters.Basic: BasicCounter
+using CoEvo.Environments.Stateless: StatelessEnvironment
 @testset "SortingNetworks" begin
     # Test that everything runs
     sngc = SortingNetworkGenotypeCreator(1, 2)
     snpc = SortingNetworkPhenotypeCreator(2)
     # create sorting network genotypes and phenotypes
     rng = StableRNG(1)
-    gene_id_counter = Counter(0)
+    gene_id_counter = BasicCounter(0)
     n_pop = 1
     sngenotypes = create_genotypes(sngc, rng, gene_id_counter, n_pop)
     @test length(sngenotypes) == 1
@@ -181,7 +183,7 @@ end
 @testset "SortingNetworkTestCase" begin
     # create sorting network test case genotypes and phenotypes
     rng = StableRNG(1)
-    gene_id_counter = Counter(0)
+    gene_id_counter = BasicCounter(0)
     n_pop = 1
     sntcgc = SortingNetworkTestCaseGenotypeCreator(16)
     sntcpc = SortingNetworkTestCasePhenotypeCreator(16)

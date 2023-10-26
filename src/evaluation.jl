@@ -3,16 +3,16 @@ export OutcomeScalarFitnessEvaluation, OutcomeScalarFitnessEvaluator
 using DataStructures: OrderedDict
 using CoEvo.Species: AbstractSpecies
 using CoEvo.Individuals: Individual
-using CoEvo.Evaluators: Evaluation, Evaluator, create_evaluation
+using CoEvo.Evaluators: create_evaluation
 using CoEvo.Evaluators.ScalarFitness: ScalarFitnessEvaluator, ScalarFitnessEvaluation
 
-struct OutcomeScalarFitnessEvaluation <: Evaluation
+struct OutcomeScalarFitnessEvaluation <: CoEvo.Evaluators.Evaluation
     species_id::String
     fitnesses::OrderedDict{Int, Float64}
     outcomes::Dict{Int, Dict{Int, Float64}}
 end
 
-Base.@kwdef struct OutcomeScalarFitnessEvaluator <: Evaluator 
+Base.@kwdef struct OutcomeScalarFitnessEvaluator <: CoEvo.Evaluators.Evaluator 
     maximize::Bool = true
     epsilon::Float64 = 1e-6
 end
