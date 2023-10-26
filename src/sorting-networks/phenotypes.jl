@@ -1,7 +1,6 @@
 export create_phenotype, act!, SortingNetworkPhenotypeCreator, SortingNetworkPhenotype, SortingNetworkTestCasePhenotype, SortingNetworkTestCasePhenotypeCreator, create_phenotype
 
-using CoEvo.Ecosystems.Species.Phenotypes.Abstract: Phenotype, PhenotypeCreator
-using CoEvo.Ecosystems.Species.Phenotypes.Interfaces: act!, reset!
+using CoEvo.Phenotypes: Phenotype, PhenotypeCreator, act!, reset!
 
 struct SortingNetworkPhenotypeCreator <: PhenotypeCreator
     n::Int64
@@ -35,7 +34,7 @@ function netsort(snp::SortingNetworkPhenotype, numbers::NTuple{N, Int64}) where 
     return arr
 end
 
-function CoEvo.create_phenotype(phenotype_creator::SortingNetworkPhenotypeCreator, geno::SortingNetworkGenotype)
+function CoEvo.Phenotypes.create_phenotype(phenotype_creator::SortingNetworkPhenotypeCreator, geno::SortingNetworkGenotype)
     @assert phenotype_creator.n ∈ [2, 4, 8, 16]
     first_mask = UInt16(phenotype_creator.n - 1)  << 4
     second_mask = UInt16(phenotype_creator.n - 1)
@@ -52,6 +51,6 @@ function CoEvo.create_phenotype(phenotype_creator::SortingNetworkPhenotypeCreato
     SortingNetworkPhenotype(network[1:num_active,:], phenotype_creator.n)
 end
 
-function CoEvo.create_phenotype(phenotype_creator::SortingNetworkTestCasePhenotypeCreator, geno::SortingNetworkTestCaseGenotype)
+function CoEvo.Phenotypes.create_phenotype(phenotype_creator::SortingNetworkTestCasePhenotypeCreator, geno::SortingNetworkTestCaseGenotype)
     SortingNetworkTestCasePhenotype(geno.inputs)
 end

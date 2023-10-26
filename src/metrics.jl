@@ -1,8 +1,11 @@
-using CoEvo.Measurements: BasicStatisticalMeasurement, GroupStatisticalMeasurement
+using CoEvo.Measurements: Measurement
+using CoEvo.Measurements.Statistical: BasicStatisticalMeasurement, GroupStatisticalMeasurement
+using CoEvo.States: State
+using CoEvo.Metrics: Metric
 using JLD2
 using PhylogeneticTrees
 
-Base.@kwdef struct TreeStatisticsMetric <: SpeciesMetric
+Base.@kwdef struct TreeStatisticsMetric <: Metric
     name::String="TreeStatistics"
     path::String="data/archive.jld2"
     key::String="tree_stats" # per-generation key
@@ -25,7 +28,7 @@ Base.@kwdef struct GroupTreeStatisticsMeasurement <: Measurement
     measurements::Dict{String, TreeStatisticsMeasurement}
 end
 
-function CoEvo.Ecosystems.Reporters.Types.Basic.Methods.get_size(genotype::BasicVectorGenotype)
+function CoEvo.Genotypes.get_size(genotype::CoEvo.Genotypes.Vectors.BasicVectorGenotype)
     return length(genotype.genes)
 end
 
@@ -37,12 +40,12 @@ function filter_pairwise_distances(pairwise_distances::Dict{Tuple{Int, Int}, Int
     return filtered_pairwise_distances
 end
 
-function CoEvo.measure(
-    ::Reporter{TreeStatisticsMetric},
-    species_evaluations::Dict{<:AbstractSpecies, <:OutcomeScalarFitnessEvaluation},
-    ::Vector{<:Observation}
+function CoEvo.Metrics.measure(
+    ::CoEvo.Reporters.Basic.BasicReporter{TreeStatisticsMetric},
+    state::State
 )
-    
+    species_evaluations = state.evaluations
+    # TODO rewrite this code to only sample a subset of the pairwise distances 
     species_measurements = Dict{String, TreeStatisticsMeasurement}()
 
     @assert length(species_evaluations) == 2 "TreeStatisticsMetric only works for two species"
@@ -50,13 +53,13 @@ function CoEvo.measure(
 
     dist_int_diffs = Dict{Int, Vector{Float64}}(i => Vector{Float64}() for i in 0:10)
     species = collect(keys(species_evaluations))
-    species1_pop = species_evaluations[species[1]].fitnesses |> keys |> collect |> Set
-    species2_pop = species_evaluations[species[2]].fitnesses |> keys |> collect |> Set
+    species1_pop = [ind.id for ind in state.species[1].population] |> Set
+    species2_pop = [ind.id for ind in state.species[2].population] |> Set
     species1_pd = filter_pairwise_distances(species[1].dist_data.pairwise_distances, species1_pop)
     species2_pd = filter_pairwise_distances(species[2].dist_data.pairwise_distances, species2_pop)
     for ((ind_a1,ind_a2), dist_a) in species1_pd
-        outcomes_a1 = species_evaluations[species[1]].outcomes[ind_a1]
-        outcomes_a2 = species_evaluations[species[1]].outcomes[ind_a2]
+        outcomes_a1 = state.evaluations[1].outcomes[ind_a1]
+        outcomes_a2 = state.evaluations[1].outcomes[ind_a2]
         for ((ind_b1,ind_b2), dist_b) in species2_pd
             dist = dist_a + dist_b
             outcome_1 = outcomes_a1[ind_b1]
@@ -77,7 +80,7 @@ function CoEvo.measure(
         end
     end
     
-    for (species, evals) in species_evaluations
+    for (species, evals) in zip(state.species, state.evaluations)
         mrca, pairwise_distances, mrca_distances = 
             species.dist_data.mrca,
             species.dist_data.pairwise_distances,
@@ -176,10 +179,10 @@ function display_stats(stat_measure::BasicStatisticalMeasurement)
     )
 end
 
-function CoEvo.archive!(
-    archiver::BasicArchiver, 
+function CoEvo.Archivers.archive!(
+    archiver::CoEvo.Archivers.Basic.BasicArchiver, 
     gen::Int, 
-    report::BasicReport{TreeStatisticsMetric, GroupTreeStatisticsMeasurement}
+    report::CoEvo.Reporters.Basic.BasicReport{TreeStatisticsMetric, GroupTreeStatisticsMeasurement}
 )
     if report.to_print
         for (species_id, measurement) in report.measurement.measurements
@@ -210,7 +213,7 @@ function CoEvo.archive!(
     end
     if report.to_save
         # Log stats to jld2
-        met_path = joinpath(archiver.jld2_path, report.metric.path)
+        met_path = joinpath(archiver.archive_path, report.metric.path)
         met_key = report.metric.key
         per_dist_int_err_stats = first(report.measurement.measurements).second.per_distance_interaction_error_stats.measurements
         jldopen(met_path, "a+") do file
