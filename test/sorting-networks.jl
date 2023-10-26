@@ -1,5 +1,8 @@
 using CoEvo.Counters.Basic: BasicCounter
 using CoEvo.Environments.Stateless: StatelessEnvironment
+using PhyloCoEvo.Genotypes: create_genotypes
+using PhyloCoEvo.Phenotypes: create_phenotype
+using PhyloCoEvo: SortingNetworkDomain
 @testset "SortingNetworks" begin
     # Test that everything runs
     sngc = SortingNetworkGenotypeCreator(1, 2)
@@ -246,7 +249,7 @@ end
     snp = SortingNetworkPhenotype([1 3; 2 4; 1 2; 3 4; 2 3;], 4)
     sntc = SortingNetworkTestCasePhenotype((4,3,2,1))
     env = StatelessEnvironment(domain, [snp, sntc])
-    outcome = get_outcome_set(env)
+    outcome = PhyloCoEvo.Environments.get_outcome_set(env)
     @test outcome == [4.0, 0.0]
 
     # Test that a network with no comparators results in 
@@ -254,7 +257,7 @@ end
     snp = SortingNetworkPhenotype(zeros(Int,0,2), 4)
     sntc = SortingNetworkTestCasePhenotype((4,3,2,1))
     env = StatelessEnvironment(domain, [snp, sntc])
-    outcome = get_outcome_set(env)
+    outcome = PhyloCoEvo.Environments.get_outcome_set(env)
     @test outcome == [0.0, 4.0]
 
 
@@ -264,6 +267,6 @@ end
     snp = SortingNetworkPhenotype([1 4; ], 4)
     sntc = SortingNetworkTestCasePhenotype((4,3,2,1))
     env = StatelessEnvironment(domain, [snp, sntc])
-    outcome = get_outcome_set(env)
+    outcome = PhyloCoEvo.Environments.get_outcome_set(env)
     @test outcome == [2.0, 2.0]
 end

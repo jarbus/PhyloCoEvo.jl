@@ -16,7 +16,7 @@ end
 
 function percent_sorted(genotype::SortingNetworkGenotype)
     snpc = SortingNetworkPhenotypeCreator(genotype.n_inputs)
-    snp = create_phenotype(snpc, genotype)
+    snp = PhyloCoEvo.Phenotypes.create_phenotype(snpc, genotype)
     n_sorted = 0
     n = 2^genotype.n_inputs
     for i in 1:n

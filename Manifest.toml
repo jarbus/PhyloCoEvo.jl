@@ -187,7 +187,9 @@ version = "0.15.5"
 
 [[deps.CoEvo]]
 deps = ["CSV", "Colors", "DataFrames", "DataStructures", "Distributed", "HypothesisTests", "JLD2", "LinearAlgebra", "MLDatasets", "Plots", "ProfileView", "ProgressBars", "PyCall", "Random", "Revise", "Serialization", "StableRNGs", "StaticArrays", "StatsBase", "Test"]
-path = "/home/jack/.julia/dev/CoEvo"
+git-tree-sha1 = "ce39e02710eb2e8a26e37c0030a63a1c7e0e42f4"
+repo-rev = "gp_refactor"
+repo-url = "https://github.com/jarbus/coevo"
 uuid = "842a0346-8272-4eaf-bb06-52321997162a"
 version = "0.0.0"
 

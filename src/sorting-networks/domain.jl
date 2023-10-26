@@ -15,11 +15,11 @@ function CoEvo.Environments.get_outcome_set(
 
     if environment.phenotypes[1] isa SortingNetworkPhenotype
         result = netsort(environment.phenotypes[1], environment.phenotypes[2])
-        outcome_set = get_outcome_set(environment.domain.outcome_metric, result)
+        outcome_set = CoEvo.Environments.get_outcome_set(environment.domain.outcome_metric, result)
         return outcome_set
     elseif environment.phenotypes[2] isa SortingNetworkPhenotype
         result = netsort(environment.phenotypes[2], environment.phenotypes[1])
-        outcome_set = get_outcome_set(environment.domain.outcome_metric, result)
+        outcome_set = CoEvo.Environments.get_outcome_set(environment.domain.outcome_metric, result)
         return outcome_set[2:-1:1]
     else
         error("Neither phenotype is a sorting network phenotype")
