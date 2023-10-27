@@ -4,7 +4,7 @@ using CoEvo
 using PhylogeneticTrees
 
 
-using CoEvo.Individuals: Basic.BasicIndividual, Individual, create_individuals
+using CoEvo.Names
 using CoEvo.Species: AbstractSpecies
 using CoEvo.SpeciesCreators: SpeciesCreator
 # using CoEvo.Genotypes: GenotypeCreator

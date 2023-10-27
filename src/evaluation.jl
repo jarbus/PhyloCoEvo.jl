@@ -3,7 +3,7 @@ export OutcomeScalarFitnessEvaluation, OutcomeScalarFitnessEvaluator
 using DataStructures: SortedDict
 using CoEvo.Species: AbstractSpecies
 using CoEvo.Individuals: Individual
-using CoEvo.Evaluators: create_evaluation
+using CoEvo.Evaluators: evaluate
 using CoEvo.Evaluators.ScalarFitness: ScalarFitnessEvaluator, ScalarFitnessEvaluation, ScalarFitnessRecord
 
 struct OutcomeScalarFitnessEvaluation <: CoEvo.Evaluators.Evaluation
@@ -17,7 +17,7 @@ Base.@kwdef struct OutcomeScalarFitnessEvaluator <: CoEvo.Evaluators.Evaluator
     epsilon::Float64 = 1e-6
 end
 
-function CoEvo.Evaluators.create_evaluation(
+function CoEvo.Evaluators.evaluate(
     evaluator::OutcomeScalarFitnessEvaluator,
     rng::AbstractRNG,
     species::AbstractSpecies,
@@ -29,7 +29,7 @@ function CoEvo.Evaluators.create_evaluation(
         maximize = evaluator.maximize,
         epsilon = evaluator.epsilon
     )
-    scalar_fitness_evaluation = create_evaluation(
+    scalar_fitness_evaluation = evaluate(
         scalar_fitness_evaluator, rng, species, outcomes
     )
     evaluation = OutcomeScalarFitnessEvaluation(species.id, scalar_fitness_evaluation.records, outcomes)
