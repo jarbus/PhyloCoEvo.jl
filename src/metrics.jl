@@ -18,7 +18,6 @@ end
 Base.@kwdef struct TreeStatisticsMeasurement <: Measurement
     n_nodes::Int
     per_distance_fitness_error_stats::IntGroupStatisticalMeasurement
-    per_distance_interaction_errors::Dict{Int, Vector{Float64}}
     per_distance_interaction_error_stats::IntGroupStatisticalMeasurement
     total_distance_statistics::BasicStatisticalMeasurement
     distance_to_mrca::BasicStatisticalMeasurement
@@ -32,10 +31,15 @@ function CoEvo.Genotypes.get_size(genotype::CoEvo.Genotypes.Vectors.BasicVectorG
     return length(genotype.genes)
 end
 
-function filter_pairwise_distances(pairwise_distances::Dict{Tuple{Int, Int}, Int}, ids::Set{Int})
+function filter_pairwise_distances(pairwise_distances::Dict{Tuple{Int, Int}, Int})
     filtered_pairwise_distances = Dict{Tuple{Int, Int}, Int}()
+    num_dists = zeros(Int, 11)
     for ((id1, id2), dist) in pairwise_distances
-        (id1 <= id2) && dist <= 5 && id1 ∈ ids && id2 ∈ ids && (filtered_pairwise_distances[(id1, id2)] = pairwise_distances[(id1, id2)])
+        id1  > id2                 && continue
+        dist > 5                   && continue
+        num_dists[dist + 1] > 999  && continue
+        num_dists[dist + 1] += 1
+        filtered_pairwise_distances[(id1, id2)] = pairwise_distances[(id1, id2)]
     end
     return filtered_pairwise_distances
 end
@@ -44,19 +48,16 @@ function CoEvo.Metrics.measure(
     ::TreeStatisticsMetric,
     state::State
 )
-    species_evaluations = state.evaluations
-    # TODO rewrite this code to only sample a subset of the pairwise distances 
     species_measurements = Dict{String, TreeStatisticsMeasurement}()
 
-    @assert length(species_evaluations) == 2 "TreeStatisticsMetric only works for two species"
+    @assert length(state.species) == 2 "TreeStatisticsMetric only works for two species"
 
 
-    dist_int_diffs = Dict{Int, Vector{Float64}}(i => Vector{Float64}() for i in 0:10)
-    species1_pop = [ind.id for ind in state.species[1].population] |> Set
-    species2_pop = [ind.id for ind in state.species[2].population] |> Set
-    species1_pd = filter_pairwise_distances(state.species[1].dist_data.pairwise_distances, species1_pop)
-    species2_pd = filter_pairwise_distances(state.species[2].dist_data.pairwise_distances, species2_pop)
+    dist_int_diffs = [Float64[] for _ in 0:10]
+    species1_pd = filter_pairwise_distances(state.species[1].dist_data.pairwise_distances)
+    species2_pd = filter_pairwise_distances(state.species[2].dist_data.pairwise_distances)
     for ((ind_a1,ind_a2), dist_a) in species1_pd
+        all([l > 999 || l == 0 for l in length.(dist_int_diffs)]) && break
         outcomes_a1 = state.evaluations[1].outcomes[ind_a1]
         outcomes_a2 = state.evaluations[1].outcomes[ind_a2]
         for ((ind_b1,ind_b2), dist_b) in species2_pd
@@ -64,18 +65,12 @@ function CoEvo.Metrics.measure(
             outcome_1 = outcomes_a1[ind_b1]
             outcome_2 = outcomes_a2[ind_b2]
             estimation_error = abs(outcome_1 - outcome_2)
-            push!(dist_int_diffs[dist], estimation_error)
+            push!(dist_int_diffs[dist+1], estimation_error)
 
             outcome_3 = outcomes_a1[ind_b2]
             outcome_4 = outcomes_a2[ind_b1]
             estimation_error = abs(outcome_3 - outcome_4)
-            push!(dist_int_diffs[dist], estimation_error)
-        end
-    end
-    # remove all empty distances
-    for (dist, errors) in dist_int_diffs
-        if length(errors) == 0
-            delete!(dist_int_diffs, dist)
+            push!(dist_int_diffs[dist+1], estimation_error)
         end
     end
     
@@ -85,18 +80,17 @@ function CoEvo.Metrics.measure(
             species.dist_data.pairwise_distances,
             species.dist_data.mrca_distances
         
-        # Compute fitness differences for each distance
-        dist_fit_diffs = Dict{Int, Vector{Float64}}()
+        # Sample fitness differences for each distance
+        dist_fit_diffs = [Float64[] for _ in 1:10]
         for rec1 in evals.records
+            all([l > 999 || l == 0 for l in length.(dist_fit_diffs)]) && break
             for rec2 in evals.records
                 id1, id2 = rec1.id, rec2.id
-                id1 == id2 && continue
+                id2 <= id1 && continue
                 (id1, id2) ∉ keys(pairwise_distances) && continue
                 distance = pairwise_distances[id1, id2]
+                length(dist_fit_diffs[distance]) > 999 && continue
                 estimation_error = abs(rec1.fitness - rec2.fitness)
-                if !haskey(dist_fit_diffs, distance)
-                    dist_fit_diffs[distance] = Vector{Float64}()
-                end
                 push!(dist_fit_diffs[distance], estimation_error)
             end
         end
@@ -129,12 +123,15 @@ function CoEvo.Metrics.measure(
         # Collect distributional data for TreeStatisticsMeasurement
         n_nodes = length(species.tree.tree)
         per_distance_fitness_error_stats = Dict{Int, BasicStatisticalMeasurement}()
-        for (distance, errors) in dist_fit_diffs
+        for (distance, errors) in enumerate(dist_fit_diffs)
+            length(errors) == 0 && continue
             per_distance_fitness_error_stats[distance] = BasicStatisticalMeasurement(errors)
         end
+        # we include 0 interaction distance
         per_distance_interaction_error_stats = Dict{Int, BasicStatisticalMeasurement}()
-        for (distance, errors) in dist_int_diffs
-            per_distance_interaction_error_stats[distance] = BasicStatisticalMeasurement(errors)
+        for (distance_plus_one, errors) in enumerate(dist_int_diffs)
+            length(errors) == 0 && continue
+            per_distance_interaction_error_stats[distance_plus_one-1] = BasicStatisticalMeasurement(errors)
         end
         total_distance_statistics = collect(values(pairwise_distances))
         mrca_distances = collect(values(mrca_distances))
@@ -145,7 +142,6 @@ function CoEvo.Metrics.measure(
             per_distance_fitness_error_stats=IntGroupStatisticalMeasurement(
                 per_distance_fitness_error_stats
             ),
-            per_distance_interaction_errors=dist_int_diffs,
             per_distance_interaction_error_stats=IntGroupStatisticalMeasurement(
                 per_distance_interaction_error_stats
             ),
