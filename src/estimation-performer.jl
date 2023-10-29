@@ -15,8 +15,9 @@ Base.@kwdef struct EstimationPerformer <: Performer
 end
 
 function CoEvo.Performers.perform(::EstimationPerformer, job::BasicJob)
-    results = Result[]
-    for match in job.matches
+    results = Vector{Result}(undef, length(job.matches))
+    @simd for i in eachindex(job.matches)
+        match = job.matches[i]
         interaction = job.interactions[match.interaction_id]
         phenotypes = Phenotype[
             job.phenotypes[individual_id] for individual_id in match.individual_ids
@@ -26,7 +27,7 @@ function CoEvo.Performers.perform(::EstimationPerformer, job::BasicJob)
             match.individual_ids,
             phenotypes
         )
-        push!(results, result)
+        results[i] = result
     end
     return results
 end
@@ -38,6 +39,7 @@ function CoEvo.Performers.perform(performer::EstimationPerformer, jobs::Vector{<
         futures = [remotecall(perform, i, performer, job) for (i, job) in enumerate(jobs)]
         results = [fetch(f) for f in futures]
     end
-    results::Vector{Result} = vcat(results...)
+    results = Vector{Result}(vcat(results...))
+    
     return results
 end
