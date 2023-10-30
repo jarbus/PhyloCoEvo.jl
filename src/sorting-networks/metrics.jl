@@ -53,7 +53,7 @@ function CoEvo.Metrics.measure(
             end
 
             best_score = percent_sorted(best_genotype)
-            best_comparators = num_active(best_genotype)
+            best_comparators = length(best_genotype.codons)
             best_n_inputs = best_genotype.n_inputs
         elseif genotype isa SortingNetworkTestCaseGenotype
             tc_fitnesses = [r.fitness for r in evaluation.records]

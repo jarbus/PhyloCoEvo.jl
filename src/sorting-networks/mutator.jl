@@ -5,8 +5,10 @@ using CoEvo
 
 
 Base.@kwdef struct SortingNetworkMutator <: Mutator 
-    activation_prob::Float64 = 0.1
-    bit_flip_prob::Float64 = 0.01
+    min_codons::Int = 60
+    max_codons::Int = 80
+    num_swaps_per_mut::Int = 1
+    num_insert_delete_move_per_mut::Int = 1
 end
 
 Base.@kwdef struct SortingNetworkTestCaseMutator <: Mutator 
@@ -14,26 +16,45 @@ Base.@kwdef struct SortingNetworkTestCaseMutator <: Mutator
 end
 
 function CoEvo.Mutators.mutate(
-    ::SortingNetworkMutator, 
+    mutator::SortingNetworkMutator, 
     rng::AbstractRNG, 
     gene_id_counter::Counter,
     geno::SortingNetworkGenotype
 )
-    # Perform one activation flip
-    new_codons = [codon for codon in geno.codons]
-    index = rand(rng, 1:length(new_codons))
-    activation_id = new_codons[index].id
-    activation_data = new_codons[index].data ⊻ (1 << rand(rng, 7:15))
-    new_codons[index] = SortingNetworkCodon(activation_id, activation_data)
-    # Perform one bit flip
-    active_codons = is_active.(new_codons)
-    if any(active_codons)
-        index = rand(rng, findall(active_codons))
-        bitflip_data = new_codons[index].data ⊻ (1 << rand(rng, 0:7))
-        bitflip_id = count!(gene_id_counter)
-        new_codons[index] = SortingNetworkCodon(bitflip_id, bitflip_data)
+    new_codons = [c for c in geno.codons]
+    # insert/delete
+    for _ in 1:mutator.num_insert_delete_move_per_mut
+        choice = rand(rng, 1:3)
+        if choice == 1
+            # insert
+            length(new_codons) > mutator.max_codons && continue
+            new_codon = random_codon(rng, gene_id_counter, geno.n_inputs)
+            random_insert!(new_codons, new_codon)
+        elseif choice == 2
+            # delete
+            length(new_codons) <= mutator.min_codons && continue
+            index = rand(rng, 1:length(new_codons))
+            deleteat!(new_codons, index)
+        elseif choice == 3
+            # move
+            index = rand(rng, 1:length(new_codons))
+            new_index = rand(rng, 1:length(new_codons))
+            new_codons[index], new_codons[new_index] = new_codons[new_index], new_codons[index]
+        end
     end
-    return SortingNetworkGenotype(Tuple(new_codons), geno.n_inputs)
+    # rewire 
+    for _ in 1:mutator.num_swaps_per_mut
+        index = rand(rng, 1:length(new_codons))
+        new_id = count!(gene_id_counter)
+        new_one, new_two = two_random_inputs(rng, geno.n_inputs)
+        new_codons[index] = SortingNetworkCodon(new_id, new_one, new_two)
+    end
+    SortingNetworkGenotype(new_codons, geno.n_inputs)
+end
+
+function random_insert!(codons::Vector{SortingNetworkCodon}, codon::SortingNetworkCodon)
+    index = rand(1:length(codons))
+    insert!(codons, index, codon)
 end
 
 function CoEvo.Mutators.mutate(

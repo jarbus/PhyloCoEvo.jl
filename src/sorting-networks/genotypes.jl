@@ -7,11 +7,12 @@ using CoEvo.Genotypes: Genotype
 
 struct SortingNetworkCodon <: Gene
     id::Int
-    data::UInt16
+    one::Int
+    two::Int
 end
 
-struct SortingNetworkGenotype{N} <: Genotype
-    codons::NTuple{N, SortingNetworkCodon}
+struct SortingNetworkGenotype <: Genotype
+    codons::Vector{SortingNetworkCodon}
     n_inputs::Int # number of inputs
 end
 
@@ -29,11 +30,24 @@ struct SortingNetworkTestCaseGenotypeCreator <: CoEvo.Genotypes.GenotypeCreator
     n_inputs::Int
 end
 
-function is_active(codon::SortingNetworkCodon)
-    count_ones(codon.data & 0b1111111100000000) > 3
+function two_random_inputs(rng::AbstractRNG, n_inputs::Int)
+    input_1 = rand(rng, 1:n_inputs)
+    input_2 = input_1
+    while true
+        input_2 = rand(rng, 1:n_inputs)
+        if input_1 != input_2
+            break
+        end
+    end
+    return input_1, input_2
 end
-function num_active(geno::SortingNetworkGenotype)
-    sum(is_active.(geno.codons))
+
+function random_codon(rng::AbstractRNG,
+                      gene_id_counter::Counter,
+                      n_inputs::Int)
+    id = count!(gene_id_counter)
+    input_1, input_2 = two_random_inputs(rng, n_inputs)
+    return SortingNetworkCodon(id, input_1, input_2)
 end
 
 function CoEvo.Genotypes.create_genotypes(
@@ -43,10 +57,11 @@ function CoEvo.Genotypes.create_genotypes(
     n_pop::Int
 )
     # TODO: initialize networks with the first half of the codons of successful networks per hillis
+    
     genotypes = [
         SortingNetworkGenotype(
-            [ SortingNetworkCodon(count!(gene_id_counter), rand(rng, UInt16))
-                for i in 1:genotype_creator.n_codons] |> Tuple,
+            [random_codon(rng, gene_id_counter, genotype_creator.n_inputs)
+                for i in 1:genotype_creator.n_codons],
             genotype_creator.n_inputs
         ) for i in 1:n_pop
     ]
