@@ -1,6 +1,6 @@
 # This file is machine-generated - editing it directly is not advised
 
-julia_version = "1.9.2"
+julia_version = "1.9.3"
 manifest_format = "2.0"
 project_hash = "72638009cfc5cd88c5e73efb97aff32669b00ce0"
 
@@ -187,8 +187,8 @@ version = "0.15.5"
 
 [[deps.CoEvo]]
 deps = ["CSV", "Colors", "DataFrames", "DataStructures", "Distributed", "HypothesisTests", "JLD2", "LinearAlgebra", "MLDatasets", "Plots", "ProfileView", "ProgressBars", "PyCall", "Random", "Revise", "Serialization", "StableRNGs", "StaticArrays", "StatsBase", "Test"]
-git-tree-sha1 = "ce39e02710eb2e8a26e37c0030a63a1c7e0e42f4"
-repo-rev = "gp_refactor"
+git-tree-sha1 = "8894ed6a14d79b654c0b2db3217efdb4ed4ab721"
+repo-rev = "main"
 repo-url = "https://github.com/jarbus/coevo"
 uuid = "842a0346-8272-4eaf-bb06-52321997162a"
 version = "0.0.0"
