@@ -1223,11 +1223,11 @@ version = "1.1.4"
 
 [[deps.PhylogeneticTrees]]
 deps = ["DataStructures"]
-git-tree-sha1 = "da17670b0be4b27b8f2f84b6635134eab41a4761"
+git-tree-sha1 = "74d2156bb38943ffee66b64c66acf19b260d2cdb"
 repo-rev = "master"
-repo-url = "https://github.com/jarbus/PhylogeneticTrees.jl.git"
+repo-url = "https://github.com/jarbus/PhylogeneticTrees.jl"
 uuid = "6d56a5a2-9523-4ac5-b898-386f43f22c4e"
-version = "1.0.0-DEV"
+version = "1.0.1-DEV"
 
 [[deps.Pickle]]
 deps = ["BFloat16s", "DataStructures", "InternedStrings", "Serialization", "SparseArrays", "Strided", "StringEncodings", "ZipFile"]
