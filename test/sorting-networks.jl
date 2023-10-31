@@ -46,9 +46,31 @@ using PhyloCoEvo: SortingNetworkDomain
         @test phenotype.network == [16 8; 4 2]
 
         # Create genotypes 80 codons 16 inputs
+        # Test that swaps are seeded
+        n_pop16 = 10
         sngc = SortingNetworkGenotypeCreator(80, 16)
         sngenotypes = create_genotypes(sngc, rng, gene_id_counter, n_pop)
         @test length(sngenotypes[1].codons) == 80
+        snpc16 = SortingNetworkPhenotypeCreator(16)
+        swaps = [ 
+            # Column 1: swap adjacent
+            1  2; 3  4; 5  6; 7  8; 9 10; 11 12; 13 14; 15 16;
+            # Columns 2, 3: swap 1 apart
+            1 3; 5 7; 9 11; 13 15;
+            2 4; 6 8; 10 12; 14 16;
+            # Columns 4-7: Swap 3 apart
+            1 5; 9 13;
+            2 6; 10 14;
+            3 7; 11 15;
+            4 8; 12 16;
+            # Columns 8-15: Swap 7 apart
+            1 9; 2 10; 3 11; 4 12; 5 13; 6 14; 7 15; 8 16;
+        ]
+        n_seed_swaps = size(swaps, 1)
+        for sng in sngenotypes
+            snphenotype = create_phenotype(snpc16, sng)
+            @test snphenotype.network[1:n_seed_swaps, :] == swaps
+        end
     end
     
     @testset "Phenotype" begin
