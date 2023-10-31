@@ -54,7 +54,7 @@ using CoEvo.MatchMakers.AllvsAll: AllvsAllMatchMaker
                     id = species_id2,
                     n_population = n_pop,
                     n_children = n_pop,
-                    genotype_creator = SortingNetworkTestCaseGenotypeCreator(4),
+                    genotype_creator = SortingNetworkTestCaseGenotypeCreator(20, 4),
                     phenotype_creator = SortingNetworkTestCasePhenotypeCreator(4),
                     individual_creator = BasicIndividualCreator(),
                     evaluator = OutcomeScalarFitnessEvaluator(),
