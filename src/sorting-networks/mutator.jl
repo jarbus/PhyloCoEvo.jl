@@ -27,7 +27,7 @@ function CoEvo.Mutators.mutate(
         choice = rand(rng, 1:3)
         if choice == 1
             # insert
-            length(new_codons) > mutator.max_codons && continue
+            length(new_codons) >= mutator.max_codons && continue
             new_codon = random_codon(rng, gene_id_counter, geno.n_inputs)
             random_insert!(new_codons, new_codon)
         elseif choice == 2
