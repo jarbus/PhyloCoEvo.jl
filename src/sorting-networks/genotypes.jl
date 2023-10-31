@@ -21,12 +21,13 @@ struct SortingNetworkGenotypeCreator <: CoEvo.Genotypes.GenotypeCreator
     n_inputs::Int
 end
 
-struct SortingNetworkTestCaseGenotype{N} <: Genotype
+struct SortingNetworkTestCaseGenotype <: Genotype
     id::Int
-    inputs::NTuple{N, Int64}
+    tests::Vector{Vector{Int64}}
 end
 
 struct SortingNetworkTestCaseGenotypeCreator <: CoEvo.Genotypes.GenotypeCreator
+    n_tests::Int
     n_inputs::Int
 end
 
@@ -89,7 +90,8 @@ function CoEvo.Genotypes.create_genotypes(
     genotypes = [
         SortingNetworkTestCaseGenotype(
             count!(gene_id_counter),
-            swap(rng, genotype_creator.n_inputs, 2) |> Tuple
+            [ swap(rng, genotype_creator.n_inputs, 2)
+             for i in 1:genotype_creator.n_tests ]
         ) for _ in 1:n_pop ]
 
     return genotypes

@@ -12,7 +12,7 @@ Base.@kwdef struct SortingNetworkMutator <: Mutator
 end
 
 Base.@kwdef struct SortingNetworkTestCaseMutator <: Mutator 
-    swap_prob::Float64 = 0.1
+    num_swaps_per_mut::Int = 1
 end
 
 function CoEvo.Mutators.mutate(
@@ -59,15 +59,19 @@ function random_insert!(codons::Vector{SortingNetworkCodon}, codon::SortingNetwo
 end
 
 function CoEvo.Mutators.mutate(
-    ::SortingNetworkTestCaseMutator, 
+    mut::SortingNetworkTestCaseMutator, 
     rng::AbstractRNG, 
     ::Counter,
     geno::SortingNetworkTestCaseGenotype
 )
     # swap two inputs
-    new_inputs = [i for i in geno.inputs]
-    index = rand(rng, 1:length(new_inputs))
-    swap_index = rand(rng, setdiff(1:length(new_inputs), index))
-    new_inputs[index], new_inputs[swap_index] = new_inputs[swap_index], new_inputs[index]
-    return SortingNetworkTestCaseGenotype(geno.id, Tuple(new_inputs))
+    new_tests = [[i for i in t] for t in geno.tests]
+    for _ in 1:mut.num_swaps_per_mut 
+        test_index = rand(rng, 1:length(new_tests))
+        swap_index1 = rand(rng, 1:length(new_tests[test_index]))
+        swap_index2 = rand(rng, setdiff(1:length(new_tests[test_index]), swap_index1))
+        new_tests[test_index][swap_index2], new_tests[test_index][swap_index1] = 
+            new_tests[test_index][swap_index1], new_tests[test_index][swap_index2]
+    end
+    return SortingNetworkTestCaseGenotype(geno.id, new_tests)
 end

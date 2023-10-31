@@ -11,8 +11,8 @@ struct SortingNetworkPhenotype <: Phenotype
     n::Int64
 end
 
-struct SortingNetworkTestCasePhenotype{N} <: Phenotype
-    n::NTuple{N, Int64}
+struct SortingNetworkTestCasePhenotype <: Phenotype
+    n::Vector{Vector{Int64}}
 end
 struct SortingNetworkTestCasePhenotypeCreator <: PhenotypeCreator
     n::Int64
@@ -26,7 +26,8 @@ function compare!(a::Int64, b::Int64, v::Array{Int64, 1})
 end
 
 netsort(snp::SortingNetworkPhenotype, sntc::SortingNetworkTestCasePhenotype) = netsort(snp, sntc.n)
-function netsort(snp::SortingNetworkPhenotype, numbers::NTuple{N, Int64}) where {N}
+netsort(snp::SortingNetworkPhenotype, numbers::Vector{Vector{Int64}}) = [netsort(snp, n) for n in numbers]
+function netsort(snp::SortingNetworkPhenotype, numbers::Vector{Int64})
     arr = [n for n in numbers]
     for (a, b) in eachrow(snp.network)
         compare!(a, b, arr)
@@ -47,5 +48,5 @@ function CoEvo.Phenotypes.create_phenotype(phenotype_creator::SortingNetworkPhen
 end
 
 function CoEvo.Phenotypes.create_phenotype(phenotype_creator::SortingNetworkTestCasePhenotypeCreator, geno::SortingNetworkTestCaseGenotype)
-    SortingNetworkTestCasePhenotype(geno.inputs)
+    SortingNetworkTestCasePhenotype(geno.tests)
 end

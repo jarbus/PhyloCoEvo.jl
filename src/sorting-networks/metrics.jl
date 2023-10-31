@@ -22,7 +22,7 @@ function percent_sorted(genotype::SortingNetworkGenotype)
     for i in 1:n
         bits = [Int(d) for d in digits(i, base=2, pad=genotype.n_inputs)]
         sorted = sort(bits)
-        if sorted == netsort(snp, Tuple(bits))
+        if sorted == netsort(snp, bits)
             n_sorted += 1
         end
     end

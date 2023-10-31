@@ -93,8 +93,8 @@ using PhyloCoEvo: SortingNetworkDomain
         @testset "CorrectSorting" begin
             # Sanity check
             snp = SortingNetworkPhenotype([1 2;], 2)
-            @test [1,2] == PhyloCoEvo.netsort(snp, (1, 2))
-            @test [1,2] == PhyloCoEvo.netsort(snp, (2, 1))
+            @test [1,2] == PhyloCoEvo.netsort(snp, [1, 2])
+            @test [1,2] == PhyloCoEvo.netsort(snp, [2, 1])
     
             # Wikipedia example, 4 inputs
             # __________
@@ -104,7 +104,7 @@ using PhyloCoEvo: SortingNetworkDomain
             snp = SortingNetworkPhenotype([1 3; 2 4; 1 2; 3 4; 2 3;], 4)
             sorted = [1, 2, 3, 4]
             for perm in permute(sorted)
-                @assert sorted == PhyloCoEvo.netsort(snp, Tuple(perm))
+                @assert sorted == PhyloCoEvo.netsort(snp, perm)
             end
             @test true
     
@@ -119,8 +119,8 @@ using PhyloCoEvo: SortingNetworkDomain
             snp = create_insertion_sort_phenotype(4)
             sorted = [1, 2, 3, 4]
             for perm in permute(sorted)
-                @assert sorted == PhyloCoEvo.netsort(snp, Tuple(perm))
-                @assert sorted == PhyloCoEvo.netsort(sngp, Tuple(perm))
+                @assert sorted == PhyloCoEvo.netsort(snp, perm)
+                @assert sorted == PhyloCoEvo.netsort(sngp, perm)
             end
             @test true
     
@@ -134,8 +134,8 @@ using PhyloCoEvo: SortingNetworkDomain
                     # create a 16-bit vector of zeros and ones of i
                     bits = [Int(d) for d in digits(i, base=2, pad=n)]
                     sorted = sort(bits)
-                    @assert sorted == PhyloCoEvo.netsort(snp, Tuple(bits))
-                    @assert sorted == PhyloCoEvo.netsort(sngp, Tuple(bits))
+                    @assert sorted == PhyloCoEvo.netsort(snp, bits)
+                    @assert sorted == PhyloCoEvo.netsort(sngp, bits)
                 end
             end
             test_size(16)
@@ -152,11 +152,11 @@ using PhyloCoEvo: SortingNetworkDomain
         @testset "IncorrectSorting" begin
             # Empty network
             snp = SortingNetworkPhenotype(zeros(Int64,0,2), 2)
-            @test [2,1] == PhyloCoEvo.netsort(snp, (2, 1))
+            @test [2,1] == PhyloCoEvo.netsort(snp, [2, 1])
     
             # Four inputs, one comparator
             snp = SortingNetworkPhenotype([1 2;], 4)
-            @test [3,4,2,1] == PhyloCoEvo.netsort(snp, (4,3,2,1))
+            @test [3,4,2,1] == PhyloCoEvo.netsort(snp, [4,3,2,1])
         end
     end
 
@@ -196,12 +196,12 @@ end
     rng = StableRNG(1)
     gene_id_counter = BasicCounter(0)
     n_pop = 1
-    sntcgc = SortingNetworkTestCaseGenotypeCreator(16)
+    sntcgc = SortingNetworkTestCaseGenotypeCreator(20, 16)
     sntcpc = SortingNetworkTestCasePhenotypeCreator(16)
     sntcgenotypes = create_genotypes(sntcgc, rng, gene_id_counter, n_pop)
     @test length(sntcgenotypes) == 1
-    @test sum([sntcgenotypes[1].inputs...] .== 1:16) ∈ 12:16
-    @test sort([sntcgenotypes[1].inputs...]) == 1:16
+    @test sum([sntcgenotypes[1].tests[1]...] .== 1:16) ∈ 12:16
+    @test sort([sntcgenotypes[1].tests[1]...]) == 1:16
     phenotype = create_phenotype(sntcpc, sntcgenotypes[1])
 
     x = PhyloCoEvo.swap(rng,4,0)
@@ -222,23 +222,23 @@ end
     # Test that initial test case is nearly sorted
     sntcgenotypes = create_genotypes(sntcgc, rng, gene_id_counter, 5)
     for sntcg in sntcgenotypes
-        @test sum([sntcg.inputs...] .== 1:16) ∈ 12:16
+        @test sum([sntcg.tests[1]...] .== 1:16) ∈ 12:16
     end
 
 
     @testset "Mutator" begin
         sntcm = SortingNetworkTestCaseMutator()
         # test one swap
-        genotype = SortingNetworkTestCaseGenotype(1, (1,2,3,4))
+        genotype = SortingNetworkTestCaseGenotype(1, [[1,2,3,4]])
         new_geno = mutate(sntcm, rng, gene_id_counter, genotype)
         # test that two inputs are different than 1:4
-        @test sum([new_geno.inputs...] .== 1:4) == 2
-        @test sort([new_geno.inputs...]) == 1:4
+        @test sum([new_geno.tests[1]...] .== 1:4) == 2
+        @test sort([new_geno.tests[1]...]) == 1:4
         # test two swaps
-        genotype = SortingNetworkTestCaseGenotype(1, (1,2,3,4))
+        genotype = SortingNetworkTestCaseGenotype(1, [[1,2,3,4]])
         new_geno = mutate(sntcm, rng, gene_id_counter, genotype)
         new_geno = mutate(sntcm, rng, gene_id_counter, new_geno)
-        @test sort([new_geno.inputs...]) == 1:4
+        @test sort([new_geno.tests[1]...]) == 1:4
     end
 end
 
@@ -255,25 +255,24 @@ end
     # Test that a network with comparators results in 
     # full fitness in the outcome when tested against a correct list
     snp = SortingNetworkPhenotype([1 3; 2 4; 1 2; 3 4; 2 3;], 4)
-    sntc = SortingNetworkTestCasePhenotype((4,3,2,1))
+    sntc = SortingNetworkTestCasePhenotype([[4,3,2,1], [1,2,3,4], [2,3,1,4]])
     env = StatelessEnvironment(domain, [snp, sntc])
     outcome = PhyloCoEvo.Environments.get_outcome_set(env)
-    @test outcome == [4.0, 0.0]
+    @test outcome == [3.0, 0.0]
 
     # Test that a network with no comparators results in 
     # zero fitness in the outcome when tested against an incorrect list
     snp = SortingNetworkPhenotype(zeros(Int,0,2), 4)
-    sntc = SortingNetworkTestCasePhenotype((4,3,2,1))
+    sntc = SortingNetworkTestCasePhenotype([[4,3,2,1], [2,3,1,4], [3,4,1,2]])
     env = StatelessEnvironment(domain, [snp, sntc])
     outcome = PhyloCoEvo.Environments.get_outcome_set(env)
-    @test outcome == [0.0, 4.0]
+    @test outcome == [0.0, 3.0]
 
 
-    # Test that a network which sorts two numbers correctly
-    # and two numbers incorrectly results in a fitness of 2.0
-    # for network and inputs
+    # Test that a network which sorts the first and last numbers correctly
+    # can get some cases right and some cases wrong
     snp = SortingNetworkPhenotype([1 4; ], 4)
-    sntc = SortingNetworkTestCasePhenotype((4,3,2,1))
+    sntc = SortingNetworkTestCasePhenotype([[4,3,2,1], [4,2,3,1], [2,3,1,4], [1,2,3,4]])
     env = StatelessEnvironment(domain, [snp, sntc])
     outcome = PhyloCoEvo.Environments.get_outcome_set(env)
     @test outcome == [2.0, 2.0]
