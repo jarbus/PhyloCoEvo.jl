@@ -39,7 +39,8 @@ function CoEvo.Mutators.mutate(
             # move
             index = rand(rng, 1:length(new_codons))
             new_index = rand(rng, 1:length(new_codons))
-            new_codons[index], new_codons[new_index] = new_codons[new_index], new_codons[index]
+            codon = popat!(new_codons, index)
+            insert!(new_codons, new_index, codon)
         end
     end
     # rewire 
