@@ -16,10 +16,11 @@ function create_seeds {
 }
 
 function run_seeds {
-    dir=$1
+    nseeds=$1
+    dir=$2
     # iterate over all children directories
     # and run config.jl in each
-    for i in $(ls $dir); do
+    for i in $(seq 1 $nseeds); do
         if [ -d "$dir/$i" ] && [ -f "$dir/$i/config.jl" ]; then
             runlog="$dir/$i/run.log"
             git rev-parse HEAD > $runlog
@@ -46,7 +47,7 @@ IFS=$'\n'
 for xdir in $xdirs; do
     echo "Running $xdir"
     create_seeds $nseeds $xdir
-    run_seeds $xdir
+    run_seeds $nseeds $xdir
 
 done
 unset IFS
