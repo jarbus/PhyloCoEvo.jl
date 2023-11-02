@@ -123,8 +123,7 @@ function swap(rng::AbstractRNG, num_inputs::Int, num_swaps::Int)
     inputs = collect(1:num_inputs)
     for i in 1:num_swaps
         # choose two random input indicies
-        a = rand(rng, 1:num_inputs)
-        b = rand(rng, setdiff(1:num_inputs, a))
+        a, b = two_random_inputs(rng, num_inputs)
         inputs[a], inputs[b] = inputs[b], inputs[a]
     end
     return inputs
