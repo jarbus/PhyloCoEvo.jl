@@ -5,7 +5,7 @@ using PhyloCoEvo.Phenotypes: create_phenotype
 using PhyloCoEvo: SortingNetworkDomain
 @testset "SortingNetworks" begin
     # Test that everything runs
-    sngc = SortingNetworkGenotypeCreator(1, 2)
+    sngc = SortingNetworkGenotypeCreator(1, 2, 0, 100)
     snpc = SortingNetworkPhenotypeCreator(2)
     # create sorting network genotypes and phenotypes
     rng = StableRNG(1)
@@ -14,7 +14,7 @@ using PhyloCoEvo: SortingNetworkDomain
     sngenotypes = create_genotypes(sngc, rng, gene_id_counter, n_pop)
     @test length(sngenotypes) == 1
     phenotype = create_phenotype(snpc, sngenotypes[1])
-    snm = SortingNetworkMutator(min_codons=1, max_codons=2)
+    snm = SortingNetworkMutator()
     new_geno = mutate(snm, rng, gene_id_counter, sngenotypes[1])
     # create sorting network domain
     domain = SortingNetworkDomain(Partial())
@@ -24,14 +24,14 @@ using PhyloCoEvo: SortingNetworkDomain
         # no activate comparators
         Codon = PhyloCoEvo.SortingNetworkCodon
         codons = Codon[]
-        genotype = SortingNetworkGenotype(codons, 2)
+        genotype = SortingNetworkGenotype(codons, 2, 0, 100)
         phenotype = create_phenotype(snpc, genotype)
         @test phenotype.n == 2
         @test phenotype.network == zeros(Int64, 0, 2)
      
         # one active comparator, encoding 2 1
         codons = [Codon(1, 2, 1)]
-        genotype = SortingNetworkGenotype(codons, 2)
+        genotype = SortingNetworkGenotype(codons, 2, 0, 100)
         phenotype = create_phenotype(snpc, genotype)
         @test phenotype.n == 2
         @test phenotype.network == [2 1]
@@ -39,7 +39,7 @@ using PhyloCoEvo: SortingNetworkDomain
         # Create phenotype from genotype
         codons = [Codon(1, 16, 8),
                   Codon(2, 4, 2)]
-        genotype = SortingNetworkGenotype(codons, 16)
+        genotype = SortingNetworkGenotype(codons, 16, 0, 100)
         snpc = SortingNetworkPhenotypeCreator(16)
         phenotype = create_phenotype(snpc, genotype)
         @test phenotype.n == 16
@@ -48,7 +48,7 @@ using PhyloCoEvo: SortingNetworkDomain
         # Create genotypes 80 codons 16 inputs
         # Test that swaps are seeded
         n_pop16 = 10
-        sngc = SortingNetworkGenotypeCreator(80, 16)
+        sngc = SortingNetworkGenotypeCreator(80, 16, 60, 100)
         sngenotypes = create_genotypes(sngc, rng, gene_id_counter, n_pop)
         @test length(sngenotypes[1].codons) == 80
         snpc16 = SortingNetworkPhenotypeCreator(16)
@@ -96,7 +96,7 @@ using PhyloCoEvo: SortingNetworkDomain
                     push!(codons, codon)
                 end
             end
-            SortingNetworkGenotype(codons, n)
+            SortingNetworkGenotype(codons, n, num_codons-1, num_codons+1)
         end
     
         function create_insertion_sort_phenotype(n::Int)
@@ -109,12 +109,12 @@ using PhyloCoEvo: SortingNetworkDomain
                     comparator += 1
                 end
             end
-            SortingNetworkPhenotype(network, n)
+            SortingNetworkPhenotype(network, n,n-1, n+1)
         end
     
         @testset "CorrectSorting" begin
             # Sanity check
-            snp = SortingNetworkPhenotype([1 2;], 2)
+            snp = SortingNetworkPhenotype([1 2;], 2, 0, 2)
             @test [1,2] == PhyloCoEvo.netsort(snp, [1, 2])
             @test [1,2] == PhyloCoEvo.netsort(snp, [2, 1])
     
@@ -123,7 +123,7 @@ using PhyloCoEvo: SortingNetworkDomain
             # _|___|____
             # _|_|___|__
             # ___|_|____
-            snp = SortingNetworkPhenotype([1 3; 2 4; 1 2; 3 4; 2 3;], 4)
+            snp = SortingNetworkPhenotype([1 3; 2 4; 1 2; 3 4; 2 3;], 4, 0, 10)
             sorted = [1, 2, 3, 4]
             for perm in permute(sorted)
                 @assert sorted == PhyloCoEvo.netsort(snp, perm)
@@ -165,7 +165,7 @@ using PhyloCoEvo: SortingNetworkDomain
     
             # Test percent_sorted
             @test PhyloCoEvo.percent_sorted(sng) == 1.0
-            sng_missing = SortingNetworkGenotype(sng.codons[1:5], 16)
+            sng_missing = SortingNetworkGenotype(sng.codons[1:5], 16, 0, 100)
             @test PhyloCoEvo.percent_sorted(sng_missing) < 1.0
         end
     
@@ -173,11 +173,11 @@ using PhyloCoEvo: SortingNetworkDomain
     
         @testset "IncorrectSorting" begin
             # Empty network
-            snp = SortingNetworkPhenotype(zeros(Int64,0,2), 2)
+            snp = SortingNetworkPhenotype(zeros(Int64,0,2), 2, 0, 2)
             @test [2,1] == PhyloCoEvo.netsort(snp, [2, 1])
     
             # Four inputs, one comparator
-            snp = SortingNetworkPhenotype([1 2;], 4)
+            snp = SortingNetworkPhenotype([1 2;], 4, 0, 4)
             @test [3,4,2,1] == PhyloCoEvo.netsort(snp, [4,3,2,1])
         end
     end
@@ -185,10 +185,10 @@ using PhyloCoEvo: SortingNetworkDomain
 
     @testset "Mutator" begin
         Codon = PhyloCoEvo.SortingNetworkCodon
-        snm = SortingNetworkMutator(min_codons=1, max_codons=2)
+        snm = SortingNetworkMutator()
         # test one active comparator
         codons = [Codon(1, 1, 2),]
-        genotype = SortingNetworkGenotype(codons, 16)
+        genotype = SortingNetworkGenotype(codons, 16, 1, 2)
 
         # Test move and rewire
         mrng = StableRNG(1)
@@ -198,7 +198,7 @@ using PhyloCoEvo: SortingNetworkDomain
 
         # Test delete and rewire
         codons = [Codon(1, 1, 2), Codon(1, 1, 2)]
-        genotype = SortingNetworkGenotype(codons, 16)
+        genotype = SortingNetworkGenotype(codons, 16, 1, 2)
         mrng = StableRNG(2)
         new_geno = mutate(snm, mrng, gene_id_counter, genotype)
         @test length(new_geno.codons) == 1
@@ -206,7 +206,7 @@ using PhyloCoEvo: SortingNetworkDomain
 
         # Test insert and rewire
         codons = [Codon(1, 1, 2),]
-        genotype = SortingNetworkGenotype(codons, 16)
+        genotype = SortingNetworkGenotype(codons, 16, 1,2)
         mrng = StableRNG(3)
         new_geno = mutate(snm, mrng, gene_id_counter, genotype)
         @test length(new_geno.codons) == 2
@@ -276,26 +276,45 @@ end
     # ___|_|____
     # Test that a network with comparators results in 
     # full fitness in the outcome when tested against a correct list
-    snp = SortingNetworkPhenotype([1 3; 2 4; 1 2; 3 4; 2 3;], 4)
+    # And gets an extra 1 for being minimal
+    snp = SortingNetworkPhenotype([1 3; 2 4; 1 2; 3 4; 2 3;], 4, 5, 5)
     sntc = SortingNetworkTestCasePhenotype([[4,3,2,1], [1,2,3,4], [2,3,1,4]])
     env = StatelessEnvironment(domain, [snp, sntc])
     outcome = PhyloCoEvo.Environments.get_outcome_set(env)
-    @test outcome == [3.0, 0.0]
+    @test outcome == [4.0, 0.0]
+
+    # Test that a correct maximum-length network produces a outcome of 3, since it gets
+    # no extra fitness for being minimal
+    snp_extra = SortingNetworkPhenotype([1 3; 2 4; 1 2; 3 4; 2 3; 1 4;], 4, 5, 6)
+    sntc = SortingNetworkTestCasePhenotype([[4,3,2,1], [1,2,3,4], [2,3,1,4]])
+    env = StatelessEnvironment(domain, [snp_extra, sntc])
+    outcome = PhyloCoEvo.Environments.get_outcome_set(env)
+    @test outcome == [3.0, 1.0]
 
     # Test that a network with no comparators results in 
     # zero fitness in the outcome when tested against an incorrect list
-    snp = SortingNetworkPhenotype(zeros(Int,0,2), 4)
+    # and that it gets a 1 for being minimal
+    snp = SortingNetworkPhenotype(zeros(Int,0,2), 4, 0, 0)
     sntc = SortingNetworkTestCasePhenotype([[4,3,2,1], [2,3,1,4], [3,4,1,2]])
     env = StatelessEnvironment(domain, [snp, sntc])
     outcome = PhyloCoEvo.Environments.get_outcome_set(env)
-    @test outcome == [0.0, 3.0]
+    @test outcome == [1.0, 3.0]
 
 
     # Test that a network which sorts the first and last numbers correctly
     # can get some cases right and some cases wrong
-    snp = SortingNetworkPhenotype([1 4; ], 4)
+    # Also gets an extra 1 for being minimal
+    snp = SortingNetworkPhenotype([1 4; ], 4, 1, 1)
     sntc = SortingNetworkTestCasePhenotype([[4,3,2,1], [4,2,3,1], [2,3,1,4], [1,2,3,4]])
     env = StatelessEnvironment(domain, [snp, sntc])
     outcome = PhyloCoEvo.Environments.get_outcome_set(env)
-    @test outcome == [2.0, 2.0]
+    @test outcome == [3.0, 2.0]
+
+    # Test that a network which gets no test cases right and is maximal length gets 0
+    snp = SortingNetworkPhenotype([1 4; ], 4, 0, 1)
+    sntc = SortingNetworkTestCasePhenotype([[4,3,2,1], [4,3,2,1], [4,3,2,1]])
+    env = StatelessEnvironment(domain, [snp, sntc])
+    outcome = PhyloCoEvo.Environments.get_outcome_set(env)
+    @test outcome == [0.0, 4.0]
+
 end

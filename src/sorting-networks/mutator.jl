@@ -5,8 +5,6 @@ using CoEvo
 
 
 Base.@kwdef struct SortingNetworkMutator <: Mutator 
-    min_codons::Int = 60
-    max_codons::Int = 80
     num_swaps_per_mut::Int = 1
     num_insert_delete_move_per_mut::Int = 1
 end
@@ -27,12 +25,12 @@ function CoEvo.Mutators.mutate(
         choice = rand(rng, 1:3)
         if choice == 1
             # insert
-            length(new_codons) >= mutator.max_codons && continue
+            length(new_codons) >= geno.max_codons && continue
             new_codon = random_codon(rng, gene_id_counter, geno.n_inputs)
             random_insert!(new_codons, new_codon)
         elseif choice == 2
             # delete
-            length(new_codons) <= mutator.min_codons && continue
+            length(new_codons) <= geno.min_codons && continue
             index = rand(rng, 1:length(new_codons))
             deleteat!(new_codons, index)
         elseif choice == 3
@@ -50,7 +48,7 @@ function CoEvo.Mutators.mutate(
         new_one, new_two = two_random_inputs(rng, geno.n_inputs)
         new_codons[index] = SortingNetworkCodon(new_id, new_one, new_two)
     end
-    SortingNetworkGenotype(new_codons, geno.n_inputs)
+    SortingNetworkGenotype(new_codons, geno.n_inputs, geno.min_codons, geno.max_codons)
 end
 
 function random_insert!(codons::Vector{SortingNetworkCodon}, codon::SortingNetworkCodon)

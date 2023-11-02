@@ -14,11 +14,15 @@ end
 struct SortingNetworkGenotype <: Genotype
     codons::Vector{SortingNetworkCodon}
     n_inputs::Int # number of inputs
+    min_codons::Int
+    max_codons::Int 
 end
 
 struct SortingNetworkGenotypeCreator <: CoEvo.Genotypes.GenotypeCreator
     n_codons::Int
     n_inputs::Int
+    min_codons::Int
+    max_codons::Int
 end
 
 struct SortingNetworkTestCaseGenotype <: Genotype
@@ -52,6 +56,7 @@ function random_codon(rng::AbstractRNG,
 end
 
 function create_random_sorting_network(rng::AbstractRNG,
+                                       genotype_creator::SortingNetworkGenotypeCreator,
                                        gene_id_counter::Counter,
                                        n_codons::Int,
                                        n_inputs::Int)
@@ -59,10 +64,11 @@ function create_random_sorting_network(rng::AbstractRNG,
         random_codon(rng, gene_id_counter, n_inputs)
         for _ in 1:n_codons
     ]
-    return SortingNetworkGenotype(codons, n_inputs)
+    return SortingNetworkGenotype(codons, n_inputs, genotype_creator.min_codons, genotype_creator.max_codons)
 end
 
 function create_seeded_sorting_network_16(rng::AbstractRNG,
+                                          genotype_creator::SortingNetworkGenotypeCreator,
                                           gene_id_counter::Counter,
                                           n_codons::Int)
     # Seed the network with the first half of the codons of the successful
@@ -93,7 +99,7 @@ function create_seeded_sorting_network_16(rng::AbstractRNG,
     else
         error("Not enough codons to seed the network: ncodons: $n_codons < num_seed_codons: $(length(codons))")
     end
-    return SortingNetworkGenotype(codons, 16)
+    return SortingNetworkGenotype(codons, 16, genotype_creator.min_codons, genotype_creator.max_codons)
 end
 
 
@@ -107,15 +113,15 @@ function CoEvo.Genotypes.create_genotypes(
     # networks from Hillis' paper if there are 16 inputs
     if genotype_creator.n_inputs == 16
         genotypes = [ create_seeded_sorting_network_16(
-                rng, gene_id_counter, genotype_creator.n_codons)
+                rng, genotype_creator, gene_id_counter, genotype_creator.n_codons)
              for i in 1:n_pop]
-        return genotypes
     else
         genotypes = [ create_random_sorting_network(
-            rng, gene_id_counter, genotype_creator.n_codons, genotype_creator.n_inputs)
+            rng, genotype_creator, gene_id_counter, genotype_creator.n_codons, genotype_creator.n_inputs)
         for i in 1:n_pop]
-        return genotypes
     end
+    @assert all([genotype_creator.min_codons <= length(g.codons) <= genotype_creator.max_codons for g in genotypes])
+    return genotypes
 
 end
 

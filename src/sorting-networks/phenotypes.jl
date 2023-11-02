@@ -9,6 +9,8 @@ end
 struct SortingNetworkPhenotype <: Phenotype
     network::Array{Int64, 2}
     n::Int64
+    min_codons::Int64
+    max_codons::Int64
 end
 
 struct SortingNetworkTestCasePhenotype <: Phenotype
@@ -35,7 +37,8 @@ function netsort(snp::SortingNetworkPhenotype, numbers::Vector{Int64})
     return arr
 end
 
-function CoEvo.Phenotypes.create_phenotype(phenotype_creator::SortingNetworkPhenotypeCreator, geno::SortingNetworkGenotype)
+function CoEvo.Phenotypes.create_phenotype(phenotype_creator::SortingNetworkPhenotypeCreator,
+                                           geno::SortingNetworkGenotype)
     @assert phenotype_creator.n ∈ [2, 4, 8, 16]
     network = zeros(Int64, length(geno.codons), 2)
     for (i, codon) in enumerate(geno.codons)
@@ -44,7 +47,10 @@ function CoEvo.Phenotypes.create_phenotype(phenotype_creator::SortingNetworkPhen
         @assert network[i, 1] ∈ 1:phenotype_creator.n
         @assert network[i, 2] ∈ 1:phenotype_creator.n
     end
-    SortingNetworkPhenotype(network, phenotype_creator.n)
+    SortingNetworkPhenotype(network, 
+                            phenotype_creator.n,
+                            geno.min_codons,
+                            geno.max_codons)
 end
 
 function CoEvo.Phenotypes.create_phenotype(phenotype_creator::SortingNetworkTestCasePhenotypeCreator, geno::SortingNetworkTestCaseGenotype)
