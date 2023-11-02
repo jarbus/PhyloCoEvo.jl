@@ -36,11 +36,17 @@ function filter_pairwise_distances(pairwise_distances::Dict{Tuple{Int, Int}, Int
     num_dists = zeros(Int, 11)
     for ((id1, id2), dist) in pairwise_distances
         dist > 5                   && continue
-        num_dists[dist + 1] > 999  && continue
+        num_dists[dist + 1] > 99999  && continue
         num_dists[dist + 1] += 1
         filtered_pairwise_distances[(id1, id2)] = dist
     end
     return filtered_pairwise_distances
+end
+
+function max_or_zero_entries(dist_errors::Vector{Vector{Float64}})
+    upper_limit = 99999
+    dist_lens = length.(dist_errors)
+    return any(dist_lens .> upper_limit) && all(dist_lens .> upper_limit .|| dist_lens .== 0)
 end
 
 function CoEvo.Metrics.measure(
@@ -56,7 +62,8 @@ function CoEvo.Metrics.measure(
     species1_pd = filter_pairwise_distances(state.species[1].dist_data.pairwise_distances)
     species2_pd = filter_pairwise_distances(state.species[2].dist_data.pairwise_distances)
     for ((ind_a1,ind_a2), dist_a) in species1_pd
-        any(length.(dist_int_diffs) .> 999) && break
+        max_or_zero_entries(dist_int_diffs) && break
+        
         ind_a1 ∉ keys(state.evaluations[1].outcomes) && continue
         ind_a2 ∉ keys(state.evaluations[1].outcomes) && continue
         outcomes_a1 = state.evaluations[1].outcomes[ind_a1]
@@ -64,7 +71,7 @@ function CoEvo.Metrics.measure(
         for ((ind_b1,ind_b2), dist_b) in species2_pd
             dist = dist_a + dist_b
             dist > 10 && continue
-            length(dist_int_diffs[dist+1]) > 999 && continue
+            length(dist_int_diffs[dist+1]) > 99999 && continue
             # TODO clean this up
             if ind_b1 ∈ keys(outcomes_a1) && ind_b2 ∈ keys(outcomes_a2)
                 outcome_1 = outcomes_a1[ind_b1]
@@ -91,14 +98,14 @@ function CoEvo.Metrics.measure(
         # Sample fitness differences for each distance
         dist_fit_diffs = [Float64[] for _ in 1:10]
         for rec1 in evals.records
-            any(length.(dist_fit_diffs) .> 999) && break
+            max_or_zero_entries(dist_fit_diffs) && break
             for rec2 in evals.records
                 id1, id2 = rec1.id, rec2.id
                 id1 == id2 && continue
                 (id1, id2) ∉ keys(pairwise_distances) && continue
                 distance = pairwise_distances[id1, id2]
                 distance > 10 && continue
-                length(dist_fit_diffs[distance]) > 999 && continue
+                length(dist_fit_diffs[distance]) > 99999 && continue
                 estimation_error = abs(rec1.fitness - rec2.fitness)
                 push!(dist_fit_diffs[distance], estimation_error)
             end
