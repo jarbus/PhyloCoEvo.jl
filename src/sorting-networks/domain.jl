@@ -28,6 +28,18 @@ end
 
 function CoEvo.Environments.get_outcome_set(::Partial, results::Vector{Vector{Int64}})
     # For partial, we just want the number of results sorted correctly
-    correct = sum(all(r .== 1:length(r)) for r in results)
-    return Float64[correct, length(results) - correct]
+    num_correct = 0
+    for r in results
+        correct = true
+        for i in 1:length(r)-1
+            if r[i] > r[i+1]
+                correct = false
+                break
+            end
+        end
+        if correct
+            num_correct += 1
+        end
+    end
+    return Float64[num_correct, length(results) - num_correct]
 end
