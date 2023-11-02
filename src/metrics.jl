@@ -35,11 +35,10 @@ function filter_pairwise_distances(pairwise_distances::Dict{Tuple{Int, Int}, Int
     filtered_pairwise_distances = Dict{Tuple{Int, Int}, Int}()
     num_dists = zeros(Int, 11)
     for ((id1, id2), dist) in pairwise_distances
-        id1  > id2                 && continue
         dist > 5                   && continue
         num_dists[dist + 1] > 999  && continue
         num_dists[dist + 1] += 1
-        filtered_pairwise_distances[(id1, id2)] = pairwise_distances[(id1, id2)]
+        filtered_pairwise_distances[(id1, id2)] = dist
     end
     return filtered_pairwise_distances
 end
@@ -57,20 +56,29 @@ function CoEvo.Metrics.measure(
     species1_pd = filter_pairwise_distances(state.species[1].dist_data.pairwise_distances)
     species2_pd = filter_pairwise_distances(state.species[2].dist_data.pairwise_distances)
     for ((ind_a1,ind_a2), dist_a) in species1_pd
-        all([l > 999 || l == 0 for l in length.(dist_int_diffs)]) && break
+        any(length.(dist_int_diffs) .> 999) && break
+        ind_a1 ∉ keys(state.evaluations[1].outcomes) && continue
+        ind_a2 ∉ keys(state.evaluations[1].outcomes) && continue
         outcomes_a1 = state.evaluations[1].outcomes[ind_a1]
         outcomes_a2 = state.evaluations[1].outcomes[ind_a2]
         for ((ind_b1,ind_b2), dist_b) in species2_pd
             dist = dist_a + dist_b
-            outcome_1 = outcomes_a1[ind_b1]
-            outcome_2 = outcomes_a2[ind_b2]
-            estimation_error = abs(outcome_1 - outcome_2)
-            push!(dist_int_diffs[dist+1], estimation_error)
+            dist > 10 && continue
+            length(dist_int_diffs[dist+1]) > 999 && continue
+            # TODO clean this up
+            if ind_b1 ∈ keys(outcomes_a1) && ind_b2 ∈ keys(outcomes_a2)
+                outcome_1 = outcomes_a1[ind_b1]
+                outcome_2 = outcomes_a2[ind_b2]
+                estimation_error = abs(outcome_1 - outcome_2)
+                push!(dist_int_diffs[dist+1], estimation_error)
+            end
 
-            outcome_3 = outcomes_a1[ind_b2]
-            outcome_4 = outcomes_a2[ind_b1]
-            estimation_error = abs(outcome_3 - outcome_4)
-            push!(dist_int_diffs[dist+1], estimation_error)
+            if ind_b1 ∈ keys(outcomes_a2) && ind_b2 ∈ keys(outcomes_a1)
+                outcome_1 = outcomes_a2[ind_b1]
+                outcome_2 = outcomes_a1[ind_b2]
+                estimation_error = abs(outcome_1 - outcome_2)
+                push!(dist_int_diffs[dist+1], estimation_error)
+            end
         end
     end
     
@@ -83,12 +91,13 @@ function CoEvo.Metrics.measure(
         # Sample fitness differences for each distance
         dist_fit_diffs = [Float64[] for _ in 1:10]
         for rec1 in evals.records
-            all([l > 999 || l == 0 for l in length.(dist_fit_diffs)]) && break
+            any(length.(dist_fit_diffs) .> 999) && break
             for rec2 in evals.records
                 id1, id2 = rec1.id, rec2.id
-                id2 <= id1 && continue
+                id1 == id2 && continue
                 (id1, id2) ∉ keys(pairwise_distances) && continue
                 distance = pairwise_distances[id1, id2]
+                distance > 10 && continue
                 length(dist_fit_diffs[distance]) > 999 && continue
                 estimation_error = abs(rec1.fitness - rec2.fitness)
                 push!(dist_fit_diffs[distance], estimation_error)
