@@ -5,8 +5,7 @@ using CoEvo
 
 
 Base.@kwdef struct SortingNetworkMutator <: Mutator 
-    num_swaps_per_mut::Int = 1
-    num_insert_delete_move_per_mut::Int = 1
+    num_ops_per_mut::Int = 1
 end
 
 Base.@kwdef struct SortingNetworkTestCaseMutator <: Mutator 
@@ -20,9 +19,9 @@ function CoEvo.Mutators.mutate(
     geno::SortingNetworkGenotype
 )
     new_codons = [c for c in geno.codons]
-    # insert/delete
-    for _ in 1:mutator.num_insert_delete_move_per_mut
-        choice = rand(rng, 1:3)
+    for _ in 1:mutator.num_ops_per_mut
+        choice = rand(rng, 1:4)
+        println(choice)
         if choice == 1
             # insert
             length(new_codons) >= geno.max_codons && continue
@@ -39,14 +38,13 @@ function CoEvo.Mutators.mutate(
             new_index = rand(rng, 1:length(new_codons))
             codon = popat!(new_codons, index)
             insert!(new_codons, new_index, codon)
+        elseif choice == 4
+            # rewire 
+            index = rand(rng, 1:length(new_codons))
+            new_id = count!(gene_id_counter)
+            new_one, new_two = two_random_inputs(rng, geno.n_inputs)
+            new_codons[index] = SortingNetworkCodon(new_id, new_one, new_two)
         end
-    end
-    # rewire 
-    for _ in 1:mutator.num_swaps_per_mut
-        index = rand(rng, 1:length(new_codons))
-        new_id = count!(gene_id_counter)
-        new_one, new_two = two_random_inputs(rng, geno.n_inputs)
-        new_codons[index] = SortingNetworkCodon(new_id, new_one, new_two)
     end
     SortingNetworkGenotype(new_codons, geno.n_inputs, geno.min_codons, geno.max_codons)
 end

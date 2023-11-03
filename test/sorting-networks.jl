@@ -190,26 +190,32 @@ using PhyloCoEvo: SortingNetworkDomain
         codons = [Codon(1, 1, 2),]
         genotype = SortingNetworkGenotype(codons, 16, 1, 2)
 
-        # Test move and rewire
+        # Test move
         mrng = StableRNG(1)
         new_geno = mutate(snm, mrng, gene_id_counter, genotype)
         @test length(new_geno.codons) == 1
-        @test new_geno.codons[1].one != 1 || new_geno.codons[1].two != 2
 
-        # Test delete and rewire
+        # Test delete
         codons = [Codon(1, 1, 2), Codon(1, 1, 2)]
         genotype = SortingNetworkGenotype(codons, 16, 1, 2)
         mrng = StableRNG(2)
         new_geno = mutate(snm, mrng, gene_id_counter, genotype)
         @test length(new_geno.codons) == 1
-        @test new_geno.codons[1].one != 1 || new_geno.codons[1].two != 2
 
-        # Test insert and rewire
+        # Test insert
         codons = [Codon(1, 1, 2),]
         genotype = SortingNetworkGenotype(codons, 16, 1,2)
         mrng = StableRNG(3)
         new_geno = mutate(snm, mrng, gene_id_counter, genotype)
         @test length(new_geno.codons) == 2
+
+        # Test rewire
+        mrng = StableRNG(8)
+        codons = [Codon(1, 1, 2),]
+        genotype = SortingNetworkGenotype(codons, 16, 1,2)
+        new_geno = mutate(snm, mrng, gene_id_counter, genotype)
+        @test length(new_geno.codons) == 1
+        @test new_geno.codons[1].one != 1 || new_geno.codons[1].two != 2
     end
 end
 
