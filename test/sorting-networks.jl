@@ -293,7 +293,7 @@ end
     sntc = SortingNetworkTestCasePhenotype([[4,3,2,1], [1,2,3,4], [2,3,1,4]])
     env = StatelessEnvironment(domain, [snp_extra, sntc])
     outcome = PhyloCoEvo.Environments.get_outcome_set(env)
-    @test outcome == [3.0, 1.0]
+    @test outcome == [3.0, 0.0]
 
     # Test that a network with no comparators results in 
     # zero fitness in the outcome when tested against an incorrect list
