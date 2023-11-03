@@ -282,15 +282,13 @@ end
     # ___|_|____
     # Test that a network with comparators results in 
     # full fitness in the outcome when tested against a correct list
-    # And gets an extra 1 for being minimal
     snp = SortingNetworkPhenotype([1 3; 2 4; 1 2; 3 4; 2 3;], 4, 5, 5)
     sntc = SortingNetworkTestCasePhenotype([[4,3,2,1], [1,2,3,4], [2,3,1,4]])
     env = StatelessEnvironment(domain, [snp, sntc])
     outcome = PhyloCoEvo.Environments.get_outcome_set(env)
-    @test outcome == [4.0, 0.0]
+    @test outcome == [3.0, 0.0]
 
-    # Test that a correct maximum-length network produces a outcome of 3, since it gets
-    # no extra fitness for being minimal
+    # Test that a correct maximum-length network produces a outcome of 3
     snp_extra = SortingNetworkPhenotype([1 3; 2 4; 1 2; 3 4; 2 3; 1 4;], 4, 5, 6)
     sntc = SortingNetworkTestCasePhenotype([[4,3,2,1], [1,2,3,4], [2,3,1,4]])
     env = StatelessEnvironment(domain, [snp_extra, sntc])
@@ -314,7 +312,7 @@ end
     outcome = PhyloCoEvo.Environments.get_outcome_set(env)
     @test outcome == [2.0, 2.0]
 
-    # Test that a network which gets no test cases right and is maximal length gets 0
+    # Test that a network which gets no test cases right gets 0
     snp = SortingNetworkPhenotype([1 4; ], 4, 0, 1)
     sntc = SortingNetworkTestCasePhenotype([[4,3,2,1], [4,3,2,1], [4,3,2,1]])
     env = StatelessEnvironment(domain, [snp, sntc])
