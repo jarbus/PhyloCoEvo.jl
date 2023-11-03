@@ -21,7 +21,6 @@ function CoEvo.Mutators.mutate(
     new_codons = [c for c in geno.codons]
     for _ in 1:mutator.num_ops_per_mut
         choice = rand(rng, 1:4)
-        println(choice)
         if choice == 1
             # insert
             length(new_codons) >= geno.max_codons && continue

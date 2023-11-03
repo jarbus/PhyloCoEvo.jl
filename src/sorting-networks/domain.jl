@@ -45,11 +45,18 @@ function CoEvo.Environments.get_outcome_set(::Partial, results::Vector{Vector{In
             num_correct += 1
         end
     end
-    if snp.max_codons == snp.min_codons
-        percent_extra_swaps = 0
+    # If all results are sorted correctly, we add a bonus for how close we are
+    # to the minimum number of codons
+    if num_correct == length(results)
+        if snp.max_codons == snp.min_codons
+            percent_extra_swaps = 0
+        else
+            percent_extra_swaps = ((size(snp.network, 1) - snp.min_codons) / (snp.max_codons - snp.min_codons))
+        end
+        return Float64[num_correct + (1-percent_extra_swaps),
+                       length(results) - num_correct + percent_extra_swaps]
     else
-        percent_extra_swaps = ((size(snp.network, 1) - snp.min_codons) / (snp.max_codons - snp.min_codons))
+        return Float64[num_correct, length(results) - num_correct]
     end
 
-    return Float64[num_correct + (1-percent_extra_swaps), length(results) - num_correct + percent_extra_swaps]
 end

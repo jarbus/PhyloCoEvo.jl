@@ -299,28 +299,26 @@ end
 
     # Test that a network with no comparators results in 
     # zero fitness in the outcome when tested against an incorrect list
-    # and that it gets a 1 for being minimal
     snp = SortingNetworkPhenotype(zeros(Int,0,2), 4, 0, 0)
     sntc = SortingNetworkTestCasePhenotype([[4,3,2,1], [2,3,1,4], [3,4,1,2]])
     env = StatelessEnvironment(domain, [snp, sntc])
     outcome = PhyloCoEvo.Environments.get_outcome_set(env)
-    @test outcome == [1.0, 3.0]
+    @test outcome == [0.0, 3.0]
 
 
     # Test that a network which sorts the first and last numbers correctly
     # can get some cases right and some cases wrong
-    # Also gets an extra 1 for being minimal
     snp = SortingNetworkPhenotype([1 4; ], 4, 1, 1)
     sntc = SortingNetworkTestCasePhenotype([[4,3,2,1], [4,2,3,1], [2,3,1,4], [1,2,3,4]])
     env = StatelessEnvironment(domain, [snp, sntc])
     outcome = PhyloCoEvo.Environments.get_outcome_set(env)
-    @test outcome == [3.0, 2.0]
+    @test outcome == [2.0, 2.0]
 
     # Test that a network which gets no test cases right and is maximal length gets 0
     snp = SortingNetworkPhenotype([1 4; ], 4, 0, 1)
     sntc = SortingNetworkTestCasePhenotype([[4,3,2,1], [4,3,2,1], [4,3,2,1]])
     env = StatelessEnvironment(domain, [snp, sntc])
     outcome = PhyloCoEvo.Environments.get_outcome_set(env)
-    @test outcome == [0.0, 4.0]
+    @test outcome == [0.0, 3.0]
 
 end
