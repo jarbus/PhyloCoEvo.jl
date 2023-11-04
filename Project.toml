@@ -1,7 +1,7 @@
 name = "PhyloCoEvo"
 uuid = "cdf36601-002d-4852-9e9a-0e5bcca44bea"
 authors = ["Jack <jackgarbus@gmail.com> and contributors"]
-version = "1.1.1-DEV"
+version = "1.1.2-DEV"
 
 [deps]
 CoEvo = "842a0346-8272-4eaf-bb06-52321997162a"

@@ -43,10 +43,10 @@ function filter_pairwise_distances(pairwise_distances::Dict{Tuple{Int, Int}, Int
     return filtered_pairwise_distances
 end
 
-function max_or_zero_entries(dist_errors::Vector{Vector{Float64}})
+function max_entries(dist_errors::Vector{Vector{Float64}})
     upper_limit = 9999
     dist_lens = length.(dist_errors)
-    return any(dist_lens .> upper_limit) && all(dist_lens .> upper_limit .|| dist_lens .== 0)
+    return all(dist_lens .> upper_limit)
 end
 
 function CoEvo.Metrics.measure(
@@ -62,7 +62,7 @@ function CoEvo.Metrics.measure(
     species1_pd = filter_pairwise_distances(state.species[1].dist_data.pairwise_distances)
     species2_pd = filter_pairwise_distances(state.species[2].dist_data.pairwise_distances)
     for ((ind_a1,ind_a2), dist_a) in species1_pd
-        max_or_zero_entries(dist_int_diffs) && break
+        max_entries(dist_int_diffs) && break
         
         ind_a1 ∉ keys(state.evaluations[1].outcomes) && continue
         ind_a2 ∉ keys(state.evaluations[1].outcomes) && continue
@@ -98,7 +98,7 @@ function CoEvo.Metrics.measure(
         # Sample fitness differences for each distance
         dist_fit_diffs = [Float64[] for _ in 1:10]
         for rec1 in evals.records
-            max_or_zero_entries(dist_fit_diffs) && break
+            max_entries(dist_fit_diffs) && break
             for rec2 in evals.records
                 id1, id2 = rec1.id, rec2.id
                 id1 == id2 && continue
