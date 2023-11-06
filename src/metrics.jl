@@ -53,22 +53,20 @@ function CoEvo.Metrics.measure(
     ::TreeStatisticsMetric,
     state::State
 )
+    # Assumes that each species interacts with only one other species at a time
     species_measurements = Dict{String, TreeStatisticsMeasurement}()
 
-    @assert length(state.species) == 2 "TreeStatisticsMetric only works for two species"
-
-
+    species_pds = [filter_pairwise_distances(species.dist_data.pairwise_distances)
+                   for species in state.species]
     dist_int_diffs = [Float64[] for _ in 0:10]
-    species1_pd = filter_pairwise_distances(state.species[1].dist_data.pairwise_distances)
-    species2_pd = filter_pairwise_distances(state.species[2].dist_data.pairwise_distances)
-    for ((ind_a1,ind_a2), dist_a) in species1_pd
+    for a in 1:(length(species_pds)-1), ((ind_a1, ind_a2), dist_a) in species_pds[a]
         max_entries(dist_int_diffs) && break
         
         ind_a1 ∉ keys(state.evaluations[1].outcomes) && continue
         ind_a2 ∉ keys(state.evaluations[1].outcomes) && continue
         outcomes_a1 = state.evaluations[1].outcomes[ind_a1]
         outcomes_a2 = state.evaluations[1].outcomes[ind_a2]
-        for ((ind_b1,ind_b2), dist_b) in species2_pd
+        for b in (a+1):length(species_pds), ((ind_b1,ind_b2), dist_b) in species_pds[b]
             dist = dist_a + dist_b
             dist > 10 && continue
             length(dist_int_diffs[dist+1]) > 9999 && continue
@@ -224,7 +222,7 @@ function CoEvo.Archivers.archive!(
     end
     if report.to_save
         # Log stats to jld2
-        met_path = joinpath(archiver.archive_path, report.metric.path)
+        met_path = isdir(archiver.archive_path) ? joinpath(archiver.archive_path, report.metric.path) : archiver.archive_path
         met_key = report.metric.key
         per_dist_int_err_stats = first(report.measurement.measurements).second.per_distance_interaction_error_stats.measurements
         jldopen(met_path, "a+") do file
