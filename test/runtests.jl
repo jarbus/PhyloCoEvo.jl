@@ -8,4 +8,5 @@ using Test
     include("x/ng/1/config.jl")
     include("sorting-networks.jl")
     include("x/sn/1/config.jl")
+    include("x/pg/1/config.jl")
 end

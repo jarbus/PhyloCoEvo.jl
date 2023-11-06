@@ -98,4 +98,4 @@ configuration = PredictionGameConfiguration(
     communication_dimension = 1,
 )
 
-ecosystem = run!(configuration, n_generations = 100)
+ecosystem = run!(configuration, n_generations = 10)
