@@ -40,7 +40,7 @@ function CoEvo.Configurations.PredictionGame.make_species_creators(configuration
 end
 
 function CoEvo.Configurations.PredictionGame.make_archive_path(::PredictionGameConfiguration)
-    return joinpath(XDIR, "data/archive.jl")
+    return joinpath(XDIR, "data/archive.jld2")
 end
 
 function CoEvo.Configurations.PredictionGame.make_reporters(configuration::PredictionGameConfiguration)
