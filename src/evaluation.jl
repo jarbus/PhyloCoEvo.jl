@@ -72,41 +72,15 @@ function CoEvo.Evaluators.evaluate(
     return evaluation
 end
 
-function estimate_outcomes!(
-    individual_outcomes::Dict{Int, SortedDict{Int, Float64}},
-    evaluators::Vector{<:Evaluator},
-    species::Vector{<:AbstractSpecies},
-    observations::Vector{<:Observation},)
-    """Estimate outcomes for each individual in each species
-    """
-    evaluated_interactions = [
-        (ind_i, ind_j)
-        for i in 1:(length(species)-1)
-        for j in (i+1):length(species)
-        for ind_i in [species[i].population; species[i].children] if ind_i.id in keys(individual_outcomes)
-        for ind_j in [species[j].population; species[j].children] if ind_j.id in keys(individual_outcomes)
-    ]
-    all_interactions = [ 
-        (ind_i, ind_j)
-        for i in 1:(length(species)-1)
-        for j in (i+1):length(species)
-        for ind_i in [species[i].population; species[i].children]
-        for ind_j in [species[j].population; species[j].children]]
-    unevaluated_interactions = setdiff(all_interactions, evaluated_interactions)
-    println("len unevaluated_interactions: ", length(unevaluated_interactions))
-    println("len all_interactions: ", length(all_interactions))
-    println("len evaluated_interactions: ", length(evaluated_interactions))
-end
-
-
 function CoEvo.Ecosystems.Basic.evaluate_species(
     evaluators::Vector{<:Evaluator},
     random_number_generator::AbstractRNG,
-    species::Vector{<:AbstractSpecies},
+    species::Vector{PhylogeneticSpecies},
     individual_outcomes::Dict{Int, SortedDict{Int, Float64}},
     observations::Vector{<:Observation},
 )
-    estimate_outcomes!(individual_outcomes, evaluators, species, observations)
+    # TODO uncomment this
+    # estimate_outcomes!(individual_outcomes, evaluators, species, observations)
 
     evaluations = [
         evaluate(evaluator, random_number_generator, species, individual_outcomes)

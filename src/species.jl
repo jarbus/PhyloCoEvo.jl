@@ -59,7 +59,18 @@ struct PhylogeneticSpecies{I <: Individual} <: AbstractSpecies
     children::Vector{I}
     tree::PhylogeneticTree
     dist_data::PhylogeneticDistanceData
+    randomly_sampled_interactions::Set{Tuple{Int,Int}}
+    estimator_metrics::Dict{String,Any}
+    
 end
+function PhylogeneticSpecies(id::String,
+        population::Vector{I},
+        children::Vector{I},
+        tree::PhylogeneticTree,
+        dist_data::PhylogeneticDistanceData) where I <: Individual
+    PhylogeneticSpecies(id, population, children, tree, dist_data, Set{Tuple{Int,Int}}(), Dict{String,Any}())
+end
+
 
 
 """
@@ -128,6 +139,7 @@ function CoEvo.SpeciesCreators.create_species(
     ind_ids = vcat([ind.id for ind in population], [ind.id for ind in children])
     tree = PhylogeneticTree(ind_ids)
     dist_data = PhylogeneticDistanceData(tree, Set(ind_ids))
+
     PhylogeneticSpecies(species_creator.id, population, children, tree, dist_data)
 end
 
@@ -157,7 +169,7 @@ function CoEvo.SpeciesCreators.create_species(
     ids = Set(vcat([ind.id for ind in new_population],[child.id for child in new_children]))
     dist_data = PhylogeneticDistanceData(species.tree, ids)
     
-    new_species = PhylogeneticSpecies(species_creator.id, new_population, new_children, species.tree, dist_data)
+    new_species = PhylogeneticSpecies(species_creator.id,new_population, new_children, species.tree, dist_data)
     return new_species
 end
 
