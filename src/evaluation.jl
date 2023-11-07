@@ -6,7 +6,6 @@ using CoEvo.Individuals: Individual
 using CoEvo.Evaluators: evaluate
 using CoEvo.Evaluators.NSGAII: NSGAIIRecord, NSGAIIEvaluation, NSGAIIEvaluator
 using CoEvo.Evaluators.ScalarFitness: ScalarFitnessEvaluator, ScalarFitnessEvaluation, ScalarFitnessRecord
-using CoEvo.Observers: Observation
 
 struct OutcomeScalarFitnessEvaluation <: CoEvo.Evaluators.Evaluation
     species_id::String

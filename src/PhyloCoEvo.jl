@@ -6,6 +6,7 @@ export PhylogeneticSpeciesCreator, PhylogeneticSpecies, create_species,
        reset!
 include("./utils.jl")
 include("./species.jl")
+include("./estimation.jl")
 include("./evaluation.jl")
 include("./metrics.jl")
 include("./estimation-performer.jl")
