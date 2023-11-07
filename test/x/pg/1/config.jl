@@ -44,7 +44,7 @@ function CoEvo.Configurations.PredictionGame.make_archive_path(::PredictionGameC
 end
 
 function CoEvo.Configurations.PredictionGame.make_reporters(configuration::PredictionGameConfiguration)
-    runtime_reporter = RuntimeReporter(print_interval = print_interval)
+    runtime_reporter = RuntimeReporter(print_interval = 1)
     reporters = Reporter[
         BasicReporter(metric = TreeStatisticsMetric(),
             save_interval = 1,
@@ -98,4 +98,4 @@ configuration = PredictionGameConfiguration(
     communication_dimension = 1,
 )
 
-ecosystem = run!(configuration, n_generations = 10)
+ecosystem = run!(configuration, n_generations = 2)
