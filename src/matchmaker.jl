@@ -105,7 +105,7 @@ function CoEvo.MatchMakers.make_matches(
     matchmaker::Union{ParentsVsChildrenMatchMaker, RandomCohortMatchMaker},
     rng::AbstractRNG,
     interaction_id::String,
-    all_species::Vector{PhylogeneticSpecies}
+    all_species::Vector{<:PhylogeneticSpecies{<:Individual}}
 )
     if length(all_species) != 2
         throw(ErrorException("Only two-entity interactions are supported for now."))
