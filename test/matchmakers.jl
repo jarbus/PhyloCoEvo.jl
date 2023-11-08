@@ -2,6 +2,7 @@ using CoEvo.Individuals.Basic: BasicIndividual
 using CoEvo.Genotypes.Vectors: BasicVectorGenotype
 function test_random_cohort_matches(pop_sizes::Vector{Int},
                                     n_matches_per_ind::Vector{Int};
+                                    n_samples::Int=0,
                                     include_children::Bool=false)
     "Function goes over each species pair and tests that the correct number of matches are made.
     The number of matches made between two species is the same for all species pairs.
@@ -13,7 +14,7 @@ function test_random_cohort_matches(pop_sizes::Vector{Int},
     # With random cohort matches, the number of matches made between two species is the same
     # for all species pairs.
     @assert length(Set(ps * nm for (ps, nm) in zip(pop_sizes, n_matches_per_ind))) == 1
-    n_expected_matches_per_species_pair = pop_sizes[1] * n_matches_per_ind[1]
+    n_expected_matches_per_species_pair = pop_sizes[1] * n_matches_per_ind[1] + n_samples
     # each pair has the same num of matches
     n_species_pairs = length(pop_sizes) * (length(pop_sizes) - 1) / 2 
     n_expected_total_matches =n_expected_matches_per_species_pair * n_species_pairs 
@@ -32,7 +33,10 @@ function test_random_cohort_matches(pop_sizes::Vector{Int},
         species = [PhylogeneticSpecies("species$i", pop, typeof(pop)()) for (i, pop) in enumerate(pops)]
     end
     rng = StableRNG(1)
-    rcmm = RandomCohortMatchMaker(n_matches_per_ind=Dict("species$i"=>n_matches_per_ind[i] for (i, pop) in enumerate(pops))) 
+    rcmm = RandomCohortMatchMaker(n_matches_per_ind=Dict(
+                                    "species$i"=>n_matches_per_ind[i] 
+                                    for (i, pop) in enumerate(pops)),
+                                  n_samples=n_samples)
     # Create all pairwise matches
     all_matches = []
     for idx1 in 1:length(pop_sizes)-1
@@ -46,7 +50,7 @@ function test_random_cohort_matches(pop_sizes::Vector{Int},
                 wrong_num_matches = false
                 for ind in pop
                     num_made_matches_for_ind = length([1 for m in matches if ind.id in m.individual_ids])
-                    if num_made_matches_for_ind != n_matches_for_ind
+                    if num_made_matches_for_ind < n_matches_for_ind
                         wrong_num_matches = true
                         @assert false "individual $(ind.id) made $(num_made_matches_for_ind) matches, expected $(n_matches_for_ind)"
                     end
@@ -64,20 +68,20 @@ end
         test_random_cohort_matches([20, 20], [4, 4], include_children=true)
     end
     @testset "100v10" begin
-        test_random_cohort_matches([100, 10], [1, 10])
+        test_random_cohort_matches([100, 10], [1, 10], n_samples=10)
         test_random_cohort_matches([100, 10], [2, 20], include_children=true)
         test_random_cohort_matches([100, 10], [5, 50])
         test_random_cohort_matches([100, 10], [10, 100], include_children=true)
     end
     @testset "3SpeciesSameSizeSameNumMatches" begin
-        test_random_cohort_matches([100,100,100], [1,1,1])
+        test_random_cohort_matches([100,100,100], [1,1,1], n_samples=10)
         test_random_cohort_matches([100,100,100], [10,10,10], include_children=true)
         test_random_cohort_matches([100,100,100], [100,100,100])
     end
 end
 
 function test_parent_v_children_matches(n_parents::Vector{Int},
-                                        n_children::Vector{Int},
+                                        n_children::Vector{Int};
                                         n_samples::Int)
     "Function goes over each species pair and tests that the correct number of matches are made.
     The number of matches made between two species is the same for all species pairs.
@@ -140,7 +144,7 @@ end
 
 
 @testset "ParentsVsChildrenMatchMaker" begin
-    test_parent_v_children_matches([10, 10], [10, 10], 1)
-    test_parent_v_children_matches([10, 10], [100, 100], 100)
-    test_parent_v_children_matches([10, 10, 10], [10, 10, 10], 1)
+    test_parent_v_children_matches([10, 10], [10, 10], n_samples=1)
+    test_parent_v_children_matches([10, 10], [100, 100], n_samples=100)
+    test_parent_v_children_matches([10, 10, 10], [10, 10, 10], n_samples=1)
 end
