@@ -10,4 +10,5 @@ using Test
     include("x/sn/1/config.jl")
     include("x/pg/1/config.jl")
     include("estimation.jl")
+    include("matchmakers.jl")
 end

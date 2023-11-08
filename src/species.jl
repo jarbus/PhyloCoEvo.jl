@@ -51,6 +51,9 @@ Represents a species population and its offspring, with a phylogenetic tree.
 - `pop::OrderedDict{Int, I}`: Current population.
 - `children::OrderedDict{Int, I}`: Offspring of the population.
 - `tree::PhylogeneticTree`: Phylogenetic tree of the population.
+- `dist_data::PhylogeneticDistanceData`: Phylogenetic distance data.
+- `randomly_sampled_interactions::Set{Tuple{Int,Int}}`: Set of randomly sampled interactions.
+- `estimator_metrics::Dict{String,Any}`: Metrics for the estimator.
 """
 
 struct PhylogeneticSpecies{I <: Individual} <: AbstractSpecies
