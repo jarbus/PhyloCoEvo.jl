@@ -73,6 +73,14 @@ function PhylogeneticSpecies(id::String,
         dist_data::PhylogeneticDistanceData) where I <: Individual
     PhylogeneticSpecies(id, population, children, tree, dist_data, Set{Tuple{Int,Int}}(), Dict{String,Any}())
 end
+function PhylogeneticSpecies(id::String,
+        population::Vector{I},
+        children::Vector{I}) where I <: Individual
+    ind_ids = vcat([ind.id for ind in population], [ind.id for ind in children])
+    tree = PhylogeneticTree(ind_ids)
+    dist_data = PhylogeneticDistanceData(tree, Set(ind_ids))
+    PhylogeneticSpecies(id, population, children, tree, dist_data)
+end
 
 
 
@@ -139,11 +147,8 @@ function CoEvo.SpeciesCreators.create_species(
         individual_id_counter, 
         gene_id_counter
     )
-    ind_ids = vcat([ind.id for ind in population], [ind.id for ind in children])
-    tree = PhylogeneticTree(ind_ids)
-    dist_data = PhylogeneticDistanceData(tree, Set(ind_ids))
 
-    PhylogeneticSpecies(species_creator.id, population, children, tree, dist_data)
+    PhylogeneticSpecies(species_creator.id, population, children)
 end
 
 function CoEvo.SpeciesCreators.create_species(
