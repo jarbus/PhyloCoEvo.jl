@@ -9,12 +9,14 @@ function test_random_cohort_matches(pop_sizes::Vector{Int},
     Arguments:
         include_children::Bool: If true, split pop between pop and children, otherwise only use pop 
     "
+    @assert length(pop_sizes) == length(n_matches_per_ind)
     # With random cohort matches, the number of matches made between two species is the same
     # for all species pairs.
     @assert length(Set(ps * nm for (ps, nm) in zip(pop_sizes, n_matches_per_ind))) == 1
     n_expected_matches_per_species_pair = pop_sizes[1] * n_matches_per_ind[1]
-    # sum(1:length(pop_sizes)-1) is the number of species pairs, each pair has the same num of matches
-    n_expected_total_matches =n_expected_matches_per_species_pair * sum(1:length(pop_sizes)-1)
+    # each pair has the same num of matches
+    n_species_pairs = length(pop_sizes) * (length(pop_sizes) - 1) / 2 
+    n_expected_total_matches =n_expected_matches_per_species_pair * n_species_pairs 
     # Create species based on pop_sizes
     g = BasicVectorGenotype([0.0])
     pops, id = [], 1
@@ -46,7 +48,7 @@ function test_random_cohort_matches(pop_sizes::Vector{Int},
                     num_made_matches_for_ind = length([1 for m in matches if ind.id in m.individual_ids])
                     if num_made_matches_for_ind != n_matches_for_ind
                         wrong_num_matches = true
-                        @assert num_made_matches_for_ind == n_matches_for_ind "individual $(ind.id) made $(num_made_matches) matches, expected $(n_matches_for_ind)"
+                        @assert false "individual $(ind.id) made $(num_made_matches_for_ind) matches, expected $(n_matches_for_ind)"
                     end
                 end
                 @test !wrong_num_matches
