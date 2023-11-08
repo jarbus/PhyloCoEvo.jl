@@ -73,3 +73,72 @@ end
         test_random_cohort_matches([100,100,100], [100,100,100])
     end
 end
+
+function test_parent_v_children_matches(n_parents::Vector{Int},
+                                        n_children::Vector{Int},
+                                        n_samples::Int)
+    "Function goes over each species pair and tests that the correct number of matches are made.
+    The number of matches made between two species is the same for all species pairs.
+    The number of matches made by an individual is the same for all individuals in a species.
+    Arguments:
+        n_samples::Int: Number of additional child v child estimates to compute
+    "
+    @assert length(n_parents) == length(n_children)
+    n_expected_total_matches = 0
+    for i in 1:length(n_parents), j in [1:(i-1);(i+1):length(n_parents)]
+        n_expected_total_matches += n_parents[i] * n_children[j]
+    end
+    n_species_pairs = length(n_parents) * (length(n_parents) - 1) / 2 
+    n_expected_total_matches += n_samples * n_species_pairs
+    # Create species based on n_parents and n_children
+    g = BasicVectorGenotype([0.0])
+    parents, children, id = [], [], 1
+    for (np, nc) in zip(n_parents, n_children)
+        push!(parents, [BasicIndividual(i, g, Int[]) for i in id:id+np-1])
+        id += np
+        push!(children, [BasicIndividual(i, g, Int[]) for i in id:id+nc-1])
+        id += nc
+    end
+    species = [PhylogeneticSpecies("species$i", p, c) 
+               for (i, (p,c)) in enumerate(zip(parents, children))]
+    rng = StableRNG(1)
+    pvcmm = ParentsVsChildrenMatchMaker(n_samples=n_samples)
+
+    # Create all parent v child matches across all species
+    all_matches = []
+    for idx1 in 1:length(parents)-1
+        for idx2 in (idx1+1):length(parents)
+            indicies = [idx1, idx2]
+            matches = make_matches(pvcmm, rng, "interaction1", species[idx1], species[idx2])
+            append!(all_matches, matches)
+            @test length(matches) == (n_parents[idx1] * n_children[idx2]) +
+                                     (n_parents[idx2] * n_children[idx1]) +
+                                     n_samples
+            wrong_num_matches = false
+            n_parent_matches = 0
+            for (i, (p, c)) in enumerate(zip(parents[indicies], children[indicies]))
+                wrong_num_matches = false
+                # assert each parent is matched up with all children
+                for ind in p
+                    num_made_matches_for_p = length([1 for m in matches if ind.id in m.individual_ids])
+                    n_parent_matches += num_made_matches_for_p
+                    if num_made_matches_for_p != length(c)
+                        wrong_num_matches = true
+                        @assert false "individual $(ind.id) made $(num_made_matches_for_p) matches, expected $(length(c))"
+                    end
+                end
+                @test !wrong_num_matches
+            end
+            @test length(matches) == n_parent_matches + n_samples
+        end
+    end
+    @test length(all_matches) == n_expected_total_matches
+    all_matches
+end
+
+
+@testset "ParentsVsChildrenMatchMaker" begin
+    test_parent_v_children_matches([10, 10], [10, 10], 1)
+    test_parent_v_children_matches([10, 10], [100, 100], 100)
+    test_parent_v_children_matches([10, 10, 10], [10, 10, 10], 1)
+end

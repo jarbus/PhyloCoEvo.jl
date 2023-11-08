@@ -1,10 +1,18 @@
-export PhylogeneticMatchMaker, RandomCohortMatchMaker, make_matches
+export ParentsVsChildrenMatchMaker, RandomCohortMatchMaker, make_matches
 using Random
 using CoEvo.MatchMakers: MatchMaker
 using CoEvo.Matches.Basic: BasicMatch
 
-Base.@kwdef struct PhylogeneticMatchMaker <: MatchMaker
-    cohorts::Vector{Symbol} = [:population, :children]
+Base.@kwdef struct ParentsVsChildrenMatchMaker <: MatchMaker
+    """Make matches between parents and children. All individuals
+    in species.population are considered parents, and all individuals
+    in species.children are considered children.
+    
+    Arguments:
+        n_random_samples::Int: Number of additional random child v child 
+        matches to make, used for estimating the accuracy of estimates.
+    """
+    n_samples::Int
 end
 
 Base.@kwdef struct RandomCohortMatchMaker <: MatchMaker
@@ -18,27 +26,42 @@ Base.@kwdef struct RandomCohortMatchMaker <: MatchMaker
     cohorts::Vector{Symbol} = [:population, :children]
 end
 
-# function CoEvo.MatchMakers.make_matches(
-#     matchmaker::PhylogeneticMatchMaker, 
-#     rng::AbstractRNG,
-#     interaction_id::String, 
-#     species1::PhylogeneticSpecies, 
-#     species2::PhylogeneticSpecies
-# )
-#     # TODO: update phylogenetic species
-#     ids_1 = get_individual_ids_from_cohorts(species1, matchmaker)
-#     ids_2 = get_individual_ids_from_cohorts(species2, matchmaker)
-#
-#     # Make sure that there are no previous interactions in the species
-#     @assert length(species1.randomly_sampled_interactions) == 0
-#     @assert length(species2.randomly_sampled_interactions) == 0
-#     match_ids = vec(collect(Iterators.product(ids_1, ids_2)))
-#     matches = [BasicMatch(interaction_id, [id_1, id_2]) for (id_1, id_2) in match_ids]
-#     return matches
-# end
+function CoEvo.MatchMakers.make_matches(
+    matchmaker::ParentsVsChildrenMatchMaker, 
+    rng::AbstractRNG,
+    interaction_id::String, 
+    species1::PhylogeneticSpecies, 
+    species2::PhylogeneticSpecies
+)
+    parent1_ids = [ind.id for ind in species1.population]
+    parent2_ids = [ind.id for ind in species2.population]
+    child1_ids = [ind.id for ind in species1.children]
+    child2_ids = [ind.id for ind in species2.children]
+    
+    parents_v_children_matches = Iterators.flatten(
+                (Iterators.product(parent1_ids, child2_ids), 
+                 Iterators.product(child1_ids, parent2_ids))
+               ) |> collect |> vec
+
+    # choose n_random_samples random child v child matches
+    child_v_child_matches = Iterators.product(child1_ids, child2_ids) |> collect |> vec
+    # shuffle matches
+    shuffle!(rng, child_v_child_matches)
+    # Choose n_random_samples random matches
+    random_child_v_child_matches = Set(child_v_child_matches[1:matchmaker.n_samples])
+    @assert length(random_child_v_child_matches) == matchmaker.n_samples
+    # Update phylogenetic species
+    union!(species1.randomly_sampled_interactions, random_child_v_child_matches)
+    union!(species2.randomly_sampled_interactions, random_child_v_child_matches)
+
+    # Combine all matches
+    match_ids = union(Set(parents_v_children_matches), Set(random_child_v_child_matches))
+    matches = [BasicMatch(interaction_id, [id_1, id_2]) for (id_1, id_2) in match_ids]
+    return matches
+end
 
 function get_individual_ids_from_cohorts(
-    species::AbstractSpecies, matchmaker::Union{RandomCohortMatchMaker, PhylogeneticMatchMaker}
+    species::AbstractSpecies, matchmaker::RandomCohortMatchMaker
 )
     individuals = vcat([getfield(species, cohort) for cohort in matchmaker.cohorts]...)
     ids = [individual.id for individual in individuals]
@@ -79,10 +102,10 @@ end
 
 
 function CoEvo.MatchMakers.make_matches(
-    matchmaker::Union{PhylogeneticMatchMaker, RandomCohortMatchMaker},
+    matchmaker::Union{ParentsVsChildrenMatchMaker, RandomCohortMatchMaker},
     rng::AbstractRNG,
     interaction_id::String,
-    all_species::Vector{PhylogeneticSpecies},
+    all_species::Vector{PhylogeneticSpecies}
 )
     if length(all_species) != 2
         throw(ErrorException("Only two-entity interactions are supported for now."))
