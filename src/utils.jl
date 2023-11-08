@@ -1,4 +1,5 @@
 export initialize_x
+using Random
 using CoEvo.Measurements.Statistical: BasicStatisticalMeasurement
 function initialize_x(path::String)
     """Takes in an experiment directory as input, creates data directory"""
@@ -16,4 +17,15 @@ function save_statistical(file, path::String,stats::BasicStatisticalMeasurement)
     for field in fieldnames(typeof(stats))
         file[joinpath(path, String(field))] = getfield(stats, field)
     end
+end
+
+function two_rand(rng::AbstractRNG, r::UnitRange)
+    """Returns two random numbers from range r"""
+    @assert r.start < r.stop "Range $(r) is not valid"
+    a = rand(rng, r)
+    b = rand(rng, r)
+    while a == b
+        b = rand(rng, r)
+    end
+    return a, b
 end

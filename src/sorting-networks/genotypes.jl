@@ -35,23 +35,11 @@ struct SortingNetworkTestCaseGenotypeCreator <: CoEvo.Genotypes.GenotypeCreator
     n_inputs::Int
 end
 
-function two_random_inputs(rng::AbstractRNG, n_inputs::Int)
-    input_1 = rand(rng, 1:n_inputs)
-    input_2 = input_1
-    while true
-        input_2 = rand(rng, 1:n_inputs)
-        if input_1 != input_2
-            break
-        end
-    end
-    return input_1, input_2
-end
-
 function random_codon(rng::AbstractRNG,
                       gene_id_counter::Counter,
                       n_inputs::Int)
     id = count!(gene_id_counter)
-    input_1, input_2 = two_random_inputs(rng, n_inputs)
+    input_1, input_2 = two_rand(rng, 1:n_inputs)
     return SortingNetworkCodon(id, input_1, input_2)
 end
 
@@ -129,7 +117,7 @@ function swap(rng::AbstractRNG, num_inputs::Int, num_swaps::Int)
     inputs = collect(1:num_inputs)
     for i in 1:num_swaps
         # choose two random input indicies
-        a, b = two_random_inputs(rng, num_inputs)
+        a, b = two_rand(rng, 1:num_inputs)
         inputs[a], inputs[b] = inputs[b], inputs[a]
     end
     return inputs
