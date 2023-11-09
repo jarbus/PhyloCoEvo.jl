@@ -41,7 +41,7 @@ function CoEvo.Mutators.mutate(
             # rewire 
             index = rand(rng, 1:length(new_codons))
             new_id = count!(gene_id_counter)
-            new_one, new_two = two_random_inputs(rng, geno.n_inputs)
+            new_one, new_two = two_rand(rng, 1:geno.n_inputs)
             new_codons[index] = SortingNetworkCodon(new_id, new_one, new_two)
         end
     end
