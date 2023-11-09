@@ -34,6 +34,16 @@ function CoEvo.MatchMakers.make_matches(
     species1::PhylogeneticSpecies, 
     species2::PhylogeneticSpecies
 )
+    # If children have no parents, then run all vs all with no samples
+    c_parents = [p for s in [species1, species2] for ind in s.children for p in ind.parent_ids]
+    n_expected_parents = length(species1.children) + length(species2.children)
+    @assert length(c_parents) == 0 || length(c_parents) == n_expected_parents "We expect either 0 parents or $n_expected_parents parents, but got $(length(c_parents)) parents."
+    if length(c_parents) == 0
+        allvsall_mm = AllvsAllMatchMaker([:population,:children])
+        return make_matches(allvsall_mm, rng, interaction_id, [species1, species2])
+    end
+    
+    # Otherwise, match parents v children
     parent1_ids = [ind.id for ind in species1.population]
     parent2_ids = [ind.id for ind in species2.population]
     child1_ids = [ind.id for ind in species1.children]
