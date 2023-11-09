@@ -1,6 +1,7 @@
 using PhylogeneticTrees
 using DataStructures: SortedDict
 using PhyloCoEvo: RelatedOutcome, find_k_nearest_interactions, weighted_average_outcome, estimate_outcomes!, two_layer_merge!
+using CoEvo.Names
 
 @testset "estimation.jl" begin
 @testset "WeightedAverage" begin
@@ -108,12 +109,42 @@ end
     @testset "two_layer_merge!" begin
         d1 = Dict(0=>Dict(1=>0), 1=>Dict(2=>0, 3=>0))
         d2 = Dict(1=>Dict(4=>0), 2=>Dict(1=>0, 3=>0))
+        # Raises a warning, but it's what we expect
         two_layer_merge!(d1, d2)
         @test d1 == Dict(0=>Dict(1=>0),
                          1=>Dict(2=>0, 3=>0, 4=>0),
                          2=>Dict(1=>0, 3=>0))
     end
     @testset "estimate_outcomes!" begin
-    # TODO: estimate_outcomes! test
+    # Make two species
+    #  A             B
+    #  1             3
+    #  |             |
+    #  2             4
+    #
+    #  Estimate 2v4 from: 1v4, 2v3, and 1v3
+    #  1v4 : 1, 0, dist = 1 weight = 3 norm_weight = 3/8 = 0.375
+    #  2v3 : 0, 1  dist = 1 weight = 3 norm_weight = 3/8 = 0.375
+    #  1v3 : 0, 1  dist = 2 weight = 2 norm_weight = 2/8 = 0.25
+    #  Expected weighted average outcome for 2v4: (0.375, 0.625)
+    species = make_dummy_phylo_species([1, 1], [1, 1])
+    new_individual_outcomes() = Dict(1=>SortedDict(4=>1.,3=>0.), 
+             2=>SortedDict(3=>0.),
+             3=>SortedDict(1=>1.,2=>1.),
+             4=>SortedDict(1=>0.))
+
+    individual_outcomes = new_individual_outcomes()
+    estimate_outcomes!(individual_outcomes, species, k=3,max_dist=10)
+    @test 4 ∈ keys(individual_outcomes[2])
+    @test 2 ∈ keys(individual_outcomes[4])
+    @test individual_outcomes[2][4] == 0.375
+    @test individual_outcomes[4][2] == 0.625
+
+    individual_outcomes = new_individual_outcomes()
+    estimate_outcomes!(individual_outcomes, species, k=2,max_dist=10)
+    @test 4 ∈ keys(individual_outcomes[2])
+    @test 2 ∈ keys(individual_outcomes[4])
+    @test individual_outcomes[2][4] == 0.5
+    @test individual_outcomes[4][2] == 0.5
     end
 end

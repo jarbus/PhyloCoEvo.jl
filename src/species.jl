@@ -53,7 +53,7 @@ Represents a species population and its offspring, with a phylogenetic tree.
 - `tree::PhylogeneticTree`: Phylogenetic tree of the population.
 - `dist_data::PhylogeneticDistanceData`: Phylogenetic distance data.
 - `randomly_sampled_interactions::Set{Tuple{Int,Int}}`: Set of randomly sampled interactions.
-- `estimator_metrics::Dict{String,Any}`: Metrics for the estimator.
+- `measurements::Dict{String,Any}`: measurements that are computed.
 """
 
 struct PhylogeneticSpecies{I <: Individual} <: AbstractSpecies
@@ -63,7 +63,7 @@ struct PhylogeneticSpecies{I <: Individual} <: AbstractSpecies
     tree::PhylogeneticTree
     dist_data::PhylogeneticDistanceData
     randomly_sampled_interactions::Set{Tuple{Int,Int}}
-    estimator_metrics::Dict{String,Any}
+    measurements::Dict{String,Any}
     
 end
 function PhylogeneticSpecies(id::String,
