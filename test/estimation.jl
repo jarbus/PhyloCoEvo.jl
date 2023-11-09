@@ -1,6 +1,6 @@
 using PhylogeneticTrees
 using DataStructures: SortedDict
-using PhyloCoEvo: RelatedOutcome, find_k_nearest_interactions, weighted_average_outcome, estimate_outcomes!, two_layer_merge!
+using PhyloCoEvo.Estimators.Phylogenetic: weighted_average_outcome, RelatedOutcome, find_k_nearest_interactions, two_layer_merge!, estimate!, compute_estimates, PhylogeneticEstimator
 using CoEvo.Names
 
 @testset "estimation.jl" begin
@@ -115,7 +115,7 @@ end
                          1=>Dict(2=>0, 3=>0, 4=>0),
                          2=>Dict(1=>0, 3=>0))
     end
-    @testset "estimate_outcomes!" begin
+    @testset "estimate!" begin
     # Make two species
     #  A             B
     #  1             3
@@ -132,16 +132,17 @@ end
              2=>SortedDict(3=>0.),
              3=>SortedDict(1=>1.,2=>1.),
              4=>SortedDict(1=>0.))
-
+    phyloestimator = PhylogeneticEstimator(3, 10)
     individual_outcomes = new_individual_outcomes()
-    estimate_outcomes!(individual_outcomes, species, k=3,max_dist=10)
+    estimate!(phyloestimator, individual_outcomes, species)
     @test 4 ∈ keys(individual_outcomes[2])
     @test 2 ∈ keys(individual_outcomes[4])
     @test individual_outcomes[2][4] == 0.375
     @test individual_outcomes[4][2] == 0.625
 
+    phyloestimator = PhylogeneticEstimator(2, 10)
     individual_outcomes = new_individual_outcomes()
-    estimate_outcomes!(individual_outcomes, species, k=2,max_dist=10)
+    estimate!(phyloestimator, individual_outcomes, species)
     @test 4 ∈ keys(individual_outcomes[2])
     @test 2 ∈ keys(individual_outcomes[4])
     @test individual_outcomes[2][4] == 0.5

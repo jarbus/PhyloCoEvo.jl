@@ -1,74 +1,4 @@
-using PhylogeneticTrees: PhylogeneticNode
-using DataStructures: SortedDict
-using CoEvo.Observers: Observation
-using CoEvo.Measurements.Statistical: BasicStatisticalMeasurement, GroupStatisticalMeasurement
-
-
-struct QueueElement
-    indA::PhylogeneticNode
-    indB::PhylogeneticNode
-    dist::Int
-    caller::Union{QueueElement, Nothing} # Prevent infinite loops by never returning to the caller
-    add_B::Bool # Whether to add inds from tree B
-end
-
-struct RelatedOutcome
-    """A related outcome is an interaction between two individuals, 
-    and the distance to a query pair of individuals. Used for computing
-    weighted averages of outcomes.
-    """
-    ida::Int
-    idb::Int
-    dist::Int
-    outcomea::Float64
-    outcomeb::Float64
-end
-
-struct EstimatedOutcome
-    ida::Int
-    idb::Int
-    distances::Vector{Int} # the average distance of the k nearest interactions
-    est_outcomea::Float64
-    est_outcomeb::Float64
-end
-
-
-Base.@kwdef struct EstimationSampleMeasurement <: Measurement
-    DistanceStatistics::BasicStatisticalMeasurement
-    ErrorStatistics::BasicStatisticalMeasurement
-    DistanceErrorCorrelation::Float64
-    NumSamples::Int
-
-    function EstimationSampleMeasurement(distances, errors)
-        avg_distances = [mean(d) for d in distances]
-        new(
-            BasicStatisticalMeasurement(distances),
-            BasicStatisticalMeasurement(errors),
-            cor(avg_distances, errors),
-            length(errors)
-        )
-    end
-end
-
-function EstimatedOutcome(ida::Int,
-                          idb::Int,
-                          related_outcomes::Vector{RelatedOutcome})
-    wa, wb = weighted_average_outcome(related_outcomes)
-    distances = [r.dist for r in related_outcomes]
-    EstimatedOutcome(ida, idb, distances, wa, wb)
-end
-
-function estimates_to_outcomes(estimates::Vector{EstimatedOutcome})
-    ids = Set(id for e in estimates for id in (e.ida, e.idb))
-    individual_outcomes = Dict{Int, Dict{Int, Float64}}(id=>Dict{Int, Float64}() for id in ids)
-    for e in estimates
-        individual_outcomes[e.ida][e.idb] = e.est_outcomea
-        individual_outcomes[e.idb][e.ida] = e.est_outcomeb
-    end
-    sorted_dict_individual_outcomes = Dict(k=>SortedDict{Int,Float64}(v) for (k,v) in individual_outcomes)
-    sorted_dict_individual_outcomes
-end
-
+export estimate!
 function find_k_nearest_interactions(
     ida::Int,
     idb::Int,
@@ -167,45 +97,6 @@ function find_k_nearest_interactions(
     return k_nearest_interactions
 end
 
-function weighted_average_outcome(related_outcomes::Vector{RelatedOutcome})
-    """Compute the weighted average outcome of a set of related outcomes
-
-    Arguments:
-    =========
-    related_outcomes: Vector{RelatedOutcome}
-
-    Returns:
-    ========
-    weighted_average_a, weighted_average_b: Float64, Float64
-        The weighted average outcome for individuals a and b
-    """
-    k = length(related_outcomes)
-    if k == 1
-        weights = [1.0]
-    else
-        dists = [related_outcomes[i].dist for i in 1:k]
-        inv_dist =  sum(dists) .- dists
-        weights = inv_dist ./ sum(inv_dist)
-    end
-    weighted_average_a, weighted_average_b = 0.0, 0.0
-    for i in 1:k
-        @inbounds weighted_average_a += related_outcomes[i].outcomea * weights[i]
-        @inbounds weighted_average_b += related_outcomes[i].outcomeb * weights[i]
-    end
-    return weighted_average_a, weighted_average_b
-end
-
-function create_individual_outcomes_from_estimates(estimates::Vector{EstimatedOutcome})
-    ids = Set(id for e in estimates for id in (e.ida, e.idb))
-    individual_outcomes = Dict{Int, Dict{Int, Float64}}(id=>Dict{Int,Float64}() for id in ids)
-    for e in estimates
-        individual_outcomes[e.ida][e.idb] = e.est_outcomea
-        individual_outcomes[e.idb][e.ida] = e.est_outcomeb
-    end
-    sorted_dict_individual_outcomes = Dict(k=>SortedDict{Int,Float64}(v) for (k,v) in individual_outcomes)
-    sorted_dict_individual_outcomes
-end
-
 function compute_estimates(
     pairs::Vector{Tuple{Int, Int}},
     treeA::PhylogeneticTree,
@@ -215,10 +106,6 @@ function compute_estimates(
     max_dist::Int)
     """For each pair of individuals in `pairs`, find the k nearest interactions
     in `individual_outcomes` and compute the weighted average outcome. 
-
-    TODO Save a fraction of estimates as samples to compute statistics of interest.
-
-    TODO compute accuracy of estimates by comparing to evaluated interactions.
 
     Returns:
     ========
@@ -234,36 +121,11 @@ function compute_estimates(
     return estimates
 end
 
-function measure_estimation_samples(estimates::Vector{EstimatedOutcome},
-                         outcomes::Dict{Int, SortedDict{Int, Float64}})
-    """Compute metrics of interest for a set of estimates"""
-    distances = [d for e in estimates for d in e.distances]
-    errorsa = [abs(e.est_outcomea - outcomes[e.ida][e.idb]) for e in estimates]
-    errorsb = [abs(e.est_outcomeb - outcomes[e.idb][e.ida]) for e in estimates]
-    EstimationSampleMeasurement(distances, errorsa), EstimationSampleMeasurement(distances, errorsb)
-end
-
-function two_layer_merge!(d1::Dict{Int, <:AbstractDict}, d2::Dict{Int, <:AbstractDict})
-    """Merge dictionary of dictionaries `d2` into `d1` by merging the inner dictionaries
-    if the key is in both dictionaries, and adding the key+dict if it is not in `d1`."""
-    # TODO: Profile and Optimize
-    for id in keys(d2)
-        # If id is in individual_outcomes, merge the two dictionaries using merge!
-        if id ∈ keys(d1)
-            merge!(d1[id], d2[id])
-        else
-            @warn "Estimating all outcomes for individual $id"
-            d1[id] = d2[id]
-        end
-    end
-end
-
-
-function estimate_outcomes!(
+function estimate!(
+    estimator::PhylogeneticEstimator,
     individual_outcomes::Dict{Int, <:SortedDict{Int, Float64}},
-    species::Vector{<:AbstractSpecies};
-    k::Int,
-    max_dist::Int)
+    species::Vector{<:AbstractSpecies}; # TODO Make this dispatch on phylogenetic species
+)
 
     """Fills individual outcomes for all pairs of individuals in `species` by
     estimating the outcomes of unevaluated interactions. Also computes metrics
@@ -310,20 +172,20 @@ function estimate_outcomes!(
                     species[i].tree,
                     species[j].tree,
                     sampled_individual_outcomes,
-                    k=k, max_dist=max_dist)
+                    k=estimator.k, max_dist=estimator.max_dist)
 
                 # Compare sample estimates to actual outcomes
                 esma, esmb = measure_estimation_samples(sample_estimates, sampled_individual_outcomes)
 
                 # Add metrics to species
-                if EstimationSampleMeasurement ∉ keys(species[i].measurements)
-                    species[i].measurements[EstimationSampleMeasurement] = Dict{String, Any}()
+                if PhylogeneticEstimationSampleMeasurement ∉ keys(species[i].measurements)
+                    species[i].measurements[PhylogeneticEstimationSampleMeasurement] = Dict{String, Any}()
                 end
-                if EstimationSampleMeasurement ∉ keys(species[j].measurements)
-                    species[j].measurements[EstimationSampleMeasurement] = Dict{String, Any}()
+                if PhylogeneticEstimationSampleMeasurement ∉ keys(species[j].measurements)
+                    species[j].measurements[PhylogeneticEstimationSampleMeasurement] = Dict{String, Any}()
                 end
-                species[i].measurements[EstimationSampleMeasurement][species[j].id] = esma
-                species[j].measurements[EstimationSampleMeasurement][species[i].id] = esmb
+                species[i].measurements[PhylogeneticEstimationSampleMeasurement][species[j].id] = esma
+                species[j].measurements[PhylogeneticEstimationSampleMeasurement][species[i].id] = esmb
             end
 
             estimates = compute_estimates(
@@ -331,7 +193,7 @@ function estimate_outcomes!(
                                     species[i].tree,
                                     species[j].tree,
                                     individual_outcomes,
-                                    k=k, max_dist=max_dist)
+                                    k=estimator.k, max_dist=estimator.max_dist)
             estimated_individual_outcomes = estimates_to_outcomes(estimates)
             # merge estimated_individual_outcomes into individual_outcomes
             two_layer_merge!(individual_outcomes, estimated_individual_outcomes)

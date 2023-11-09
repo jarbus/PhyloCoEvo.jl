@@ -7,7 +7,8 @@ export PhylogeneticSpeciesCreator, PhylogeneticSpecies, create_species,
 include("./utils.jl")
 include("./species.jl")
 include("./metrics.jl")
-include("./estimation.jl")
+include("./estimators/estimators.jl")
+using .Estimators: Estimator, Phylogenetic, estimate!
 include("./evaluation.jl")
 include("./estimation-performer.jl")
 include("./matchmaker.jl")
