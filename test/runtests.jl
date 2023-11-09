@@ -3,6 +3,8 @@ using StableRNGs
 using CoEvo
 using Test
 using CoEvo.Names
+using CoEvo.Individuals.Basic: BasicIndividual
+using CoEvo.Genotypes.Vectors: BasicVectorGenotype
 
 function make_dummy_phylo_species(n_parents::Vector{Int}, n_children::Vector{Int}; first_gen::Bool=false)
     g = BasicVectorGenotype([0.0])

@@ -6,6 +6,7 @@ using CoEvo.Individuals: Individual
 using CoEvo.Evaluators: evaluate
 using CoEvo.Evaluators.NSGAII: NSGAIIRecord, NSGAIIEvaluation, NSGAIIEvaluator
 using CoEvo.Evaluators.ScalarFitness: ScalarFitnessEvaluator, ScalarFitnessEvaluation, ScalarFitnessRecord
+using CoEvo.Observers: Observation
 
 struct OutcomeScalarFitnessEvaluation <: CoEvo.Evaluators.Evaluation
     species_id::String
@@ -77,10 +78,10 @@ function CoEvo.Ecosystems.Basic.evaluate_species(
     random_number_generator::AbstractRNG,
     species::Vector{PhylogeneticSpecies},
     individual_outcomes::Dict{Int, SortedDict{Int, Float64}},
-    observations::Vector{<:Observation},
+    ::Vector{<:Observation},
 )
     # TODO uncomment this
-    # estimate_outcomes!(individual_outcomes, evaluators, species, observations)
+    # estimate_outcomes!(individual_outcomes, species,)
 
     evaluations = [
         evaluate(evaluator, random_number_generator, species, individual_outcomes)

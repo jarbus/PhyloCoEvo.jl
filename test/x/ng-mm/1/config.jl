@@ -97,7 +97,9 @@ end
     @testset "RandomCohortMatchMaker" begin
         # Test 10 cohorts of 10 individuals each
         n_pop = 50 # 50 parents, 50 children
-        rcmm = RandomCohortMatchMaker(n_matches_per_ind=Dict("a"=>10, "b"=>10))
+        rcmm = RandomCohortMatchMaker(n_matches_per_ind=Dict("a"=>10, "b"=>10),
+                                      n_samples=10
+                                     )
         eco_creator = dummy_eco_creator(n_pop=n_pop, matchmaker=rcmm)
         eco = evolve!(eco_creator, n_generations=2)
         @test true
