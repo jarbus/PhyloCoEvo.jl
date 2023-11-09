@@ -76,9 +76,22 @@ end
 function PhylogeneticSpecies(id::String,
         population::Vector{I},
         children::Vector{I}) where I <: Individual
-    ind_ids = vcat([ind.id for ind in population], [ind.id for ind in children])
-    tree = PhylogeneticTree(ind_ids)
-    dist_data = PhylogeneticDistanceData(tree, Set(ind_ids))
+    parent_ids = [id for c in children for id in c.parent_ids]
+    population_ids = [ind.id for ind in population]
+    child_ids = [ind.id for ind in children]
+    all_ids = [population_ids; child_ids]
+    if length(parent_ids) == 0
+        # If children have no parents (are genesis), make them genesis
+        tree = PhylogeneticTree(all_ids)
+    else
+        # If children have parents, then add them to the tree as leaves
+        tree = PhylogeneticTree(population_ids)
+        for c in children
+            add_child!(tree, c.parent_ids[1], c.id)
+        end
+    end
+
+    dist_data = PhylogeneticDistanceData(tree, Set(all_ids))
     PhylogeneticSpecies(id, population, children, tree, dist_data)
 end
 
