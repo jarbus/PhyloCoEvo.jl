@@ -5,7 +5,6 @@ export PhylogeneticSpeciesCreator, PhylogeneticSpecies, create_species,
        OutcomeScalarFitnessEvaluator, OutcomeScalarFitnessEvaluation,
        reset!
 include("./utils.jl")
-include("./species.jl")
 include("./metrics.jl")
 include("./estimators/estimators.jl")
 using .Estimators: Estimator, Phylogenetic, estimate!
