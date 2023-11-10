@@ -9,6 +9,13 @@ include("./species.jl")
 include("./metrics.jl")
 include("./estimators/estimators.jl")
 using .Estimators: Estimator, Phylogenetic, estimate!
+
+include("./species_creators/species_creators.jl")
+using .SpeciesCreators.Phylogenetic: PhylogeneticSpeciesCreator, create_species
+
+include("./species/species.jl")
+using .Species.Phylogenetic: PhylogeneticSpecies
+
 include("./evaluation.jl")
 include("./estimation-performer.jl")
 include("./matchmaker.jl")

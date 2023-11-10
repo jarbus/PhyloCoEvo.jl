@@ -9,6 +9,8 @@ The `PhylogeneticEstimator` struct represents a phylogenetic estimator used for 
 - `max_dist::Int`: The maximum interaction distance to look for before quiting.
 """
 struct PhylogeneticEstimator <: Estimator
+    speciesa_id::String
+    speciesb_id::String
     k::Int
     max_dist::Int
 end

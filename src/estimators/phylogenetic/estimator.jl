@@ -124,79 +124,79 @@ end
 function estimate!(
     estimator::PhylogeneticEstimator,
     individual_outcomes::Dict{Int, <:SortedDict{Int, Float64}},
-    species::Vector{<:AbstractSpecies}; # TODO Make this dispatch on phylogenetic species
-)
+    speciesa::PhylogeneticSpecies,
+    speciesb::PhylogeneticSpecies)
+    @assert estimator.speciesa_id == speciesa.id 
+    @assert estimator.speciesb_id == speciesb.id 
 
-    """Fills individual outcomes for all pairs of individuals in `species` by
-    estimating the outcomes of unevaluated interactions. Also computes metrics
-    of interest for each species relating to these estimates.
-    """
-    # TODO combine with individual outcomes from previous generations, using LRU
-    # TODO: Profile and Optimize
-    # compute estimates between each pair of species and merge into individual_outcomes
-    for i in 1:(length(species)-1)
-        for j in (i+1):length(species)
+    evaluated_interactions = [
+        (ind_i.id, ind_j.id)
+        for ind_i in [speciesa.population; speciesa.children] if ind_i.id in keys(individual_outcomes)
+        for ind_j in [speciesb.population; speciesb.children] if ind_j.id in keys(individual_outcomes[ind_i.id])
+    ]
+    all_interactions = [ 
+        (ind_i.id, ind_j.id)
+        for ind_i in [speciesa.population; speciesa.children]
+        for ind_j in [speciesb.population; speciesb.children]]
 
-            evaluated_interactions = [
-                (ind_i.id, ind_j.id)
-                for ind_i in [species[i].population; species[i].children] if ind_i.id in keys(individual_outcomes)
-                for ind_j in [species[j].population; species[j].children] if ind_j.id in keys(individual_outcomes[ind_i.id])
-            ]
-            all_interactions = [ 
-                (ind_i.id, ind_j.id)
-                for ind_i in [species[i].population; species[i].children]
-                for ind_j in [species[j].population; species[j].children]]
+    unevaluated_interactions = setdiff(all_interactions, evaluated_interactions)
 
-            unevaluated_interactions = setdiff(all_interactions, evaluated_interactions)
+    sampled_interactions = [i for s in (speciesa, speciesb) for i in s.randomly_sampled_interactions]
 
-            sampled_interactions = [i for s in species for i in s.randomly_sampled_interactions]
+    if length(sampled_interactions) > 0
 
-            if length(sampled_interactions) > 0
+        sampled_individual_outcomes = Dict{Int, SortedDict{Int, Float64}}(id=>SortedDict{Int,Float64}()
+                                                                          for i in sampled_interactions
+                                                                          for id in i)
+        # Remove sampled interactions from individual_outcomes
+        for (id1, id2) in sampled_interactions
 
-                sampled_individual_outcomes = Dict{Int, SortedDict{Int, Float64}}(id=>SortedDict{Int,Float64}()
-                                                                                  for i in sampled_interactions
-                                                                                  for id in i)
-                # Remove sampled interactions from individual_outcomes
-                for (id1, id2) in sampled_interactions
+            sampled_individual_outcomes[id1][id2] = individual_outcomes[id1][id2]
+            delete!(individual_outcomes[id1], id2)
 
-                    sampled_individual_outcomes[id1][id2] = individual_outcomes[id1][id2]
-                    delete!(individual_outcomes[id1], id2)
-
-                    sampled_individual_outcomes[id2][id1] = individual_outcomes[id2][id1]
-                    delete!(individual_outcomes[id2], id1)
-                end
-
-                # Estimate sampled interactions
-                sample_estimates::Vector{EstimatedOutcome} = compute_estimates(
-                    sampled_interactions,
-                    species[i].tree,
-                    species[j].tree,
-                    sampled_individual_outcomes,
-                    k=estimator.k, max_dist=estimator.max_dist)
-
-                # Compare sample estimates to actual outcomes
-                esma, esmb = measure_estimation_samples(sample_estimates, sampled_individual_outcomes)
-
-                # Add metrics to species
-                if PhylogeneticEstimationSampleMeasurement ∉ keys(species[i].measurements)
-                    species[i].measurements[PhylogeneticEstimationSampleMeasurement] = Dict{String, Any}()
-                end
-                if PhylogeneticEstimationSampleMeasurement ∉ keys(species[j].measurements)
-                    species[j].measurements[PhylogeneticEstimationSampleMeasurement] = Dict{String, Any}()
-                end
-                species[i].measurements[PhylogeneticEstimationSampleMeasurement][species[j].id] = esma
-                species[j].measurements[PhylogeneticEstimationSampleMeasurement][species[i].id] = esmb
-            end
-
-            estimates = compute_estimates(
-                                    unevaluated_interactions,
-                                    species[i].tree,
-                                    species[j].tree,
-                                    individual_outcomes,
-                                    k=estimator.k, max_dist=estimator.max_dist)
-            estimated_individual_outcomes = estimates_to_outcomes(estimates)
-            # merge estimated_individual_outcomes into individual_outcomes
-            two_layer_merge!(individual_outcomes, estimated_individual_outcomes)
+            sampled_individual_outcomes[id2][id1] = individual_outcomes[id2][id1]
+            delete!(individual_outcomes[id2], id1)
         end
+
+        # Estimate sampled interactions
+        sample_estimates::Vector{EstimatedOutcome} = compute_estimates(
+            sampled_interactions,
+            speciesa.tree,
+            speciesb.tree,
+            sampled_individual_outcomes,
+            k=estimator.k, max_dist=estimator.max_dist)
+
+        # Compare sample estimates to actual outcomes
+        esma, esmb = measure_estimation_samples(sample_estimates, sampled_individual_outcomes)
+
+        # Add metrics to species
+        if PhylogeneticEstimationSampleMeasurement ∉ keys(speciesa.measurements)
+            speciesa.measurements[PhylogeneticEstimationSampleMeasurement] = Dict{String, Any}()
+        end
+        if PhylogeneticEstimationSampleMeasurement ∉ keys(speciesb.measurements)
+            speciesb.measurements[PhylogeneticEstimationSampleMeasurement] = Dict{String, Any}()
+        end
+        speciesa.measurements[PhylogeneticEstimationSampleMeasurement][speciesb.id] = esma
+        speciesb.measurements[PhylogeneticEstimationSampleMeasurement][speciesa.id] = esmb
     end
+
+    estimates = compute_estimates(
+                            unevaluated_interactions,
+                            speciesa.tree,
+                            speciesb.tree,
+                            individual_outcomes,
+                            k=estimator.k, max_dist=estimator.max_dist)
+    estimated_individual_outcomes = estimates_to_outcomes(estimates)
+    # merge estimated_individual_outcomes into individual_outcomes
+    two_layer_merge!(individual_outcomes, estimated_individual_outcomes)
+
 end
+
+function estimate!(estimator::PhylogeneticEstimator,
+                   individual_outcomes::Dict{Int, <:SortedDict{Int, Float64}},
+                   species::Vector{<:AbstractSpecies})
+    speciesa = find_species_by_id(estimator.speciesa_id, species)
+    speciesb = find_species_by_id(estimator.speciesb_id, species)
+    estimate!(estimator, individual_outcomes, speciesa, speciesb)
+end
+

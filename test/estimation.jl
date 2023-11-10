@@ -132,7 +132,7 @@ end
              2=>SortedDict(3=>0.),
              3=>SortedDict(1=>1.,2=>1.),
              4=>SortedDict(1=>0.))
-    phyloestimator = PhylogeneticEstimator(3, 10)
+    phyloestimator = PhylogeneticEstimator("species1","species2",3, 10)
     individual_outcomes = new_individual_outcomes()
     estimate!(phyloestimator, individual_outcomes, species)
     @test 4 ∈ keys(individual_outcomes[2])
@@ -140,7 +140,7 @@ end
     @test individual_outcomes[2][4] == 0.375
     @test individual_outcomes[4][2] == 0.625
 
-    phyloestimator = PhylogeneticEstimator(2, 10)
+    phyloestimator = PhylogeneticEstimator("species1","species2",2, 10)
     individual_outcomes = new_individual_outcomes()
     estimate!(phyloestimator, individual_outcomes, species)
     @test 4 ∈ keys(individual_outcomes[2])
@@ -148,4 +148,6 @@ end
     @test individual_outcomes[2][4] == 0.5
     @test individual_outcomes[4][2] == 0.5
     end
+
+    # TODO add more tests
 end

@@ -1,3 +1,13 @@
+function find_species_by_id(species_id::String, species_list::Vector{<:AbstractSpecies})
+    # TODO: make this a utility accessible by all modules in CoEvo
+    index = findfirst(s -> s.id == species_id, species_list)
+    if index === nothing
+        throw(ErrorException("Species with id $species_id not found."))
+    end
+    return species_list[index]
+end
+
+
 function estimates_to_outcomes(estimates::Vector{EstimatedOutcome})
     ids = Set(id for e in estimates for id in (e.ida, e.idb))
     individual_outcomes = Dict{Int, Dict{Int, Float64}}(id=>Dict{Int, Float64}() for id in ids)

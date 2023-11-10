@@ -6,6 +6,9 @@ include("abstract/abstract.jl")
 
 include("interfaces/interfaces.jl")
 
-include("Phylogenetic/phylogenetic.jl")
+include("phylogenetic/phylogenetic.jl")
 using .Phylogenetic: Phylogenetic
+
+include("null/null.jl")
+using .Null: Null
 end
