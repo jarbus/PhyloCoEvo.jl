@@ -4,24 +4,39 @@ export PhylogeneticSpeciesCreator, PhylogeneticSpecies, create_species,
        EstimationPerformer, TreeStatisticsMetric,
        OutcomeScalarFitnessEvaluator, OutcomeScalarFitnessEvaluation,
        reset!
-include("./utils.jl")
-include("./metrics.jl")
-include("./estimators/estimators.jl")
-using .Estimators: Estimator, Phylogenetic, estimate!
 
-include("./species_creators/species_creators.jl")
-using .SpeciesCreators.Phylogenetic: PhylogeneticSpeciesCreator, create_species
+using CoEvo
+include("./utils.jl")
+using .Utils
+include("./metrics/treestats/metrics.jl")
 
 include("./species/species.jl")
-using .Species.Phylogenetic: PhylogeneticSpecies
+using .Species: Species 
 
-include("./evaluation.jl")
-include("./estimation-performer.jl")
-include("./matchmaker.jl")
-include("./sorting-networks/evaluation.jl")
-include("./sorting-networks/genotypes.jl")
-include("./sorting-networks/phenotypes.jl")
-include("./sorting-networks/domain.jl")
-include("./sorting-networks/mutator.jl")
-include("./sorting-networks/metrics.jl")
+include("./species_creators/species_creators.jl")
+using .SpeciesCreators: SpeciesCreators
+
+include("./estimators/estimators.jl")
+using .Estimators: Estimators
+
+include("./matchmakers/matchmakers.jl")
+using .MatchMakers: MatchMakers
+
+include("./evaluators/evaluators.jl")
+using .Evaluators: Evaluators
+
+include("./genotypes/genotypes.jl")
+using .Genotypes: Genotypes
+
+include("./phenotypes/phenotypes.jl")
+using .Phenotypes: Phenotypes
+
+include("./domains/domain.jl")
+using .Domains: Domains
+
+include("./mutators/mutator.jl")
+using .Mutators: Mutators
+
+include("./metrics/metrics.jl")
+using .Metrics: Metrics
 end

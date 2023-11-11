@@ -1,5 +1,8 @@
+module SortingNetwork
 export create_phenotype, act!, SortingNetworkPhenotypeCreator, SortingNetworkPhenotype, SortingNetworkTestCasePhenotype, SortingNetworkTestCasePhenotypeCreator, create_phenotype
 
+using CoEvo
+using ...Genotypes.SortingNetwork: SortingNetworkGenotype, SortingNetworkTestCaseGenotype
 using CoEvo.Phenotypes: Phenotype, PhenotypeCreator, act!, reset!
 
 struct SortingNetworkPhenotypeCreator <: PhenotypeCreator
@@ -55,4 +58,5 @@ end
 
 function CoEvo.Phenotypes.create_phenotype(phenotype_creator::SortingNetworkTestCasePhenotypeCreator, geno::SortingNetworkTestCaseGenotype)
     SortingNetworkTestCasePhenotype(geno.tests)
+end
 end

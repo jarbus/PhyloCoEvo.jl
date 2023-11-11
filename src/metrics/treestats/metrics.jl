@@ -1,7 +1,10 @@
+module TreeStatistics
+using CoEvo
 using CoEvo.Measurements: Measurement
 using CoEvo.Measurements.Statistical: BasicStatisticalMeasurement, GroupStatisticalMeasurement
 using CoEvo.States: State
 using CoEvo.Metrics: Metric
+using ...Utils: save_statistical, display_stats, format_stat
 using JLD2
 using PhylogeneticTrees
 
@@ -172,22 +175,6 @@ function CoEvo.Metrics.measure(
     return measurement
 end
 
-format_stat(value::AbstractFloat) = lpad(string(round(value, digits=2)), 5)
-format_stat(value::Int) = lpad(string(value), 5)
-
-function display_stats(n::Int, min_value, mean_value, std_value, max_value)
-    println("|$(format_stat(min_value))  $(format_stat(mean_value)) ± $(format_stat(std_value))  $(format_stat(max_value))| n=$n")
-end
-
-function display_stats(stat_measure::BasicStatisticalMeasurement)
-    display_stats(
-        stat_measure.n_samples,
-        stat_measure.minimum,
-        stat_measure.mean,
-        stat_measure.std,
-        stat_measure.maximum,
-    )
-end
 
 function CoEvo.Archivers.archive!(
     archiver::CoEvo.Archivers.Basic.BasicArchiver, 
@@ -231,4 +218,5 @@ function CoEvo.Archivers.archive!(
             end
         end
     end
+end
 end

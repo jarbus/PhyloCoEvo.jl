@@ -1,7 +1,12 @@
+module SortingNetwork
 export SortingNetworkMutator, SortingNetworkTestCaseMutator, mutate
 using Random: AbstractRNG, randn
 
 using CoEvo
+using CoEvo.Mutators: Mutator
+using CoEvo.Counters: Counter, count!
+using ...Genotypes.SortingNetwork: SortingNetworkGenotype, SortingNetworkCodon, SortingNetworkTestCaseGenotype, random_codon
+using ...Utils: two_rand
 
 
 Base.@kwdef struct SortingNetworkMutator <: Mutator 
@@ -69,4 +74,5 @@ function CoEvo.Mutators.mutate(
             new_tests[test_index][swap_index1], new_tests[test_index][swap_index2]
     end
     return SortingNetworkTestCaseGenotype(geno.id, new_tests)
+end
 end

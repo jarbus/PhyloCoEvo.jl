@@ -1,4 +1,5 @@
 export estimate!
+using ...Species.Phylogenetic: PhylogeneticSpecies
 function find_k_nearest_interactions(
     ida::Int,
     idb::Int,
@@ -123,7 +124,7 @@ end
 
 function estimate!(
     estimator::PhylogeneticEstimator,
-    individual_outcomes::Dict{Int, <:SortedDict{Int, Float64}},
+    individual_outcomes::Dict{Int, <:AbstractDict{Int, Float64}},
     speciesa::PhylogeneticSpecies,
     speciesb::PhylogeneticSpecies)
     @assert estimator.speciesa_id == speciesa.id 
@@ -193,7 +194,7 @@ function estimate!(
 end
 
 function estimate!(estimator::PhylogeneticEstimator,
-                   individual_outcomes::Dict{Int, <:SortedDict{Int, Float64}},
+                   individual_outcomes::Dict{Int, <:AbstractDict{Int, Float64}},
                    species::Vector{<:AbstractSpecies})
     speciesa = find_species_by_id(estimator.speciesa_id, species)
     speciesb = find_species_by_id(estimator.speciesb_id, species)

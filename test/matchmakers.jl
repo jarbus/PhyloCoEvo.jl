@@ -1,5 +1,6 @@
 using CoEvo.Individuals.Basic: BasicIndividual
 using CoEvo.Genotypes.Vectors: BasicVectorGenotype
+using PhyloCoEvo.MatchMakers: RandomCohortMatchMaker, ParentsVsChildrenMatchMaker
 function test_random_cohort_matches(pop_sizes::Vector{Int},
                                     n_matches_per_ind::Vector{Int};
                                     n_samples::Int=0,

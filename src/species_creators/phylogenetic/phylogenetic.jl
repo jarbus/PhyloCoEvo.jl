@@ -1,10 +1,19 @@
 module Phylogenetic
 
+using ...Species.Phylogenetic: PhylogeneticSpecies, PhylogeneticDistanceData
 using Random
 using CoEvo
 using CoEvo.Names
 using CoEvo.Evaluators: Evaluation
-using ..Species.Phylogenetic: PhylogeneticSpecies
+using PhylogeneticTrees: add_child!, PhylogeneticTree
+
+function add_children!(tree::PhylogeneticTree, children::Vector{<:Individual})
+    for child in children
+        @assert child.id ∉ keys(tree.tree) "id: $(child.id), keys: $(keys(tree.tree))"
+        @assert length(child.parent_ids) == 1
+        add_child!(tree, child.parent_ids[1], child.id)
+    end
+end
 """
     PhylogeneticSpeciesCreator{...}
 
@@ -80,7 +89,7 @@ function CoEvo.SpeciesCreators.create_species(
     species::PhylogeneticSpecies,
     evaluation::Evaluation
 ) 
-    new_population = replace(
+    new_population = CoEvo.Replacers.replace(
         species_creator.replacer, random_number_generator, species, evaluation
     )
     parents = select(

@@ -16,6 +16,10 @@ using CoEvo.Ecosystems: evolve!, Basic.BasicEcosystemCreator
 using CoEvo.States.Basic: BasicCoevolutionaryStateCreator
 using CoEvo.Counters.Basic: BasicCounter
 using CoEvo.MatchMakers.AllvsAll: AllvsAllMatchMaker
+using CoEvo.Performers.Basic: BasicPerformer
+using PhyloCoEvo.SpeciesCreators.Phylogenetic: PhylogeneticSpeciesCreator
+using PhyloCoEvo.Evaluators.Outcome: OutcomeScalarFitnessEvaluator
+using PhyloCoEvo.Metrics.TreeStatistics: TreeStatisticsMetric
 
 @testset "NumbersGameTest" begin
 
@@ -74,7 +78,7 @@ using CoEvo.MatchMakers.AllvsAll: AllvsAllMatchMaker
                     ),
                 ],
             ),
-            performer = EstimationPerformer(n_workers = 1),
+            performer = BasicPerformer(n_workers = 1),
             individual_id_counter = BasicCounter(0),
             gene_id_counter = BasicCounter(0),
             state_creator = BasicCoevolutionaryStateCreator(),

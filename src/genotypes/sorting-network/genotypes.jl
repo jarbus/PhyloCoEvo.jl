@@ -1,9 +1,12 @@
+module SortingNetwork
 export SortingNetworkGenotypeCreator, SortingNetworkGenotype, create_genotypes, SortingNetworkTestCaseGenotypeCreator, SortingNetworkTestCaseGenotype
 
 using Random: AbstractRNG, shuffle
+using CoEvo
 using CoEvo.Genotypes: Gene
-using CoEvo.Counters: count!
+using CoEvo.Counters: count!, Counter
 using CoEvo.Genotypes: Genotype
+using ...Utils: two_rand
 
 struct SortingNetworkCodon <: Gene
     id::Int
@@ -137,4 +140,5 @@ function CoEvo.Genotypes.create_genotypes(
         ) for _ in 1:n_pop ]
 
     return genotypes
+end
 end

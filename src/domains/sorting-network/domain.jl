@@ -1,6 +1,11 @@
-export SortingNetworkDomain, Partial
+module SortingNetwork
+export SortingNetworkDomain, Partial, get_outcome_set
+using CoEvo
 using CoEvo.Domains: Domain
 using CoEvo.Metrics: Metric
+using CoEvo.Phenotypes: Phenotype
+using ...Phenotypes.SortingNetwork: SortingNetworkPhenotype, netsort
+import CoEvo.Environments.get_outcome_set
 
 abstract type AbstractSortingNetworkMetric <: Metric end
 # We can add more metrics here
@@ -10,18 +15,18 @@ struct SortingNetworkDomain{O <: AbstractSortingNetworkMetric} <: CoEvo.Domains.
     outcome_metric::O
 end
 
-function CoEvo.Environments.get_outcome_set(
+function get_outcome_set(
         environment::CoEvo.Environments.Stateless.StatelessEnvironment{D, Phenotype}) where {D <: SortingNetworkDomain}
 
     if environment.phenotypes[1] isa SortingNetworkPhenotype
         result = netsort(environment.phenotypes[1], environment.phenotypes[2])
-        outcome_set = CoEvo.Environments.get_outcome_set(environment.domain.outcome_metric,
+        outcome_set = get_outcome_set(environment.domain.outcome_metric,
                                                          result,
                                                          environment.phenotypes[1])
         return outcome_set
     elseif environment.phenotypes[2] isa SortingNetworkPhenotype
         result = netsort(environment.phenotypes[2], environment.phenotypes[1])
-        outcome_set = CoEvo.Environments.get_outcome_set(environment.domain.outcome_metric,
+        outcome_set = get_outcome_set(environment.domain.outcome_metric,
                                                          result,
                                                          environment.phenotypes[1])
         return outcome_set[2:-1:1]
@@ -30,7 +35,7 @@ function CoEvo.Environments.get_outcome_set(
     end
 end
 
-function CoEvo.Environments.get_outcome_set(::Partial, results::Vector{Vector{Int64}}, snp::SortingNetworkPhenotype)
+function get_outcome_set(::Partial, results::Vector{Vector{Int64}}, snp::SortingNetworkPhenotype)
     # For partial, we just want the number of results sorted correctly
     num_correct = 0
     for r in results
@@ -46,4 +51,5 @@ function CoEvo.Environments.get_outcome_set(::Partial, results::Vector{Vector{In
         end
     end
     Float64[num_correct, length(results) - num_correct]
+end
 end

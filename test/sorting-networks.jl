@@ -1,8 +1,13 @@
 using CoEvo.Counters.Basic: BasicCounter
 using CoEvo.Environments.Stateless: StatelessEnvironment
-using PhyloCoEvo.Genotypes: create_genotypes
-using PhyloCoEvo.Phenotypes: create_phenotype
-using PhyloCoEvo: SortingNetworkDomain
+using PhyloCoEvo.Genotypes.SortingNetwork: SortingNetworkGenotype, SortingNetworkTestCaseGenotype, SortingNetworkCodon, SortingNetworkGenotypeCreator, SortingNetworkTestCaseGenotypeCreator, random_codon, swap
+using PhyloCoEvo.Phenotypes.SortingNetwork: SortingNetworkPhenotype, SortingNetworkTestCasePhenotype, netsort, SortingNetworkPhenotypeCreator, SortingNetworkTestCasePhenotypeCreator
+using PhyloCoEvo.Metrics.SortingNetwork: percent_sorted
+using PhyloCoEvo.Mutators.SortingNetwork: SortingNetworkMutator, SortingNetworkTestCaseMutator
+using PhyloCoEvo.Domains.SortingNetwork: SortingNetworkDomain, Partial
+using CoEvo.Phenotypes: create_phenotype
+using CoEvo.Genotypes: create_genotypes
+
 @testset "SortingNetworks" begin
     # Test that everything runs
     sngc = SortingNetworkGenotypeCreator(1, 2, 0, 100)
@@ -22,7 +27,7 @@ using PhyloCoEvo: SortingNetworkDomain
 
     @testset "Genotype" begin
         # no activate comparators
-        Codon = PhyloCoEvo.SortingNetworkCodon
+        Codon = SortingNetworkCodon
         codons = Codon[]
         genotype = SortingNetworkGenotype(codons, 2, 0, 100)
         phenotype = create_phenotype(snpc, genotype)
@@ -88,11 +93,11 @@ using PhyloCoEvo: SortingNetworkDomain
     
         function create_insertion_sort_genotype(n::Int)
             num_codons = Int(n * (n - 1) / 2)
-            codons = PhyloCoEvo.SortingNetworkCodon[]
+            codons = SortingNetworkCodon[]
             c = 1
             for i in 1:n-1
                 for j in i:-1:1
-                    codon = PhyloCoEvo.SortingNetworkCodon(c, j, j+1)
+                    codon = SortingNetworkCodon(c, j, j+1)
                     push!(codons, codon)
                 end
             end
@@ -115,8 +120,8 @@ using PhyloCoEvo: SortingNetworkDomain
         @testset "CorrectSorting" begin
             # Sanity check
             snp = SortingNetworkPhenotype([1 2;], 2, 0, 2)
-            @test [1,2] == PhyloCoEvo.netsort(snp, [1, 2])
-            @test [1,2] == PhyloCoEvo.netsort(snp, [2, 1])
+            @test [1,2] == netsort(snp, [1, 2])
+            @test [1,2] == netsort(snp, [2, 1])
     
             # Wikipedia example, 4 inputs
             # __________
@@ -126,7 +131,7 @@ using PhyloCoEvo: SortingNetworkDomain
             snp = SortingNetworkPhenotype([1 3; 2 4; 1 2; 3 4; 2 3;], 4, 0, 10)
             sorted = [1, 2, 3, 4]
             for perm in permute(sorted)
-                @assert sorted == PhyloCoEvo.netsort(snp, perm)
+                @assert sorted == netsort(snp, perm)
             end
             @test true
     
@@ -141,8 +146,8 @@ using PhyloCoEvo: SortingNetworkDomain
             snp = create_insertion_sort_phenotype(4)
             sorted = [1, 2, 3, 4]
             for perm in permute(sorted)
-                @assert sorted == PhyloCoEvo.netsort(snp, perm)
-                @assert sorted == PhyloCoEvo.netsort(sngp, perm)
+                @assert sorted == netsort(snp, perm)
+                @assert sorted == netsort(sngp, perm)
             end
             @test true
     
@@ -156,17 +161,17 @@ using PhyloCoEvo: SortingNetworkDomain
                     # create a 16-bit vector of zeros and ones of i
                     bits = [Int(d) for d in digits(i, base=2, pad=n)]
                     sorted = sort(bits)
-                    @assert sorted == PhyloCoEvo.netsort(snp, bits)
-                    @assert sorted == PhyloCoEvo.netsort(sngp, bits)
+                    @assert sorted == netsort(snp, bits)
+                    @assert sorted == netsort(sngp, bits)
                 end
             end
             test_size(16)
             @test true
     
             # Test percent_sorted
-            @test PhyloCoEvo.percent_sorted(sng) == 1.0
+            @test percent_sorted(sng) == 1.0
             sng_missing = SortingNetworkGenotype(sng.codons[1:5], 16, 0, 100)
-            @test PhyloCoEvo.percent_sorted(sng_missing) < 1.0
+            @test percent_sorted(sng_missing) < 1.0
         end
     
         # TODO: test that wires are valid with smaller networks
@@ -174,17 +179,17 @@ using PhyloCoEvo: SortingNetworkDomain
         @testset "IncorrectSorting" begin
             # Empty network
             snp = SortingNetworkPhenotype(zeros(Int64,0,2), 2, 0, 2)
-            @test [2,1] == PhyloCoEvo.netsort(snp, [2, 1])
+            @test [2,1] == netsort(snp, [2, 1])
     
             # Four inputs, one comparator
             snp = SortingNetworkPhenotype([1 2;], 4, 0, 4)
-            @test [3,4,2,1] == PhyloCoEvo.netsort(snp, [4,3,2,1])
+            @test [3,4,2,1] == netsort(snp, [4,3,2,1])
         end
     end
 
 
     @testset "Mutator" begin
-        Codon = PhyloCoEvo.SortingNetworkCodon
+        Codon = SortingNetworkCodon
         snm = SortingNetworkMutator()
         # test one active comparator
         codons = [Codon(1, 1, 2),]
@@ -232,18 +237,18 @@ end
     @test sort([sntcgenotypes[1].tests[1]...]) == 1:16
     phenotype = create_phenotype(sntcpc, sntcgenotypes[1])
 
-    x = PhyloCoEvo.swap(rng,4,0)
+    x = swap(rng,4,0)
     @test x == 1:4
 
-    x = PhyloCoEvo.swap(rng,4,1)
+    x = swap(rng,4,1)
     @test length(x) == 4
     @test sum(x .== 1:4) == 2
 
-    x = PhyloCoEvo.swap(rng,16,2)
+    x = swap(rng,16,2)
     @test length(x) == 16
     @test sum(x .== 1:16) ∈ 12:16
 
-    x = PhyloCoEvo.swap(rng,16,100)
+    x = swap(rng,16,100)
     @test length(x) == 16
     @test sum(x .== 1:16) ∉ 14:16
 

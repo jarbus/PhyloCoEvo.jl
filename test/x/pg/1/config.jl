@@ -12,6 +12,7 @@ using CoEvo.Reporters.Basic: BasicReporter
 using CoEvo.Selectors.Tournament: TournamentSelector
 using CoEvo.Metrics.Genotypes: GenotypeSize
 using CoEvo.Metrics.Evaluations: AllSpeciesFitness
+using PhyloCoEvo.Evaluators.Outcome: OutcomeNSGAIIEvaluator
 
 
 XDIR = initialize_x(dirname(@__FILE__))

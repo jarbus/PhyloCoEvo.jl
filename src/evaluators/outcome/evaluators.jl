@@ -1,9 +1,12 @@
+module Outcome
 export OutcomeScalarFitnessEvaluation, OutcomeScalarFitnessEvaluator, OutcomeNSGAIIEvaluation, OutcomeNSGAIIEvaluator
 
 using DataStructures: SortedDict
+using Random: AbstractRNG
+using CoEvo
 using CoEvo.Species: AbstractSpecies
 using CoEvo.Individuals: Individual
-using CoEvo.Evaluators: evaluate
+using CoEvo.Evaluators: evaluate, Evaluation, Evaluator
 using CoEvo.Evaluators.NSGAII: NSGAIIRecord, NSGAIIEvaluation, NSGAIIEvaluator
 using CoEvo.Evaluators.ScalarFitness: ScalarFitnessEvaluator, ScalarFitnessEvaluation, ScalarFitnessRecord
 using CoEvo.Observers: Observation
@@ -37,8 +40,7 @@ function CoEvo.Evaluators.evaluate(
     evaluator::OutcomeScalarFitnessEvaluator,
     rng::AbstractRNG,
     species::AbstractSpecies,
-    outcomes::Dict{Int, SortedDict{Int, Float64}}
-) 
+    outcomes::Dict{Int, SortedDict{Int, Float64}}) 
     """Wrapper around ScalarFitnessEvaluator to create OutcomeScalarFitnessEvaluation
     """
     scalar_fitness_evaluator = ScalarFitnessEvaluator(
@@ -76,12 +78,12 @@ end
 function CoEvo.Ecosystems.Basic.evaluate_species(
     evaluators::Vector{<:Evaluator},
     random_number_generator::AbstractRNG,
-    species::Vector{PhylogeneticSpecies},
+    species::Vector{AbstractSpecies},
     individual_outcomes::Dict{Int, SortedDict{Int, Float64}},
     ::Vector{<:Observation},
 )
     # TODO uncomment this
-    # estimate_outcomes!(individual_outcomes, species,)
+    # estimate!(estimator, individual_outcomes, species,)
 
     evaluations = [
         evaluate(evaluator, random_number_generator, species, individual_outcomes)
@@ -114,4 +116,5 @@ function CoEvo.Selectors.select(
     sf_evaluation = ScalarFitnessEvaluation(evaluation.species_id, evaluation.records)
     selected_population = CoEvo.Selectors.select(selector, random_number_generator, new_population, sf_evaluation)
     return selected_population
+end
 end

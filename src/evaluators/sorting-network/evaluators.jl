@@ -1,11 +1,16 @@
+module SortingNetwork
+
 export SortingOutcomeEvaluator
 
 using Statistics
+using CoEvo
+using Random: AbstractRNG
 using DataStructures: SortedDict
 using CoEvo.Species: AbstractSpecies
 using CoEvo.Individuals: Individual
 using CoEvo.Evaluators: evaluate
 using CoEvo.Evaluators.ScalarFitness: ScalarFitnessEvaluator, ScalarFitnessEvaluation, ScalarFitnessRecord
+using ..Evaluators.Outcome: OutcomeScalarFitnessEvaluation
 
 Base.@kwdef struct SortingOutcomeEvaluator <: CoEvo.Evaluators.Evaluator 
     max_sort_fitness::Float64
@@ -41,4 +46,5 @@ function CoEvo.Evaluators.evaluate(
 
     evaluation = OutcomeScalarFitnessEvaluation(species.id, records, outcomes)
     return evaluation
+end
 end

@@ -16,6 +16,8 @@ using CoEvo.Ecosystems: evolve!, Basic.BasicEcosystemCreator
 using CoEvo.States.Basic: BasicCoevolutionaryStateCreator
 using CoEvo.Counters.Basic: BasicCounter
 using CoEvo.MatchMakers: MatchMaker
+using CoEvo.Performers.Basic: BasicPerformer
+using PhyloCoEvo.MatchMakers: ParentsVsChildrenMatchMaker, RandomCohortMatchMaker
 
 XDIR = initialize_x(dirname(@__FILE__))
 function dummy_eco_creator(;
@@ -73,7 +75,7 @@ function dummy_eco_creator(;
                 ),
             ],
         ),
-        performer = EstimationPerformer(n_workers = 1),
+        performer = BasicPerformer(n_workers = 1),
         individual_id_counter = BasicCounter(0),
         gene_id_counter = BasicCounter(0),
         state_creator = BasicCoevolutionaryStateCreator(),

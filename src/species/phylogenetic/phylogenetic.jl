@@ -8,14 +8,6 @@ using CoEvo.Names
 using CoEvo.Species: AbstractSpecies
 
 
-function add_children!(tree::PhylogeneticTree, children::Vector{<:Individual})
-    for child in children
-        @assert child.id ∉ keys(tree.tree) "id: $id, keys: $(keys(tree.tree))"
-        @assert length(child.parent_ids) == 1
-        add_child!(tree, child.parent_ids[1], child.id)
-    end
-end
-
 struct PhylogeneticDistanceData
     mrca::Union{Int, Nothing}
     pairwise_distances::Dict{Tuple{Int,Int}, Int}

@@ -16,6 +16,17 @@ using CoEvo.Ecosystems: evolve!, Basic.BasicEcosystemCreator
 using CoEvo.States.Basic: BasicCoevolutionaryStateCreator
 using CoEvo.Counters.Basic: BasicCounter
 using CoEvo.MatchMakers.AllvsAll: AllvsAllMatchMaker
+using CoEvo.Performers.Basic: BasicPerformer
+using PhyloCoEvo.SpeciesCreators.Phylogenetic: PhylogeneticSpeciesCreator
+using PhyloCoEvo.Evaluators.Outcome: OutcomeScalarFitnessEvaluator
+using PhyloCoEvo.Metrics.TreeStatistics: TreeStatisticsMetric
+using PhyloCoEvo.Domains.SortingNetwork: SortingNetworkDomain, Partial
+using PhyloCoEvo.Metrics.SortingNetwork: SortedMetric
+# using PhyloCoEvo.Genotypes.SortingNetwork: SortingNetworkGenotypeCreator, SortingNetworkTestCaseGenotypeCreator
+# using PhyloCoEvo.Phenotypes.SortingNetwork: SortingNetworkPhenotypeCreator, SortingNetworkTestCasePhenotypeCreator
+# using PhyloCoEvo.Mutators.SortingNetwork: SortingNetworkMutator, SortingNetworkTestCaseMutator
+# using PhyloCoEvo.Environments.SortingNetwork: SortingNetworkEnvironmentCreator
+using PhyloCoEvo.Utils: initialize_x
 
 
 @testset "SortingNetworkTest" begin
@@ -75,7 +86,7 @@ using CoEvo.MatchMakers.AllvsAll: AllvsAllMatchMaker
                     ),
                 ],
             ),
-            performer = EstimationPerformer(n_workers = 1),
+            performer = BasicPerformer(n_workers = 1),
             individual_id_counter = BasicCounter(0),
             gene_id_counter = BasicCounter(0),
             state_creator = BasicCoevolutionaryStateCreator(),

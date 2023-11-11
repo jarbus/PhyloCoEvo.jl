@@ -1,4 +1,17 @@
+module SortingNetwork
 export SortedMetric
+
+using CoEvo
+using CoEvo.Metrics: Metric
+using CoEvo.Measurements: Measurement
+using CoEvo.Measurements.Statistical: BasicStatisticalMeasurement, GroupStatisticalMeasurement
+using CoEvo.States: State
+using ...Genotypes.SortingNetwork: SortingNetworkGenotype, SortingNetworkTestCaseGenotype
+using ...Phenotypes.SortingNetwork: SortingNetworkPhenotypeCreator, netsort
+using ...Utils: save_statistical, display_stats, format_stat
+using JLD2
+
+
 
 Base.@kwdef struct SortedMetric <: Metric
     name::String="Sorted"
@@ -16,7 +29,7 @@ end
 
 function percent_sorted(genotype::SortingNetworkGenotype)
     snpc = SortingNetworkPhenotypeCreator(genotype.n_inputs)
-    snp = PhyloCoEvo.Phenotypes.create_phenotype(snpc, genotype)
+    snp = CoEvo.Phenotypes.create_phenotype(snpc, genotype)
     n_sorted = 0
     n = 2^genotype.n_inputs
     for i in 1:n
@@ -101,4 +114,5 @@ function CoEvo.Archivers.archive!(
             save_statistical(file, "gen/$gen/$met_key/tc_fitnesses/", tc_fit_stats)
         end
     end
+end
 end

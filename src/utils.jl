@@ -1,4 +1,5 @@
-export initialize_x
+module Utils
+export initialize_x, save_statistical, two_rand
 using Random
 using CoEvo.Measurements.Statistical: BasicStatisticalMeasurement
 function initialize_x(path::String)
@@ -28,4 +29,22 @@ function two_rand(rng::AbstractRNG, r::UnitRange)
         b = rand(rng, r)
     end
     return a, b
+end
+
+format_stat(value::AbstractFloat) = lpad(string(round(value, digits=2)), 5)
+format_stat(value::Int) = lpad(string(value), 5)
+
+function display_stats(n::Int, min_value, mean_value, std_value, max_value)
+    println("|$(format_stat(min_value))  $(format_stat(mean_value)) ± $(format_stat(std_value))  $(format_stat(max_value))| n=$n")
+end
+
+function display_stats(stat_measure::BasicStatisticalMeasurement)
+    display_stats(
+        stat_measure.n_samples,
+        stat_measure.minimum,
+        stat_measure.mean,
+        stat_measure.std,
+        stat_measure.maximum,
+    )
+end
 end
