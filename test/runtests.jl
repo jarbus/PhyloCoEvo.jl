@@ -34,4 +34,5 @@ end
     include("estimation.jl")
     include("matchmakers.jl")
     include("x/ng-mm/1/config.jl")
+    include("./x/ng-mm-estimator/1/config.jl")
 end

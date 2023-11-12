@@ -6,18 +6,15 @@ export PhylogeneticSpeciesCreator, PhylogeneticSpecies, create_species,
        reset!
 
 using CoEvo
+
 include("./utils.jl")
 using .Utils
-include("./metrics/treestats/metrics.jl")
 
 include("./species/species.jl")
 using .Species: Species 
 
 include("./species_creators/species_creators.jl")
 using .SpeciesCreators: SpeciesCreators
-
-include("./estimators/estimators.jl")
-using .Estimators: Estimators
 
 include("./matchmakers/matchmakers.jl")
 using .MatchMakers: MatchMakers
@@ -39,4 +36,11 @@ using .Mutators: Mutators
 
 include("./metrics/metrics.jl")
 using .Metrics: Metrics
+
+include("./estimators/estimators.jl")
+using .Estimators: Estimators
+
+include("./ecosystems/ecosystems.jl")
+# using .Ecosystems: Ecosystems
+
 end

@@ -8,7 +8,7 @@ The `PhylogeneticEstimator` struct represents a phylogenetic estimator used for 
 - `k::Int`: The number of nearest interactions to use in estimation.
 - `max_dist::Int`: The maximum interaction distance to look for before quiting.
 """
-struct PhylogeneticEstimator <: Estimator
+Base.@kwdef struct PhylogeneticEstimator <: Estimator
     speciesa_id::String
     speciesb_id::String
     k::Int
@@ -52,23 +52,5 @@ function EstimatedOutcome(ida::Int,
     EstimatedOutcome(ida, idb, distances, wa, wb)
 end
 
-
-
-Base.@kwdef struct PhylogeneticEstimationSampleMeasurement <: Measurement
-    DistanceStatistics::BasicStatisticalMeasurement
-    ErrorStatistics::BasicStatisticalMeasurement
-    DistanceErrorCorrelation::Float64
-    NumSamples::Int
-
-    function PhylogeneticEstimationSampleMeasurement(distances, errors)
-        avg_distances = [mean(d) for d in distances]
-        new(
-            BasicStatisticalMeasurement(distances),
-            BasicStatisticalMeasurement(errors),
-            cor(avg_distances, errors),
-            length(errors)
-        )
-    end
-end
 
 

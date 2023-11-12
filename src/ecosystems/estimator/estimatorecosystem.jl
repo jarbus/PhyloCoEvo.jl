@@ -1,6 +1,6 @@
-module Estimator
+module EstimatorEcosystem
 
-export BasicEcosystem, BasicEcosystemCreator, create_ecosystem, evolve!
+export EstimatorEcosystemCreator, create_ecosystem, evolve!
 
 import CoEvo.Ecosystems: create_ecosystem, evolve!
 
@@ -25,153 +25,61 @@ using CoEvo.Performers: perform
 using CoEvo.States.Basic: BasicCoevolutionaryStateCreator, BasicCoevolutionaryState
 using CoEvo.States: State, StateCreator
 using CoEvo.Ecosystems: Ecosystem, EcosystemCreator
+using CoEvo.Ecosystems.Basic: BasicEcosystemCreator, BasicEcosystem
+using ...Estimators: Estimator, estimate!
+import CoEvo.SpeciesCreators: construct_new_species, evaluate_species, create_state, evolve!, create_ecosystem
 
 
-struct BasicEcosystem{S <: AbstractSpecies} <: Ecosystem
-    id::String
-    species::Vector{S}
+Base.@kwdef struct EstimatorEcosystemCreator <: EcosystemCreator
+    basic_ecosystem_creator::EcosystemCreator
+    estimators::Vector{<:Estimator}
 end
 
-function Base.show(io::IO, eco::BasicEcosystem)
-    print(io, "Eco(id: ", eco.id, ", species: ", keys(eco.species), ")")
-end
+show(io::IO, c::EstimatorEcosystemCreator) = show(io, c.basic_ecosystem_creator)
 
-Base.@kwdef struct BasicEcosystemCreator{
-    S <: SpeciesCreator, 
-    J <: JobCreator, 
-    P <: Performer,
-    C <: StateCreator,
-    R <: Reporter,
-    A <: Archiver,
-} <: EcosystemCreator
-    id::String
-    trial::Int
-    random_number_generator::AbstractRNG
-    species_creators::Vector{S}
-    job_creator::J
-    performer::P
-    state_creator::C
-    reporters::Vector{R}
-    archiver::A
-    individual_id_counter::Counter = BasicCounter(0)
-    gene_id_counter::Counter = BasicCounter(0)
-    runtime_reporter::RuntimeReporter = RuntimeReporter()
-    garbage_collection_interval::Int = 50
-end
-
-function show(io::IO, c::BasicEcosystemCreator)
-    print(io, "BasicEcosystemCreator(id: ", c.id, 
-          ", trial: ", c.trial,
-          ", random_number_generator: ", typeof(c.random_number_generator), 
-          ", species: ", keys(c.species_creators), 
-          ", interactions: ", c.job_creator.interactions,")")
-end
-
-function create_ecosystem(ecosystem_creator::BasicEcosystemCreator)
-    all_species = [
-        create_species(
-            species_creator,
-            ecosystem_creator.random_number_generator, 
-            ecosystem_creator.individual_id_counter, 
-            ecosystem_creator.gene_id_counter
-        ) 
-        for species_creator in ecosystem_creator.species_creators
-    ]
-    eco = BasicEcosystem(ecosystem_creator.id, all_species)
-
-    return eco
-end
+create_ecosystem(ecosystem_creator::EstimatorEcosystemCreator) = create_ecosystem(ecosystem_creator.basic_ecosystem_creator)
 
 
 function evaluate_species(
-    evaluators::Vector{<:Evaluator},
-    random_number_generator::AbstractRNG,
-    species::Vector{<:AbstractSpecies},
-    individual_outcomes::Dict{Int, SortedDict{Int, Float64}},
-    observations::Vector{<:Observation},
-)
-    evaluations = [
-        evaluate(evaluator, random_number_generator, species, individual_outcomes)
-        for (evaluator, species) in zip(evaluators, species)
-    ]
-    
-    return evaluations
-end
-
-function evaluate_species(
-    ecosystem_creator::BasicEcosystemCreator, 
+    ecosystem_creator::EstimatorEcosystemCreator, 
     ecosystem::Ecosystem, 
     individual_outcomes::Dict{Int, SortedDict{Int, Float64}}, 
     observations::Vector{<:Observation}
 )
-    evaluators = [
-        species_creator.evaluator for species_creator in ecosystem_creator.species_creators
-    ]
-    evaluations = evaluate_species(
-        evaluators, 
-        ecosystem_creator.random_number_generator, 
-        ecosystem.species, 
-        individual_outcomes, 
-        observations
-    )
-    return evaluations
+    evaluate_species(ecosystem_creator.basic_ecosystem_creator, ecosystem, individual_outcomes, observations)
 end
-
+    
 function create_state(
-    ::BasicCoevolutionaryStateCreator,
-    ecosystem_creator::BasicEcosystemCreator,
+    state_creator::BasicCoevolutionaryStateCreator,
+    ecosystem_creator::EstimatorEcosystemCreator,
     generation::Int,
     ecosystem::Ecosystem,
     individual_outcomes::Dict{Int, SortedDict{Int, Float64}},
     evaluations::Vector{<:Evaluation},
     observations::Vector{<:Observation},
 )
-    state = BasicCoevolutionaryState(
-        id = ecosystem_creator.id,
-        random_number_generator = ecosystem_creator.random_number_generator,
-        trial = ecosystem_creator.trial,
-        generation = generation,
-        individual_id_counter = ecosystem_creator.individual_id_counter,
-        gene_id_counter = ecosystem_creator.gene_id_counter,
-        species = ecosystem.species,
-        individual_outcomes = individual_outcomes,
-        evaluations = evaluations,
-        observations = observations,
+    create_state(
+        state_creator,
+        ecosystem_creator.basic_ecosystem_creator,
+        generation,
+        ecosystem,
+        individual_outcomes,
+        evaluations,
+        observations,
     )
-    return state
-end
-
-function create_all_reports(state::State, reporters::Vector{<:Reporter})
-    reports = [create_report(reporter, state) for reporter in reporters]
-    return reports
-end
-
-function construct_new_species(
-    state::BasicCoevolutionaryState, species_creators::Vector{<:BasicSpeciesCreator}
-)
-    new_species = [
-        create_species(
-            species_creators[index],
-            state.random_number_generator, 
-            state.individual_id_counter,
-            state.gene_id_counter,
-            state.species[index],
-            state.evaluations[index]
-        ) for (index) in eachindex(species_creators)
-    ]
-
-    return new_species
 end
 
 function create_ecosystem(
-    ecosystem_creator::BasicEcosystemCreator,
+    ecosystem_creator::EstimatorEcosystemCreator,
     gen::Int, 
     ecosystem::Ecosystem, 
     results::Vector{<:Result}, 
     reports::Vector{Report}
 )
     individual_outcomes = get_individual_outcomes(results)
-    observations = get_observations(results)
+    # observations = get_observations(results)
+    estimate!(ecosystem_creator.estimators, individual_outcomes, ecosystem.species)
+    observations = Observation[]
     evaluations = evaluate_species(
         ecosystem_creator, ecosystem, individual_outcomes, observations
     )
@@ -199,9 +107,10 @@ using JLD2: @save
 
 
 function evolve!(
-    ecosystem_creator::BasicEcosystemCreator;
+    estimator_ecosystem_creator::EstimatorEcosystemCreator;
     n_generations::Int = 100,
 )
+    ecosystem_creator = estimator_ecosystem_creator.basic_ecosystem_creator
     ecosystem = create_ecosystem(ecosystem_creator)
     last_reproduce_time = 0.0
     for generation in 1:n_generations

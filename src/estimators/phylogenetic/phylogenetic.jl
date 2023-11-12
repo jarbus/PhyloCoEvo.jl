@@ -1,8 +1,12 @@
 module Phylogenetic
 
-import ..Estimators: estimate!    
+export estimate!
 
 using ..Estimators: Estimator
+using ...Species.Phylogenetic: PhylogeneticSpecies
+using ...Metrics.PhylogeneticEstimator: PhylogeneticEstimationSampleMeasurement
+
+import ..Estimators: estimate!    
 
 using Statistics: mean, cor
 using PhylogeneticTrees: PhylogeneticNode, PhylogeneticTree

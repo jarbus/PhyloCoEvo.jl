@@ -1,5 +1,3 @@
-export estimate!
-using ...Species.Phylogenetic: PhylogeneticSpecies
 function find_k_nearest_interactions(
     ida::Int,
     idb::Int,
