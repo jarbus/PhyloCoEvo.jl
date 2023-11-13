@@ -77,6 +77,9 @@ function CoEvo.SpeciesCreators.create_species(
         individual_id_counter, 
         gene_id_counter
     )
+    # check that no child ind or parent ind has a parent id
+    @assert all([length(ind.parent_ids) == 0 for ind in children])
+    @assert all([length(ind.parent_ids) == 0 for ind in population])
 
     PhylogeneticSpecies(species_creator.id, population, children)
 end
@@ -89,6 +92,7 @@ function CoEvo.SpeciesCreators.create_species(
     species::PhylogeneticSpecies,
     evaluation::Evaluation
 ) 
+
     new_population = CoEvo.Replacers.replace(
         species_creator.replacer, random_number_generator, species, evaluation
     )

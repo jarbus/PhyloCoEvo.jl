@@ -7,9 +7,10 @@ using CoEvo
 using CoEvo.MatchMakers: MatchMaker
 using CoEvo.Matches.Basic: BasicMatch
 using CoEvo.Species: AbstractSpecies
+using CoEvo.MatchMakers.AllvsAll: AllvsAllMatchMaker, make_matches
 
 
-Base.@kwdef struct RandomCohortMatchMaker <: MatchMaker
+Base.@kwdef mutable struct RandomCohortMatchMaker <: MatchMaker
     """Make cohorts of n_matches_per_ind individuals from each 
     species and perform all vs all in the cohorts. Does not support
     different n_matches_per_ind for 3+ species.
@@ -19,6 +20,8 @@ Base.@kwdef struct RandomCohortMatchMaker <: MatchMaker
     n_matches_per_ind::Dict{String, Int}
     n_samples::Int
     cohorts::Vector{Symbol} = [:population, :children]
+    gen::Int = 0
+    n_gens_before_sampling::Int = 10
 end
 
 
@@ -39,6 +42,16 @@ function CoEvo.MatchMakers.make_matches(
 )
     """Create `matchmaker.n_matches` random matches between the two species. Log all interactions
     as randomly sampled in the phylogeneticspecies."""
+
+    matchmaker.gen += 1
+    n_samples = matchmaker.gen > matchmaker.n_gens_before_sampling ? matchmaker.n_samples : 0 
+
+    if matchmaker.gen == 1
+        allvsall_mm = AllvsAllMatchMaker([:population,:children])
+        return make_matches(allvsall_mm, rng, interaction_id, [species1, species2])
+    end
+
+
     ids_1 = get_individual_ids_from_cohorts(species1, matchmaker)
     ids_2 = get_individual_ids_from_cohorts(species2, matchmaker)
     n_matches_per_ind1 = matchmaker.n_matches_per_ind[species1.id]
@@ -51,7 +64,7 @@ function CoEvo.MatchMakers.make_matches(
     cohorts_2 = [ids_1[i:i+n_matches_per_ind2-1] 
                  for i in 1:n_matches_per_ind2:length(ids_1)]
     @assert length(cohorts_1) == length(cohorts_2) "cohorts of different length $(length(cohorts_1)) != $(length(cohorts_2))"
-    @assert length(cohorts_1) > 1 || matchmaker.n_samples == 0 "n_samples > 0 but only one cohort"
+    @assert length(cohorts_1) > 1 || n_samples == 0 "n_samples > 0 but only one cohort"
     # shuffle cohorts
     cohorts_1 = shuffle!(rng, cohorts_1)
     cohorts_2 = shuffle!(rng, cohorts_2)
@@ -59,20 +72,30 @@ function CoEvo.MatchMakers.make_matches(
                     for (id_1, id_2) in vec(collect(Iterators.product(ids_1, ids_2))))
     
     # Choose n_random_samples between members of non-corresponding cohorts
-    non_cohort_samples = Set()
-    for i in 1:matchmaker.n_samples
+    non_cohort_samples1 = Set()
+    non_cohort_samples2 = Set()
+    for i in 1:n_samples
         c1, c2 = two_rand(rng, 1:length(cohorts_1))
-        id_1 = rand(rng, cohorts_1[c1])
-        id_2 = rand(rng, cohorts_2[c2])
-        push!(non_cohort_samples, (id_1, id_2))
+        # cohorts_1 contains ids from species2, 
+        # cohorts_2 contains ids from species1
+        id_2 = rand(rng, cohorts_1[c1])
+        id_1 = rand(rng, cohorts_2[c2])
+        push!(non_cohort_samples1, (id_1, id_2))
+        push!(non_cohort_samples2, (id_2, id_1))
     end
 
     # Update phylogenetic species
-    union!(species1.randomly_sampled_interactions, non_cohort_samples)
-    union!(species2.randomly_sampled_interactions, non_cohort_samples)
+    if species2.id ∉ keys(species1.randomly_sampled_interactions)
+        species1.randomly_sampled_interactions[species2.id] = Set{Tuple{Int,Int}}()
+    end
+    if species1.id ∉ keys(species2.randomly_sampled_interactions)
+        species2.randomly_sampled_interactions[species1.id] = Set{Tuple{Int,Int}}()
+    end
+    union!(species1.randomly_sampled_interactions[species2.id], non_cohort_samples1)
+    union!(species2.randomly_sampled_interactions[species1.id], non_cohort_samples2)
 
     # Add random samples to match ids
-    union!(match_ids, non_cohort_samples)
+    union!(match_ids, non_cohort_samples1)
 
     matches = [BasicMatch(interaction_id, [id_1, id_2]) for (id_1, id_2) in match_ids]
     return matches

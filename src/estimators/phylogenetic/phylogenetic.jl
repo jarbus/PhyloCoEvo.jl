@@ -15,6 +15,7 @@ using DataStructures: SortedDict
 using CoEvo.Observers: Observation
 using CoEvo.Measurements: Measurement
 using CoEvo.Measurements.Statistical: BasicStatisticalMeasurement, GroupStatisticalMeasurement
+using LRUCache: LRU
 
 include("./structs.jl")
 include("./methods.jl")

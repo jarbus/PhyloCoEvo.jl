@@ -32,15 +32,15 @@ function create_individual_outcomes_from_estimates(estimates::Vector{EstimatedOu
 end
 
 function measure_estimation_samples(estimates::Vector{EstimatedOutcome},
-                         outcomes::Dict{Int, SortedDict{Int, Float64}})
+                         outcomes::Dict{Int, <:AbstractDict{Int, Float64}})
     """Compute metrics of interest for a set of estimates"""
-    distances = [d for e in estimates for d in e.distances]
+    avg_distances = [mean(e.distances) for e in estimates]
     errorsa = [abs(e.est_outcomea - outcomes[e.ida][e.idb]) for e in estimates]
     errorsb = [abs(e.est_outcomeb - outcomes[e.idb][e.ida]) for e in estimates]
-    PhylogeneticEstimationSampleMeasurement(distances, errorsa), PhylogeneticEstimationSampleMeasurement(distances, errorsb)
+    PhylogeneticEstimationSampleMeasurement(avg_distances, errorsa), PhylogeneticEstimationSampleMeasurement(avg_distances, errorsb)
 end
 
-function two_layer_merge!(d1::Dict{Int, <:AbstractDict}, d2::Dict{Int, <:AbstractDict})
+function two_layer_merge!(d1::AbstractDict{Int, <:AbstractDict}, d2::AbstractDict{Int, <:AbstractDict}; warn::Bool=false)
     """Merge dictionary of dictionaries `d2` into `d1` by merging the inner dictionaries
     if the key is in both dictionaries, and adding the key+dict if it is not in `d1`."""
     # TODO: Profile and Optimize
@@ -49,7 +49,7 @@ function two_layer_merge!(d1::Dict{Int, <:AbstractDict}, d2::Dict{Int, <:Abstrac
         if id ∈ keys(d1)
             merge!(d1[id], d2[id])
         else
-            @warn "Estimating all outcomes for individual $id"
+            warn && @warn "Estimating all outcomes for individual $id"
             d1[id] = d2[id]
         end
     end

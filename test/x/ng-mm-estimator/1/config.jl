@@ -23,6 +23,7 @@ using PhyloCoEvo.Ecosystems.EstimatorEcosystem: EstimatorEcosystemCreator
 using PhyloCoEvo.SpeciesCreators.Phylogenetic: PhylogeneticSpeciesCreator
 using PhyloCoEvo.Estimators.Phylogenetic: PhylogeneticEstimator
 using PhyloCoEvo.Estimators: Estimator
+using PhyloCoEvo.Metrics.PhylogeneticEstimator: PhylogeneticEstimatorMetric
 
 XDIR = initialize_x(dirname(@__FILE__))
 function dummy_eco_creator(;
@@ -38,7 +39,7 @@ function dummy_eco_creator(;
     matchmaker::MatchMaker
 )
     eco_creator = EstimatorEcosystemCreator(
-        basic_ecosystem_creator=BasicEcosystemCreator(
+        basic=BasicEcosystemCreator(
             id = id,
             trial = trial,
             random_number_generator = rng,
@@ -87,8 +88,9 @@ function dummy_eco_creator(;
             state_creator = BasicCoevolutionaryStateCreator(),
             runtime_reporter = RuntimeReporter(),
             reporters = Reporter[
-                # BasicReporter(metric = AllSpeciesFitness()),
-                # BasicReporter(metric = GenotypeSum()),
+                BasicReporter(metric = PhylogeneticEstimatorMetric(),
+                              save_interval = 1,
+                              print_interval = 1),
                 # BasicReporter(metric = TreeStatisticsMetric(),
                 #               save_interval = 1,
                 #               print_interval = 1)
@@ -99,7 +101,7 @@ function dummy_eco_creator(;
             PhylogeneticEstimator(
                 speciesa_id=species_id1,
                 speciesb_id=species_id2,
-                k = 2,
+                k=2,
                 max_dist=10
             ),
         ],
@@ -115,10 +117,10 @@ end
         # Test 10 cohorts of 10 individuals each
         n_pop = 50 # 50 parents, 50 children
         rcmm = RandomCohortMatchMaker(n_matches_per_ind=Dict("a"=>10, "b"=>10),
-                                      n_samples=10
-                                     )
+                                      n_samples=500,
+                                      n_gens_before_sampling=10)
         eco_creator = dummy_eco_creator(n_pop=n_pop, matchmaker=rcmm)
-        eco = evolve!(eco_creator, n_generations=2)
+        eco = evolve!(eco_creator, n_generations=10)
         @test true
     end
 
@@ -127,9 +129,9 @@ end
     mkdir(datapath)
     @testset "ParentsVsChildrenMatchMaker" begin
         n_pop = 50 # 50 parents, 50 children
-        pvcmm = ParentsVsChildrenMatchMaker(n_samples=10)
+        pvcmm = ParentsVsChildrenMatchMaker(n_samples=500)
         eco_creator = dummy_eco_creator(n_pop=n_pop, matchmaker=pvcmm)
-        eco = evolve!(eco_creator, n_generations=2)
+        eco = evolve!(eco_creator, n_generations=10)
         @test true
     end
 

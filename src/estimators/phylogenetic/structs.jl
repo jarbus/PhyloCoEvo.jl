@@ -13,6 +13,7 @@ Base.@kwdef struct PhylogeneticEstimator <: Estimator
     speciesb_id::String
     k::Int
     max_dist::Int
+    cached_outcomes::LRU{Int, Dict{Int, Float64}} = LRU{Int, Dict{Int, Float64}}(maxsize=100000)
 end
 
 
@@ -47,6 +48,7 @@ end
 function EstimatedOutcome(ida::Int,
                           idb::Int,
                           related_outcomes::Vector{RelatedOutcome})
+    @assert length(related_outcomes) > 0 "No related outcomes"
     wa, wb = weighted_average_outcome(related_outcomes)
     distances = [r.dist for r in related_outcomes]
     EstimatedOutcome(ida, idb, distances, wa, wb)

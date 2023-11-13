@@ -3,7 +3,7 @@ function find_k_nearest_interactions(
     idb::Int,
     pta::PhylogeneticTree,
     ptb::PhylogeneticTree,
-    individual_outcomes::Dict{Int, <:SortedDict{Int, Float64}},
+    individual_outcomes::AbstractDict{Int, <:AbstractDict{Int, Float64}},
     k::Int;
     max_dist::Int)
     """Find the k nearest interactions to `ida,idb` in `individual_outcomes`
@@ -33,6 +33,8 @@ function find_k_nearest_interactions(
         for testing purposes and code-reuse. We can compute different types of weighted
         averages from this vector.
     """
+    @assert ida ∈ keys(pta.tree) "id1 $(ida) not in tree A"
+    @assert idb ∈ keys(ptb.tree) "id2 $(idb) not in tree B"
     k_nearest_interactions = Vector{RelatedOutcome}()
 
     # Initialize the search at the interaction
@@ -89,9 +91,7 @@ function find_k_nearest_interactions(
             push!(queue, QueueElement(el.indA, neiB, el.dist+1, el, true))
         end
     end
-    if length(k_nearest_interactions) < k
-        @warn "Found $(length(k_nearest_interactions)) < $k interactions for $(ida),$(idb)"
-    end
+    0 == length(k_nearest_interactions) && error("Found 0 interactions for $(ida),$(idb)")
     @assert length(seen) == iters "Seen set does not match number of iterations"
     return k_nearest_interactions
 end
@@ -100,7 +100,7 @@ function compute_estimates(
     pairs::Vector{Tuple{Int, Int}},
     treeA::PhylogeneticTree,
     treeB::PhylogeneticTree,
-    individual_outcomes::Dict{Int, <:SortedDict{Int, Float64}};
+    individual_outcomes::AbstractDict{Int, <:AbstractDict{Int, Float64}};
     k::Int,
     max_dist::Int)
     """For each pair of individuals in `pairs`, find the k nearest interactions
@@ -128,10 +128,43 @@ function estimate!(
     @assert estimator.speciesa_id == speciesa.id 
     @assert estimator.speciesb_id == speciesb.id 
 
+    # Merge all interactions into outcome cache
+    two_layer_merge!(estimator.cached_outcomes, individual_outcomes)
+
+    # Do we have sampled interactions?
+    has_sampled_interactions =  speciesa.id ∈ keys(speciesb.randomly_sampled_interactions) &&
+                                speciesb.id ∈ keys(speciesa.randomly_sampled_interactions) &&
+                                (length(speciesa.randomly_sampled_interactions[speciesb.id]) > 0 ||
+                                 length(speciesb.randomly_sampled_interactions[speciesa.id]) > 0)
+    # If so, remove them from individual_outcomes and outcome cache
+    if has_sampled_interactions
+        sampled_interactions = union(
+            [(i[1], i[2]) for i in speciesa.randomly_sampled_interactions[speciesb.id]],
+            [(i[2], i[1]) for i in speciesb.randomly_sampled_interactions[speciesa.id]],
+        )
+        sampled_ids = Set(id for i in sampled_interactions for id in i)
+        sampled_individual_outcomes = Dict(id=>SortedDict{Int,Float64}() for id in sampled_ids)
+        for (id1, id2) in sampled_interactions
+            @assert id1 in keys(individual_outcomes) "id1 $(id1) not in individual_outcomes"
+            @assert id2 in keys(individual_outcomes[id1]) "id2 $(id2) not in individual_outcomes[$(id1)]"
+            sampled_individual_outcomes[id1][id2] = individual_outcomes[id1][id2]
+            delete!(individual_outcomes[id1], id2)
+            delete!(estimator.cached_outcomes[id1], id2)
+
+            sampled_individual_outcomes[id2][id1] = individual_outcomes[id2][id1]
+            delete!(individual_outcomes[id2], id1)
+            delete!(estimator.cached_outcomes[id2], id1)
+        end
+    end
+
+    # Compute all unevaluated interactions between the two species
     evaluated_interactions = [
         (ind_i.id, ind_j.id)
-        for ind_i in [speciesa.population; speciesa.children] if ind_i.id in keys(individual_outcomes)
-        for ind_j in [speciesb.population; speciesb.children] if ind_j.id in keys(individual_outcomes[ind_i.id])
+        for ind_i in [speciesa.population; speciesa.children] 
+            if ind_i.id ∈ keys(estimator.cached_outcomes)
+        for ind_j in [speciesb.population; speciesb.children] 
+            if ind_j.id ∈ keys(estimator.cached_outcomes) &&
+               ind_j.id ∈ keys(estimator.cached_outcomes[ind_i.id])
     ]
     all_interactions = [ 
         (ind_i.id, ind_j.id)
@@ -139,30 +172,16 @@ function estimate!(
         for ind_j in [speciesb.population; speciesb.children]]
 
     unevaluated_interactions = setdiff(all_interactions, evaluated_interactions)
-
-    sampled_interactions = [i for s in (speciesa, speciesb) for i in s.randomly_sampled_interactions]
-
-    if length(sampled_interactions) > 0
-
-        sampled_individual_outcomes = Dict{Int, SortedDict{Int, Float64}}(id=>SortedDict{Int,Float64}()
-                                                                          for i in sampled_interactions
-                                                                          for id in i)
-        # Remove sampled interactions from individual_outcomes
-        for (id1, id2) in sampled_interactions
-
-            sampled_individual_outcomes[id1][id2] = individual_outcomes[id1][id2]
-            delete!(individual_outcomes[id1], id2)
-
-            sampled_individual_outcomes[id2][id1] = individual_outcomes[id2][id1]
-            delete!(individual_outcomes[id2], id1)
-        end
-
+    # TODO add tests in test/estimator.jl
+    
+    # Compute estimates for sampled interactions
+    if has_sampled_interactions
         # Estimate sampled interactions
         sample_estimates::Vector{EstimatedOutcome} = compute_estimates(
             sampled_interactions,
             speciesa.tree,
             speciesb.tree,
-            sampled_individual_outcomes,
+            estimator.cached_outcomes,
             k=estimator.k, max_dist=estimator.max_dist)
 
         # Compare sample estimates to actual outcomes
@@ -179,15 +198,16 @@ function estimate!(
         speciesb.measurements[PhylogeneticEstimationSampleMeasurement][speciesa.id] = esmb
     end
 
+    # Compute estimates for the rest of the interactions
     estimates = compute_estimates(
                             unevaluated_interactions,
                             speciesa.tree,
                             speciesb.tree,
-                            individual_outcomes,
+                            estimator.cached_outcomes,
                             k=estimator.k, max_dist=estimator.max_dist)
     estimated_individual_outcomes = estimates_to_outcomes(estimates)
     # merge estimated_individual_outcomes into individual_outcomes
-    two_layer_merge!(individual_outcomes, estimated_individual_outcomes)
+    two_layer_merge!(individual_outcomes, estimated_individual_outcomes, warn=true)
 
 end
 

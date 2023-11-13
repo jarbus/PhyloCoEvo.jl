@@ -32,7 +32,7 @@ Represents a species population and its offspring, with a phylogenetic tree.
 - `children::OrderedDict{Int, I}`: Offspring of the population.
 - `tree::PhylogeneticTree`: Phylogenetic tree of the population.
 - `dist_data::PhylogeneticDistanceData`: Phylogenetic distance data.
-- `randomly_sampled_interactions::Set{Tuple{Int,Int}}`: Set of randomly sampled interactions.
+- `randomly_sampled_interactions::Dict{String, Set{Tuple{Int,Int}}}`: Set of randomly sampled interactions between two species. Ids from this species are in the first position, and Ids from other species are in the second position
 - `measurements::Dict{String,Any}`: measurements that are computed.
 """
 
@@ -42,8 +42,8 @@ struct PhylogeneticSpecies{I <: Individual} <: AbstractSpecies
     children::Vector{I}
     tree::PhylogeneticTree
     dist_data::PhylogeneticDistanceData
-    randomly_sampled_interactions::Set{Tuple{Int,Int}}
-    measurements::Dict{String,Any}
+    randomly_sampled_interactions::Dict{String, Set{Tuple{Int,Int}}}
+    measurements::Dict{Any,Any}
 end
 
 function PhylogeneticSpecies(id::String,
@@ -51,7 +51,7 @@ function PhylogeneticSpecies(id::String,
         children::Vector{I},
         tree::PhylogeneticTree,
         dist_data::PhylogeneticDistanceData) where I <: Individual
-    PhylogeneticSpecies(id, population, children, tree, dist_data, Set{Tuple{Int,Int}}(), Dict{String,Any}())
+    PhylogeneticSpecies(id, population, children, tree, dist_data, Dict{String,Set{Tuple{Int,Int}}}(), Dict{Any,Any}())
 end
 
 function PhylogeneticSpecies(id::String,

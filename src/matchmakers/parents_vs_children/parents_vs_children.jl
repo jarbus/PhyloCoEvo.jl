@@ -44,6 +44,7 @@ function CoEvo.MatchMakers.make_matches(
     child1_ids = [ind.id for ind in species1.children]
     child2_ids = [ind.id for ind in species2.children]
     
+    parents_v_parents_matches = Iterators.product(parent1_ids, parent2_ids) |> collect |> vec
     parents_v_children_matches = Iterators.flatten(
                 (Iterators.product(parent1_ids, child2_ids), 
                  Iterators.product(child1_ids, parent2_ids))
@@ -54,14 +55,26 @@ function CoEvo.MatchMakers.make_matches(
     # shuffle matches
     shuffle!(rng, child_v_child_matches)
     # Choose n_random_samples random matches
-    random_child_v_child_matches = Set(child_v_child_matches[1:matchmaker.n_samples])
-    @assert length(random_child_v_child_matches) == matchmaker.n_samples
+    random_child_v_child_matches1 = Set(child_v_child_matches[1:matchmaker.n_samples])
+    random_child_v_child_matches2 = Set((m[2],m[1]) for m in random_child_v_child_matches1)
+    @assert length(random_child_v_child_matches1) == matchmaker.n_samples
+
+    if species2.id ∉ keys(species1.randomly_sampled_interactions)
+        species1.randomly_sampled_interactions[species2.id] = Set{Tuple{Int,Int}}()
+    end
+    if species1.id ∉ keys(species2.randomly_sampled_interactions)
+        species2.randomly_sampled_interactions[species1.id] = Set{Tuple{Int,Int}}()
+    end
     # Update phylogenetic species
-    union!(species1.randomly_sampled_interactions, random_child_v_child_matches)
-    union!(species2.randomly_sampled_interactions, random_child_v_child_matches)
+    union!(species1.randomly_sampled_interactions[species2.id], random_child_v_child_matches1)
+    union!(species2.randomly_sampled_interactions[species1.id], random_child_v_child_matches2)
 
     # Combine all matches
-    match_ids = union(Set(parents_v_children_matches), Set(random_child_v_child_matches))
+    match_ids = union(
+        Set(parents_v_parents_matches),
+        Set(parents_v_children_matches),
+        Set(random_child_v_child_matches1),
+    )
     matches = [BasicMatch(interaction_id, [id_1, id_2]) for (id_1, id_2) in match_ids]
     return matches
 end
