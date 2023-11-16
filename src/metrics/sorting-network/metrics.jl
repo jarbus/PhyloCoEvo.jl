@@ -101,7 +101,7 @@ function CoEvo.Archivers.archive!(
         display_stats(report.measurement.tc_fitnesses)
     end
     if report.to_save
-        met_path = joinpath(archiver.archive_path, report.metric.path)
+        met_path = isdir(archiver.archive_path) ? joinpath(archiver.archive_path, report.metric.path) : archiver.archive_path
         met_key = report.metric.key
         sn_fit_stats = report.measurement.sn_fitnesses
         tc_fit_stats = report.measurement.tc_fitnesses
