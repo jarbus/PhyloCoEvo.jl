@@ -4,7 +4,7 @@ using PhyloCoEvo.Genotypes.SortingNetwork: SortingNetworkGenotype, SortingNetwor
 using PhyloCoEvo.Phenotypes.SortingNetwork: SortingNetworkPhenotype, SortingNetworkTestCasePhenotype, netsort, SortingNetworkPhenotypeCreator, SortingNetworkTestCasePhenotypeCreator
 using PhyloCoEvo.Metrics.SortingNetwork: percent_sorted
 using PhyloCoEvo.Mutators.SortingNetwork: SortingNetworkMutator, SortingNetworkTestCaseMutator
-using PhyloCoEvo.Domains.SortingNetwork: SortingNetworkDomain, Partial
+using PhyloCoEvo.Domains.SortingNetwork: SortingNetworkDomain, Partial, PartialPlusBonus
 using CoEvo.Phenotypes: create_phenotype
 using CoEvo.Genotypes: create_genotypes
 
@@ -278,7 +278,16 @@ end
 
 @testset "SortingNetworkDomain" begin
 
-    domain = SortingNetworkDomain(Partial())
+    partial_domain = SortingNetworkDomain(Partial())
+    partial_plus_bonus_domain = SortingNetworkDomain(PartialPlusBonus())
+
+    function run(snp, sntc)
+        outcome_partial = PhyloCoEvo.Environments.get_outcome_set(StatelessEnvironment(partial_domain, [snp, sntc]))
+        outcome_partial_plus_bonus = PhyloCoEvo.Environments.get_outcome_set(
+            StatelessEnvironment(partial_plus_bonus_domain, [snp, sntc]),
+        )
+        return outcome_partial, outcome_partial_plus_bonus
+    end
 
     # Wikipedia example, correct, 4 inputs
     # __________
@@ -287,41 +296,42 @@ end
     # ___|_|____
     # Test that a network with comparators results in 
     # full fitness in the outcome when tested against a correct list
-    snp = SortingNetworkPhenotype([1 3; 2 4; 1 2; 3 4; 2 3;], 4, 5, 5)
+    # test case gets a bonus for losing to a full-length network
+    snp = SortingNetworkPhenotype([1 3; 2 4; 1 2; 3 4; 2 3;], 4, 4, 5)
     sntc = SortingNetworkTestCasePhenotype([[4,3,2,1], [1,2,3,4], [2,3,1,4]])
-    env = StatelessEnvironment(domain, [snp, sntc])
-    outcome = PhyloCoEvo.Environments.get_outcome_set(env)
-    @test outcome == [3.0, 0.0]
+    outcome_partial, outcome_partial_plus_bonus = run(snp, sntc)
+    @test outcome_partial == [3.0, 0.0]
+    @test outcome_partial_plus_bonus == [3.0, 1.0]
 
-    # Test that a correct maximum-length network produces a outcome of 3
-    snp_extra = SortingNetworkPhenotype([1 3; 2 4; 1 2; 3 4; 2 3; 1 4;], 4, 5, 6)
+    # Test that a correct minimum-length network produces a outcome of 3
+    snp = SortingNetworkPhenotype([1 3; 2 4; 1 2; 3 4; 2 3], 4, 5, 6)
     sntc = SortingNetworkTestCasePhenotype([[4,3,2,1], [1,2,3,4], [2,3,1,4]])
-    env = StatelessEnvironment(domain, [snp_extra, sntc])
-    outcome = PhyloCoEvo.Environments.get_outcome_set(env)
-    @test outcome == [3.0, 0.0]
+    outcome_partial, outcome_partial_plus_bonus = run(snp, sntc)
+    @test outcome_partial == [3.0, 0.0]
+    @test outcome_partial_plus_bonus == [4.0, 0.0]
 
     # Test that a network with no comparators results in 
     # zero fitness in the outcome when tested against an incorrect list
     snp = SortingNetworkPhenotype(zeros(Int,0,2), 4, 0, 0)
     sntc = SortingNetworkTestCasePhenotype([[4,3,2,1], [2,3,1,4], [3,4,1,2]])
-    env = StatelessEnvironment(domain, [snp, sntc])
-    outcome = PhyloCoEvo.Environments.get_outcome_set(env)
-    @test outcome == [0.0, 3.0]
+    outcome_partial, outcome_partial_plus_bonus = run(snp, sntc)
+    @test outcome_partial == [0.0, 3.0]
+    @test outcome_partial_plus_bonus == [0.0, 3.0]
 
 
     # Test that a network which sorts the first and last numbers correctly
     # can get some cases right and some cases wrong
     snp = SortingNetworkPhenotype([1 4; ], 4, 1, 1)
     sntc = SortingNetworkTestCasePhenotype([[4,3,2,1], [4,2,3,1], [2,3,1,4], [1,2,3,4]])
-    env = StatelessEnvironment(domain, [snp, sntc])
-    outcome = PhyloCoEvo.Environments.get_outcome_set(env)
-    @test outcome == [2.0, 2.0]
+    outcome_partial, outcome_partial_plus_bonus = run(snp, sntc)
+    @test outcome_partial == [2.0, 2.0]
+    @test outcome_partial_plus_bonus == [2.0, 2.0]
 
     # Test that a network which gets no test cases right gets 0
     snp = SortingNetworkPhenotype([1 4; ], 4, 0, 1)
     sntc = SortingNetworkTestCasePhenotype([[4,3,2,1], [4,3,2,1], [4,3,2,1]])
-    env = StatelessEnvironment(domain, [snp, sntc])
-    outcome = PhyloCoEvo.Environments.get_outcome_set(env)
-    @test outcome == [0.0, 3.0]
+    outcome_partial, outcome_partial_plus_bonus = run(snp, sntc)
+    @test outcome_partial == [0.0, 3.0]
+    @test outcome_partial_plus_bonus == [0.0, 3.0]
 
 end
