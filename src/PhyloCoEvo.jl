@@ -37,6 +37,9 @@ using .Mutators: Mutators
 include("./metrics/metrics.jl")
 using .Metrics: Metrics
 
+include("./selectors/selectors.jl")
+using .Selectors: Selectors
+
 include("./estimators/estimators.jl")
 using .Estimators: Estimators
 

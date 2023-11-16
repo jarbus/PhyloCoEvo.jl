@@ -35,4 +35,5 @@ end
     include("matchmakers.jl")
     include("x/ng-mm/1/config.jl")
     include("./x/ng-mm-estimator/1/config.jl")
+    include("x/sn-lexicase/1/config.jl")
 end
