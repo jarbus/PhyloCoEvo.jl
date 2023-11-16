@@ -16,6 +16,13 @@ Base.@kwdef struct PhylogeneticEstimator <: Estimator
     cached_outcomes::LRU{Int, Dict{Int, Float64}} = LRU{Int, Dict{Int, Float64}}(maxsize=100000)
 end
 
+function PhylogeneticEstimator(speciesa_id::String,
+                               speciesb_id::String,
+                               k::Int,
+                               max_dist::Int)
+    PhylogeneticEstimator(speciesa_id, speciesb_id, k, max_dist, LRU{Int, Dict{Int, Float64}}(maxsize=100000))
+end
+
 
 struct QueueElement
     indA::PhylogeneticNode
