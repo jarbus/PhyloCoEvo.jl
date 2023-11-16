@@ -5,4 +5,5 @@
 # ignore all *.jld2 files in test
 perf/**/**/config.jl
 **/*.jld2
+x/*/*/*/config.jl
 old
