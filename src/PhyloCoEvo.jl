@@ -19,14 +19,15 @@ using .SpeciesCreators: SpeciesCreators
 include("./matchmakers/matchmakers.jl")
 using .MatchMakers: MatchMakers
 
-include("./evaluators/evaluators.jl")
-using .Evaluators: Evaluators
 
 include("./genotypes/genotypes.jl")
 using .Genotypes: Genotypes
 
 include("./phenotypes/phenotypes.jl")
 using .Phenotypes: Phenotypes
+
+include("./evaluators/evaluators.jl")
+using .Evaluators: Evaluators
 
 include("./domains/domain.jl")
 using .Domains: Domains

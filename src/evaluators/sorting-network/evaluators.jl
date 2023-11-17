@@ -1,6 +1,6 @@
 module SortingNetwork
 
-export SortingOutcomeEvaluator
+export SortingNetworkEvaluator
 
 using Statistics
 using CoEvo
@@ -8,43 +8,66 @@ using Random: AbstractRNG
 using DataStructures: SortedDict
 using CoEvo.Species: AbstractSpecies
 using CoEvo.Individuals: Individual
-using CoEvo.Evaluators: evaluate
+using CoEvo.Evaluators: evaluate, Evaluator, Evaluation
 using CoEvo.Evaluators.ScalarFitness: ScalarFitnessEvaluator, ScalarFitnessEvaluation, ScalarFitnessRecord
 using ..Evaluators.Outcome: OutcomeScalarFitnessEvaluation
+using ...Genotypes.SortingNetwork: SortingNetworkGenotype
 
-Base.@kwdef struct SortingOutcomeEvaluator <: CoEvo.Evaluators.Evaluator 
-    max_sort_fitness::Float64
-    maximize::Bool = true
-    epsilon::Float64 = 1e-6
+Base.@kwdef struct SortingNetworkEvaluator <: CoEvo.Evaluators.Evaluator 
+    evaluator::Evaluator
+    num_tests_per_parasite::Float64
+end
+
+function add_bonus_fitness(
+    evaluator::SortingNetworkEvaluator,
+    records::Vector{R},
+    bonuses::Vector{Float64},
+    outcomes::AbstractDict{Int, <:AbstractDict{Int, Float64}}
+) where R
+    # We add a bonus for individuals that sort all test cases correctly
+    # The extra logic is to make this work for any record with a fitness field
+    new_evaluations = Vector{R}(undef, length(records))
+    fields = fieldnames(R)
+    fitness_idx = findfirst(field -> field == :fitness, fields)
+    for (i, record) in enumerate(records)
+        if minimum(values(outcomes[record.id])) == evaluator.num_tests_per_parasite
+            vs = [getfield(record, field) for field in fields]
+            vs[fitness_idx] = record.fitness + bonuses[i]
+            new_evaluations[i] = R(vs...)
+        else
+            new_evaluations[i] = record
+        end
+    end
+    return new_evaluations
 end
 
 function CoEvo.Evaluators.evaluate(
-    evaluator::SortingOutcomeEvaluator,
-    ::AbstractRNG,
+    evaluator::SortingNetworkEvaluator,
+    rng::AbstractRNG,
     species::AbstractSpecies,
     outcomes::Dict{Int, SortedDict{Int, Float64}}
 ) 
+    @assert species.population[1].genotype isa SortingNetworkGenotype
     # But we add a bonus for individuals that hit evaluator.max_sort_fitness
     # proportional to how close they are to the minimum number of codons
-    # The bottom is the same as ScalarFitnessEvaluator
-    individuals = [species.population ; species.children]
-    filter!(individual -> individual.id in keys(outcomes), individuals)
-    ids = [individual.id for individual in individuals]
-    outcome_means = [mean(values(outcomes[id])) for id in ids]
-    fitnesses = evaluator.maximize ? outcome_means : -outcome_means
-    @assert evaluator.max_sort_fitness >= 0 "max_sort_fitness must be non-negative"
-    min_fitness = minimum(fitnesses)
-    @assert min_fitness >= 0 "Error: SortingOutcomeEvaluator encountered a negative fitness"
-    # If individuals hit the maximum fitness, that means that they sorted all test cases correctly
-    # We can then add the second fitness term, which is a bonus for having a small number of codons
-    bonuses = [fit == evaluator.max_sort_fitness ? ind.genotype.max_codons - length(ind.genotype.codons) : 0
-               for (ind, fit) in zip(individuals, fitnesses)]
-    fitnesses = fitnesses + bonuses
 
-    records = [ScalarFitnessRecord(id, fitness) for (id, fitness) in zip(ids, fitnesses)]
-    sort!(records, by = x -> x.fitness, rev = true)
+    # Align the individuals with the records
+    evaluation = evaluate(evaluator.evaluator, rng, species, outcomes)
+    ind_dict = Dict(ind.id=>ind for ind in [species.population; species.children])
+    individuals = [ind_dict[record.id] for record in evaluation.records]
 
-    evaluation = OutcomeScalarFitnessEvaluation(species.id, records, outcomes)
+    # Compute the bonuses for each individual
+    bonuses = [(ind.genotype.max_codons - length(ind.genotype.codons))/
+               (ind.genotype.max_codons - ind.genotype.min_codons)
+               for ind in individuals]
+
+    # Add the bonuses to the fitnesses
+    new_records = add_bonus_fitness(evaluator, evaluation.records, bonuses, outcomes)
+
+    # Sort the records by new fitnesses
+    sort!(new_records, by = x -> x.fitness, rev = true)
+
+    evaluation = OutcomeScalarFitnessEvaluation(species.id, new_records, outcomes)
     return evaluation
 end
 end

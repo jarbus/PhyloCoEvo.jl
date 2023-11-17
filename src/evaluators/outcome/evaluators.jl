@@ -82,9 +82,6 @@ function CoEvo.Ecosystems.Basic.evaluate_species(
     individual_outcomes::Dict{Int, SortedDict{Int, Float64}},
     ::Vector{<:Observation},
 )
-    # TODO uncomment this
-    # estimate!(estimator, individual_outcomes, species,)
-
     evaluations = [
         evaluate(evaluator, random_number_generator, species, individual_outcomes)
         for (evaluator, species) in zip(evaluators, species)
@@ -101,7 +98,6 @@ function CoEvo.Replacers.replace(
     species::AbstractSpecies,
     evaluation::OutcomeScalarFitnessEvaluation
 )
-    println("len evaluation.records: ", length(evaluation.records))
     sf_evaluation = ScalarFitnessEvaluation(evaluation.species_id, evaluation.records)
     new_population = CoEvo.Replacers.replace(replacer, rng, species, sf_evaluation)
     return new_population
