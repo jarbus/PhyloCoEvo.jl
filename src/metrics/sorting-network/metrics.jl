@@ -83,7 +83,7 @@ function compute_network_metrics(metric::SortedMetric,
     # Compute allpass sorting network stats
     sn_ids = [r.id for r in evaluation.records]
     allpass_ids = filter(sn_ids) do id
-        all(values(evaluation.outcomes[id]) .> metric.num_tests_per_parasite)
+        all(values(evaluation.outcomes[id]) .== metric.num_tests_per_parasite)
     end
     allpass_inds = filter([species.population; species.children]) do ind
         ind.id in allpass_ids

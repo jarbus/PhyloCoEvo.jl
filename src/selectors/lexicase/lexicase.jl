@@ -67,14 +67,13 @@ function select(
     new_population::Vector{<:I},
     evaluation::OutcomeScalarFitnessEvaluation
 ) where I<:Individual
-    
     ids = Set(individual.id for individual in new_population)
     id_to_index = Dict(new_population[i].id => i for i in eachindex(new_population))
     test_cases = Set(test_id for id in ids for test_id in keys(evaluation.outcomes[id]))
-    parents = I[]
+    parents = Vector{I}(undef, selector.n_parents)
     for i in 1:selector.n_parents
         new_parent_id = lexicase_select(random_number_generator, ids, test_cases, evaluation.outcomes)
-        push!(parents, new_population[id_to_index[new_parent_id]])
+        parents[i] = new_population[id_to_index[new_parent_id]]
     end
     return parents  
 end
