@@ -2,7 +2,7 @@
 
 julia_version = "1.9.3"
 manifest_format = "2.0"
-project_hash = "d165f2099ada379c18be619f7c7c36de3605235c"
+project_hash = "3d71eca47a0caca2580a7ae4f7c4841315652627"
 
 [[deps.ATK_jll]]
 deps = ["Artifacts", "Glib_jll", "JLLWrappers", "Libdl"]
@@ -187,11 +187,11 @@ version = "0.15.5"
 
 [[deps.CoEvo]]
 deps = ["CSV", "Colors", "DataFrames", "DataStructures", "Distributed", "HypothesisTests", "JLD2", "LinearAlgebra", "MLDatasets", "Plots", "ProfileView", "ProgressBars", "PyCall", "Random", "Revise", "Serialization", "StableRNGs", "StaticArrays", "StatsBase", "Test"]
-git-tree-sha1 = "8894ed6a14d79b654c0b2db3217efdb4ed4ab721"
+git-tree-sha1 = "48f226d76fd159e60022ec26a941c2388c8f99a9"
 repo-rev = "main"
 repo-url = "https://github.com/jarbus/coevo"
 uuid = "842a0346-8272-4eaf-bb06-52321997162a"
-version = "0.0.0"
+version = "0.0.1"
 
 [[deps.CodeTracking]]
 deps = ["InteractiveUtils", "UUIDs"]
