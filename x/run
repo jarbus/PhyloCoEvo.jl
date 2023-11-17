@@ -36,7 +36,7 @@ fi
 
 nseeds=$1
 # find directories or symlinks
-xdirs=$(find . -mindepth 2 -maxdepth 2 -type d -o -type l | fzf --multi)
+xdirs=$(find . -mindepth 2 -maxdepth 2 -type d -o -type l | sort -r | fzf --multi)
 
 # Compute start time
 start=$(date +%s)
