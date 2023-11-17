@@ -1,0 +1,3393 @@
+754f338f0dd8099cd7e4765fa102c7e1f422f885
+-----------------------------------------------------------
+Generation: 1
+Evaluation time: 17.60413
+Reproduction time: 0.0
+-----------------------------------------------------------
+Generation: 2
+Evaluation time: 2.6115
+Reproduction time: 27.95376
+-----------------------------------------------------------
+Generation: 3
+Evaluation time: 2.77111
+Reproduction time: 6.2154
+-----------------------------------------------------------
+Generation: 4
+Evaluation time: 3.05849
+Reproduction time: 2.75293
+-----------------------------------------------------------
+Generation: 5
+Evaluation time: 3.09611
+Reproduction time: 2.6544
+-----------------------------------------------------------
+Generation: 6
+Evaluation time: 3.30622
+Reproduction time: 2.36564
+-----------------------------------------------------------
+Generation: 7
+Evaluation time: 3.36426
+Reproduction time: 2.44
+-----------------------------------------------------------
+Generation: 8
+Evaluation time: 3.05892
+Reproduction time: 2.31498
+-----------------------------------------------------------
+Generation: 9
+Evaluation time: 3.14896
+Reproduction time: 2.7018
+-----------------------------------------------------------
+Generation: 10
+Evaluation time: 3.14047
+Reproduction time: 2.61176
+----
+SortedMetric:
+Best sorter percentage: 0.1706085205078125
+Best sorter size: 61
+Sorted fitnesses:
+  | 0.01   0.08 ±  0.07   0.66| n=520
+Test case fitnesses:
+  | 9.35   9.92 ±  0.09   10.0| n=2020
+-----------------------------------------------------------
+Generation: 11
+Evaluation time: 3.8473
+Reproduction time: 4.49432
+-----------------------------------------------------------
+Generation: 12
+Evaluation time: 3.65197
+Reproduction time: 3.23331
+-----------------------------------------------------------
+Generation: 13
+Evaluation time: 3.40421
+Reproduction time: 2.77481
+-----------------------------------------------------------
+Generation: 14
+Evaluation time: 3.45717
+Reproduction time: 2.72793
+-----------------------------------------------------------
+Generation: 15
+Evaluation time: 3.40172
+Reproduction time: 2.53015
+-----------------------------------------------------------
+Generation: 16
+Evaluation time: 3.42589
+Reproduction time: 2.4291
+-----------------------------------------------------------
+Generation: 17
+Evaluation time: 3.38544
+Reproduction time: 2.60051
+-----------------------------------------------------------
+Generation: 18
+Evaluation time: 3.173
+Reproduction time: 2.54133
+-----------------------------------------------------------
+Generation: 19
+Evaluation time: 3.43463
+Reproduction time: 2.72022
+-----------------------------------------------------------
+Generation: 20
+Evaluation time: 3.24599
+Reproduction time: 2.53789
+----
+SortedMetric:
+Best sorter percentage: 0.1706085205078125
+Best sorter size: 61
+Sorted fitnesses:
+  | 0.01   0.11 ±  0.07    0.6| n=520
+Test case fitnesses:
+  | 9.23   9.89 ±   0.1   10.0| n=2020
+-----------------------------------------------------------
+Generation: 21
+Evaluation time: 3.63663
+Reproduction time: 3.87494
+-----------------------------------------------------------
+Generation: 22
+Evaluation time: 3.60618
+Reproduction time: 2.66451
+-----------------------------------------------------------
+Generation: 23
+Evaluation time: 3.45899
+Reproduction time: 2.82002
+-----------------------------------------------------------
+Generation: 24
+Evaluation time: 3.474
+Reproduction time: 2.78258
+-----------------------------------------------------------
+Generation: 25
+Evaluation time: 3.53213
+Reproduction time: 2.78255
+-----------------------------------------------------------
+Generation: 26
+Evaluation time: 3.51676
+Reproduction time: 2.46816
+-----------------------------------------------------------
+Generation: 27
+Evaluation time: 3.24685
+Reproduction time: 2.77136
+-----------------------------------------------------------
+Generation: 28
+Evaluation time: 3.33065
+Reproduction time: 2.69796
+-----------------------------------------------------------
+Generation: 29
+Evaluation time: 3.58301
+Reproduction time: 2.3029
+-----------------------------------------------------------
+Generation: 30
+Evaluation time: 3.65924
+Reproduction time: 2.57593
+----
+SortedMetric:
+Best sorter percentage: 0.20135498046875
+Best sorter size: 62
+Sorted fitnesses:
+  | 0.02   0.12 ±  0.08   0.67| n=520
+Test case fitnesses:
+  | 9.15   9.88 ±  0.11   10.0| n=2020
+-----------------------------------------------------------
+Generation: 31
+Evaluation time: 3.86311
+Reproduction time: 3.48541
+-----------------------------------------------------------
+Generation: 32
+Evaluation time: 3.68327
+Reproduction time: 2.66129
+-----------------------------------------------------------
+Generation: 33
+Evaluation time: 3.51254
+Reproduction time: 2.7356
+-----------------------------------------------------------
+Generation: 34
+Evaluation time: 3.65368
+Reproduction time: 2.81662
+-----------------------------------------------------------
+Generation: 35
+Evaluation time: 3.3722
+Reproduction time: 2.64945
+-----------------------------------------------------------
+Generation: 36
+Evaluation time: 3.54849
+Reproduction time: 2.59614
+-----------------------------------------------------------
+Generation: 37
+Evaluation time: 3.67097
+Reproduction time: 2.69392
+-----------------------------------------------------------
+Generation: 38
+Evaluation time: 3.6789
+Reproduction time: 2.66289
+-----------------------------------------------------------
+Generation: 39
+Evaluation time: 3.34012
+Reproduction time: 2.5793
+-----------------------------------------------------------
+Generation: 40
+Evaluation time: 3.51597
+Reproduction time: 2.74119
+----
+SortedMetric:
+Best sorter percentage: 0.2211761474609375
+Best sorter size: 61
+Sorted fitnesses:
+  | 0.02   0.13 ±  0.08   0.78| n=520
+Test case fitnesses:
+  | 8.96   9.87 ±  0.12   10.0| n=2020
+-----------------------------------------------------------
+Generation: 41
+Evaluation time: 3.6909
+Reproduction time: 3.59526
+-----------------------------------------------------------
+Generation: 42
+Evaluation time: 3.85272
+Reproduction time: 2.62375
+-----------------------------------------------------------
+Generation: 43
+Evaluation time: 3.4582
+Reproduction time: 2.63121
+-----------------------------------------------------------
+Generation: 44
+Evaluation time: 3.49848
+Reproduction time: 2.85066
+-----------------------------------------------------------
+Generation: 45
+Evaluation time: 3.59278
+Reproduction time: 2.80427
+-----------------------------------------------------------
+Generation: 46
+Evaluation time: 3.47133
+Reproduction time: 2.65997
+-----------------------------------------------------------
+Generation: 47
+Evaluation time: 3.3733
+Reproduction time: 2.67722
+-----------------------------------------------------------
+Generation: 48
+Evaluation time: 3.61528
+Reproduction time: 2.92777
+-----------------------------------------------------------
+Generation: 49
+Evaluation time: 3.50423
+Reproduction time: 2.44087
+-----------------------------------------------------------
+Generation: 50
+Evaluation time: 3.37835
+Reproduction time: 2.78437
+----
+SortedMetric:
+Best sorter percentage: 0.2211761474609375
+Best sorter size: 61
+Sorted fitnesses:
+  | 0.04   0.13 ±  0.06    0.7| n=520
+Test case fitnesses:
+  | 8.81   9.87 ±  0.14   10.0| n=2020
+-----------------------------------------------------------
+Generation: 51
+Evaluation time: 3.73614
+Reproduction time: 4.03444
+-----------------------------------------------------------
+Generation: 52
+Evaluation time: 3.93783
+Reproduction time: 2.50063
+-----------------------------------------------------------
+Generation: 53
+Evaluation time: 3.68913
+Reproduction time: 2.48457
+-----------------------------------------------------------
+Generation: 54
+Evaluation time: 3.43263
+Reproduction time: 2.64616
+-----------------------------------------------------------
+Generation: 55
+Evaluation time: 3.67477
+Reproduction time: 2.72205
+-----------------------------------------------------------
+Generation: 56
+Evaluation time: 3.45326
+Reproduction time: 2.6041
+-----------------------------------------------------------
+Generation: 57
+Evaluation time: 3.56475
+Reproduction time: 2.90163
+-----------------------------------------------------------
+Generation: 58
+Evaluation time: 3.32728
+Reproduction time: 2.71542
+-----------------------------------------------------------
+Generation: 59
+Evaluation time: 3.801
+Reproduction time: 2.90485
+-----------------------------------------------------------
+Generation: 60
+Evaluation time: 3.60609
+Reproduction time: 2.49186
+----
+SortedMetric:
+Best sorter percentage: 0.2604217529296875
+Best sorter size: 60
+Sorted fitnesses:
+  | 0.04   0.13 ±  0.07   0.66| n=520
+Test case fitnesses:
+  | 9.07   9.87 ±  0.13   10.0| n=2020
+-----------------------------------------------------------
+Generation: 61
+Evaluation time: 3.75872
+Reproduction time: 3.67983
+-----------------------------------------------------------
+Generation: 62
+Evaluation time: 3.75899
+Reproduction time: 2.51154
+-----------------------------------------------------------
+Generation: 63
+Evaluation time: 3.5929
+Reproduction time: 2.80843
+-----------------------------------------------------------
+Generation: 64
+Evaluation time: 3.71803
+Reproduction time: 2.81485
+-----------------------------------------------------------
+Generation: 65
+Evaluation time: 3.58583
+Reproduction time: 2.70133
+-----------------------------------------------------------
+Generation: 66
+Evaluation time: 3.60576
+Reproduction time: 2.74906
+-----------------------------------------------------------
+Generation: 67
+Evaluation time: 3.74717
+Reproduction time: 2.76773
+-----------------------------------------------------------
+Generation: 68
+Evaluation time: 3.7156
+Reproduction time: 2.8413
+-----------------------------------------------------------
+Generation: 69
+Evaluation time: 3.74952
+Reproduction time: 2.74655
+-----------------------------------------------------------
+Generation: 70
+Evaluation time: 3.50541
+Reproduction time: 2.49915
+----
+SortedMetric:
+Best sorter percentage: 0.2604217529296875
+Best sorter size: 60
+Sorted fitnesses:
+  | 0.02   0.14 ±  0.07   0.62| n=520
+Test case fitnesses:
+  | 9.38   9.86 ±  0.11   10.0| n=2020
+-----------------------------------------------------------
+Generation: 71
+Evaluation time: 3.87542
+Reproduction time: 3.96812
+-----------------------------------------------------------
+Generation: 72
+Evaluation time: 3.85305
+Reproduction time: 2.6231
+-----------------------------------------------------------
+Generation: 73
+Evaluation time: 3.55268
+Reproduction time: 2.70237
+-----------------------------------------------------------
+Generation: 74
+Evaluation time: 3.81674
+Reproduction time: 2.73082
+-----------------------------------------------------------
+Generation: 75
+Evaluation time: 3.75805
+Reproduction time: 2.63618
+-----------------------------------------------------------
+Generation: 76
+Evaluation time: 3.71997
+Reproduction time: 2.69453
+-----------------------------------------------------------
+Generation: 77
+Evaluation time: 3.88159
+Reproduction time: 2.66662
+-----------------------------------------------------------
+Generation: 78
+Evaluation time: 3.4707
+Reproduction time: 2.66534
+-----------------------------------------------------------
+Generation: 79
+Evaluation time: 3.57698
+Reproduction time: 2.84341
+-----------------------------------------------------------
+Generation: 80
+Evaluation time: 3.5869
+Reproduction time: 2.65565
+----
+SortedMetric:
+Best sorter percentage: 0.2604217529296875
+Best sorter size: 60
+Sorted fitnesses:
+  | 0.04   0.14 ±  0.07   0.59| n=520
+Test case fitnesses:
+  | 9.28   9.86 ±  0.11   10.0| n=2020
+-----------------------------------------------------------
+Generation: 81
+Evaluation time: 3.90152
+Reproduction time: 3.81667
+-----------------------------------------------------------
+Generation: 82
+Evaluation time: 3.96049
+Reproduction time: 2.74728
+-----------------------------------------------------------
+Generation: 83
+Evaluation time: 3.85864
+Reproduction time: 3.10104
+-----------------------------------------------------------
+Generation: 84
+Evaluation time: 10.06228
+Reproduction time: 2.64429
+-----------------------------------------------------------
+Generation: 85
+Evaluation time: 30.34496
+Reproduction time: 48.85187
+-----------------------------------------------------------
+Generation: 86
+Evaluation time: 3.80246
+Reproduction time: 20.47987
+-----------------------------------------------------------
+Generation: 87
+Evaluation time: 3.42371
+Reproduction time: 2.7906
+-----------------------------------------------------------
+Generation: 88
+Evaluation time: 3.68571
+Reproduction time: 2.92174
+-----------------------------------------------------------
+Generation: 89
+Evaluation time: 3.68026
+Reproduction time: 2.54971
+-----------------------------------------------------------
+Generation: 90
+Evaluation time: 3.44465
+Reproduction time: 3.0163
+----
+SortedMetric:
+Best sorter percentage: 0.263031005859375
+Best sorter size: 61
+Sorted fitnesses:
+  | 0.04   0.15 ±  0.06   0.55| n=520
+Test case fitnesses:
+  | 9.26   9.85 ±  0.12   10.0| n=2020
+-----------------------------------------------------------
+Generation: 91
+Evaluation time: 3.93157
+Reproduction time: 3.91015
+-----------------------------------------------------------
+Generation: 92
+Evaluation time: 3.97347
+Reproduction time: 2.68776
+-----------------------------------------------------------
+Generation: 93
+Evaluation time: 3.89994
+Reproduction time: 2.72798
+-----------------------------------------------------------
+Generation: 94
+Evaluation time: 3.66662
+Reproduction time: 2.85779
+-----------------------------------------------------------
+Generation: 95
+Evaluation time: 3.6493
+Reproduction time: 2.782
+-----------------------------------------------------------
+Generation: 96
+Evaluation time: 3.81722
+Reproduction time: 2.70957
+-----------------------------------------------------------
+Generation: 97
+Evaluation time: 3.419
+Reproduction time: 2.67393
+-----------------------------------------------------------
+Generation: 98
+Evaluation time: 3.5368
+Reproduction time: 2.82483
+-----------------------------------------------------------
+Generation: 99
+Evaluation time: 3.70701
+Reproduction time: 2.56873
+-----------------------------------------------------------
+Generation: 100
+Evaluation time: 3.7966
+Reproduction time: 2.48781
+----
+SortedMetric:
+Best sorter percentage: 0.2936248779296875
+Best sorter size: 61
+Sorted fitnesses:
+  | 0.05   0.16 ±  0.06    0.6| n=520
+Test case fitnesses:
+  | 9.15   9.84 ±  0.12   10.0| n=2020
+-----------------------------------------------------------
+Generation: 101
+Evaluation time: 3.93618
+Reproduction time: 3.58475
+-----------------------------------------------------------
+Generation: 102
+Evaluation time: 3.98048
+Reproduction time: 2.5947
+-----------------------------------------------------------
+Generation: 103
+Evaluation time: 3.60322
+Reproduction time: 2.70413
+-----------------------------------------------------------
+Generation: 104
+Evaluation time: 3.79552
+Reproduction time: 2.7547
+-----------------------------------------------------------
+Generation: 105
+Evaluation time: 3.6554
+Reproduction time: 2.72864
+-----------------------------------------------------------
+Generation: 106
+Evaluation time: 3.43175
+Reproduction time: 2.96848
+-----------------------------------------------------------
+Generation: 107
+Evaluation time: 3.91126
+Reproduction time: 2.88367
+-----------------------------------------------------------
+Generation: 108
+Evaluation time: 3.48576
+Reproduction time: 2.63353
+-----------------------------------------------------------
+Generation: 109
+Evaluation time: 3.52852
+Reproduction time: 2.83388
+-----------------------------------------------------------
+Generation: 110
+Evaluation time: 3.5749
+Reproduction time: 2.83917
+----
+SortedMetric:
+Best sorter percentage: 0.2936248779296875
+Best sorter size: 61
+Sorted fitnesses:
+  | 0.03   0.16 ±  0.07    0.6| n=520
+Test case fitnesses:
+  | 9.34   9.84 ±  0.11   10.0| n=2020
+-----------------------------------------------------------
+Generation: 111
+Evaluation time: 3.85367
+Reproduction time: 3.91474
+-----------------------------------------------------------
+Generation: 112
+Evaluation time: 3.90669
+Reproduction time: 2.46028
+-----------------------------------------------------------
+Generation: 113
+Evaluation time: 3.83492
+Reproduction time: 2.83332
+-----------------------------------------------------------
+Generation: 114
+Evaluation time: 3.75135
+Reproduction time: 2.6698
+-----------------------------------------------------------
+Generation: 115
+Evaluation time: 3.79559
+Reproduction time: 2.66639
+-----------------------------------------------------------
+Generation: 116
+Evaluation time: 23.77728
+Reproduction time: 2.56803
+-----------------------------------------------------------
+Generation: 117
+Evaluation time: 30.08112
+Reproduction time: 50.07568
+-----------------------------------------------------------
+Generation: 118
+Evaluation time: 3.6584
+Reproduction time: 13.01029
+-----------------------------------------------------------
+Generation: 119
+Evaluation time: 3.6858
+Reproduction time: 2.86973
+-----------------------------------------------------------
+Generation: 120
+Evaluation time: 3.63647
+Reproduction time: 2.82112
+----
+SortedMetric:
+Best sorter percentage: 0.2936248779296875
+Best sorter size: 61
+Sorted fitnesses:
+  | 0.06   0.16 ±  0.09   0.58| n=520
+Test case fitnesses:
+  | 9.31   9.84 ±   0.1   10.0| n=2020
+-----------------------------------------------------------
+Generation: 121
+Evaluation time: 3.75506
+Reproduction time: 4.03958
+-----------------------------------------------------------
+Generation: 122
+Evaluation time: 3.82048
+Reproduction time: 2.87732
+-----------------------------------------------------------
+Generation: 123
+Evaluation time: 3.64638
+Reproduction time: 2.93501
+-----------------------------------------------------------
+Generation: 124
+Evaluation time: 3.75378
+Reproduction time: 2.78993
+-----------------------------------------------------------
+Generation: 125
+Evaluation time: 3.76139
+Reproduction time: 2.56349
+-----------------------------------------------------------
+Generation: 126
+Evaluation time: 3.82024
+Reproduction time: 2.73108
+-----------------------------------------------------------
+Generation: 127
+Evaluation time: 3.66759
+Reproduction time: 2.44307
+-----------------------------------------------------------
+Generation: 128
+Evaluation time: 3.53059
+Reproduction time: 2.67666
+-----------------------------------------------------------
+Generation: 129
+Evaluation time: 3.48398
+Reproduction time: 2.85523
+-----------------------------------------------------------
+Generation: 130
+Evaluation time: 3.39651
+Reproduction time: 2.80155
+----
+SortedMetric:
+Best sorter percentage: 0.1695709228515625
+Best sorter size: 60
+Sorted fitnesses:
+  | 0.06   0.17 ±   0.1    0.8| n=520
+Test case fitnesses:
+  | 9.21   9.83 ±  0.12   10.0| n=2020
+-----------------------------------------------------------
+Generation: 131
+Evaluation time: 3.99202
+Reproduction time: 3.94641
+-----------------------------------------------------------
+Generation: 132
+Evaluation time: 4.12701
+Reproduction time: 2.65593
+-----------------------------------------------------------
+Generation: 133
+Evaluation time: 3.5756
+Reproduction time: 2.68418
+-----------------------------------------------------------
+Generation: 134
+Evaluation time: 3.85904
+Reproduction time: 2.66489
+-----------------------------------------------------------
+Generation: 135
+Evaluation time: 3.61194
+Reproduction time: 2.64892
+-----------------------------------------------------------
+Generation: 136
+Evaluation time: 3.64195
+Reproduction time: 2.74671
+-----------------------------------------------------------
+Generation: 137
+Evaluation time: 3.8088
+Reproduction time: 2.76934
+-----------------------------------------------------------
+Generation: 138
+Evaluation time: 3.58737
+Reproduction time: 2.62439
+-----------------------------------------------------------
+Generation: 139
+Evaluation time: 3.53866
+Reproduction time: 2.68978
+-----------------------------------------------------------
+Generation: 140
+Evaluation time: 3.52638
+Reproduction time: 2.89631
+----
+SortedMetric:
+Best sorter percentage: 0.1695709228515625
+Best sorter size: 60
+Sorted fitnesses:
+  | 0.07   0.17 ±  0.08   0.68| n=520
+Test case fitnesses:
+  | 8.99   9.83 ±  0.15   10.0| n=2020
+-----------------------------------------------------------
+Generation: 141
+Evaluation time: 4.01472
+Reproduction time: 4.18135
+-----------------------------------------------------------
+Generation: 142
+Evaluation time: 3.92269
+Reproduction time: 2.83335
+-----------------------------------------------------------
+Generation: 143
+Evaluation time: 3.9245
+Reproduction time: 2.89202
+-----------------------------------------------------------
+Generation: 144
+Evaluation time: 3.72963
+Reproduction time: 2.63955
+-----------------------------------------------------------
+Generation: 145
+Evaluation time: 35.87796
+Reproduction time: 35.39729
+-----------------------------------------------------------
+Generation: 146
+Evaluation time: 5.75941
+Reproduction time: 45.76994
+-----------------------------------------------------------
+Generation: 147
+Evaluation time: 3.85696
+Reproduction time: 2.64427
+-----------------------------------------------------------
+Generation: 148
+Evaluation time: 3.87436
+Reproduction time: 2.51559
+-----------------------------------------------------------
+Generation: 149
+Evaluation time: 3.49808
+Reproduction time: 2.45277
+-----------------------------------------------------------
+Generation: 150
+Evaluation time: 3.46946
+Reproduction time: 2.91787
+----
+SortedMetric:
+Best sorter percentage: 0.1695709228515625
+Best sorter size: 60
+Sorted fitnesses:
+  | 0.06   0.17 ±  0.08   0.61| n=520
+Test case fitnesses:
+  |  8.9   9.83 ±  0.15   10.0| n=2020
+-----------------------------------------------------------
+Generation: 151
+Evaluation time: 3.96692
+Reproduction time: 3.91727
+-----------------------------------------------------------
+Generation: 152
+Evaluation time: 3.93724
+Reproduction time: 2.46934
+-----------------------------------------------------------
+Generation: 153
+Evaluation time: 3.9554
+Reproduction time: 2.79227
+-----------------------------------------------------------
+Generation: 154
+Evaluation time: 3.82309
+Reproduction time: 2.50835
+-----------------------------------------------------------
+Generation: 155
+Evaluation time: 3.81424
+Reproduction time: 2.60138
+-----------------------------------------------------------
+Generation: 156
+Evaluation time: 3.86697
+Reproduction time: 2.74307
+-----------------------------------------------------------
+Generation: 157
+Evaluation time: 3.63001
+Reproduction time: 2.51947
+-----------------------------------------------------------
+Generation: 158
+Evaluation time: 3.72404
+Reproduction time: 2.79641
+-----------------------------------------------------------
+Generation: 159
+Evaluation time: 3.65056
+Reproduction time: 2.85283
+-----------------------------------------------------------
+Generation: 160
+Evaluation time: 3.63089
+Reproduction time: 2.80112
+----
+SortedMetric:
+Best sorter percentage: 0.1695709228515625
+Best sorter size: 60
+Sorted fitnesses:
+  | 0.06   0.18 ±  0.09   0.55| n=520
+Test case fitnesses:
+  | 8.93   9.82 ±  0.14   10.0| n=2020
+-----------------------------------------------------------
+Generation: 161
+Evaluation time: 4.05581
+Reproduction time: 3.99717
+-----------------------------------------------------------
+Generation: 162
+Evaluation time: 4.14977
+Reproduction time: 2.58812
+-----------------------------------------------------------
+Generation: 163
+Evaluation time: 4.01315
+Reproduction time: 2.7796
+-----------------------------------------------------------
+Generation: 164
+Evaluation time: 3.65584
+Reproduction time: 2.6216
+-----------------------------------------------------------
+Generation: 165
+Evaluation time: 3.91217
+Reproduction time: 2.86377
+-----------------------------------------------------------
+Generation: 166
+Evaluation time: 3.86337
+Reproduction time: 2.5095
+-----------------------------------------------------------
+Generation: 167
+Evaluation time: 3.68354
+Reproduction time: 2.55887
+-----------------------------------------------------------
+Generation: 168
+Evaluation time: 4.0125
+Reproduction time: 2.78784
+-----------------------------------------------------------
+Generation: 169
+Evaluation time: 3.78659
+Reproduction time: 2.43662
+-----------------------------------------------------------
+Generation: 170
+Evaluation time: 3.59616
+Reproduction time: 2.71202
+----
+SortedMetric:
+Best sorter percentage: 0.1685333251953125
+Best sorter size: 60
+Sorted fitnesses:
+  | 0.06   0.19 ±  0.09   0.54| n=520
+Test case fitnesses:
+  | 9.15   9.81 ±  0.13   10.0| n=2020
+-----------------------------------------------------------
+Generation: 171
+Evaluation time: 4.11194
+Reproduction time: 3.95006
+-----------------------------------------------------------
+Generation: 172
+Evaluation time: 37.29291
+Reproduction time: 44.25902
+-----------------------------------------------------------
+Generation: 173
+Evaluation time: 3.86779
+Reproduction time: 40.97062
+-----------------------------------------------------------
+Generation: 174
+Evaluation time: 4.07308
+Reproduction time: 2.79618
+-----------------------------------------------------------
+Generation: 175
+Evaluation time: 3.95059
+Reproduction time: 2.63985
+-----------------------------------------------------------
+Generation: 176
+Evaluation time: 3.59857
+Reproduction time: 2.59134
+-----------------------------------------------------------
+Generation: 177
+Evaluation time: 3.71512
+Reproduction time: 2.77677
+-----------------------------------------------------------
+Generation: 178
+Evaluation time: 4.00445
+Reproduction time: 2.79877
+-----------------------------------------------------------
+Generation: 179
+Evaluation time: 3.8294
+Reproduction time: 2.49863
+-----------------------------------------------------------
+Generation: 180
+Evaluation time: 3.7353
+Reproduction time: 2.7529
+----
+SortedMetric:
+Best sorter percentage: 0.171844482421875
+Best sorter size: 60
+Sorted fitnesses:
+  | 0.04   0.18 ±  0.09   0.53| n=520
+Test case fitnesses:
+  | 9.33   9.82 ±  0.12   10.0| n=2020
+-----------------------------------------------------------
+Generation: 181
+Evaluation time: 3.82957
+Reproduction time: 3.98988
+-----------------------------------------------------------
+Generation: 182
+Evaluation time: 4.12132
+Reproduction time: 3.09197
+-----------------------------------------------------------
+Generation: 183
+Evaluation time: 3.78654
+Reproduction time: 2.60524
+-----------------------------------------------------------
+Generation: 184
+Evaluation time: 3.86335
+Reproduction time: 2.93219
+-----------------------------------------------------------
+Generation: 185
+Evaluation time: 4.03229
+Reproduction time: 2.96537
+-----------------------------------------------------------
+Generation: 186
+Evaluation time: 3.94749
+Reproduction time: 2.56651
+-----------------------------------------------------------
+Generation: 187
+Evaluation time: 3.95024
+Reproduction time: 2.48877
+-----------------------------------------------------------
+Generation: 188
+Evaluation time: 3.81098
+Reproduction time: 2.60693
+-----------------------------------------------------------
+Generation: 189
+Evaluation time: 3.67744
+Reproduction time: 2.6807
+-----------------------------------------------------------
+Generation: 190
+Evaluation time: 3.83521
+Reproduction time: 2.76152
+----
+SortedMetric:
+Best sorter percentage: 0.4250946044921875
+Best sorter size: 63
+Sorted fitnesses:
+  | 0.05   0.18 ±   0.1   0.63| n=520
+Test case fitnesses:
+  | 9.36   9.82 ±  0.11   10.0| n=2020
+-----------------------------------------------------------
+Generation: 191
+Evaluation time: 4.09606
+Reproduction time: 3.95228
+-----------------------------------------------------------
+Generation: 192
+Evaluation time: 4.04374
+Reproduction time: 2.67261
+-----------------------------------------------------------
+Generation: 193
+Evaluation time: 3.89213
+Reproduction time: 3.00808
+-----------------------------------------------------------
+Generation: 194
+Evaluation time: 3.99504
+Reproduction time: 2.83829
+-----------------------------------------------------------
+Generation: 195
+Evaluation time: 3.69907
+Reproduction time: 2.68947
+-----------------------------------------------------------
+Generation: 196
+Evaluation time: 3.7806
+Reproduction time: 2.91186
+-----------------------------------------------------------
+Generation: 197
+Evaluation time: 3.68526
+Reproduction time: 2.90178
+-----------------------------------------------------------
+Generation: 198
+Evaluation time: 35.51392
+Reproduction time: 2.89964
+-----------------------------------------------------------
+Generation: 199
+Evaluation time: 37.22419
+Reproduction time: 45.4201
+-----------------------------------------------------------
+Generation: 200
+Evaluation time: 3.99212
+Reproduction time: 10.49933
+----
+SortedMetric:
+Best sorter percentage: 0.1857757568359375
+Best sorter size: 61
+Sorted fitnesses:
+  | 0.05   0.19 ±  0.11   0.68| n=520
+Test case fitnesses:
+  | 9.33   9.81 ±  0.11   10.0| n=2020
+-----------------------------------------------------------
+Generation: 201
+Evaluation time: 4.2136
+Reproduction time: 3.8705
+-----------------------------------------------------------
+Generation: 202
+Evaluation time: 4.13141
+Reproduction time: 2.78417
+-----------------------------------------------------------
+Generation: 203
+Evaluation time: 3.92812
+Reproduction time: 2.91012
+-----------------------------------------------------------
+Generation: 204
+Evaluation time: 3.9847
+Reproduction time: 2.93156
+-----------------------------------------------------------
+Generation: 205
+Evaluation time: 3.90607
+Reproduction time: 2.87195
+-----------------------------------------------------------
+Generation: 206
+Evaluation time: 3.86221
+Reproduction time: 2.93185
+-----------------------------------------------------------
+Generation: 207
+Evaluation time: 3.95345
+Reproduction time: 2.96115
+-----------------------------------------------------------
+Generation: 208
+Evaluation time: 4.08797
+Reproduction time: 2.92218
+-----------------------------------------------------------
+Generation: 209
+Evaluation time: 3.73149
+Reproduction time: 2.9586
+-----------------------------------------------------------
+Generation: 210
+Evaluation time: 3.76953
+Reproduction time: 3.13182
+----
+SortedMetric:
+Best sorter percentage: 0.241851806640625
+Best sorter size: 63
+Sorted fitnesses:
+  | 0.04    0.2 ±  0.11   0.81| n=520
+Test case fitnesses:
+  | 9.41    9.8 ±  0.11   10.0| n=2020
+-----------------------------------------------------------
+Generation: 211
+Evaluation time: 4.15543
+Reproduction time: 4.32178
+-----------------------------------------------------------
+Generation: 212
+Evaluation time: 4.14285
+Reproduction time: 2.70126
+-----------------------------------------------------------
+Generation: 213
+Evaluation time: 4.13472
+Reproduction time: 2.80216
+-----------------------------------------------------------
+Generation: 214
+Evaluation time: 4.06514
+Reproduction time: 2.92639
+-----------------------------------------------------------
+Generation: 215
+Evaluation time: 4.04845
+Reproduction time: 2.81495
+-----------------------------------------------------------
+Generation: 216
+Evaluation time: 3.86115
+Reproduction time: 2.60915
+-----------------------------------------------------------
+Generation: 217
+Evaluation time: 4.04457
+Reproduction time: 2.85714
+-----------------------------------------------------------
+Generation: 218
+Evaluation time: 3.77317
+Reproduction time: 2.74694
+-----------------------------------------------------------
+Generation: 219
+Evaluation time: 3.88558
+Reproduction time: 2.90359
+-----------------------------------------------------------
+Generation: 220
+Evaluation time: 3.95539
+Reproduction time: 2.82237
+----
+SortedMetric:
+Best sorter percentage: 0.2419586181640625
+Best sorter size: 65
+Sorted fitnesses:
+  | 0.06   0.21 ±  0.13   1.19| n=520
+Test case fitnesses:
+  | 9.33   9.79 ±  0.12   10.0| n=2020
+-----------------------------------------------------------
+Generation: 221
+Evaluation time: 4.18536
+Reproduction time: 3.93966
+-----------------------------------------------------------
+Generation: 222
+Evaluation time: 39.79847
+Reproduction time: 5.74994
+-----------------------------------------------------------
+Generation: 223
+Evaluation time: 24.6964
+Reproduction time: 59.03984
+-----------------------------------------------------------
+Generation: 224
+Evaluation time: 4.12427
+Reproduction time: 2.73376
+-----------------------------------------------------------
+Generation: 225
+Evaluation time: 3.84552
+Reproduction time: 2.65851
+-----------------------------------------------------------
+Generation: 226
+Evaluation time: 4.08402
+Reproduction time: 2.69935
+-----------------------------------------------------------
+Generation: 227
+Evaluation time: 3.81957
+Reproduction time: 2.58668
+-----------------------------------------------------------
+Generation: 228
+Evaluation time: 3.96427
+Reproduction time: 2.7979
+-----------------------------------------------------------
+Generation: 229
+Evaluation time: 3.74892
+Reproduction time: 2.81794
+-----------------------------------------------------------
+Generation: 230
+Evaluation time: 3.82066
+Reproduction time: 2.98808
+----
+SortedMetric:
+Best sorter percentage: 0.2419586181640625
+Best sorter size: 65
+Sorted fitnesses:
+  | 0.07   0.24 ±  0.15   1.15| n=520
+Test case fitnesses:
+  | 9.32   9.76 ±  0.13   10.0| n=2020
+-----------------------------------------------------------
+Generation: 231
+Evaluation time: 4.02936
+Reproduction time: 4.26038
+-----------------------------------------------------------
+Generation: 232
+Evaluation time: 4.24764
+Reproduction time: 2.76682
+-----------------------------------------------------------
+Generation: 233
+Evaluation time: 4.18597
+Reproduction time: 2.85836
+-----------------------------------------------------------
+Generation: 234
+Evaluation time: 4.11651
+Reproduction time: 2.76541
+-----------------------------------------------------------
+Generation: 235
+Evaluation time: 3.88304
+Reproduction time: 2.76105
+-----------------------------------------------------------
+Generation: 236
+Evaluation time: 4.1851
+Reproduction time: 2.95655
+-----------------------------------------------------------
+Generation: 237
+Evaluation time: 4.12155
+Reproduction time: 2.54515
+-----------------------------------------------------------
+Generation: 238
+Evaluation time: 4.00103
+Reproduction time: 2.65019
+-----------------------------------------------------------
+Generation: 239
+Evaluation time: 3.88837
+Reproduction time: 2.8861
+-----------------------------------------------------------
+Generation: 240
+Evaluation time: 3.84846
+Reproduction time: 3.04089
+----
+SortedMetric:
+Best sorter percentage: 0.19561767578125
+Best sorter size: 66
+Sorted fitnesses:
+  | 0.07   0.25 ±  0.16   1.07| n=520
+Test case fitnesses:
+  | 9.21   9.75 ±  0.15   10.0| n=2020
+-----------------------------------------------------------
+Generation: 241
+Evaluation time: 4.0581
+Reproduction time: 4.31187
+-----------------------------------------------------------
+Generation: 242
+Evaluation time: 4.15923
+Reproduction time: 2.96432
+-----------------------------------------------------------
+Generation: 243
+Evaluation time: 4.25397
+Reproduction time: 2.91088
+-----------------------------------------------------------
+Generation: 244
+Evaluation time: 3.97362
+Reproduction time: 2.94017
+-----------------------------------------------------------
+Generation: 245
+Evaluation time: 3.90179
+Reproduction time: 2.7686
+-----------------------------------------------------------
+Generation: 246
+Evaluation time: 38.94644
+Reproduction time: 20.62421
+-----------------------------------------------------------
+Generation: 247
+Evaluation time: 18.11208
+Reproduction time: 53.9486
+-----------------------------------------------------------
+Generation: 248
+Evaluation time: 4.18367
+Reproduction time: 3.02113
+-----------------------------------------------------------
+Generation: 249
+Evaluation time: 4.00176
+Reproduction time: 2.53043
+-----------------------------------------------------------
+Generation: 250
+Evaluation time: 3.94883
+Reproduction time: 2.7846
+----
+SortedMetric:
+Best sorter percentage: 0.3296661376953125
+Best sorter size: 65
+Sorted fitnesses:
+  | 0.08   0.26 ±  0.16   1.09| n=520
+Test case fitnesses:
+  | 9.19   9.74 ±  0.15   10.0| n=2020
+-----------------------------------------------------------
+Generation: 251
+Evaluation time: 4.19307
+Reproduction time: 4.24913
+-----------------------------------------------------------
+Generation: 252
+Evaluation time: 4.23776
+Reproduction time: 2.67198
+-----------------------------------------------------------
+Generation: 253
+Evaluation time: 4.1322
+Reproduction time: 2.82392
+-----------------------------------------------------------
+Generation: 254
+Evaluation time: 4.11231
+Reproduction time: 2.74208
+-----------------------------------------------------------
+Generation: 255
+Evaluation time: 4.01782
+Reproduction time: 2.72549
+-----------------------------------------------------------
+Generation: 256
+Evaluation time: 4.21397
+Reproduction time: 2.57966
+-----------------------------------------------------------
+Generation: 257
+Evaluation time: 4.27041
+Reproduction time: 2.57821
+-----------------------------------------------------------
+Generation: 258
+Evaluation time: 3.92778
+Reproduction time: 2.48366
+-----------------------------------------------------------
+Generation: 259
+Evaluation time: 3.9291
+Reproduction time: 2.97309
+-----------------------------------------------------------
+Generation: 260
+Evaluation time: 4.0973
+Reproduction time: 2.73462
+----
+SortedMetric:
+Best sorter percentage: 0.2106170654296875
+Best sorter size: 63
+Sorted fitnesses:
+  | 0.09   0.26 ±  0.16   1.13| n=520
+Test case fitnesses:
+  | 9.07   9.74 ±  0.15   10.0| n=2020
+-----------------------------------------------------------
+Generation: 261
+Evaluation time: 4.2002
+Reproduction time: 3.96812
+-----------------------------------------------------------
+Generation: 262
+Evaluation time: 4.35068
+Reproduction time: 2.69376
+-----------------------------------------------------------
+Generation: 263
+Evaluation time: 4.01893
+Reproduction time: 2.65993
+-----------------------------------------------------------
+Generation: 264
+Evaluation time: 4.13574
+Reproduction time: 2.82993
+-----------------------------------------------------------
+Generation: 265
+Evaluation time: 4.1234
+Reproduction time: 2.58749
+-----------------------------------------------------------
+Generation: 266
+Evaluation time: 3.78396
+Reproduction time: 2.64844
+-----------------------------------------------------------
+Generation: 267
+Evaluation time: 4.08027
+Reproduction time: 2.84199
+-----------------------------------------------------------
+Generation: 268
+Evaluation time: 3.8625
+Reproduction time: 2.61628
+-----------------------------------------------------------
+Generation: 269
+Evaluation time: 4.05097
+Reproduction time: 2.91404
+-----------------------------------------------------------
+Generation: 270
+Evaluation time: 32.57188
+Reproduction time: 2.62602
+----
+SortedMetric:
+Best sorter percentage: 0.287567138671875
+Best sorter size: 62
+Sorted fitnesses:
+  | 0.06   0.27 ±  0.17   1.05| n=520
+Test case fitnesses:
+  | 8.91   9.73 ±  0.15   9.99| n=2020
+-----------------------------------------------------------
+Generation: 271
+Evaluation time: 24.17966
+Reproduction time: 73.33606
+-----------------------------------------------------------
+Generation: 272
+Evaluation time: 4.24919
+Reproduction time: 2.64795
+-----------------------------------------------------------
+Generation: 273
+Evaluation time: 4.25486
+Reproduction time: 2.93113
+-----------------------------------------------------------
+Generation: 274
+Evaluation time: 4.12818
+Reproduction time: 2.79111
+-----------------------------------------------------------
+Generation: 275
+Evaluation time: 4.0356
+Reproduction time: 2.71344
+-----------------------------------------------------------
+Generation: 276
+Evaluation time: 4.21116
+Reproduction time: 2.99592
+-----------------------------------------------------------
+Generation: 277
+Evaluation time: 4.32856
+Reproduction time: 2.84161
+-----------------------------------------------------------
+Generation: 278
+Evaluation time: 3.86509
+Reproduction time: 2.89477
+-----------------------------------------------------------
+Generation: 279
+Evaluation time: 3.92726
+Reproduction time: 2.97937
+-----------------------------------------------------------
+Generation: 280
+Evaluation time: 3.92821
+Reproduction time: 2.88981
+----
+SortedMetric:
+Best sorter percentage: 0.290740966796875
+Best sorter size: 62
+Sorted fitnesses:
+  | 0.07   0.28 ±  0.16   1.05| n=520
+Test case fitnesses:
+  | 8.83   9.72 ±  0.15   9.98| n=2020
+-----------------------------------------------------------
+Generation: 281
+Evaluation time: 4.25488
+Reproduction time: 4.0204
+-----------------------------------------------------------
+Generation: 282
+Evaluation time: 4.32029
+Reproduction time: 2.73672
+-----------------------------------------------------------
+Generation: 283
+Evaluation time: 4.05751
+Reproduction time: 2.99819
+-----------------------------------------------------------
+Generation: 284
+Evaluation time: 4.10668
+Reproduction time: 2.91583
+-----------------------------------------------------------
+Generation: 285
+Evaluation time: 3.91386
+Reproduction time: 2.89467
+-----------------------------------------------------------
+Generation: 286
+Evaluation time: 3.90873
+Reproduction time: 3.08859
+-----------------------------------------------------------
+Generation: 287
+Evaluation time: 3.816
+Reproduction time: 2.94216
+-----------------------------------------------------------
+Generation: 288
+Evaluation time: 3.85564
+Reproduction time: 2.76308
+-----------------------------------------------------------
+Generation: 289
+Evaluation time: 4.16639
+Reproduction time: 2.9524
+-----------------------------------------------------------
+Generation: 290
+Evaluation time: 4.05903
+Reproduction time: 2.7111
+----
+SortedMetric:
+Best sorter percentage: 0.290740966796875
+Best sorter size: 62
+Sorted fitnesses:
+  | 0.08   0.28 ±  0.15   1.01| n=520
+Test case fitnesses:
+  | 8.81   9.72 ±  0.14   9.98| n=2020
+-----------------------------------------------------------
+Generation: 291
+Evaluation time: 4.11351
+Reproduction time: 4.11179
+-----------------------------------------------------------
+Generation: 292
+Evaluation time: 4.3429
+Reproduction time: 2.97066
+-----------------------------------------------------------
+Generation: 293
+Evaluation time: 29.26307
+Reproduction time: 2.60494
+-----------------------------------------------------------
+Generation: 294
+Evaluation time: 39.19813
+Reproduction time: 58.69629
+-----------------------------------------------------------
+Generation: 295
+Evaluation time: 3.86675
+Reproduction time: 2.97583
+-----------------------------------------------------------
+Generation: 296
+Evaluation time: 3.99776
+Reproduction time: 3.15368
+-----------------------------------------------------------
+Generation: 297
+Evaluation time: 3.79927
+Reproduction time: 3.11262
+-----------------------------------------------------------
+Generation: 298
+Evaluation time: 4.18437
+Reproduction time: 3.07829
+-----------------------------------------------------------
+Generation: 299
+Evaluation time: 3.97075
+Reproduction time: 2.95315
+-----------------------------------------------------------
+Generation: 300
+Evaluation time: 3.99641
+Reproduction time: 3.21
+----
+SortedMetric:
+Best sorter percentage: 0.1522674560546875
+Best sorter size: 64
+Sorted fitnesses:
+  | 0.11    0.3 ±  0.15   1.05| n=520
+Test case fitnesses:
+  | 8.64    9.7 ±  0.15   9.97| n=2020
+-----------------------------------------------------------
+Generation: 301
+Evaluation time: 4.22406
+Reproduction time: 4.27374
+-----------------------------------------------------------
+Generation: 302
+Evaluation time: 4.40999
+Reproduction time: 2.90593
+-----------------------------------------------------------
+Generation: 303
+Evaluation time: 4.19335
+Reproduction time: 2.78736
+-----------------------------------------------------------
+Generation: 304
+Evaluation time: 4.34807
+Reproduction time: 2.83675
+-----------------------------------------------------------
+Generation: 305
+Evaluation time: 4.08311
+Reproduction time: 2.75057
+-----------------------------------------------------------
+Generation: 306
+Evaluation time: 3.9381
+Reproduction time: 3.14324
+-----------------------------------------------------------
+Generation: 307
+Evaluation time: 4.08234
+Reproduction time: 3.04191
+-----------------------------------------------------------
+Generation: 308
+Evaluation time: 4.14296
+Reproduction time: 2.95758
+-----------------------------------------------------------
+Generation: 309
+Evaluation time: 4.04988
+Reproduction time: 2.7902
+-----------------------------------------------------------
+Generation: 310
+Evaluation time: 3.99253
+Reproduction time: 3.04507
+----
+SortedMetric:
+Best sorter percentage: 0.15234375
+Best sorter size: 64
+Sorted fitnesses:
+  | 0.11   0.31 ±  0.17   1.07| n=520
+Test case fitnesses:
+  | 8.59   9.69 ±  0.15   9.97| n=2020
+-----------------------------------------------------------
+Generation: 311
+Evaluation time: 4.23589
+Reproduction time: 4.29029
+-----------------------------------------------------------
+Generation: 312
+Evaluation time: 4.31869
+Reproduction time: 2.77473
+-----------------------------------------------------------
+Generation: 313
+Evaluation time: 4.15016
+Reproduction time: 2.83519
+-----------------------------------------------------------
+Generation: 314
+Evaluation time: 4.16624
+Reproduction time: 2.85878
+-----------------------------------------------------------
+Generation: 315
+Evaluation time: 4.16595
+Reproduction time: 2.81334
+-----------------------------------------------------------
+Generation: 316
+Evaluation time: 4.21932
+Reproduction time: 2.75873
+-----------------------------------------------------------
+Generation: 317
+Evaluation time: 37.41787
+Reproduction time: 28.38902
+-----------------------------------------------------------
+Generation: 318
+Evaluation time: 15.05031
+Reproduction time: 46.47302
+-----------------------------------------------------------
+Generation: 319
+Evaluation time: 3.97815
+Reproduction time: 2.92781
+-----------------------------------------------------------
+Generation: 320
+Evaluation time: 3.98335
+Reproduction time: 3.01731
+----
+SortedMetric:
+Best sorter percentage: 0.153472900390625
+Best sorter size: 64
+Sorted fitnesses:
+  |  0.1   0.31 ±  0.16   0.97| n=520
+Test case fitnesses:
+  | 9.14   9.69 ±  0.15   9.98| n=2020
+-----------------------------------------------------------
+Generation: 321
+Evaluation time: 4.2435
+Reproduction time: 4.25553
+-----------------------------------------------------------
+Generation: 322
+Evaluation time: 4.48991
+Reproduction time: 2.70054
+-----------------------------------------------------------
+Generation: 323
+Evaluation time: 4.2892
+Reproduction time: 2.51564
+-----------------------------------------------------------
+Generation: 324
+Evaluation time: 4.09775
+Reproduction time: 2.62298
+-----------------------------------------------------------
+Generation: 325
+Evaluation time: 4.19328
+Reproduction time: 2.68786
+-----------------------------------------------------------
+Generation: 326
+Evaluation time: 4.16742
+Reproduction time: 2.70166
+-----------------------------------------------------------
+Generation: 327
+Evaluation time: 4.00762
+Reproduction time: 2.59667
+-----------------------------------------------------------
+Generation: 328
+Evaluation time: 4.16882
+Reproduction time: 2.90007
+-----------------------------------------------------------
+Generation: 329
+Evaluation time: 4.04468
+Reproduction time: 2.61885
+-----------------------------------------------------------
+Generation: 330
+Evaluation time: 4.04727
+Reproduction time: 3.02317
+----
+SortedMetric:
+Best sorter percentage: 0.199066162109375
+Best sorter size: 63
+Sorted fitnesses:
+  | 0.02   0.31 ±  0.15   1.04| n=520
+Test case fitnesses:
+  | 9.12   9.69 ±  0.15   9.98| n=2020
+-----------------------------------------------------------
+Generation: 331
+Evaluation time: 4.2523
+Reproduction time: 4.30902
+-----------------------------------------------------------
+Generation: 332
+Evaluation time: 4.27555
+Reproduction time: 2.6064
+-----------------------------------------------------------
+Generation: 333
+Evaluation time: 4.30254
+Reproduction time: 2.68144
+-----------------------------------------------------------
+Generation: 334
+Evaluation time: 4.29381
+Reproduction time: 2.74776
+-----------------------------------------------------------
+Generation: 335
+Evaluation time: 4.07223
+Reproduction time: 2.57367
+-----------------------------------------------------------
+Generation: 336
+Evaluation time: 4.23928
+Reproduction time: 2.90492
+-----------------------------------------------------------
+Generation: 337
+Evaluation time: 3.92359
+Reproduction time: 2.67982
+-----------------------------------------------------------
+Generation: 338
+Evaluation time: 4.28194
+Reproduction time: 2.84951
+-----------------------------------------------------------
+Generation: 339
+Evaluation time: 4.02266
+Reproduction time: 2.67536
+-----------------------------------------------------------
+Generation: 340
+Evaluation time: 11.02816
+Reproduction time: 2.82411
+----
+SortedMetric:
+Best sorter percentage: 0.199066162109375
+Best sorter size: 63
+Sorted fitnesses:
+  | 0.01    0.3 ±  0.14   0.96| n=520
+Test case fitnesses:
+  | 9.11    9.7 ±  0.14   9.98| n=2020
+-----------------------------------------------------------
+Generation: 341
+Evaluation time: 39.27674
+Reproduction time: 76.23418
+-----------------------------------------------------------
+Generation: 342
+Evaluation time: 4.34421
+Reproduction time: 5.34377
+-----------------------------------------------------------
+Generation: 343
+Evaluation time: 4.18819
+Reproduction time: 2.85468
+-----------------------------------------------------------
+Generation: 344
+Evaluation time: 4.08651
+Reproduction time: 3.02787
+-----------------------------------------------------------
+Generation: 345
+Evaluation time: 4.24922
+Reproduction time: 2.97545
+-----------------------------------------------------------
+Generation: 346
+Evaluation time: 3.89569
+Reproduction time: 2.82709
+-----------------------------------------------------------
+Generation: 347
+Evaluation time: 4.11205
+Reproduction time: 2.97335
+-----------------------------------------------------------
+Generation: 348
+Evaluation time: 3.90075
+Reproduction time: 2.72176
+-----------------------------------------------------------
+Generation: 349
+Evaluation time: 3.87458
+Reproduction time: 2.80663
+-----------------------------------------------------------
+Generation: 350
+Evaluation time: 4.01052
+Reproduction time: 2.69543
+----
+SortedMetric:
+Best sorter percentage: 0.3961181640625
+Best sorter size: 62
+Sorted fitnesses:
+  | 0.09   0.31 ±  0.14   0.96| n=520
+Test case fitnesses:
+  | 9.09   9.69 ±  0.14   9.98| n=2020
+-----------------------------------------------------------
+Generation: 351
+Evaluation time: 4.22025
+Reproduction time: 4.05494
+-----------------------------------------------------------
+Generation: 352
+Evaluation time: 4.35566
+Reproduction time: 2.52099
+-----------------------------------------------------------
+Generation: 353
+Evaluation time: 4.37582
+Reproduction time: 2.77847
+-----------------------------------------------------------
+Generation: 354
+Evaluation time: 3.95775
+Reproduction time: 2.83447
+-----------------------------------------------------------
+Generation: 355
+Evaluation time: 4.32122
+Reproduction time: 2.91962
+-----------------------------------------------------------
+Generation: 356
+Evaluation time: 4.28213
+Reproduction time: 2.5315
+-----------------------------------------------------------
+Generation: 357
+Evaluation time: 4.22072
+Reproduction time: 2.60708
+-----------------------------------------------------------
+Generation: 358
+Evaluation time: 4.10469
+Reproduction time: 2.61454
+-----------------------------------------------------------
+Generation: 359
+Evaluation time: 3.986
+Reproduction time: 2.79224
+-----------------------------------------------------------
+Generation: 360
+Evaluation time: 4.16025
+Reproduction time: 2.89932
+----
+SortedMetric:
+Best sorter percentage: 0.3961181640625
+Best sorter size: 62
+Sorted fitnesses:
+  | 0.09   0.32 ±  0.13   0.94| n=520
+Test case fitnesses:
+  | 9.06   9.68 ±  0.15   9.98| n=2020
+-----------------------------------------------------------
+Generation: 361
+Evaluation time: 4.11997
+Reproduction time: 4.18765
+-----------------------------------------------------------
+Generation: 362
+Evaluation time: 4.26968
+Reproduction time: 2.80229
+-----------------------------------------------------------
+Generation: 363
+Evaluation time: 4.14822
+Reproduction time: 2.78076
+-----------------------------------------------------------
+Generation: 364
+Evaluation time: 38.95764
+Reproduction time: 11.61632
+-----------------------------------------------------------
+Generation: 365
+Evaluation time: 26.6214
+Reproduction time: 52.27827
+-----------------------------------------------------------
+Generation: 366
+Evaluation time: 4.06233
+Reproduction time: 2.66857
+-----------------------------------------------------------
+Generation: 367
+Evaluation time: 3.98073
+Reproduction time: 2.70269
+-----------------------------------------------------------
+Generation: 368
+Evaluation time: 4.20331
+Reproduction time: 2.57684
+-----------------------------------------------------------
+Generation: 369
+Evaluation time: 4.18466
+Reproduction time: 2.45132
+-----------------------------------------------------------
+Generation: 370
+Evaluation time: 4.475
+Reproduction time: 2.47026
+----
+SortedMetric:
+Best sorter percentage: 0.3961181640625
+Best sorter size: 62
+Sorted fitnesses:
+  | 0.09   0.33 ±  0.13    0.9| n=520
+Test case fitnesses:
+  | 9.05   9.67 ±  0.15   9.97| n=2020
+-----------------------------------------------------------
+Generation: 371
+Evaluation time: 4.36037
+Reproduction time: 3.77522
+-----------------------------------------------------------
+Generation: 372
+Evaluation time: 4.45511
+Reproduction time: 2.88706
+-----------------------------------------------------------
+Generation: 373
+Evaluation time: 4.2054
+Reproduction time: 2.81784
+-----------------------------------------------------------
+Generation: 374
+Evaluation time: 4.17443
+Reproduction time: 2.7424
+-----------------------------------------------------------
+Generation: 375
+Evaluation time: 4.28454
+Reproduction time: 2.87355
+-----------------------------------------------------------
+Generation: 376
+Evaluation time: 4.07784
+Reproduction time: 2.76794
+-----------------------------------------------------------
+Generation: 377
+Evaluation time: 4.30821
+Reproduction time: 2.7153
+-----------------------------------------------------------
+Generation: 378
+Evaluation time: 3.94315
+Reproduction time: 2.72716
+-----------------------------------------------------------
+Generation: 379
+Evaluation time: 4.03211
+Reproduction time: 2.98761
+-----------------------------------------------------------
+Generation: 380
+Evaluation time: 4.06359
+Reproduction time: 2.96535
+----
+SortedMetric:
+Best sorter percentage: 0.40496826171875
+Best sorter size: 63
+Sorted fitnesses:
+  | 0.02   0.33 ±  0.13   0.85| n=520
+Test case fitnesses:
+  | 9.08   9.67 ±  0.14   9.96| n=2020
+-----------------------------------------------------------
+Generation: 381
+Evaluation time: 4.29034
+Reproduction time: 4.17592
+-----------------------------------------------------------
+Generation: 382
+Evaluation time: 4.46647
+Reproduction time: 2.61259
+-----------------------------------------------------------
+Generation: 383
+Evaluation time: 4.25996
+Reproduction time: 2.63776
+-----------------------------------------------------------
+Generation: 384
+Evaluation time: 4.3934
+Reproduction time: 2.82925
+-----------------------------------------------------------
+Generation: 385
+Evaluation time: 4.2331
+Reproduction time: 2.67416
+-----------------------------------------------------------
+Generation: 386
+Evaluation time: 4.14821
+Reproduction time: 2.73887
+-----------------------------------------------------------
+Generation: 387
+Evaluation time: 4.40068
+Reproduction time: 2.79831
+-----------------------------------------------------------
+Generation: 388
+Evaluation time: 4.27271
+Reproduction time: 2.40465
+-----------------------------------------------------------
+Generation: 389
+Evaluation time: 31.23313
+Reproduction time: 29.33403
+-----------------------------------------------------------
+Generation: 390
+Evaluation time: 14.18261
+Reproduction time: 54.68289
+----
+SortedMetric:
+Best sorter percentage: 0.4127044677734375
+Best sorter size: 63
+Sorted fitnesses:
+  | 0.11   0.33 ±  0.13   0.85| n=520
+Test case fitnesses:
+  | 9.19   9.67 ±  0.13   9.97| n=2020
+-----------------------------------------------------------
+Generation: 391
+Evaluation time: 4.42364
+Reproduction time: 3.63233
+-----------------------------------------------------------
+Generation: 392
+Evaluation time: 4.56603
+Reproduction time: 2.76413
+-----------------------------------------------------------
+Generation: 393
+Evaluation time: 4.32972
+Reproduction time: 2.64324
+-----------------------------------------------------------
+Generation: 394
+Evaluation time: 4.17909
+Reproduction time: 2.75728
+-----------------------------------------------------------
+Generation: 395
+Evaluation time: 3.97681
+Reproduction time: 2.79957
+-----------------------------------------------------------
+Generation: 396
+Evaluation time: 4.31771
+Reproduction time: 2.87945
+-----------------------------------------------------------
+Generation: 397
+Evaluation time: 4.28132
+Reproduction time: 2.5375
+-----------------------------------------------------------
+Generation: 398
+Evaluation time: 3.95957
+Reproduction time: 2.93467
+-----------------------------------------------------------
+Generation: 399
+Evaluation time: 4.43304
+Reproduction time: 3.05343
+-----------------------------------------------------------
+Generation: 400
+Evaluation time: 4.32603
+Reproduction time: 2.8287
+----
+SortedMetric:
+Best sorter percentage: 0.4127044677734375
+Best sorter size: 63
+Sorted fitnesses:
+  | 0.09   0.33 ±  0.13   0.85| n=520
+Test case fitnesses:
+  | 9.16   9.67 ±  0.13   9.96| n=2020
+-----------------------------------------------------------
+Generation: 401
+Evaluation time: 4.20746
+Reproduction time: 4.0936
+-----------------------------------------------------------
+Generation: 402
+Evaluation time: 4.30226
+Reproduction time: 3.0185
+-----------------------------------------------------------
+Generation: 403
+Evaluation time: 4.21812
+Reproduction time: 3.11784
+-----------------------------------------------------------
+Generation: 404
+Evaluation time: 3.99136
+Reproduction time: 3.02515
+-----------------------------------------------------------
+Generation: 405
+Evaluation time: 4.37803
+Reproduction time: 3.11247
+-----------------------------------------------------------
+Generation: 406
+Evaluation time: 4.29153
+Reproduction time: 2.9761
+-----------------------------------------------------------
+Generation: 407
+Evaluation time: 4.26067
+Reproduction time: 2.92616
+-----------------------------------------------------------
+Generation: 408
+Evaluation time: 4.00097
+Reproduction time: 3.21632
+-----------------------------------------------------------
+Generation: 409
+Evaluation time: 4.12624
+Reproduction time: 3.32823
+-----------------------------------------------------------
+Generation: 410
+Evaluation time: 4.16741
+Reproduction time: 3.24048
+----
+SortedMetric:
+Best sorter percentage: 0.4239349365234375
+Best sorter size: 64
+Sorted fitnesses:
+  | 0.08   0.34 ±  0.13   1.15| n=520
+Test case fitnesses:
+  | 9.13   9.66 ±  0.14   9.96| n=2020
+-----------------------------------------------------------
+Generation: 411
+Evaluation time: 4.25809
+Reproduction time: 4.1481
+-----------------------------------------------------------
+Generation: 412
+Evaluation time: 32.48996
+Reproduction time: 3.01189
+-----------------------------------------------------------
+Generation: 413
+Evaluation time: 34.64285
+Reproduction time: 58.39679
+-----------------------------------------------------------
+Generation: 414
+Evaluation time: 4.47986
+Reproduction time: 3.12584
+-----------------------------------------------------------
+Generation: 415
+Evaluation time: 4.18906
+Reproduction time: 2.96041
+-----------------------------------------------------------
+Generation: 416
+Evaluation time: 4.35346
+Reproduction time: 3.18559
+-----------------------------------------------------------
+Generation: 417
+Evaluation time: 4.067
+Reproduction time: 2.97697
+-----------------------------------------------------------
+Generation: 418
+Evaluation time: 4.12239
+Reproduction time: 3.61349
+-----------------------------------------------------------
+Generation: 419
+Evaluation time: 4.09026
+Reproduction time: 3.20267
+-----------------------------------------------------------
+Generation: 420
+Evaluation time: 4.12101
+Reproduction time: 3.04959
+----
+SortedMetric:
+Best sorter percentage: 0.4239349365234375
+Best sorter size: 63
+Sorted fitnesses:
+  | 0.14   0.39 ±  0.14   1.11| n=520
+Test case fitnesses:
+  | 9.03   9.61 ±  0.16   9.94| n=2020
+-----------------------------------------------------------
+Generation: 421
+Evaluation time: 4.25038
+Reproduction time: 4.25786
+-----------------------------------------------------------
+Generation: 422
+Evaluation time: 4.50361
+Reproduction time: 2.91478
+-----------------------------------------------------------
+Generation: 423
+Evaluation time: 4.31777
+Reproduction time: 2.83424
+-----------------------------------------------------------
+Generation: 424
+Evaluation time: 4.45878
+Reproduction time: 2.63861
+-----------------------------------------------------------
+Generation: 425
+Evaluation time: 4.57008
+Reproduction time: 2.71506
+-----------------------------------------------------------
+Generation: 426
+Evaluation time: 4.16535
+Reproduction time: 2.59636
+-----------------------------------------------------------
+Generation: 427
+Evaluation time: 4.20177
+Reproduction time: 2.86951
+-----------------------------------------------------------
+Generation: 428
+Evaluation time: 4.10095
+Reproduction time: 3.01042
+-----------------------------------------------------------
+Generation: 429
+Evaluation time: 4.35011
+Reproduction time: 2.78671
+-----------------------------------------------------------
+Generation: 430
+Evaluation time: 4.10244
+Reproduction time: 2.83434
+----
+SortedMetric:
+Best sorter percentage: 0.5020294189453125
+Best sorter size: 64
+Sorted fitnesses:
+  | 0.12   0.41 ±  0.14   1.17| n=520
+Test case fitnesses:
+  | 8.89   9.59 ±  0.17   9.93| n=2020
+-----------------------------------------------------------
+Generation: 431
+Evaluation time: 4.37528
+Reproduction time: 4.2114
+-----------------------------------------------------------
+Generation: 432
+Evaluation time: 4.45924
+Reproduction time: 2.71542
+-----------------------------------------------------------
+Generation: 433
+Evaluation time: 4.20253
+Reproduction time: 2.67187
+-----------------------------------------------------------
+Generation: 434
+Evaluation time: 4.44798
+Reproduction time: 2.9147
+-----------------------------------------------------------
+Generation: 435
+Evaluation time: 14.6669
+Reproduction time: 2.84918
+-----------------------------------------------------------
+Generation: 436
+Evaluation time: 36.4459
+Reproduction time: 49.97405
+-----------------------------------------------------------
+Generation: 437
+Evaluation time: 4.06312
+Reproduction time: 27.63376
+-----------------------------------------------------------
+Generation: 438
+Evaluation time: 4.08958
+Reproduction time: 2.75308
+-----------------------------------------------------------
+Generation: 439
+Evaluation time: 4.20608
+Reproduction time: 2.87702
+-----------------------------------------------------------
+Generation: 440
+Evaluation time: 4.21882
+Reproduction time: 2.80131
+----
+SortedMetric:
+Best sorter percentage: 0.5020294189453125
+Best sorter size: 64
+Sorted fitnesses:
+  | 0.21   0.43 ±  0.15   1.11| n=520
+Test case fitnesses:
+  | 9.09   9.57 ±  0.18   9.93| n=2020
+-----------------------------------------------------------
+Generation: 441
+Evaluation time: 4.3572
+Reproduction time: 3.89917
+-----------------------------------------------------------
+Generation: 442
+Evaluation time: 4.35186
+Reproduction time: 2.64472
+-----------------------------------------------------------
+Generation: 443
+Evaluation time: 4.51869
+Reproduction time: 2.85169
+-----------------------------------------------------------
+Generation: 444
+Evaluation time: 4.15918
+Reproduction time: 2.56375
+-----------------------------------------------------------
+Generation: 445
+Evaluation time: 4.35077
+Reproduction time: 2.74054
+-----------------------------------------------------------
+Generation: 446
+Evaluation time: 4.20709
+Reproduction time: 2.6517
+-----------------------------------------------------------
+Generation: 447
+Evaluation time: 4.39931
+Reproduction time: 2.74872
+-----------------------------------------------------------
+Generation: 448
+Evaluation time: 4.1322
+Reproduction time: 2.7137
+-----------------------------------------------------------
+Generation: 449
+Evaluation time: 4.15936
+Reproduction time: 2.82475
+-----------------------------------------------------------
+Generation: 450
+Evaluation time: 4.15251
+Reproduction time: 2.98077
+----
+SortedMetric:
+Best sorter percentage: 0.5020294189453125
+Best sorter size: 64
+Sorted fitnesses:
+  | 0.21   0.43 ±  0.15   1.08| n=520
+Test case fitnesses:
+  | 8.99   9.57 ±  0.18   9.94| n=2020
+-----------------------------------------------------------
+Generation: 451
+Evaluation time: 4.38116
+Reproduction time: 3.98722
+-----------------------------------------------------------
+Generation: 452
+Evaluation time: 4.47528
+Reproduction time: 2.72213
+-----------------------------------------------------------
+Generation: 453
+Evaluation time: 4.37277
+Reproduction time: 2.69925
+-----------------------------------------------------------
+Generation: 454
+Evaluation time: 4.23443
+Reproduction time: 2.85489
+-----------------------------------------------------------
+Generation: 455
+Evaluation time: 4.11857
+Reproduction time: 2.69134
+-----------------------------------------------------------
+Generation: 456
+Evaluation time: 4.34713
+Reproduction time: 3.08138
+-----------------------------------------------------------
+Generation: 457
+Evaluation time: 4.18395
+Reproduction time: 2.68716
+-----------------------------------------------------------
+Generation: 458
+Evaluation time: 4.26883
+Reproduction time: 3.13666
+-----------------------------------------------------------
+Generation: 459
+Evaluation time: 26.03209
+Reproduction time: 3.02263
+-----------------------------------------------------------
+Generation: 460
+Evaluation time: 38.39238
+Reproduction time: 58.58374
+----
+SortedMetric:
+Best sorter percentage: 0.57763671875
+Best sorter size: 64
+Sorted fitnesses:
+  | 0.16   0.44 ±  0.17   1.22| n=520
+Test case fitnesses:
+  | 8.96   9.56 ±  0.17   9.93| n=2020
+-----------------------------------------------------------
+Generation: 461
+Evaluation time: 4.37042
+Reproduction time: 5.34224
+-----------------------------------------------------------
+Generation: 462
+Evaluation time: 4.3302
+Reproduction time: 2.86356
+-----------------------------------------------------------
+Generation: 463
+Evaluation time: 4.44573
+Reproduction time: 3.18057
+-----------------------------------------------------------
+Generation: 464
+Evaluation time: 4.23481
+Reproduction time: 2.97029
+-----------------------------------------------------------
+Generation: 465
+Evaluation time: 4.23576
+Reproduction time: 3.00345
+-----------------------------------------------------------
+Generation: 466
+Evaluation time: 4.43106
+Reproduction time: 3.09975
+-----------------------------------------------------------
+Generation: 467
+Evaluation time: 4.19128
+Reproduction time: 2.62494
+-----------------------------------------------------------
+Generation: 468
+Evaluation time: 4.01779
+Reproduction time: 2.85
+-----------------------------------------------------------
+Generation: 469
+Evaluation time: 4.29529
+Reproduction time: 2.92666
+-----------------------------------------------------------
+Generation: 470
+Evaluation time: 4.49928
+Reproduction time: 2.91847
+----
+SortedMetric:
+Best sorter percentage: 0.57763671875
+Best sorter size: 64
+Sorted fitnesses:
+  | 0.07   0.44 ±  0.18   1.18| n=520
+Test case fitnesses:
+  | 8.97   9.56 ±  0.17    9.9| n=2020
+-----------------------------------------------------------
+Generation: 471
+Evaluation time: 4.35539
+Reproduction time: 3.80227
+-----------------------------------------------------------
+Generation: 472
+Evaluation time: 4.5012
+Reproduction time: 2.79669
+-----------------------------------------------------------
+Generation: 473
+Evaluation time: 4.16442
+Reproduction time: 2.80773
+-----------------------------------------------------------
+Generation: 474
+Evaluation time: 4.4631
+Reproduction time: 2.87701
+-----------------------------------------------------------
+Generation: 475
+Evaluation time: 4.34535
+Reproduction time: 2.70977
+-----------------------------------------------------------
+Generation: 476
+Evaluation time: 4.35194
+Reproduction time: 2.74254
+-----------------------------------------------------------
+Generation: 477
+Evaluation time: 4.22429
+Reproduction time: 2.41076
+-----------------------------------------------------------
+Generation: 478
+Evaluation time: 4.00582
+Reproduction time: 2.83974
+-----------------------------------------------------------
+Generation: 479
+Evaluation time: 4.30025
+Reproduction time: 2.91183
+-----------------------------------------------------------
+Generation: 480
+Evaluation time: 4.07716
+Reproduction time: 2.66615
+----
+SortedMetric:
+Best sorter percentage: 0.50482177734375
+Best sorter size: 64
+Sorted fitnesses:
+  | 0.18   0.48 ±  0.19    1.2| n=520
+Test case fitnesses:
+  | 8.91   9.52 ±  0.18   9.88| n=2020
+-----------------------------------------------------------
+Generation: 481
+Evaluation time: 4.34048
+Reproduction time: 3.98168
+-----------------------------------------------------------
+Generation: 482
+Evaluation time: 14.86862
+Reproduction time: 2.71167
+-----------------------------------------------------------
+Generation: 483
+Evaluation time: 36.7677
+Reproduction time: 53.23399
+-----------------------------------------------------------
+Generation: 484
+Evaluation time: 4.29322
+Reproduction time: 25.80057
+-----------------------------------------------------------
+Generation: 485
+Evaluation time: 4.31575
+Reproduction time: 2.74291
+-----------------------------------------------------------
+Generation: 486
+Evaluation time: 4.26817
+Reproduction time: 2.67794
+-----------------------------------------------------------
+Generation: 487
+Evaluation time: 4.02021
+Reproduction time: 2.71229
+-----------------------------------------------------------
+Generation: 488
+Evaluation time: 4.49109
+Reproduction time: 2.89185
+-----------------------------------------------------------
+Generation: 489
+Evaluation time: 4.13814
+Reproduction time: 2.67283
+-----------------------------------------------------------
+Generation: 490
+Evaluation time: 4.11746
+Reproduction time: 2.8259
+----
+SortedMetric:
+Best sorter percentage: 0.50482177734375
+Best sorter size: 64
+Sorted fitnesses:
+  | 0.19   0.49 ±   0.2   1.15| n=520
+Test case fitnesses:
+  | 8.83   9.51 ±  0.18   9.88| n=2020
+-----------------------------------------------------------
+Generation: 491
+Evaluation time: 4.38591
+Reproduction time: 4.09279
+-----------------------------------------------------------
+Generation: 492
+Evaluation time: 4.40689
+Reproduction time: 2.651
+-----------------------------------------------------------
+Generation: 493
+Evaluation time: 4.38938
+Reproduction time: 2.98035
+-----------------------------------------------------------
+Generation: 494
+Evaluation time: 4.29326
+Reproduction time: 2.95449
+-----------------------------------------------------------
+Generation: 495
+Evaluation time: 4.26118
+Reproduction time: 2.84849
+-----------------------------------------------------------
+Generation: 496
+Evaluation time: 4.43116
+Reproduction time: 2.90031
+-----------------------------------------------------------
+Generation: 497
+Evaluation time: 4.06522
+Reproduction time: 2.87596
+-----------------------------------------------------------
+Generation: 498
+Evaluation time: 4.07372
+Reproduction time: 3.24678
+-----------------------------------------------------------
+Generation: 499
+Evaluation time: 4.07166
+Reproduction time: 2.91905
+-----------------------------------------------------------
+Generation: 500
+Evaluation time: 4.16945
+Reproduction time: 3.10239
+----
+SortedMetric:
+Best sorter percentage: 0.507110595703125
+Best sorter size: 65
+Sorted fitnesses:
+  | 0.24   0.51 ±   0.2   1.15| n=520
+Test case fitnesses:
+  | 8.73   9.49 ±  0.18   9.95| n=2020
+-----------------------------------------------------------
+Generation: 501
+Evaluation time: 4.3446
+Reproduction time: 4.15913
+-----------------------------------------------------------
+Generation: 502
+Evaluation time: 4.31301
+Reproduction time: 2.81838
+-----------------------------------------------------------
+Generation: 503
+Evaluation time: 4.31084
+Reproduction time: 3.12475
+-----------------------------------------------------------
+Generation: 504
+Evaluation time: 4.39366
+Reproduction time: 2.95874
+-----------------------------------------------------------
+Generation: 505
+Evaluation time: 12.54672
+Reproduction time: 2.82752
+-----------------------------------------------------------
+Generation: 506
+Evaluation time: 35.62886
+Reproduction time: 60.08957
+-----------------------------------------------------------
+Generation: 507
+Evaluation time: 4.00225
+Reproduction time: 20.04409
+-----------------------------------------------------------
+Generation: 508
+Evaluation time: 4.18128
+Reproduction time: 3.22455
+-----------------------------------------------------------
+Generation: 509
+Evaluation time: 4.02963
+Reproduction time: 2.82696
+-----------------------------------------------------------
+Generation: 510
+Evaluation time: 4.10203
+Reproduction time: 3.28202
+----
+SortedMetric:
+Best sorter percentage: 0.339691162109375
+Best sorter size: 62
+Sorted fitnesses:
+  | 0.23   0.53 ±   0.2   1.13| n=520
+Test case fitnesses:
+  | 8.92   9.47 ±  0.18   9.95| n=2020
+-----------------------------------------------------------
+Generation: 511
+Evaluation time: 4.37509
+Reproduction time: 4.40541
+-----------------------------------------------------------
+Generation: 512
+Evaluation time: 4.34895
+Reproduction time: 2.93006
+-----------------------------------------------------------
+Generation: 513
+Evaluation time: 4.1624
+Reproduction time: 3.10812
+-----------------------------------------------------------
+Generation: 514
+Evaluation time: 4.21965
+Reproduction time: 3.21205
+-----------------------------------------------------------
+Generation: 515
+Evaluation time: 4.26746
+Reproduction time: 3.22962
+-----------------------------------------------------------
+Generation: 516
+Evaluation time: 4.20406
+Reproduction time: 3.10063
+-----------------------------------------------------------
+Generation: 517
+Evaluation time: 4.51805
+Reproduction time: 3.06091
+-----------------------------------------------------------
+Generation: 518
+Evaluation time: 4.20662
+Reproduction time: 2.93205
+-----------------------------------------------------------
+Generation: 519
+Evaluation time: 4.14654
+Reproduction time: 3.12804
+-----------------------------------------------------------
+Generation: 520
+Evaluation time: 4.26097
+Reproduction time: 3.05207
+----
+SortedMetric:
+Best sorter percentage: 0.388641357421875
+Best sorter size: 66
+Sorted fitnesses:
+  | 0.13   0.55 ±  0.22   1.27| n=520
+Test case fitnesses:
+  | 8.88   9.45 ±  0.18   9.96| n=2020
+-----------------------------------------------------------
+Generation: 521
+Evaluation time: 4.24999
+Reproduction time: 4.41575
+-----------------------------------------------------------
+Generation: 522
+Evaluation time: 4.49633
+Reproduction time: 3.03614
+-----------------------------------------------------------
+Generation: 523
+Evaluation time: 4.2286
+Reproduction time: 2.95798
+-----------------------------------------------------------
+Generation: 524
+Evaluation time: 4.3877
+Reproduction time: 3.13785
+-----------------------------------------------------------
+Generation: 525
+Evaluation time: 4.04998
+Reproduction time: 3.1494
+-----------------------------------------------------------
+Generation: 526
+Evaluation time: 4.36082
+Reproduction time: 3.36905
+-----------------------------------------------------------
+Generation: 527
+Evaluation time: 4.36425
+Reproduction time: 2.78137
+-----------------------------------------------------------
+Generation: 528
+Evaluation time: 4.49713
+Reproduction time: 2.88508
+-----------------------------------------------------------
+Generation: 529
+Evaluation time: 37.87092
+Reproduction time: 21.91348
+-----------------------------------------------------------
+Generation: 530
+Evaluation time: 16.28431
+Reproduction time: 51.98618
+----
+SortedMetric:
+Best sorter percentage: 0.5944671630859375
+Best sorter size: 63
+Sorted fitnesses:
+  | 0.17   0.58 ±  0.25   1.39| n=520
+Test case fitnesses:
+  | 8.82   9.42 ±  0.18   9.96| n=2020
+-----------------------------------------------------------
+Generation: 531
+Evaluation time: 4.29238
+Reproduction time: 4.20694
+-----------------------------------------------------------
+Generation: 532
+Evaluation time: 4.47232
+Reproduction time: 2.89054
+-----------------------------------------------------------
+Generation: 533
+Evaluation time: 4.35461
+Reproduction time: 2.87031
+-----------------------------------------------------------
+Generation: 534
+Evaluation time: 4.2608
+Reproduction time: 2.93924
+-----------------------------------------------------------
+Generation: 535
+Evaluation time: 4.43462
+Reproduction time: 2.87965
+-----------------------------------------------------------
+Generation: 536
+Evaluation time: 4.22159
+Reproduction time: 2.75031
+-----------------------------------------------------------
+Generation: 537
+Evaluation time: 4.1786
+Reproduction time: 3.16104
+-----------------------------------------------------------
+Generation: 538
+Evaluation time: 4.29925
+Reproduction time: 3.10178
+-----------------------------------------------------------
+Generation: 539
+Evaluation time: 4.22191
+Reproduction time: 2.85452
+-----------------------------------------------------------
+Generation: 540
+Evaluation time: 4.2097
+Reproduction time: 3.09262
+----
+SortedMetric:
+Best sorter percentage: 0.5944671630859375
+Best sorter size: 63
+Sorted fitnesses:
+  | 0.14   0.64 ±  0.25   1.37| n=520
+Test case fitnesses:
+  | 8.64   9.36 ±  0.19   9.94| n=2020
+-----------------------------------------------------------
+Generation: 541
+Evaluation time: 4.42072
+Reproduction time: 4.21149
+-----------------------------------------------------------
+Generation: 542
+Evaluation time: 4.39464
+Reproduction time: 2.93659
+-----------------------------------------------------------
+Generation: 543
+Evaluation time: 4.259
+Reproduction time: 3.05524
+-----------------------------------------------------------
+Generation: 544
+Evaluation time: 4.31468
+Reproduction time: 3.14116
+-----------------------------------------------------------
+Generation: 545
+Evaluation time: 4.3361
+Reproduction time: 3.08983
+-----------------------------------------------------------
+Generation: 546
+Evaluation time: 4.11048
+Reproduction time: 2.92776
+-----------------------------------------------------------
+Generation: 547
+Evaluation time: 4.13816
+Reproduction time: 2.94617
+-----------------------------------------------------------
+Generation: 548
+Evaluation time: 4.22179
+Reproduction time: 3.31258
+-----------------------------------------------------------
+Generation: 549
+Evaluation time: 4.17845
+Reproduction time: 3.19727
+-----------------------------------------------------------
+Generation: 550
+Evaluation time: 4.29954
+Reproduction time: 3.12908
+----
+SortedMetric:
+Best sorter percentage: 0.409881591796875
+Best sorter size: 68
+Sorted fitnesses:
+  | 0.18   0.69 ±  0.24   1.65| n=520
+Test case fitnesses:
+  | 8.43   9.31 ±  0.19   9.95| n=2020
+-----------------------------------------------------------
+Generation: 551
+Evaluation time: 4.39295
+Reproduction time: 4.17161
+-----------------------------------------------------------
+Generation: 552
+Evaluation time: 20.54672
+Reproduction time: 3.0961
+-----------------------------------------------------------
+Generation: 553
+Evaluation time: 34.96001
+Reproduction time: 64.01457
+-----------------------------------------------------------
+Generation: 554
+Evaluation time: 4.33642
+Reproduction time: 10.95415
+-----------------------------------------------------------
+Generation: 555
+Evaluation time: 4.41661
+Reproduction time: 3.17421
+-----------------------------------------------------------
+Generation: 556
+Evaluation time: 4.19544
+Reproduction time: 2.95807
+-----------------------------------------------------------
+Generation: 557
+Evaluation time: 4.12123
+Reproduction time: 3.47648
+-----------------------------------------------------------
+Generation: 558
+Evaluation time: 4.09202
+Reproduction time: 3.36811
+-----------------------------------------------------------
+Generation: 559
+Evaluation time: 4.05223
+Reproduction time: 3.36564
+-----------------------------------------------------------
+Generation: 560
+Evaluation time: 4.26044
+Reproduction time: 3.59919
+----
+SortedMetric:
+Best sorter percentage: 0.4546661376953125
+Best sorter size: 68
+Sorted fitnesses:
+  | 0.15    0.7 ±  0.24   1.62| n=520
+Test case fitnesses:
+  | 8.39    9.3 ±  0.19   9.95| n=2020
+-----------------------------------------------------------
+Generation: 561
+Evaluation time: 4.34829
+Reproduction time: 4.49733
+-----------------------------------------------------------
+Generation: 562
+Evaluation time: 4.34549
+Reproduction time: 3.21976
+-----------------------------------------------------------
+Generation: 563
+Evaluation time: 4.56587
+Reproduction time: 3.48132
+-----------------------------------------------------------
+Generation: 564
+Evaluation time: 4.54818
+Reproduction time: 3.23672
+-----------------------------------------------------------
+Generation: 565
+Evaluation time: 4.57629
+Reproduction time: 3.38525
+-----------------------------------------------------------
+Generation: 566
+Evaluation time: 4.32543
+Reproduction time: 3.27978
+-----------------------------------------------------------
+Generation: 567
+Evaluation time: 4.36646
+Reproduction time: 3.37603
+-----------------------------------------------------------
+Generation: 568
+Evaluation time: 4.19648
+Reproduction time: 3.33983
+-----------------------------------------------------------
+Generation: 569
+Evaluation time: 4.54382
+Reproduction time: 3.51654
+-----------------------------------------------------------
+Generation: 570
+Evaluation time: 4.21899
+Reproduction time: 3.21973
+----
+SortedMetric:
+Best sorter percentage: 0.4579620361328125
+Best sorter size: 69
+Sorted fitnesses:
+  | 0.18   0.71 ±  0.26   1.63| n=520
+Test case fitnesses:
+  | 8.33   9.29 ±  0.19   9.94| n=2020
+-----------------------------------------------------------
+Generation: 571
+Evaluation time: 4.37445
+Reproduction time: 4.62132
+-----------------------------------------------------------
+Generation: 572
+Evaluation time: 4.31095
+Reproduction time: 3.16843
+-----------------------------------------------------------
+Generation: 573
+Evaluation time: 4.29717
+Reproduction time: 3.49295
+-----------------------------------------------------------
+Generation: 574
+Evaluation time: 4.55572
+Reproduction time: 3.09205
+-----------------------------------------------------------
+Generation: 575
+Evaluation time: 32.54888
+Reproduction time: 54.98439
+-----------------------------------------------------------
+Generation: 576
+Evaluation time: 4.11127
+Reproduction time: 33.38418
+-----------------------------------------------------------
+Generation: 577
+Evaluation time: 4.11328
+Reproduction time: 3.16971
+-----------------------------------------------------------
+Generation: 578
+Evaluation time: 4.4187
+Reproduction time: 2.98637
+-----------------------------------------------------------
+Generation: 579
+Evaluation time: 4.44592
+Reproduction time: 2.80918
+-----------------------------------------------------------
+Generation: 580
+Evaluation time: 4.42488
+Reproduction time: 2.82385
+----
+SortedMetric:
+Best sorter percentage: 0.459442138671875
+Best sorter size: 70
+Sorted fitnesses:
+  | 0.18   0.75 ±  0.24   1.64| n=520
+Test case fitnesses:
+  | 8.17   9.25 ±  0.19   9.92| n=2020
+-----------------------------------------------------------
+Generation: 581
+Evaluation time: 4.37407
+Reproduction time: 4.15435
+-----------------------------------------------------------
+Generation: 582
+Evaluation time: 4.45651
+Reproduction time: 3.00237
+-----------------------------------------------------------
+Generation: 583
+Evaluation time: 4.40092
+Reproduction time: 2.94662
+-----------------------------------------------------------
+Generation: 584
+Evaluation time: 4.65321
+Reproduction time: 3.10401
+-----------------------------------------------------------
+Generation: 585
+Evaluation time: 4.25389
+Reproduction time: 2.88061
+-----------------------------------------------------------
+Generation: 586
+Evaluation time: 4.32239
+Reproduction time: 2.94784
+-----------------------------------------------------------
+Generation: 587
+Evaluation time: 4.50658
+Reproduction time: 2.84315
+-----------------------------------------------------------
+Generation: 588
+Evaluation time: 4.52196
+Reproduction time: 2.84043
+-----------------------------------------------------------
+Generation: 589
+Evaluation time: 4.19597
+Reproduction time: 2.80962
+-----------------------------------------------------------
+Generation: 590
+Evaluation time: 4.23204
+Reproduction time: 3.3046
+----
+SortedMetric:
+Best sorter percentage: 0.662384033203125
+Best sorter size: 75
+Sorted fitnesses:
+  | 0.26   0.79 ±  0.22   1.63| n=520
+Test case fitnesses:
+  | 8.41   9.21 ±  0.21   9.89| n=2020
+-----------------------------------------------------------
+Generation: 591
+Evaluation time: 4.43201
+Reproduction time: 4.40016
+-----------------------------------------------------------
+Generation: 592
+Evaluation time: 4.37429
+Reproduction time: 2.85008
+-----------------------------------------------------------
+Generation: 593
+Evaluation time: 4.4594
+Reproduction time: 3.07601
+-----------------------------------------------------------
+Generation: 594
+Evaluation time: 4.41316
+Reproduction time: 2.95718
+-----------------------------------------------------------
+Generation: 595
+Evaluation time: 4.20126
+Reproduction time: 2.76257
+-----------------------------------------------------------
+Generation: 596
+Evaluation time: 4.15246
+Reproduction time: 3.20391
+-----------------------------------------------------------
+Generation: 597
+Evaluation time: 4.49786
+Reproduction time: 3.05369
+-----------------------------------------------------------
+Generation: 598
+Evaluation time: 34.60945
+Reproduction time: 13.64257
+-----------------------------------------------------------
+Generation: 599
+Evaluation time: 15.13226
+Reproduction time: 63.62871
+-----------------------------------------------------------
+Generation: 600
+Evaluation time: 4.37774
+Reproduction time: 3.04539
+----
+SortedMetric:
+Best sorter percentage: 0.662384033203125
+Best sorter size: 76
+Sorted fitnesses:
+  | 0.35   0.81 ±  0.23   1.61| n=520
+Test case fitnesses:
+  | 8.36   9.19 ±  0.22   9.88| n=2020
+-----------------------------------------------------------
+Generation: 601
+Evaluation time: 4.52951
+Reproduction time: 4.14745
+-----------------------------------------------------------
+Generation: 602
+Evaluation time: 4.48782
+Reproduction time: 2.79536
+-----------------------------------------------------------
+Generation: 603
+Evaluation time: 4.66871
+Reproduction time: 2.82189
+-----------------------------------------------------------
+Generation: 604
+Evaluation time: 4.44829
+Reproduction time: 2.7157
+-----------------------------------------------------------
+Generation: 605
+Evaluation time: 4.17045
+Reproduction time: 2.91984
+-----------------------------------------------------------
+Generation: 606
+Evaluation time: 4.18945
+Reproduction time: 3.25317
+-----------------------------------------------------------
+Generation: 607
+Evaluation time: 4.27247
+Reproduction time: 3.22443
+-----------------------------------------------------------
+Generation: 608
+Evaluation time: 4.12008
+Reproduction time: 3.11544
+-----------------------------------------------------------
+Generation: 609
+Evaluation time: 4.49516
+Reproduction time: 3.13188
+-----------------------------------------------------------
+Generation: 610
+Evaluation time: 4.43286
+Reproduction time: 3.08169
+----
+SortedMetric:
+Best sorter percentage: 0.662384033203125
+Best sorter size: 76
+Sorted fitnesses:
+  | 0.29   0.84 ±  0.24   1.58| n=520
+Test case fitnesses:
+  | 8.36   9.16 ±  0.23   9.86| n=2020
+-----------------------------------------------------------
+Generation: 611
+Evaluation time: 4.48869
+Reproduction time: 4.38159
+-----------------------------------------------------------
+Generation: 612
+Evaluation time: 4.44035
+Reproduction time: 3.08862
+-----------------------------------------------------------
+Generation: 613
+Evaluation time: 4.37119
+Reproduction time: 3.02528
+-----------------------------------------------------------
+Generation: 614
+Evaluation time: 4.42727
+Reproduction time: 2.95315
+-----------------------------------------------------------
+Generation: 615
+Evaluation time: 4.52757
+Reproduction time: 2.97971
+-----------------------------------------------------------
+Generation: 616
+Evaluation time: 4.41425
+Reproduction time: 2.72341
+-----------------------------------------------------------
+Generation: 617
+Evaluation time: 4.14525
+Reproduction time: 3.0806
+-----------------------------------------------------------
+Generation: 618
+Evaluation time: 4.63435
+Reproduction time: 3.02263
+-----------------------------------------------------------
+Generation: 619
+Evaluation time: 4.53456
+Reproduction time: 2.77209
+-----------------------------------------------------------
+Generation: 620
+Evaluation time: 4.55102
+Reproduction time: 2.6676
+----
+SortedMetric:
+Best sorter percentage: 0.662384033203125
+Best sorter size: 76
+Sorted fitnesses:
+  |  0.4   0.84 ±  0.23   1.54| n=520
+Test case fitnesses:
+  |  8.4   9.16 ±  0.22    9.8| n=2020
+-----------------------------------------------------------
+Generation: 621
+Evaluation time: 4.45709
+Reproduction time: 4.06216
+-----------------------------------------------------------
+Generation: 622
+Evaluation time: 40.85033
+Reproduction time: 3.07088
+-----------------------------------------------------------
+Generation: 623
+Evaluation time: 24.26528
+Reproduction time: 58.49897
+-----------------------------------------------------------
+Generation: 624
+Evaluation time: 4.65491
+Reproduction time: 2.94198
+-----------------------------------------------------------
+Generation: 625
+Evaluation time: 4.34704
+Reproduction time: 2.78352
+-----------------------------------------------------------
+Generation: 626
+Evaluation time: 4.38002
+Reproduction time: 3.00269
+-----------------------------------------------------------
+Generation: 627
+Evaluation time: 4.45181
+Reproduction time: 3.01995
+-----------------------------------------------------------
+Generation: 628
+Evaluation time: 4.46883
+Reproduction time: 2.84717
+-----------------------------------------------------------
+Generation: 629
+Evaluation time: 4.72406
+Reproduction time: 2.76175
+-----------------------------------------------------------
+Generation: 630
+Evaluation time: 4.44619
+Reproduction time: 2.68091
+----
+SortedMetric:
+Best sorter percentage: 0.681549072265625
+Best sorter size: 76
+Sorted fitnesses:
+  | 0.05   0.84 ±  0.23   1.78| n=520
+Test case fitnesses:
+  |  8.4   9.16 ±  0.22   9.83| n=2020
+-----------------------------------------------------------
+Generation: 631
+Evaluation time: 4.51817
+Reproduction time: 4.13349
+-----------------------------------------------------------
+Generation: 632
+Evaluation time: 4.51468
+Reproduction time: 2.8811
+-----------------------------------------------------------
+Generation: 633
+Evaluation time: 4.4037
+Reproduction time: 3.03087
+-----------------------------------------------------------
+Generation: 634
+Evaluation time: 4.43353
+Reproduction time: 2.90789
+-----------------------------------------------------------
+Generation: 635
+Evaluation time: 4.50367
+Reproduction time: 2.97887
+-----------------------------------------------------------
+Generation: 636
+Evaluation time: 4.4379
+Reproduction time: 3.15313
+-----------------------------------------------------------
+Generation: 637
+Evaluation time: 4.52017
+Reproduction time: 2.80918
+-----------------------------------------------------------
+Generation: 638
+Evaluation time: 4.45419
+Reproduction time: 2.8869
+-----------------------------------------------------------
+Generation: 639
+Evaluation time: 4.35345
+Reproduction time: 2.83556
+-----------------------------------------------------------
+Generation: 640
+Evaluation time: 4.44329
+Reproduction time: 3.28885
+----
+SortedMetric:
+Best sorter percentage: 0.681549072265625
+Best sorter size: 76
+Sorted fitnesses:
+  | 0.38   0.85 ±  0.22   1.75| n=520
+Test case fitnesses:
+  |  8.4   9.15 ±  0.22   9.85| n=2020
+-----------------------------------------------------------
+Generation: 641
+Evaluation time: 4.48262
+Reproduction time: 4.07611
+-----------------------------------------------------------
+Generation: 642
+Evaluation time: 4.52842
+Reproduction time: 2.87937
+-----------------------------------------------------------
+Generation: 643
+Evaluation time: 4.52304
+Reproduction time: 2.82064
+-----------------------------------------------------------
+Generation: 644
+Evaluation time: 4.36825
+Reproduction time: 2.79927
+-----------------------------------------------------------
+Generation: 645
+Evaluation time: 4.28486
+Reproduction time: 2.83976
+-----------------------------------------------------------
+Generation: 646
+Evaluation time: 27.45602
+Reproduction time: 3.09052
+-----------------------------------------------------------
+Generation: 647
+Evaluation time: 31.58581
+Reproduction time: 61.86981
+-----------------------------------------------------------
+Generation: 648
+Evaluation time: 4.2516
+Reproduction time: 3.09974
+-----------------------------------------------------------
+Generation: 649
+Evaluation time: 4.22084
+Reproduction time: 3.22057
+-----------------------------------------------------------
+Generation: 650
+Evaluation time: 4.75125
+Reproduction time: 3.19422
+----
+SortedMetric:
+Best sorter percentage: 0.6925201416015625
+Best sorter size: 77
+Sorted fitnesses:
+  | 0.46   0.87 ±  0.22   1.74| n=520
+Test case fitnesses:
+  | 8.38   9.13 ±  0.23   9.87| n=2020
+-----------------------------------------------------------
+Generation: 651
+Evaluation time: 4.58378
+Reproduction time: 4.02303
+-----------------------------------------------------------
+Generation: 652
+Evaluation time: 4.52603
+Reproduction time: 2.95528
+-----------------------------------------------------------
+Generation: 653
+Evaluation time: 4.43041
+Reproduction time: 3.04706
+-----------------------------------------------------------
+Generation: 654
+Evaluation time: 4.58853
+Reproduction time: 3.02802
+-----------------------------------------------------------
+Generation: 655
+Evaluation time: 4.35309
+Reproduction time: 2.92251
+-----------------------------------------------------------
+Generation: 656
+Evaluation time: 4.48422
+Reproduction time: 3.04627
+-----------------------------------------------------------
+Generation: 657
+Evaluation time: 4.71898
+Reproduction time: 2.85247
+-----------------------------------------------------------
+Generation: 658
+Evaluation time: 4.66642
+Reproduction time: 2.92081
+-----------------------------------------------------------
+Generation: 659
+Evaluation time: 4.28162
+Reproduction time: 2.81985
+-----------------------------------------------------------
+Generation: 660
+Evaluation time: 4.35609
+Reproduction time: 3.27948
+----
+SortedMetric:
+Best sorter percentage: 0.6925201416015625
+Best sorter size: 77
+Sorted fitnesses:
+  | 0.41   0.87 ±  0.22   1.66| n=520
+Test case fitnesses:
+  | 8.29   9.13 ±  0.22   9.84| n=2020
+-----------------------------------------------------------
+Generation: 661
+Evaluation time: 4.52283
+Reproduction time: 4.29167
+-----------------------------------------------------------
+Generation: 662
+Evaluation time: 4.56224
+Reproduction time: 3.09492
+-----------------------------------------------------------
+Generation: 663
+Evaluation time: 4.58397
+Reproduction time: 3.08455
+-----------------------------------------------------------
+Generation: 664
+Evaluation time: 4.43915
+Reproduction time: 3.17745
+-----------------------------------------------------------
+Generation: 665
+Evaluation time: 4.242
+Reproduction time: 3.13133
+-----------------------------------------------------------
+Generation: 666
+Evaluation time: 4.60289
+Reproduction time: 3.01199
+-----------------------------------------------------------
+Generation: 667
+Evaluation time: 4.54378
+Reproduction time: 2.62633
+-----------------------------------------------------------
+Generation: 668
+Evaluation time: 4.45692
+Reproduction time: 2.72585
+-----------------------------------------------------------
+Generation: 669
+Evaluation time: 13.01815
+Reproduction time: 2.74753
+-----------------------------------------------------------
+Generation: 670
+Evaluation time: 37.47772
+Reproduction time: 52.58739
+----
+SortedMetric:
+Best sorter percentage: 0.6925201416015625
+Best sorter size: 77
+Sorted fitnesses:
+  | 0.22   0.88 ±  0.23   1.61| n=520
+Test case fitnesses:
+  | 8.33   9.12 ±  0.22   9.81| n=2020
+-----------------------------------------------------------
+Generation: 671
+Evaluation time: 4.57975
+Reproduction time: 18.8129
+-----------------------------------------------------------
+Generation: 672
+Evaluation time: 4.62957
+Reproduction time: 3.06077
+-----------------------------------------------------------
+Generation: 673
+Evaluation time: 4.51634
+Reproduction time: 2.99592
+-----------------------------------------------------------
+Generation: 674
+Evaluation time: 4.37747
+Reproduction time: 3.05992
+-----------------------------------------------------------
+Generation: 675
+Evaluation time: 4.37082
+Reproduction time: 2.93067
+-----------------------------------------------------------
+Generation: 676
+Evaluation time: 4.21529
+Reproduction time: 2.9973
+-----------------------------------------------------------
+Generation: 677
+Evaluation time: 4.57926
+Reproduction time: 3.18011
+-----------------------------------------------------------
+Generation: 678
+Evaluation time: 4.24872
+Reproduction time: 2.99063
+-----------------------------------------------------------
+Generation: 679
+Evaluation time: 4.56802
+Reproduction time: 3.28035
+-----------------------------------------------------------
+Generation: 680
+Evaluation time: 4.52942
+Reproduction time: 2.83529
+----
+SortedMetric:
+Best sorter percentage: 0.6925201416015625
+Best sorter size: 77
+Sorted fitnesses:
+  | 0.33   0.88 ±  0.23   1.57| n=520
+Test case fitnesses:
+  |  8.3   9.12 ±  0.22   9.82| n=2020
+-----------------------------------------------------------
+Generation: 681
+Evaluation time: 4.51546
+Reproduction time: 4.39052
+-----------------------------------------------------------
+Generation: 682
+Evaluation time: 4.6146
+Reproduction time: 2.8577
+-----------------------------------------------------------
+Generation: 683
+Evaluation time: 4.5509
+Reproduction time: 3.01191
+-----------------------------------------------------------
+Generation: 684
+Evaluation time: 4.54683
+Reproduction time: 3.02709
+-----------------------------------------------------------
+Generation: 685
+Evaluation time: 4.40968
+Reproduction time: 2.90508
+-----------------------------------------------------------
+Generation: 686
+Evaluation time: 4.49682
+Reproduction time: 2.80957
+-----------------------------------------------------------
+Generation: 687
+Evaluation time: 4.51961
+Reproduction time: 2.86914
+-----------------------------------------------------------
+Generation: 688
+Evaluation time: 4.21333
+Reproduction time: 3.04892
+-----------------------------------------------------------
+Generation: 689
+Evaluation time: 4.62872
+Reproduction time: 3.13003
+-----------------------------------------------------------
+Generation: 690
+Evaluation time: 4.4621
+Reproduction time: 2.90101
+----
+SortedMetric:
+Best sorter percentage: 0.7061614990234375
+Best sorter size: 78
+Sorted fitnesses:
+  |  0.3    0.9 ±  0.24   1.68| n=520
+Test case fitnesses:
+  | 8.25    9.1 ±  0.21   9.81| n=2020
+-----------------------------------------------------------
+Generation: 691
+Evaluation time: 4.56292
+Reproduction time: 4.16768
+-----------------------------------------------------------
+Generation: 692
+Evaluation time: 4.67447
+Reproduction time: 2.87391
+-----------------------------------------------------------
+Generation: 693
+Evaluation time: 39.01422
+Reproduction time: 5.18806
+-----------------------------------------------------------
+Generation: 694
+Evaluation time: 23.35426
+Reproduction time: 53.64621
+-----------------------------------------------------------
+Generation: 695
+Evaluation time: 4.3769
+Reproduction time: 2.76859
+-----------------------------------------------------------
+Generation: 696
+Evaluation time: 4.44138
+Reproduction time: 3.06913
+-----------------------------------------------------------
+Generation: 697
+Evaluation time: 4.6587
+Reproduction time: 2.93264
+-----------------------------------------------------------
+Generation: 698
+Evaluation time: 4.31351
+Reproduction time: 2.81618
+-----------------------------------------------------------
+Generation: 699
+Evaluation time: 4.34332
+Reproduction time: 3.18653
+-----------------------------------------------------------
+Generation: 700
+Evaluation time: 4.45937
+Reproduction time: 3.09183
+----
+SortedMetric:
+Best sorter percentage: 0.7198333740234375
+Best sorter size: 78
+Sorted fitnesses:
+  | 0.17    0.9 ±  0.24   1.71| n=520
+Test case fitnesses:
+  | 8.22    9.1 ±  0.22    9.8| n=2020
+-----------------------------------------------------------
+Generation: 701
+Evaluation time: 4.67012
+Reproduction time: 4.22858
+-----------------------------------------------------------
+Generation: 702
+Evaluation time: 4.77923
+Reproduction time: 2.89243
+-----------------------------------------------------------
+Generation: 703
+Evaluation time: 4.58496
+Reproduction time: 2.909
+-----------------------------------------------------------
+Generation: 704
+Evaluation time: 4.50122
+Reproduction time: 3.01751
+-----------------------------------------------------------
+Generation: 705
+Evaluation time: 4.42617
+Reproduction time: 2.89111
+-----------------------------------------------------------
+Generation: 706
+Evaluation time: 4.29263
+Reproduction time: 3.49862
+-----------------------------------------------------------
+Generation: 707
+Evaluation time: 4.55674
+Reproduction time: 3.18745
+-----------------------------------------------------------
+Generation: 708
+Evaluation time: 4.2706
+Reproduction time: 2.99033

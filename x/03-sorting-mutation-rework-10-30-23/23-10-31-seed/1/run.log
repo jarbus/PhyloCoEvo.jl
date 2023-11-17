@@ -1,0 +1,2621 @@
+5cc24f43b35680aa46bb88208bd9cf928d51518b
+-----------------------------------------------------------
+Generation: 1
+Evaluation time: 6.2179
+Reproduction time: 0.0
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 2
+Evaluation time: 4.11393
+Reproduction time: 4.73042
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 3
+Evaluation time: 4.28733
+Reproduction time: 0.69746
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 4
+Evaluation time: 4.3081
+Reproduction time: 0.7365
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 5
+Evaluation time: 4.43652
+Reproduction time: 0.67311
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 6
+Evaluation time: 4.50734
+Reproduction time: 0.8067
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 7
+Evaluation time: 4.51201
+Reproduction time: 0.84228
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 8
+Evaluation time: 4.51858
+Reproduction time: 0.81237
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 9
+Evaluation time: 4.64569
+Reproduction time: 0.83854
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 10
+Evaluation time: 4.51861
+Reproduction time: 0.77691
+----
+SortedMetric:
+Best sorter percentage: 0.364288330078125
+Best sorter size: 80
+Sorted fitnesses:
+  |  0.0  255.59 ± 152.57  916.0| n=2000
+Test case fitnesses:
+  |36103.0  37444.14 ± 618.7  38674.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 11
+Evaluation time: 4.78848
+Reproduction time: 1.00966
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 12
+Evaluation time: 4.89219
+Reproduction time: 0.62461
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 13
+Evaluation time: 4.70601
+Reproduction time: 0.87629
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 14
+Evaluation time: 4.74422
+Reproduction time: 0.89323
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 15
+Evaluation time: 4.90139
+Reproduction time: 0.71217
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 16
+Evaluation time: 5.11376
+Reproduction time: 0.67364
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 17
+Evaluation time: 4.81747
+Reproduction time: 0.6723
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 18
+Evaluation time: 4.83265
+Reproduction time: 0.89945
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 19
+Evaluation time: 4.78862
+Reproduction time: 0.94616
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 20
+Evaluation time: 4.81719
+Reproduction time: 0.89133
+----
+SortedMetric:
+Best sorter percentage: 0.4931640625
+Best sorter size: 77
+Sorted fitnesses:
+  |  0.0  403.88 ± 233.62  1175.0| n=2000
+Test case fitnesses:
+  |34704.0  35961.17 ± 583.69  37487.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 21
+Evaluation time: 4.87554
+Reproduction time: 0.89376
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 22
+Evaluation time: 5.03789
+Reproduction time: 0.68516
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 23
+Evaluation time: 4.8528
+Reproduction time: 0.717
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 24
+Evaluation time: 4.90033
+Reproduction time: 0.92354
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 25
+Evaluation time: 4.81323
+Reproduction time: 0.89597
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 26
+Evaluation time: 4.85265
+Reproduction time: 0.92128
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 27
+Evaluation time: 4.87143
+Reproduction time: 0.89845
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 28
+Evaluation time: 5.14072
+Reproduction time: 0.66422
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 29
+Evaluation time: 4.91894
+Reproduction time: 0.69149
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 30
+Evaluation time: 4.97619
+Reproduction time: 0.90462
+----
+SortedMetric:
+Best sorter percentage: 0.4515380859375
+Best sorter size: 76
+Sorted fitnesses:
+  |  3.0  424.63 ± 207.88  1192.0| n=2000
+Test case fitnesses:
+  |34619.0  35753.75 ± 635.93  37226.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 31
+Evaluation time: 4.90039
+Reproduction time: 0.88494
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 32
+Evaluation time: 4.93533
+Reproduction time: 0.90266
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 33
+Evaluation time: 4.91687
+Reproduction time: 0.88586
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 34
+Evaluation time: 5.08922
+Reproduction time: 0.66332
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 35
+Evaluation time: 4.82572
+Reproduction time: 0.68369
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 36
+Evaluation time: 4.80797
+Reproduction time: 0.94806
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 37
+Evaluation time: 5.00235
+Reproduction time: 0.89765
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 38
+Evaluation time: 4.96308
+Reproduction time: 0.90045
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 39
+Evaluation time: 4.99119
+Reproduction time: 0.88665
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 40
+Evaluation time: 5.20751
+Reproduction time: 0.66381
+----
+SortedMetric:
+Best sorter percentage: 0.41497802734375
+Best sorter size: 79
+Sorted fitnesses:
+  |  0.0  462.46 ± 237.48  1221.0| n=2000
+Test case fitnesses:
+  |34294.0  35375.39 ± 656.67  36718.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 41
+Evaluation time: 4.95355
+Reproduction time: 0.68989
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 42
+Evaluation time: 4.96805
+Reproduction time: 0.9013
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 43
+Evaluation time: 5.01656
+Reproduction time: 0.88243
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 44
+Evaluation time: 4.96513
+Reproduction time: 0.87963
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 45
+Evaluation time: 4.96338
+Reproduction time: 0.86619
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 46
+Evaluation time: 5.13502
+Reproduction time: 0.64624
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 47
+Evaluation time: 4.92351
+Reproduction time: 0.67889
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 48
+Evaluation time: 4.87786
+Reproduction time: 0.95057
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 49
+Evaluation time: 4.93186
+Reproduction time: 0.87641
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 50
+Evaluation time: 4.95295
+Reproduction time: 0.89537
+----
+SortedMetric:
+Best sorter percentage: 0.4597320556640625
+Best sorter size: 79
+Sorted fitnesses:
+  |  0.0  449.76 ± 278.87  1798.0| n=2000
+Test case fitnesses:
+  |34278.0  35502.39 ± 538.56  36584.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 51
+Evaluation time: 5.19457
+Reproduction time: 1.71161
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 52
+Evaluation time: 5.05772
+Reproduction time: 0.77389
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 53
+Evaluation time: 5.22208
+Reproduction time: 0.90466
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 54
+Evaluation time: 5.07287
+Reproduction time: 0.9095
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 55
+Evaluation time: 5.07142
+Reproduction time: 0.97778
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 56
+Evaluation time: 5.03777
+Reproduction time: 0.96748
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 57
+Evaluation time: 5.12087
+Reproduction time: 0.96783
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 58
+Evaluation time: 5.10338
+Reproduction time: 0.95458
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 59
+Evaluation time: 5.12587
+Reproduction time: 0.94143
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 60
+Evaluation time: 5.20462
+Reproduction time: 0.93577
+----
+SortedMetric:
+Best sorter percentage: 0.7310638427734375
+Best sorter size: 80
+Sorted fitnesses:
+  |  5.0  535.79 ± 276.9  1769.0| n=2000
+Test case fitnesses:
+  |32766.0  34642.05 ± 1142.02  36774.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 61
+Evaluation time: 5.21081
+Reproduction time: 0.96531
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 62
+Evaluation time: 5.27742
+Reproduction time: 0.9575
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 63
+Evaluation time: 5.30571
+Reproduction time: 0.97709
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 64
+Evaluation time: 5.30244
+Reproduction time: 0.95284
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 65
+Evaluation time: 5.24581
+Reproduction time: 0.97015
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 66
+Evaluation time: 5.18307
+Reproduction time: 0.96479
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 67
+Evaluation time: 5.23891
+Reproduction time: 0.98052
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 68
+Evaluation time: 5.26885
+Reproduction time: 0.97569
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 69
+Evaluation time: 5.22787
+Reproduction time: 0.98573
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 70
+Evaluation time: 5.16649
+Reproduction time: 1.01377
+----
+SortedMetric:
+Best sorter percentage: 0.6950531005859375
+Best sorter size: 79
+Sorted fitnesses:
+  |  5.0  631.98 ± 339.15  1765.0| n=2000
+Test case fitnesses:
+  |32755.0  33680.24 ± 488.84  34889.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 71
+Evaluation time: 5.15341
+Reproduction time: 1.00573
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 72
+Evaluation time: 5.14939
+Reproduction time: 1.00666
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 73
+Evaluation time: 5.1372
+Reproduction time: 1.00801
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 74
+Evaluation time: 5.20264
+Reproduction time: 0.96862
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 75
+Evaluation time: 5.12655
+Reproduction time: 0.98453
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 76
+Evaluation time: 5.06909
+Reproduction time: 0.99143
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 77
+Evaluation time: 5.07482
+Reproduction time: 1.00366
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 78
+Evaluation time: 5.07599
+Reproduction time: 0.96987
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 79
+Evaluation time: 5.09711
+Reproduction time: 0.96492
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 80
+Evaluation time: 5.16178
+Reproduction time: 0.9299
+----
+SortedMetric:
+Best sorter percentage: 0.87860107421875
+Best sorter size: 78
+Sorted fitnesses:
+  |  7.0  537.7 ± 304.41  1638.0| n=2000
+Test case fitnesses:
+  |33441.0  34622.98 ± 423.15  35538.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 81
+Evaluation time: 5.04929
+Reproduction time: 0.94708
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 82
+Evaluation time: 5.07911
+Reproduction time: 0.96267
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 83
+Evaluation time: 5.09933
+Reproduction time: 0.94976
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 84
+Evaluation time: 5.13327
+Reproduction time: 0.94094
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 85
+Evaluation time: 5.1587
+Reproduction time: 0.94428
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 86
+Evaluation time: 5.08478
+Reproduction time: 0.94059
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 87
+Evaluation time: 5.22223
+Reproduction time: 0.97272
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 88
+Evaluation time: 5.17167
+Reproduction time: 0.98214
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 89
+Evaluation time: 5.17771
+Reproduction time: 0.98681
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 90
+Evaluation time: 5.17578
+Reproduction time: 0.98459
+----
+SortedMetric:
+Best sorter percentage: 0.9080047607421875
+Best sorter size: 80
+Sorted fitnesses:
+  | 16.0  698.42 ± 374.46  1904.0| n=2000
+Test case fitnesses:
+  |32081.0  33015.8 ± 465.75  33939.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 91
+Evaluation time: 5.09356
+Reproduction time: 0.99793
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 92
+Evaluation time: 5.14582
+Reproduction time: 0.96251
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 93
+Evaluation time: 5.22901
+Reproduction time: 0.99189
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 94
+Evaluation time: 5.20198
+Reproduction time: 0.94835
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 95
+Evaluation time: 5.2402
+Reproduction time: 0.95508
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 96
+Evaluation time: 5.19982
+Reproduction time: 0.97976
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 97
+Evaluation time: 5.27637
+Reproduction time: 0.96078
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 98
+Evaluation time: 5.30727
+Reproduction time: 1.00862
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 99
+Evaluation time: 5.26909
+Reproduction time: 0.97744
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 100
+Evaluation time: 5.29985
+Reproduction time: 0.97225
+----
+SortedMetric:
+Best sorter percentage: 0.929656982421875
+Best sorter size: 80
+Sorted fitnesses:
+  |  0.0  726.19 ± 427.96  2197.0| n=2000
+Test case fitnesses:
+  |31583.0  32738.09 ± 496.64  33827.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 101
+Evaluation time: 5.26744
+Reproduction time: 2.78093
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 102
+Evaluation time: 5.3205
+Reproduction time: 0.97575
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 103
+Evaluation time: 5.26608
+Reproduction time: 1.01528
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 104
+Evaluation time: 5.37402
+Reproduction time: 0.98172
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 105
+Evaluation time: 5.37777
+Reproduction time: 0.90822
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 106
+Evaluation time: 5.14035
+Reproduction time: 1.09042
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 107
+Evaluation time: 5.38415
+Reproduction time: 0.97441
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 108
+Evaluation time: 5.37278
+Reproduction time: 0.9358
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 109
+Evaluation time: 5.22272
+Reproduction time: 0.92562
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 110
+Evaluation time: 5.25029
+Reproduction time: 0.98396
+----
+SortedMetric:
+Best sorter percentage: 0.7960205078125
+Best sorter size: 78
+Sorted fitnesses:
+  | 29.0  846.04 ± 435.79  2507.0| n=2000
+Test case fitnesses:
+  |30173.0  31539.65 ± 961.74  33650.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 111
+Evaluation time: 5.3393
+Reproduction time: 0.94691
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 112
+Evaluation time: 5.32293
+Reproduction time: 0.96014
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 113
+Evaluation time: 5.29999
+Reproduction time: 0.96135
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 114
+Evaluation time: 5.25881
+Reproduction time: 0.97041
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 115
+Evaluation time: 5.28454
+Reproduction time: 0.96731
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 116
+Evaluation time: 5.29028
+Reproduction time: 0.99375
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 117
+Evaluation time: 5.29157
+Reproduction time: 1.01758
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 118
+Evaluation time: 5.32735
+Reproduction time: 1.00841
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 119
+Evaluation time: 5.28286
+Reproduction time: 1.01333
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 120
+Evaluation time: 5.26001
+Reproduction time: 1.00115
+----
+SortedMetric:
+Best sorter percentage: 0.8028411865234375
+Best sorter size: 78
+Sorted fitnesses:
+  | 12.0  838.22 ± 498.35  2550.0| n=2000
+Test case fitnesses:
+  |30578.0  31617.82 ± 589.0  33169.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 121
+Evaluation time: 5.33959
+Reproduction time: 1.01594
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 122
+Evaluation time: 5.31253
+Reproduction time: 0.98771
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 123
+Evaluation time: 5.33041
+Reproduction time: 0.99538
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 124
+Evaluation time: 5.37633
+Reproduction time: 1.00747
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 125
+Evaluation time: 5.30677
+Reproduction time: 0.98546
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 126
+Evaluation time: 5.39216
+Reproduction time: 1.01029
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 127
+Evaluation time: 5.26927
+Reproduction time: 1.01548
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 128
+Evaluation time: 5.29863
+Reproduction time: 1.00107
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 129
+Evaluation time: 5.30657
+Reproduction time: 1.00995
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 130
+Evaluation time: 5.36549
+Reproduction time: 0.98781
+----
+SortedMetric:
+Best sorter percentage: 0.970489501953125
+Best sorter size: 80
+Sorted fitnesses:
+  |  0.0  890.9 ± 498.24  2522.0| n=2000
+Test case fitnesses:
+  |30130.0  31091.04 ± 556.14  32489.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 131
+Evaluation time: 5.34698
+Reproduction time: 1.1031
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 132
+Evaluation time: 5.31159
+Reproduction time: 0.96004
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 133
+Evaluation time: 5.27705
+Reproduction time: 0.95455
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 134
+Evaluation time: 5.25207
+Reproduction time: 0.94519
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 135
+Evaluation time: 5.30353
+Reproduction time: 0.99342
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 136
+Evaluation time: 5.29459
+Reproduction time: 0.97122
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 137
+Evaluation time: 5.34239
+Reproduction time: 0.93017
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 138
+Evaluation time: 5.31216
+Reproduction time: 0.95207
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 139
+Evaluation time: 5.30087
+Reproduction time: 0.97476
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 140
+Evaluation time: 5.31013
+Reproduction time: 0.95786
+----
+SortedMetric:
+Best sorter percentage: 0.8950042724609375
+Best sorter size: 80
+Sorted fitnesses:
+  |  3.0  886.74 ± 477.71  2553.0| n=2000
+Test case fitnesses:
+  |30149.0  31132.62 ± 445.92  32057.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 141
+Evaluation time: 5.32874
+Reproduction time: 0.9909
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 142
+Evaluation time: 5.37767
+Reproduction time: 1.00048
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 143
+Evaluation time: 5.32952
+Reproduction time: 0.98905
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 144
+Evaluation time: 5.29256
+Reproduction time: 0.98991
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 145
+Evaluation time: 5.30871
+Reproduction time: 0.99292
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 146
+Evaluation time: 5.32237
+Reproduction time: 1.02891
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 147
+Evaluation time: 5.36109
+Reproduction time: 0.97286
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 148
+Evaluation time: 5.34458
+Reproduction time: 0.99915
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 149
+Evaluation time: 5.3988
+Reproduction time: 0.97102
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 150
+Evaluation time: 5.31311
+Reproduction time: 0.9989
+----
+SortedMetric:
+Best sorter percentage: 0.9394073486328125
+Best sorter size: 80
+Sorted fitnesses:
+  |  9.0  1076.23 ± 611.45  2841.0| n=2000
+Test case fitnesses:
+  |28096.0  29237.68 ± 328.55  29879.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 151
+Evaluation time: 5.32228
+Reproduction time: 1.70881
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 152
+Evaluation time: 5.46354
+Reproduction time: 1.02734
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 153
+Evaluation time: 5.36726
+Reproduction time: 1.05255
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 154
+Evaluation time: 5.54369
+Reproduction time: 1.03324
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 155
+Evaluation time: 5.4647
+Reproduction time: 0.95604
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 156
+Evaluation time: 5.42555
+Reproduction time: 0.98294
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 157
+Evaluation time: 5.30041
+Reproduction time: 0.98482
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 158
+Evaluation time: 5.57347
+Reproduction time: 0.98337
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 159
+Evaluation time: 5.47269
+Reproduction time: 1.002
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 160
+Evaluation time: 5.32837
+Reproduction time: 0.95897
+----
+SortedMetric:
+Best sorter percentage: 0.9364166259765625
+Best sorter size: 80
+Sorted fitnesses:
+  | 19.0  1085.03 ± 573.89  3015.0| n=2000
+Test case fitnesses:
+  |28296.0  29149.66 ± 401.34  30389.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 161
+Evaluation time: 5.49554
+Reproduction time: 1.006
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 162
+Evaluation time: 5.55983
+Reproduction time: 1.01108
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 163
+Evaluation time: 5.5308
+Reproduction time: 0.97239
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 164
+Evaluation time: 5.37874
+Reproduction time: 0.78725
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 165
+Evaluation time: 5.37777
+Reproduction time: 1.02386
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 166
+Evaluation time: 5.3546
+Reproduction time: 0.81117
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 167
+Evaluation time: 5.39839
+Reproduction time: 1.05678
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 168
+Evaluation time: 5.40783
+Reproduction time: 0.80758
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 169
+Evaluation time: 5.36213
+Reproduction time: 1.08144
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 170
+Evaluation time: 5.30263
+Reproduction time: 1.05328
+----
+SortedMetric:
+Best sorter percentage: 0.9483642578125
+Best sorter size: 80
+Sorted fitnesses:
+  | 87.0  1093.67 ± 549.26  2926.0| n=2000
+Test case fitnesses:
+  |27938.0  29063.34 ± 549.99  30266.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 171
+Evaluation time: 5.34634
+Reproduction time: 0.87418
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 172
+Evaluation time: 5.35219
+Reproduction time: 1.09683
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 173
+Evaluation time: 5.32125
+Reproduction time: 0.85402
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 174
+Evaluation time: 5.47839
+Reproduction time: 1.08838
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 175
+Evaluation time: 5.33027
+Reproduction time: 1.03745
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 176
+Evaluation time: 5.37715
+Reproduction time: 0.81815
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 177
+Evaluation time: 5.436
+Reproduction time: 1.08374
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 178
+Evaluation time: 5.422
+Reproduction time: 0.83356
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 179
+Evaluation time: 5.38508
+Reproduction time: 1.12094
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 180
+Evaluation time: 5.45203
+Reproduction time: 1.04146
+----
+SortedMetric:
+Best sorter percentage: 0.96038818359375
+Best sorter size: 80
+Sorted fitnesses:
+  | 35.0  1127.54 ± 591.48  3016.0| n=2000
+Test case fitnesses:
+  |27812.0  28724.56 ± 561.86  29982.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 181
+Evaluation time: 5.3689
+Reproduction time: 0.86867
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 182
+Evaluation time: 5.48407
+Reproduction time: 1.08531
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 183
+Evaluation time: 5.3429
+Reproduction time: 0.82045
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 184
+Evaluation time: 5.36072
+Reproduction time: 1.06257
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 185
+Evaluation time: 5.39562
+Reproduction time: 1.01557
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 186
+Evaluation time: 5.46555
+Reproduction time: 0.81769
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 187
+Evaluation time: 5.44512
+Reproduction time: 1.05878
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 188
+Evaluation time: 5.37939
+Reproduction time: 0.83555
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 189
+Evaluation time: 5.3905
+Reproduction time: 1.0598
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 190
+Evaluation time: 5.40604
+Reproduction time: 1.05806
+----
+SortedMetric:
+Best sorter percentage: 0.95892333984375
+Best sorter size: 78
+Sorted fitnesses:
+  |  4.0  1215.27 ± 631.82  3077.0| n=2000
+Test case fitnesses:
+  |27018.0  27847.3 ± 448.67  29241.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 191
+Evaluation time: 5.45122
+Reproduction time: 0.83366
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 192
+Evaluation time: 5.47629
+Reproduction time: 1.09152
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 193
+Evaluation time: 5.44154
+Reproduction time: 0.83583
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 194
+Evaluation time: 5.47722
+Reproduction time: 1.07746
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 195
+Evaluation time: 5.40637
+Reproduction time: 1.05826
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 196
+Evaluation time: 5.40881
+Reproduction time: 0.83541
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 197
+Evaluation time: 5.44824
+Reproduction time: 1.09695
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 198
+Evaluation time: 5.44109
+Reproduction time: 0.83196
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 199
+Evaluation time: 5.55761
+Reproduction time: 1.10501
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 200
+Evaluation time: 5.34836
+Reproduction time: 1.03251
+----
+SortedMetric:
+Best sorter percentage: 0.9418792724609375
+Best sorter size: 79
+Sorted fitnesses:
+  | 11.0  1185.94 ± 661.46  3167.0| n=2000
+Test case fitnesses:
+  |27539.0  28140.62 ± 342.69  29387.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 201
+Evaluation time: 5.54652
+Reproduction time: 1.89422
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 202
+Evaluation time: 5.42586
+Reproduction time: 1.06975
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 203
+Evaluation time: 5.53158
+Reproduction time: 1.14749
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 204
+Evaluation time: 5.62467
+Reproduction time: 0.92575
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 205
+Evaluation time: 5.79156
+Reproduction time: 0.95645
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 206
+Evaluation time: 5.59842
+Reproduction time: 0.99684
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 207
+Evaluation time: 5.61815
+Reproduction time: 1.02004
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 208
+Evaluation time: 5.61681
+Reproduction time: 0.99996
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 209
+Evaluation time: 5.65846
+Reproduction time: 1.02468
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 210
+Evaluation time: 5.47301
+Reproduction time: 1.02113
+----
+SortedMetric:
+Best sorter percentage: 0.9798431396484375
+Best sorter size: 80
+Sorted fitnesses:
+  | 28.0  1202.1 ± 666.8  3497.0| n=2000
+Test case fitnesses:
+  |27147.0  27979.05 ± 305.75  28835.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 211
+Evaluation time: 5.47487
+Reproduction time: 1.1848
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 212
+Evaluation time: 5.60379
+Reproduction time: 1.01093
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 213
+Evaluation time: 5.64819
+Reproduction time: 1.04577
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 214
+Evaluation time: 5.68252
+Reproduction time: 1.04942
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 215
+Evaluation time: 5.69496
+Reproduction time: 1.06678
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 216
+Evaluation time: 5.74139
+Reproduction time: 1.07735
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 217
+Evaluation time: 5.73265
+Reproduction time: 1.07267
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 218
+Evaluation time: 5.8185
+Reproduction time: 1.06368
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 219
+Evaluation time: 5.49354
+Reproduction time: 1.06406
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 220
+Evaluation time: 5.54621
+Reproduction time: 1.21939
+----
+SortedMetric:
+Best sorter percentage: 0.989288330078125
+Best sorter size: 80
+Sorted fitnesses:
+  | 30.0  1260.23 ± 649.37  3383.0| n=2000
+Test case fitnesses:
+  |26572.0  27397.65 ± 368.22  28327.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 221
+Evaluation time: 5.61929
+Reproduction time: 1.07988
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 222
+Evaluation time: 5.6704
+Reproduction time: 1.06846
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 223
+Evaluation time: 5.6773
+Reproduction time: 1.04034
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 224
+Evaluation time: 5.79933
+Reproduction time: 1.01181
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 225
+Evaluation time: 5.74938
+Reproduction time: 1.03162
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 226
+Evaluation time: 5.71964
+Reproduction time: 1.02278
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 227
+Evaluation time: 5.77949
+Reproduction time: 1.00062
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 228
+Evaluation time: 5.47215
+Reproduction time: 1.03451
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 229
+Evaluation time: 5.63762
+Reproduction time: 1.04107
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 230
+Evaluation time: 5.83865
+Reproduction time: 1.03703
+----
+SortedMetric:
+Best sorter percentage: 0.989288330078125
+Best sorter size: 80
+Sorted fitnesses:
+  | 85.0  1153.49 ± 625.74  3178.0| n=2000
+Test case fitnesses:
+  |27589.0  28465.12 ± 383.6  29217.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 231
+Evaluation time: 5.68451
+Reproduction time: 1.0587
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 232
+Evaluation time: 5.7228
+Reproduction time: 1.04628
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 233
+Evaluation time: 5.79452
+Reproduction time: 1.08829
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 234
+Evaluation time: 5.7937
+Reproduction time: 1.02948
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 235
+Evaluation time: 5.71656
+Reproduction time: 1.05772
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 236
+Evaluation time: 5.49783
+Reproduction time: 1.0456
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 237
+Evaluation time: 5.7169
+Reproduction time: 1.06238
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 238
+Evaluation time: 5.66316
+Reproduction time: 1.04186
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 239
+Evaluation time: 5.64831
+Reproduction time: 1.07927
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 240
+Evaluation time: 5.68374
+Reproduction time: 1.06815
+----
+SortedMetric:
+Best sorter percentage: 0.9833221435546875
+Best sorter size: 79
+Sorted fitnesses:
+  | 29.0  1349.8 ± 729.19  3508.0| n=2000
+Test case fitnesses:
+  |25859.0  26501.99 ± 365.24  27388.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 241
+Evaluation time: 5.71945
+Reproduction time: 1.10128
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 242
+Evaluation time: 5.70343
+Reproduction time: 1.08259
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 243
+Evaluation time: 5.55673
+Reproduction time: 1.06744
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 244
+Evaluation time: 5.56887
+Reproduction time: 1.26218
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 245
+Evaluation time: 5.66668
+Reproduction time: 1.07367
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 246
+Evaluation time: 5.73046
+Reproduction time: 1.05873
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 247
+Evaluation time: 5.77975
+Reproduction time: 1.08505
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 248
+Evaluation time: 5.82382
+Reproduction time: 1.08008
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 249
+Evaluation time: 5.88378
+Reproduction time: 1.06578
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 250
+Evaluation time: 5.5578
+Reproduction time: 1.07671
+----
+SortedMetric:
+Best sorter percentage: 0.9930267333984375
+Best sorter size: 80
+Sorted fitnesses:
+  |  7.0  1390.34 ± 728.9  3720.0| n=2000
+Test case fitnesses:
+  |25107.0  26096.56 ± 371.83  26884.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 251
+Evaluation time: 5.68775
+Reproduction time: 2.63729
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 252
+Evaluation time: 5.60858
+Reproduction time: 1.05329
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 253
+Evaluation time: 5.5184
+Reproduction time: 1.08138
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 254
+Evaluation time: 5.66807
+Reproduction time: 1.01208
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 255
+Evaluation time: 5.75442
+Reproduction time: 0.98019
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 256
+Evaluation time: 5.65274
+Reproduction time: 1.00694
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 257
+Evaluation time: 5.65661
+Reproduction time: 1.00048
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 258
+Evaluation time: 5.50815
+Reproduction time: 1.16756
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 259
+Evaluation time: 5.59236
+Reproduction time: 1.17305
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 260
+Evaluation time: 5.57905
+Reproduction time: 1.07874
+----
+SortedMetric:
+Best sorter percentage: 0.992340087890625
+Best sorter size: 79
+Sorted fitnesses:
+  |  8.0  1479.07 ± 775.7  3805.0| n=2000
+Test case fitnesses:
+  |24295.0  25209.26 ± 356.05  26118.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 261
+Evaluation time: 5.64395
+Reproduction time: 1.11087
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 262
+Evaluation time: 5.62038
+Reproduction time: 1.09936
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 263
+Evaluation time: 5.65101
+Reproduction time: 1.10667
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 264
+Evaluation time: 5.5585
+Reproduction time: 1.12688
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 265
+Evaluation time: 5.62732
+Reproduction time: 1.16522
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 266
+Evaluation time: 5.56941
+Reproduction time: 1.14417
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 267
+Evaluation time: 5.62097
+Reproduction time: 1.1201
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 268
+Evaluation time: 5.70601
+Reproduction time: 1.098
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 269
+Evaluation time: 5.61831
+Reproduction time: 1.11501
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 270
+Evaluation time: 5.59968
+Reproduction time: 1.1076
+----
+SortedMetric:
+Best sorter percentage: 0.984100341796875
+Best sorter size: 80
+Sorted fitnesses:
+  |  9.0  1416.22 ± 762.07  3855.0| n=2000
+Test case fitnesses:
+  |25171.0  25837.78 ± 291.45  26499.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 271
+Evaluation time: 5.58035
+Reproduction time: 1.08963
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 272
+Evaluation time: 5.59948
+Reproduction time: 1.08379
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 273
+Evaluation time: 5.61749
+Reproduction time: 1.10777
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 274
+Evaluation time: 5.66112
+Reproduction time: 1.08044
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 275
+Evaluation time: 5.55606
+Reproduction time: 1.09534
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 276
+Evaluation time: 5.55262
+Reproduction time: 1.11258
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 277
+Evaluation time: 5.57632
+Reproduction time: 1.12056
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 278
+Evaluation time: 5.54048
+Reproduction time: 1.13179
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 279
+Evaluation time: 5.54072
+Reproduction time: 1.1224
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 280
+Evaluation time: 5.62922
+Reproduction time: 1.15231
+----
+SortedMetric:
+Best sorter percentage: 0.9933319091796875
+Best sorter size: 80
+Sorted fitnesses:
+  |  4.0  1504.62 ± 793.0  3793.0| n=2000
+Test case fitnesses:
+  |24102.0  24953.84 ± 358.68  26194.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 281
+Evaluation time: 5.58395
+Reproduction time: 1.11821
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 282
+Evaluation time: 5.61276
+Reproduction time: 1.08599
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 283
+Evaluation time: 5.57393
+Reproduction time: 1.08441
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 284
+Evaluation time: 5.63119
+Reproduction time: 1.11223
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 285
+Evaluation time: 5.60146
+Reproduction time: 1.1318
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 286
+Evaluation time: 5.56623
+Reproduction time: 1.08845
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 287
+Evaluation time: 5.68597
+Reproduction time: 1.11682
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 288
+Evaluation time: 5.60222
+Reproduction time: 1.1129
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 289
+Evaluation time: 5.6248
+Reproduction time: 1.09615
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 290
+Evaluation time: 5.68973
+Reproduction time: 1.08107
+----
+SortedMetric:
+Best sorter percentage: 0.9926300048828125
+Best sorter size: 78
+Sorted fitnesses:
+  | 81.0  1476.73 ± 791.46  3829.0| n=2000
+Test case fitnesses:
+  |24352.0  25232.68 ± 559.09  26342.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 291
+Evaluation time: 5.63626
+Reproduction time: 1.09815
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 292
+Evaluation time: 5.67928
+Reproduction time: 1.10298
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 293
+Evaluation time: 5.71128
+Reproduction time: 1.11273
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 294
+Evaluation time: 5.69037
+Reproduction time: 1.09369
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 295
+Evaluation time: 5.66856
+Reproduction time: 1.11692
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 296
+Evaluation time: 5.6176
+Reproduction time: 1.06302
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 297
+Evaluation time: 5.67325
+Reproduction time: 1.09294
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 298
+Evaluation time: 5.63186
+Reproduction time: 1.08963
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 299
+Evaluation time: 5.67065
+Reproduction time: 1.07768
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 300
+Evaluation time: 5.6127
+Reproduction time: 1.09574
+----
+SortedMetric:
+Best sorter percentage: 0.9920196533203125
+Best sorter size: 78
+Sorted fitnesses:
+  |  0.0  1432.5 ± 805.41  3950.0| n=2000
+Test case fitnesses:
+  |25105.0  25675.01 ± 212.18  26153.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 301
+Evaluation time: 5.59199
+Reproduction time: 2.01962
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 302
+Evaluation time: 5.5984
+Reproduction time: 1.1841
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 303
+Evaluation time: 5.64475
+Reproduction time: 1.10082
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 304
+Evaluation time: 5.57896
+Reproduction time: 1.08798
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 305
+Evaluation time: 5.72795
+Reproduction time: 1.01364
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 306
+Evaluation time: 5.77899
+Reproduction time: 1.13201
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 307
+Evaluation time: 5.75793
+Reproduction time: 1.0587
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 308
+Evaluation time: 5.80746
+Reproduction time: 1.06617
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 309
+Evaluation time: 5.87924
+Reproduction time: 1.12735
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 310
+Evaluation time: 5.693
+Reproduction time: 1.08728
+----
+SortedMetric:
+Best sorter percentage: 0.9959716796875
+Best sorter size: 80
+Sorted fitnesses:
+  | 27.0  1473.18 ± 806.72  3876.0| n=2000
+Test case fitnesses:
+  |24653.0  25268.24 ± 210.86  25892.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 311
+Evaluation time: 5.80925
+Reproduction time: 1.12892
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 312
+Evaluation time: 5.7015
+Reproduction time: 1.11133
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 313
+Evaluation time: 5.88237
+Reproduction time: 1.16148
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 314
+Evaluation time: 5.67138
+Reproduction time: 1.13149
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 315
+Evaluation time: 5.84877
+Reproduction time: 1.1308
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 316
+Evaluation time: 5.90913
+Reproduction time: 1.11555
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 317
+Evaluation time: 5.65135
+Reproduction time: 1.12721
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 318
+Evaluation time: 5.88626
+Reproduction time: 1.13567
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 319
+Evaluation time: 5.64092
+Reproduction time: 1.09687
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 320
+Evaluation time: 5.79581
+Reproduction time: 1.12932
+----
+SortedMetric:
+Best sorter percentage: 0.9916229248046875
+Best sorter size: 80
+Sorted fitnesses:
+  | 17.0  1468.69 ± 787.75  3891.0| n=2000
+Test case fitnesses:
+  |24540.0  25313.14 ± 387.36  26224.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 321
+Evaluation time: 5.97516
+Reproduction time: 1.12456
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 322
+Evaluation time: 5.67238
+Reproduction time: 1.08734
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 323
+Evaluation time: 5.85073
+Reproduction time: 1.11192
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 324
+Evaluation time: 5.73697
+Reproduction time: 1.08684
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 325
+Evaluation time: 5.90762
+Reproduction time: 1.1183
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 326
+Evaluation time: 5.6216
+Reproduction time: 1.08675
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 327
+Evaluation time: 5.99694
+Reproduction time: 1.13367
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 328
+Evaluation time: 5.71915
+Reproduction time: 1.09392
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 329
+Evaluation time: 5.9332
+Reproduction time: 1.12767
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 330
+Evaluation time: 5.80062
+Reproduction time: 1.10114
+----
+SortedMetric:
+Best sorter percentage: 0.986724853515625
+Best sorter size: 80
+Sorted fitnesses:
+  |  0.0  1391.25 ± 798.99  3943.0| n=2000
+Test case fitnesses:
+  |25559.0  26087.52 ± 217.78  26684.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 331
+Evaluation time: 5.92944
+Reproduction time: 1.16347
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 332
+Evaluation time: 5.70748
+Reproduction time: 1.0982
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 333
+Evaluation time: 5.94314
+Reproduction time: 1.17884
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 334
+Evaluation time: 5.70843
+Reproduction time: 1.11113
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 335
+Evaluation time: 5.88283
+Reproduction time: 1.16017
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 336
+Evaluation time: 5.63826
+Reproduction time: 1.13899
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 337
+Evaluation time: 5.95372
+Reproduction time: 1.17686
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 338
+Evaluation time: 5.72353
+Reproduction time: 1.13624
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 339
+Evaluation time: 5.86175
+Reproduction time: 1.16247
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 340
+Evaluation time: 5.64583
+Reproduction time: 1.12523
+----
+SortedMetric:
+Best sorter percentage: 0.9884185791015625
+Best sorter size: 80
+Sorted fitnesses:
+  |  9.0  1458.08 ± 824.31  3855.0| n=2000
+Test case fitnesses:
+  |24765.0  25419.16 ± 401.39  26423.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 341
+Evaluation time: 5.85099
+Reproduction time: 1.17638
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 342
+Evaluation time: 5.73173
+Reproduction time: 1.10511
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 343
+Evaluation time: 5.97223
+Reproduction time: 1.12486
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 344
+Evaluation time: 5.75654
+Reproduction time: 1.13262
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 345
+Evaluation time: 5.95672
+Reproduction time: 1.1252
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 346
+Evaluation time: 5.65897
+Reproduction time: 1.1174
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 347
+Evaluation time: 5.99338
+Reproduction time: 1.14957
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 348
+Evaluation time: 5.68873
+Reproduction time: 1.10912
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 349
+Evaluation time: 6.03785
+Reproduction time: 1.17434
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 350
+Evaluation time: 5.63022
+Reproduction time: 1.10758
+----
+SortedMetric:
+Best sorter percentage: 0.9910736083984375
+Best sorter size: 80
+Sorted fitnesses:
+  |  4.0  1308.62 ± 769.12  3882.0| n=2000
+Test case fitnesses:
+  |26311.0  26913.82 ± 283.82  27709.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 351
+Evaluation time: 5.82439
+Reproduction time: 2.59739
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 352
+Evaluation time: 5.92357
+Reproduction time: 1.16065
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 353
+Evaluation time: 5.72287
+Reproduction time: 1.04388
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 354
+Evaluation time: 5.66286
+Reproduction time: 1.13438
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 355
+Evaluation time: 5.66621
+Reproduction time: 1.16484
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 356
+Evaluation time: 5.81413
+Reproduction time: 1.09425
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 357
+Evaluation time: 5.8169
+Reproduction time: 1.0748
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 358
+Evaluation time: 5.70498
+Reproduction time: 1.10284
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 359
+Evaluation time: 5.92015
+Reproduction time: 1.16267
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 360
+Evaluation time: 5.71832
+Reproduction time: 1.15542
+----
+SortedMetric:
+Best sorter percentage: 0.9931640625
+Best sorter size: 80
+Sorted fitnesses:
+  |  0.0  1357.11 ± 785.11  3795.0| n=2000
+Test case fitnesses:
+  |25730.0  26428.88 ± 319.6  27188.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 361
+Evaluation time: 5.77689
+Reproduction time: 1.16493
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 362
+Evaluation time: 5.78184
+Reproduction time: 1.16757
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 363
+Evaluation time: 5.79217
+Reproduction time: 1.17353
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 364
+Evaluation time: 5.97168
+Reproduction time: 0.94648
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 365
+Evaluation time: 5.93495
+Reproduction time: 0.9563
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 366
+Evaluation time: 6.03942
+Reproduction time: 0.9799
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 367
+Evaluation time: 6.10874
+Reproduction time: 0.94213
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 368
+Evaluation time: 5.87947
+Reproduction time: 0.91496
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 369
+Evaluation time: 5.6705
+Reproduction time: 1.18789
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 370
+Evaluation time: 5.63678
+Reproduction time: 1.18498
+----
+SortedMetric:
+Best sorter percentage: 0.99114990234375
+Best sorter size: 79
+Sorted fitnesses:
+  |  8.0  1389.66 ± 777.0  3697.0| n=2000
+Test case fitnesses:
+  |25598.0  26103.44 ± 248.28  26610.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 371
+Evaluation time: 5.64298
+Reproduction time: 1.19255
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 372
+Evaluation time: 5.64985
+Reproduction time: 1.17447
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 373
+Evaluation time: 5.65487
+Reproduction time: 1.20242
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 374
+Evaluation time: 5.75269
+Reproduction time: 1.24609
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 375
+Evaluation time: 5.71173
+Reproduction time: 1.18902
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 376
+Evaluation time: 5.75841
+Reproduction time: 1.19076
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 377
+Evaluation time: 24.70245
+Reproduction time: 1.2225
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 378
+Evaluation time: 8.48738
+Reproduction time: 2.19883
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 379
+Evaluation time: 6.58497
+Reproduction time: 0.95257
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 380
+Evaluation time: 7.22456
+Reproduction time: 0.94115
+----
+SortedMetric:
+Best sorter percentage: 0.991668701171875
+Best sorter size: 80
+Sorted fitnesses:
+  |  4.0  1454.37 ± 782.88  3860.0| n=2000
+Test case fitnesses:
+  |25023.0  25456.28 ± 196.35  25972.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 381
+Evaluation time: 6.23182
+Reproduction time: 1.01344
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 382
+Evaluation time: 5.89565
+Reproduction time: 0.9639
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 383
+Evaluation time: 6.72651
+Reproduction time: 1.21935
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 384
+Evaluation time: 9.38793
+Reproduction time: 1.24773
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 385
+Evaluation time: 5.86232
+Reproduction time: 1.46173
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 386
+Evaluation time: 5.78902
+Reproduction time: 1.2117
+len evaluation.records: 2000
+len evaluation.records: 200

@@ -1,0 +1,5601 @@
+0e1fd4f2da26c69d2d12d7744e9a3f40899c01aa
+-----------------------------------------------------------
+Generation: 1
+Evaluation time: 4.54689
+Reproduction time: 0.0
+-----------------------------------------------------------
+Generation: 2
+Evaluation time: 1.01236
+Reproduction time: 7.48181
+-----------------------------------------------------------
+Generation: 3
+Evaluation time: 1.12399
+Reproduction time: 1.20521
+-----------------------------------------------------------
+Generation: 4
+Evaluation time: 1.0988
+Reproduction time: 1.30303
+-----------------------------------------------------------
+Generation: 5
+Evaluation time: 1.08179
+Reproduction time: 1.86106
+-----------------------------------------------------------
+Generation: 6
+Evaluation time: 1.10492
+Reproduction time: 2.20597
+-----------------------------------------------------------
+Generation: 7
+Evaluation time: 1.1469
+Reproduction time: 2.4474
+-----------------------------------------------------------
+Generation: 8
+Evaluation time: 1.11519
+Reproduction time: 2.68724
+-----------------------------------------------------------
+Generation: 9
+Evaluation time: 1.17555
+Reproduction time: 3.06906
+-----------------------------------------------------------
+Generation: 10
+Evaluation time: 1.16463
+Reproduction time: 3.30497
+----
+SortedMetric:
+best_percent: 0.24365234375
+allpass_percent: 0.0
+perfect_percent: 0.0
+best_size: 63
+allpass_min_size: 0
+perfect_min_size: 0
+dist_allpass_sizes:
+|  0.0    0.0 ±   0.0    0.0| n=0
+dist_perfect_sizes:
+|  0.0    0.0 ±   0.0    0.0| n=0
+sn_fitnesses:
+|  0.0   2.08 ±  5.16   36.0| n=600
+tc_fitnesses:
+|5918.0  5997.92 ±  6.68  6000.0| n=600
+-----------------------------------------------------------
+Generation: 11
+Evaluation time: 1.26393
+Reproduction time: 4.28731
+-----------------------------------------------------------
+Generation: 12
+Evaluation time: 1.29281
+Reproduction time: 2.83159
+-----------------------------------------------------------
+Generation: 13
+Evaluation time: 1.24348
+Reproduction time: 4.49332
+-----------------------------------------------------------
+Generation: 14
+Evaluation time: 1.22802
+Reproduction time: 3.94862
+-----------------------------------------------------------
+Generation: 15
+Evaluation time: 1.24768
+Reproduction time: 4.34226
+-----------------------------------------------------------
+Generation: 16
+Evaluation time: 1.17154
+Reproduction time: 2.87497
+-----------------------------------------------------------
+Generation: 17
+Evaluation time: 1.20643
+Reproduction time: 4.8254
+-----------------------------------------------------------
+Generation: 18
+Evaluation time: 1.21403
+Reproduction time: 4.22422
+-----------------------------------------------------------
+Generation: 19
+Evaluation time: 1.22135
+Reproduction time: 4.09648
+-----------------------------------------------------------
+Generation: 20
+Evaluation time: 1.22835
+Reproduction time: 3.18053
+----
+SortedMetric:
+best_percent: 0.3603363037109375
+allpass_percent: 0.0
+perfect_percent: 0.0
+best_size: 66
+allpass_min_size: 0
+perfect_min_size: 0
+dist_allpass_sizes:
+|  0.0    0.0 ±   0.0    0.0| n=0
+dist_perfect_sizes:
+|  0.0    0.0 ±   0.0    0.0| n=0
+sn_fitnesses:
+|  0.0   0.35 ±  1.09   14.0| n=600
+tc_fitnesses:
+|5919.0  5999.66 ±   3.4  6000.0| n=600
+-----------------------------------------------------------
+Generation: 21
+Evaluation time: 1.24607
+Reproduction time: 3.52164
+-----------------------------------------------------------
+Generation: 22
+Evaluation time: 1.24231
+Reproduction time: 2.97584
+-----------------------------------------------------------
+Generation: 23
+Evaluation time: 1.30258
+Reproduction time: 2.79803
+-----------------------------------------------------------
+Generation: 24
+Evaluation time: 1.33399
+Reproduction time: 2.54008
+-----------------------------------------------------------
+Generation: 25
+Evaluation time: 1.21667
+Reproduction time: 3.92898
+-----------------------------------------------------------
+Generation: 26
+Evaluation time: 1.36532
+Reproduction time: 2.67457
+-----------------------------------------------------------
+Generation: 27
+Evaluation time: 1.28842
+Reproduction time: 3.40387
+-----------------------------------------------------------
+Generation: 28
+Evaluation time: 1.2891
+Reproduction time: 3.55652
+-----------------------------------------------------------
+Generation: 29
+Evaluation time: 1.29271
+Reproduction time: 2.33544
+-----------------------------------------------------------
+Generation: 30
+Evaluation time: 1.28444
+Reproduction time: 1.83005
+----
+SortedMetric:
+best_percent: 0.6387481689453125
+allpass_percent: 0.0
+perfect_percent: 0.0
+best_size: 66
+allpass_min_size: 0
+perfect_min_size: 0
+dist_allpass_sizes:
+|  0.0    0.0 ±   0.0    0.0| n=0
+dist_perfect_sizes:
+|  0.0    0.0 ±   0.0    0.0| n=0
+sn_fitnesses:
+|  0.0   4.53 ±  7.77   56.0| n=600
+tc_fitnesses:
+|5933.0  5995.47 ±  6.72  6000.0| n=600
+-----------------------------------------------------------
+Generation: 31
+Evaluation time: 1.38768
+Reproduction time: 2.22771
+-----------------------------------------------------------
+Generation: 32
+Evaluation time: 1.38676
+Reproduction time: 1.60303
+-----------------------------------------------------------
+Generation: 33
+Evaluation time: 1.41675
+Reproduction time: 1.47135
+-----------------------------------------------------------
+Generation: 34
+Evaluation time: 1.36447
+Reproduction time: 1.37084
+-----------------------------------------------------------
+Generation: 35
+Evaluation time: 1.46986
+Reproduction time: 1.50419
+-----------------------------------------------------------
+Generation: 36
+Evaluation time: 1.44437
+Reproduction time: 1.18543
+-----------------------------------------------------------
+Generation: 37
+Evaluation time: 1.51303
+Reproduction time: 1.09568
+-----------------------------------------------------------
+Generation: 38
+Evaluation time: 1.43901
+Reproduction time: 1.06242
+-----------------------------------------------------------
+Generation: 39
+Evaluation time: 1.51692
+Reproduction time: 1.05551
+-----------------------------------------------------------
+Generation: 40
+Evaluation time: 1.48933
+Reproduction time: 1.02117
+----
+SortedMetric:
+best_percent: 0.8196258544921875
+allpass_percent: 0.0
+perfect_percent: 0.0
+best_size: 76
+allpass_min_size: 0
+perfect_min_size: 0
+dist_allpass_sizes:
+|  0.0    0.0 ±   0.0    0.0| n=0
+dist_perfect_sizes:
+|  0.0    0.0 ±   0.0    0.0| n=0
+sn_fitnesses:
+|  3.0  26.23 ± 26.96  208.0| n=600
+tc_fitnesses:
+|5775.0  5973.77 ± 21.54  6000.0| n=600
+-----------------------------------------------------------
+Generation: 41
+Evaluation time: 1.48149
+Reproduction time: 1.25207
+-----------------------------------------------------------
+Generation: 42
+Evaluation time: 1.51919
+Reproduction time: 0.79124
+-----------------------------------------------------------
+Generation: 43
+Evaluation time: 1.53286
+Reproduction time: 0.71546
+-----------------------------------------------------------
+Generation: 44
+Evaluation time: 1.48036
+Reproduction time: 0.78497
+-----------------------------------------------------------
+Generation: 45
+Evaluation time: 1.49145
+Reproduction time: 0.77616
+-----------------------------------------------------------
+Generation: 46
+Evaluation time: 1.44809
+Reproduction time: 0.65533
+-----------------------------------------------------------
+Generation: 47
+Evaluation time: 1.52002
+Reproduction time: 0.72344
+-----------------------------------------------------------
+Generation: 48
+Evaluation time: 1.55095
+Reproduction time: 0.66625
+-----------------------------------------------------------
+Generation: 49
+Evaluation time: 1.59636
+Reproduction time: 0.64414
+-----------------------------------------------------------
+Generation: 50
+Evaluation time: 1.62287
+Reproduction time: 0.62171
+----
+SortedMetric:
+best_percent: 0.8580474853515625
+allpass_percent: 0.0
+perfect_percent: 0.0
+best_size: 78
+allpass_min_size: 0
+perfect_min_size: 0
+dist_allpass_sizes:
+|  0.0    0.0 ±   0.0    0.0| n=0
+dist_perfect_sizes:
+|  0.0    0.0 ±   0.0    0.0| n=0
+sn_fitnesses:
+| 66.0  214.68 ± 127.48  968.0| n=600
+tc_fitnesses:
+|5436.0  5785.32 ± 69.56  5941.0| n=600
+-----------------------------------------------------------
+Generation: 51
+Evaluation time: 1.53588
+Reproduction time: 0.98954
+-----------------------------------------------------------
+Generation: 52
+Evaluation time: 1.51347
+Reproduction time: 0.63609
+-----------------------------------------------------------
+Generation: 53
+Evaluation time: 1.52984
+Reproduction time: 0.651
+-----------------------------------------------------------
+Generation: 54
+Evaluation time: 1.59486
+Reproduction time: 0.60037
+-----------------------------------------------------------
+Generation: 55
+Evaluation time: 1.52444
+Reproduction time: 0.62117
+-----------------------------------------------------------
+Generation: 56
+Evaluation time: 1.59585
+Reproduction time: 0.60521
+-----------------------------------------------------------
+Generation: 57
+Evaluation time: 1.59922
+Reproduction time: 0.61272
+-----------------------------------------------------------
+Generation: 58
+Evaluation time: 1.54941
+Reproduction time: 0.44945
+-----------------------------------------------------------
+Generation: 59
+Evaluation time: 1.60111
+Reproduction time: 0.6147
+-----------------------------------------------------------
+Generation: 60
+Evaluation time: 1.51915
+Reproduction time: 0.59045
+----
+SortedMetric:
+best_percent: 0.9019012451171875
+allpass_percent: 0.0
+perfect_percent: 0.0
+best_size: 85
+allpass_min_size: 0
+perfect_min_size: 0
+dist_allpass_sizes:
+|  0.0    0.0 ±   0.0    0.0| n=0
+dist_perfect_sizes:
+|  0.0    0.0 ±   0.0    0.0| n=0
+sn_fitnesses:
+|153.0  594.16 ± 216.07  1246.0| n=600
+tc_fitnesses:
+|4743.0  5405.84 ± 144.8  5831.0| n=600
+-----------------------------------------------------------
+Generation: 61
+Evaluation time: 1.52836
+Reproduction time: 0.98451
+-----------------------------------------------------------
+Generation: 62
+Evaluation time: 1.54901
+Reproduction time: 0.57192
+-----------------------------------------------------------
+Generation: 63
+Evaluation time: 1.6477
+Reproduction time: 0.68118
+-----------------------------------------------------------
+Generation: 64
+Evaluation time: 1.71291
+Reproduction time: 0.58461
+-----------------------------------------------------------
+Generation: 65
+Evaluation time: 1.62019
+Reproduction time: 0.54506
+-----------------------------------------------------------
+Generation: 66
+Evaluation time: 1.6551
+Reproduction time: 0.57944
+-----------------------------------------------------------
+Generation: 67
+Evaluation time: 1.63805
+Reproduction time: 0.59513
+-----------------------------------------------------------
+Generation: 68
+Evaluation time: 1.71452
+Reproduction time: 0.59818
+-----------------------------------------------------------
+Generation: 69
+Evaluation time: 1.62649
+Reproduction time: 0.46829
+-----------------------------------------------------------
+Generation: 70
+Evaluation time: 1.65073
+Reproduction time: 0.62918
+----
+SortedMetric:
+best_percent: 0.964508056640625
+allpass_percent: 0.0
+perfect_percent: 0.0
+best_size: 91
+allpass_min_size: 0
+perfect_min_size: 0
+dist_allpass_sizes:
+|  0.0    0.0 ±   0.0    0.0| n=0
+dist_perfect_sizes:
+|  0.0    0.0 ±   0.0    0.0| n=0
+sn_fitnesses:
+|118.0  1147.86 ± 374.13  2818.0| n=600
+tc_fitnesses:
+|4092.0  4852.14 ± 183.61  5413.0| n=600
+-----------------------------------------------------------
+Generation: 71
+Evaluation time: 1.57378
+Reproduction time: 0.88571
+-----------------------------------------------------------
+Generation: 72
+Evaluation time: 1.61101
+Reproduction time: 0.60103
+-----------------------------------------------------------
+Generation: 73
+Evaluation time: 1.62489
+Reproduction time: 0.61384
+-----------------------------------------------------------
+Generation: 74
+Evaluation time: 1.56857
+Reproduction time: 0.55915
+-----------------------------------------------------------
+Generation: 75
+Evaluation time: 1.5747
+Reproduction time: 0.63693
+-----------------------------------------------------------
+Generation: 76
+Evaluation time: 1.6611
+Reproduction time: 0.61202
+-----------------------------------------------------------
+Generation: 77
+Evaluation time: 1.57224
+Reproduction time: 0.58387
+-----------------------------------------------------------
+Generation: 78
+Evaluation time: 1.55869
+Reproduction time: 0.63051
+-----------------------------------------------------------
+Generation: 79
+Evaluation time: 1.575
+Reproduction time: 0.62631
+-----------------------------------------------------------
+Generation: 80
+Evaluation time: 1.57187
+Reproduction time: 0.61478
+----
+SortedMetric:
+best_percent: 0.97479248046875
+allpass_percent: 0.0
+perfect_percent: 0.0
+best_size: 93
+allpass_min_size: 0
+perfect_min_size: 0
+dist_allpass_sizes:
+|  0.0    0.0 ±   0.0    0.0| n=0
+dist_perfect_sizes:
+|  0.0    0.0 ±   0.0    0.0| n=0
+sn_fitnesses:
+|438.0  2530.56 ± 714.5  4549.0| n=600
+tc_fitnesses:
+|2405.0  3469.44 ± 322.97  4396.0| n=600
+-----------------------------------------------------------
+Generation: 81
+Evaluation time: 1.57729
+Reproduction time: 0.98876
+-----------------------------------------------------------
+Generation: 82
+Evaluation time: 1.608
+Reproduction time: 0.65716
+-----------------------------------------------------------
+Generation: 83
+Evaluation time: 1.62784
+Reproduction time: 0.55254
+-----------------------------------------------------------
+Generation: 84
+Evaluation time: 1.61028
+Reproduction time: 0.55503
+-----------------------------------------------------------
+Generation: 85
+Evaluation time: 1.57269
+Reproduction time: 0.57349
+-----------------------------------------------------------
+Generation: 86
+Evaluation time: 1.56918
+Reproduction time: 0.5913
+-----------------------------------------------------------
+Generation: 87
+Evaluation time: 1.57009
+Reproduction time: 0.68275
+-----------------------------------------------------------
+Generation: 88
+Evaluation time: 1.58621
+Reproduction time: 0.68529
+-----------------------------------------------------------
+Generation: 89
+Evaluation time: 1.66668
+Reproduction time: 0.67056
+-----------------------------------------------------------
+Generation: 90
+Evaluation time: 1.63611
+Reproduction time: 0.63827
+----
+SortedMetric:
+best_percent: 0.997314453125
+allpass_percent: 0.0
+perfect_percent: 0.0
+best_size: 98
+allpass_min_size: 0
+perfect_min_size: 0
+dist_allpass_sizes:
+|  0.0    0.0 ±   0.0    0.0| n=0
+dist_perfect_sizes:
+|  0.0    0.0 ±   0.0    0.0| n=0
+sn_fitnesses:
+|1016.0  4246.81 ± 660.51  5509.0| n=600
+tc_fitnesses:
+|1213.0  1753.18 ± 249.57  2824.0| n=600
+-----------------------------------------------------------
+Generation: 91
+Evaluation time: 1.52657
+Reproduction time: 0.94677
+-----------------------------------------------------------
+Generation: 92
+Evaluation time: 1.63813
+Reproduction time: 0.69239
+-----------------------------------------------------------
+Generation: 93
+Evaluation time: 1.57457
+Reproduction time: 0.6463
+-----------------------------------------------------------
+Generation: 94
+Evaluation time: 1.57393
+Reproduction time: 0.64456
+-----------------------------------------------------------
+Generation: 95
+Evaluation time: 1.56312
+Reproduction time: 0.57839
+-----------------------------------------------------------
+Generation: 96
+Evaluation time: 1.47717
+Reproduction time: 0.63082
+-----------------------------------------------------------
+Generation: 97
+Evaluation time: 1.47846
+Reproduction time: 0.63588
+-----------------------------------------------------------
+Generation: 98
+Evaluation time: 1.39945
+Reproduction time: 0.71034
+-----------------------------------------------------------
+Generation: 99
+Evaluation time: 1.45524
+Reproduction time: 2.78225
+-----------------------------------------------------------
+Generation: 100
+Evaluation time: 1.49983
+Reproduction time: 2.5125
+----
+SortedMetric:
+best_percent: 0.99993896484375
+allpass_percent: 0.23
+perfect_percent: 0.19833333333333333
+best_size: 101
+allpass_min_size: 101
+perfect_min_size: 101
+dist_allpass_sizes:
+|101.0  103.76 ±  1.01  106.0| n=138
+dist_perfect_sizes:
+|101.0  103.85 ±  0.96  106.0| n=119
+sn_fitnesses:
+|1330.0  5639.23 ± 382.1  6000.32| n=600
+tc_fitnesses:
+|123.0  360.84 ± 133.34  762.0| n=600
+-----------------------------------------------------------
+Generation: 101
+Evaluation time: 1.40955
+Reproduction time: 3.54634
+-----------------------------------------------------------
+Generation: 102
+Evaluation time: 1.43472
+Reproduction time: 3.11529
+-----------------------------------------------------------
+Generation: 103
+Evaluation time: 1.49322
+Reproduction time: 3.61477
+-----------------------------------------------------------
+Generation: 104
+Evaluation time: 1.39693
+Reproduction time: 3.55784
+-----------------------------------------------------------
+Generation: 105
+Evaluation time: 1.46736
+Reproduction time: 3.29534
+-----------------------------------------------------------
+Generation: 106
+Evaluation time: 1.45018
+Reproduction time: 3.83089
+-----------------------------------------------------------
+Generation: 107
+Evaluation time: 1.47386
+Reproduction time: 4.63648
+-----------------------------------------------------------
+Generation: 108
+Evaluation time: 1.45277
+Reproduction time: 5.36334
+-----------------------------------------------------------
+Generation: 109
+Evaluation time: 1.45624
+Reproduction time: 5.44266
+-----------------------------------------------------------
+Generation: 110
+Evaluation time: 1.55031
+Reproduction time: 5.82781
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8733333333333333
+perfect_percent: 0.8183333333333334
+best_size: 101
+allpass_min_size: 101
+perfect_min_size: 101
+dist_allpass_sizes:
+|101.0  104.43 ±   1.3  108.0| n=524
+dist_perfect_sizes:
+|101.0  104.45 ±  1.31  108.0| n=491
+sn_fitnesses:
+|441.0  5934.59 ± 347.5  6000.32| n=600
+tc_fitnesses:
+| 46.0  65.64 ±  7.93   90.0| n=600
+-----------------------------------------------------------
+Generation: 111
+Evaluation time: 1.48189
+Reproduction time: 6.5985
+-----------------------------------------------------------
+Generation: 112
+Evaluation time: 1.42039
+Reproduction time: 6.13347
+-----------------------------------------------------------
+Generation: 113
+Evaluation time: 1.42787
+Reproduction time: 6.24619
+-----------------------------------------------------------
+Generation: 114
+Evaluation time: 1.37623
+Reproduction time: 4.9172
+-----------------------------------------------------------
+Generation: 115
+Evaluation time: 1.47218
+Reproduction time: 5.21652
+-----------------------------------------------------------
+Generation: 116
+Evaluation time: 1.43409
+Reproduction time: 4.5109
+-----------------------------------------------------------
+Generation: 117
+Evaluation time: 1.4045
+Reproduction time: 4.88772
+-----------------------------------------------------------
+Generation: 118
+Evaluation time: 1.41521
+Reproduction time: 6.13319
+-----------------------------------------------------------
+Generation: 119
+Evaluation time: 1.43707
+Reproduction time: 4.80965
+-----------------------------------------------------------
+Generation: 120
+Evaluation time: 1.42348
+Reproduction time: 6.01099
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.9066666666666666
+perfect_percent: 0.9
+best_size: 101
+allpass_min_size: 101
+perfect_min_size: 101
+dist_allpass_sizes:
+|101.0  103.58 ±  0.93  105.0| n=544
+dist_perfect_sizes:
+|101.0  103.58 ±  0.92  105.0| n=540
+sn_fitnesses:
+|2153.0  5930.4 ± 351.33  6000.32| n=600
+tc_fitnesses:
+| 45.0  69.85 ±  9.39   95.0| n=600
+-----------------------------------------------------------
+Generation: 121
+Evaluation time: 1.48099
+Reproduction time: 5.15798
+-----------------------------------------------------------
+Generation: 122
+Evaluation time: 1.48095
+Reproduction time: 4.85147
+-----------------------------------------------------------
+Generation: 123
+Evaluation time: 1.46803
+Reproduction time: 6.5723
+-----------------------------------------------------------
+Generation: 124
+Evaluation time: 1.46451
+Reproduction time: 6.46563
+-----------------------------------------------------------
+Generation: 125
+Evaluation time: 1.40581
+Reproduction time: 4.83326
+-----------------------------------------------------------
+Generation: 126
+Evaluation time: 1.42872
+Reproduction time: 5.04654
+-----------------------------------------------------------
+Generation: 127
+Evaluation time: 1.38141
+Reproduction time: 6.72644
+-----------------------------------------------------------
+Generation: 128
+Evaluation time: 1.47472
+Reproduction time: 6.39747
+-----------------------------------------------------------
+Generation: 129
+Evaluation time: 1.45997
+Reproduction time: 5.26393
+-----------------------------------------------------------
+Generation: 130
+Evaluation time: 1.47667
+Reproduction time: 5.21902
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.9016666666666666
+perfect_percent: 0.8933333333333333
+best_size: 100
+allpass_min_size: 100
+perfect_min_size: 100
+dist_allpass_sizes:
+|100.0  102.99 ±   0.9  105.0| n=541
+dist_perfect_sizes:
+|100.0  103.0 ±   0.9  105.0| n=536
+sn_fitnesses:
+|252.0  5887.97 ± 493.54  6000.33| n=600
+tc_fitnesses:
+| 87.0  112.28 ±  9.52  142.0| n=600
+-----------------------------------------------------------
+Generation: 131
+Evaluation time: 1.51136
+Reproduction time: 5.80981
+-----------------------------------------------------------
+Generation: 132
+Evaluation time: 1.46673
+Reproduction time: 5.86549
+-----------------------------------------------------------
+Generation: 133
+Evaluation time: 1.51548
+Reproduction time: 5.47804
+-----------------------------------------------------------
+Generation: 134
+Evaluation time: 1.50188
+Reproduction time: 5.48293
+-----------------------------------------------------------
+Generation: 135
+Evaluation time: 1.43896
+Reproduction time: 5.64657
+-----------------------------------------------------------
+Generation: 136
+Evaluation time: 1.35886
+Reproduction time: 5.70521
+-----------------------------------------------------------
+Generation: 137
+Evaluation time: 1.36985
+Reproduction time: 4.86235
+-----------------------------------------------------------
+Generation: 138
+Evaluation time: 1.47771
+Reproduction time: 4.63935
+-----------------------------------------------------------
+Generation: 139
+Evaluation time: 1.45091
+Reproduction time: 5.89393
+-----------------------------------------------------------
+Generation: 140
+Evaluation time: 1.56254
+Reproduction time: 4.41553
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8966666666666666
+perfect_percent: 0.895
+best_size: 99
+allpass_min_size: 99
+perfect_min_size: 99
+dist_allpass_sizes:
+| 99.0  102.39 ±  0.78  104.0| n=538
+dist_perfect_sizes:
+| 99.0  102.39 ±  0.78  104.0| n=537
+sn_fitnesses:
+|183.0  5923.21 ± 412.33  6000.35| n=600
+tc_fitnesses:
+| 51.0  77.05 ±  8.07  104.0| n=600
+-----------------------------------------------------------
+Generation: 141
+Evaluation time: 1.52369
+Reproduction time: 4.78414
+-----------------------------------------------------------
+Generation: 142
+Evaluation time: 1.52454
+Reproduction time: 4.16019
+-----------------------------------------------------------
+Generation: 143
+Evaluation time: 1.5296
+Reproduction time: 4.44889
+-----------------------------------------------------------
+Generation: 144
+Evaluation time: 1.48074
+Reproduction time: 5.43929
+-----------------------------------------------------------
+Generation: 145
+Evaluation time: 1.46996
+Reproduction time: 4.2768
+-----------------------------------------------------------
+Generation: 146
+Evaluation time: 1.48424
+Reproduction time: 5.54701
+-----------------------------------------------------------
+Generation: 147
+Evaluation time: 1.41122
+Reproduction time: 6.0052
+-----------------------------------------------------------
+Generation: 148
+Evaluation time: 1.43097
+Reproduction time: 6.31619
+-----------------------------------------------------------
+Generation: 149
+Evaluation time: 1.32048
+Reproduction time: 5.36441
+-----------------------------------------------------------
+Generation: 150
+Evaluation time: 1.43873
+Reproduction time: 5.78067
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.9116666666666666
+perfect_percent: 0.905
+best_size: 99
+allpass_min_size: 99
+perfect_min_size: 99
+dist_allpass_sizes:
+| 99.0  101.95 ±  0.74  104.0| n=547
+dist_perfect_sizes:
+| 99.0  101.95 ±  0.74  104.0| n=543
+sn_fitnesses:
+|142.0  5885.72 ± 556.29  6000.35| n=600
+tc_fitnesses:
+| 80.0  114.55 ± 12.68  150.0| n=600
+-----------------------------------------------------------
+Generation: 151
+Evaluation time: 1.51272
+Reproduction time: 5.2997
+-----------------------------------------------------------
+Generation: 152
+Evaluation time: 1.50975
+Reproduction time: 4.62099
+-----------------------------------------------------------
+Generation: 153
+Evaluation time: 1.55523
+Reproduction time: 4.29454
+-----------------------------------------------------------
+Generation: 154
+Evaluation time: 1.52463
+Reproduction time: 6.13978
+-----------------------------------------------------------
+Generation: 155
+Evaluation time: 1.51942
+Reproduction time: 5.94979
+-----------------------------------------------------------
+Generation: 156
+Evaluation time: 1.51194
+Reproduction time: 5.78376
+-----------------------------------------------------------
+Generation: 157
+Evaluation time: 1.46601
+Reproduction time: 4.71329
+-----------------------------------------------------------
+Generation: 158
+Evaluation time: 1.46739
+Reproduction time: 5.39408
+-----------------------------------------------------------
+Generation: 159
+Evaluation time: 1.38721
+Reproduction time: 5.51264
+-----------------------------------------------------------
+Generation: 160
+Evaluation time: 1.36372
+Reproduction time: 4.57992
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.9033333333333333
+perfect_percent: 0.9016666666666666
+best_size: 99
+allpass_min_size: 99
+perfect_min_size: 99
+dist_allpass_sizes:
+| 99.0  101.51 ±  0.71  103.0| n=542
+dist_perfect_sizes:
+| 99.0  101.51 ±  0.71  103.0| n=541
+sn_fitnesses:
+|1181.0  5893.06 ± 509.72  6000.35| n=600
+tc_fitnesses:
+| 84.0  107.22 ±  7.74  131.0| n=600
+-----------------------------------------------------------
+Generation: 161
+Evaluation time: 1.48033
+Reproduction time: 4.91758
+-----------------------------------------------------------
+Generation: 162
+Evaluation time: 1.52694
+Reproduction time: 4.22127
+-----------------------------------------------------------
+Generation: 163
+Evaluation time: 1.53051
+Reproduction time: 4.51705
+-----------------------------------------------------------
+Generation: 164
+Evaluation time: 1.45696
+Reproduction time: 4.60922
+-----------------------------------------------------------
+Generation: 165
+Evaluation time: 1.5391
+Reproduction time: 4.38641
+-----------------------------------------------------------
+Generation: 166
+Evaluation time: 1.52116
+Reproduction time: 5.63575
+-----------------------------------------------------------
+Generation: 167
+Evaluation time: 1.51243
+Reproduction time: 6.16352
+-----------------------------------------------------------
+Generation: 168
+Evaluation time: 1.51117
+Reproduction time: 4.30878
+-----------------------------------------------------------
+Generation: 169
+Evaluation time: 1.52348
+Reproduction time: 4.37003
+-----------------------------------------------------------
+Generation: 170
+Evaluation time: 1.53087
+Reproduction time: 4.63657
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8916666666666667
+perfect_percent: 0.885
+best_size: 98
+allpass_min_size: 98
+perfect_min_size: 98
+dist_allpass_sizes:
+| 98.0  101.12 ±  0.74  103.0| n=535
+dist_perfect_sizes:
+| 98.0  101.12 ±  0.74  103.0| n=531
+sn_fitnesses:
+|1376.0  5889.61 ± 553.6  6000.37| n=600
+tc_fitnesses:
+| 71.0  110.68 ± 10.92  139.0| n=600
+-----------------------------------------------------------
+Generation: 171
+Evaluation time: 1.50203
+Reproduction time: 4.44474
+-----------------------------------------------------------
+Generation: 172
+Evaluation time: 1.60362
+Reproduction time: 4.32688
+-----------------------------------------------------------
+Generation: 173
+Evaluation time: 1.53093
+Reproduction time: 4.55018
+-----------------------------------------------------------
+Generation: 174
+Evaluation time: 1.55833
+Reproduction time: 4.71148
+-----------------------------------------------------------
+Generation: 175
+Evaluation time: 1.54931
+Reproduction time: 4.53584
+-----------------------------------------------------------
+Generation: 176
+Evaluation time: 1.53801
+Reproduction time: 4.25428
+-----------------------------------------------------------
+Generation: 177
+Evaluation time: 1.49975
+Reproduction time: 5.5545
+-----------------------------------------------------------
+Generation: 178
+Evaluation time: 1.58484
+Reproduction time: 5.55686
+-----------------------------------------------------------
+Generation: 179
+Evaluation time: 1.55922
+Reproduction time: 5.55531
+-----------------------------------------------------------
+Generation: 180
+Evaluation time: 1.43279
+Reproduction time: 4.61764
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.9
+perfect_percent: 0.8816666666666667
+best_size: 98
+allpass_min_size: 98
+perfect_min_size: 98
+dist_allpass_sizes:
+| 98.0  100.67 ±  0.62  102.0| n=540
+dist_perfect_sizes:
+| 98.0  100.67 ±  0.61  102.0| n=529
+sn_fitnesses:
+|1478.0  5902.14 ± 442.6  6000.37| n=600
+tc_fitnesses:
+| 71.0  98.15 ±  9.32  132.0| n=600
+-----------------------------------------------------------
+Generation: 181
+Evaluation time: 1.50929
+Reproduction time: 6.58806
+-----------------------------------------------------------
+Generation: 182
+Evaluation time: 1.6432
+Reproduction time: 4.41467
+-----------------------------------------------------------
+Generation: 183
+Evaluation time: 1.56582
+Reproduction time: 4.35223
+-----------------------------------------------------------
+Generation: 184
+Evaluation time: 1.56583
+Reproduction time: 4.75737
+-----------------------------------------------------------
+Generation: 185
+Evaluation time: 1.61936
+Reproduction time: 5.89897
+-----------------------------------------------------------
+Generation: 186
+Evaluation time: 1.53991
+Reproduction time: 4.56061
+-----------------------------------------------------------
+Generation: 187
+Evaluation time: 1.60633
+Reproduction time: 4.46825
+-----------------------------------------------------------
+Generation: 188
+Evaluation time: 1.49933
+Reproduction time: 5.74114
+-----------------------------------------------------------
+Generation: 189
+Evaluation time: 1.49339
+Reproduction time: 5.22858
+-----------------------------------------------------------
+Generation: 190
+Evaluation time: 1.38043
+Reproduction time: 5.32164
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.91
+perfect_percent: 0.8983333333333333
+best_size: 98
+allpass_min_size: 98
+perfect_min_size: 98
+dist_allpass_sizes:
+| 98.0  100.36 ±  0.76  102.0| n=546
+dist_perfect_sizes:
+| 98.0  100.36 ±  0.77  102.0| n=539
+sn_fitnesses:
+|341.0  5883.14 ± 574.06  6000.37| n=600
+tc_fitnesses:
+| 93.0  117.16 ±  8.43  140.0| n=600
+-----------------------------------------------------------
+Generation: 191
+Evaluation time: 1.59379
+Reproduction time: 6.15794
+-----------------------------------------------------------
+Generation: 192
+Evaluation time: 1.65022
+Reproduction time: 5.78001
+-----------------------------------------------------------
+Generation: 193
+Evaluation time: 1.5341
+Reproduction time: 4.43662
+-----------------------------------------------------------
+Generation: 194
+Evaluation time: 1.5641
+Reproduction time: 5.54176
+-----------------------------------------------------------
+Generation: 195
+Evaluation time: 1.50291
+Reproduction time: 3.96672
+-----------------------------------------------------------
+Generation: 196
+Evaluation time: 1.59829
+Reproduction time: 5.85222
+-----------------------------------------------------------
+Generation: 197
+Evaluation time: 1.51003
+Reproduction time: 5.3366
+-----------------------------------------------------------
+Generation: 198
+Evaluation time: 1.54649
+Reproduction time: 4.74984
+-----------------------------------------------------------
+Generation: 199
+Evaluation time: 1.60956
+Reproduction time: 5.32164
+-----------------------------------------------------------
+Generation: 200
+Evaluation time: 1.61021
+Reproduction time: 4.05
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8916666666666667
+perfect_percent: 0.89
+best_size: 97
+allpass_min_size: 97
+perfect_min_size: 97
+dist_allpass_sizes:
+| 97.0  99.87 ±  0.72  102.0| n=535
+dist_perfect_sizes:
+| 97.0  99.87 ±  0.72  102.0| n=534
+sn_fitnesses:
+|278.0  5883.15 ± 570.92  6000.38| n=600
+tc_fitnesses:
+| 88.0  117.15 ±  9.33  137.0| n=600
+-----------------------------------------------------------
+Generation: 201
+Evaluation time: 1.61409
+Reproduction time: 4.57572
+-----------------------------------------------------------
+Generation: 202
+Evaluation time: 1.67747
+Reproduction time: 4.2288
+-----------------------------------------------------------
+Generation: 203
+Evaluation time: 1.6153
+Reproduction time: 5.8852
+-----------------------------------------------------------
+Generation: 204
+Evaluation time: 1.64156
+Reproduction time: 5.94103
+-----------------------------------------------------------
+Generation: 205
+Evaluation time: 1.59351
+Reproduction time: 5.75036
+-----------------------------------------------------------
+Generation: 206
+Evaluation time: 1.58329
+Reproduction time: 5.75999
+-----------------------------------------------------------
+Generation: 207
+Evaluation time: 1.57711
+Reproduction time: 5.26841
+-----------------------------------------------------------
+Generation: 208
+Evaluation time: 1.61243
+Reproduction time: 5.78505
+-----------------------------------------------------------
+Generation: 209
+Evaluation time: 1.56243
+Reproduction time: 4.97319
+-----------------------------------------------------------
+Generation: 210
+Evaluation time: 1.63984
+Reproduction time: 4.79499
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8916666666666667
+perfect_percent: 0.885
+best_size: 97
+allpass_min_size: 97
+perfect_min_size: 97
+dist_allpass_sizes:
+| 97.0  99.48 ±  0.71  101.0| n=535
+dist_perfect_sizes:
+| 97.0  99.49 ±  0.71  101.0| n=531
+sn_fitnesses:
+|530.0  5879.35 ± 558.18  6000.38| n=600
+tc_fitnesses:
+| 91.0  120.95 ±   8.8  141.0| n=600
+-----------------------------------------------------------
+Generation: 211
+Evaluation time: 1.63439
+Reproduction time: 4.53877
+-----------------------------------------------------------
+Generation: 212
+Evaluation time: 1.66032
+Reproduction time: 5.84691
+-----------------------------------------------------------
+Generation: 213
+Evaluation time: 1.61777
+Reproduction time: 4.09303
+-----------------------------------------------------------
+Generation: 214
+Evaluation time: 1.6009
+Reproduction time: 5.95762
+-----------------------------------------------------------
+Generation: 215
+Evaluation time: 1.55927
+Reproduction time: 4.71574
+-----------------------------------------------------------
+Generation: 216
+Evaluation time: 1.60574
+Reproduction time: 4.34418
+-----------------------------------------------------------
+Generation: 217
+Evaluation time: 1.59979
+Reproduction time: 4.56877
+-----------------------------------------------------------
+Generation: 218
+Evaluation time: 1.59889
+Reproduction time: 5.48176
+-----------------------------------------------------------
+Generation: 219
+Evaluation time: 1.55378
+Reproduction time: 5.79517
+-----------------------------------------------------------
+Generation: 220
+Evaluation time: 1.63962
+Reproduction time: 5.74008
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8933333333333333
+perfect_percent: 0.8683333333333333
+best_size: 96
+allpass_min_size: 96
+perfect_min_size: 96
+dist_allpass_sizes:
+| 96.0  99.01 ±  0.77  101.0| n=536
+dist_perfect_sizes:
+| 96.0  99.03 ±  0.75  101.0| n=521
+sn_fitnesses:
+|339.0  5874.17 ± 570.77  6000.4| n=600
+tc_fitnesses:
+| 99.0  126.14 ±  9.27  153.0| n=600
+-----------------------------------------------------------
+Generation: 221
+Evaluation time: 1.68089
+Reproduction time: 4.8097
+-----------------------------------------------------------
+Generation: 222
+Evaluation time: 1.64622
+Reproduction time: 5.27967
+-----------------------------------------------------------
+Generation: 223
+Evaluation time: 1.68088
+Reproduction time: 5.91739
+-----------------------------------------------------------
+Generation: 224
+Evaluation time: 1.58355
+Reproduction time: 5.55579
+-----------------------------------------------------------
+Generation: 225
+Evaluation time: 1.66478
+Reproduction time: 5.67314
+-----------------------------------------------------------
+Generation: 226
+Evaluation time: 1.70664
+Reproduction time: 5.4771
+-----------------------------------------------------------
+Generation: 227
+Evaluation time: 1.64954
+Reproduction time: 4.13048
+-----------------------------------------------------------
+Generation: 228
+Evaluation time: 1.66601
+Reproduction time: 5.78515
+-----------------------------------------------------------
+Generation: 229
+Evaluation time: 1.66592
+Reproduction time: 5.94901
+-----------------------------------------------------------
+Generation: 230
+Evaluation time: 1.57973
+Reproduction time: 5.14668
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.9066666666666666
+perfect_percent: 0.9033333333333333
+best_size: 96
+allpass_min_size: 96
+perfect_min_size: 96
+dist_allpass_sizes:
+| 96.0  98.56 ±  0.72  100.0| n=544
+dist_perfect_sizes:
+| 96.0  98.56 ±  0.72  100.0| n=542
+sn_fitnesses:
+|257.0  5903.87 ± 513.05  6000.4| n=600
+tc_fitnesses:
+| 70.0  96.45 ±  9.28  129.0| n=600
+-----------------------------------------------------------
+Generation: 231
+Evaluation time: 1.67988
+Reproduction time: 5.64383
+-----------------------------------------------------------
+Generation: 232
+Evaluation time: 1.60766
+Reproduction time: 6.03188
+-----------------------------------------------------------
+Generation: 233
+Evaluation time: 1.64021
+Reproduction time: 3.87019
+-----------------------------------------------------------
+Generation: 234
+Evaluation time: 1.67482
+Reproduction time: 5.71448
+-----------------------------------------------------------
+Generation: 235
+Evaluation time: 1.68458
+Reproduction time: 4.09086
+-----------------------------------------------------------
+Generation: 236
+Evaluation time: 1.66602
+Reproduction time: 5.97735
+-----------------------------------------------------------
+Generation: 237
+Evaluation time: 1.67154
+Reproduction time: 4.06816
+-----------------------------------------------------------
+Generation: 238
+Evaluation time: 1.655
+Reproduction time: 5.79719
+-----------------------------------------------------------
+Generation: 239
+Evaluation time: 1.58778
+Reproduction time: 4.83266
+-----------------------------------------------------------
+Generation: 240
+Evaluation time: 1.66955
+Reproduction time: 6.10739
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.9033333333333333
+perfect_percent: 0.9033333333333333
+best_size: 95
+allpass_min_size: 95
+perfect_min_size: 95
+dist_allpass_sizes:
+| 95.0   98.2 ±  0.85  100.0| n=542
+dist_perfect_sizes:
+| 95.0   98.2 ±  0.85  100.0| n=542
+sn_fitnesses:
+|602.0  5886.03 ± 523.39  6000.42| n=600
+tc_fitnesses:
+| 78.0  114.3 ± 10.21  140.0| n=600
+-----------------------------------------------------------
+Generation: 241
+Evaluation time: 1.70134
+Reproduction time: 6.02589
+-----------------------------------------------------------
+Generation: 242
+Evaluation time: 1.67062
+Reproduction time: 4.16254
+-----------------------------------------------------------
+Generation: 243
+Evaluation time: 1.62069
+Reproduction time: 4.52183
+-----------------------------------------------------------
+Generation: 244
+Evaluation time: 1.66306
+Reproduction time: 4.59318
+-----------------------------------------------------------
+Generation: 245
+Evaluation time: 1.6076
+Reproduction time: 4.10949
+-----------------------------------------------------------
+Generation: 246
+Evaluation time: 1.60414
+Reproduction time: 4.53127
+-----------------------------------------------------------
+Generation: 247
+Evaluation time: 1.6193
+Reproduction time: 5.83393
+-----------------------------------------------------------
+Generation: 248
+Evaluation time: 1.48957
+Reproduction time: 4.47318
+-----------------------------------------------------------
+Generation: 249
+Evaluation time: 1.63309
+Reproduction time: 4.43878
+-----------------------------------------------------------
+Generation: 250
+Evaluation time: 1.61906
+Reproduction time: 5.43579
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8866666666666667
+perfect_percent: 0.8716666666666667
+best_size: 95
+allpass_min_size: 95
+perfect_min_size: 95
+dist_allpass_sizes:
+| 95.0  97.61 ±  0.68   99.0| n=532
+dist_perfect_sizes:
+| 95.0  97.61 ±  0.68   99.0| n=523
+sn_fitnesses:
+|230.0  5873.28 ± 642.64  6000.42| n=600
+tc_fitnesses:
+| 95.0  127.05 ±  8.05  150.0| n=600
+-----------------------------------------------------------
+Generation: 251
+Evaluation time: 1.69127
+Reproduction time: 4.452
+-----------------------------------------------------------
+Generation: 252
+Evaluation time: 1.71977
+Reproduction time: 4.17062
+-----------------------------------------------------------
+Generation: 253
+Evaluation time: 1.66755
+Reproduction time: 4.42508
+-----------------------------------------------------------
+Generation: 254
+Evaluation time: 1.68161
+Reproduction time: 5.98961
+-----------------------------------------------------------
+Generation: 255
+Evaluation time: 1.69291
+Reproduction time: 5.87424
+-----------------------------------------------------------
+Generation: 256
+Evaluation time: 1.57813
+Reproduction time: 4.70525
+-----------------------------------------------------------
+Generation: 257
+Evaluation time: 1.71929
+Reproduction time: 4.37099
+-----------------------------------------------------------
+Generation: 258
+Evaluation time: 1.64473
+Reproduction time: 5.63393
+-----------------------------------------------------------
+Generation: 259
+Evaluation time: 1.546
+Reproduction time: 4.32646
+-----------------------------------------------------------
+Generation: 260
+Evaluation time: 1.67431
+Reproduction time: 5.6024
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.9
+perfect_percent: 0.8933333333333333
+best_size: 94
+allpass_min_size: 94
+perfect_min_size: 94
+dist_allpass_sizes:
+| 94.0  97.32 ±  0.78   99.0| n=540
+dist_perfect_sizes:
+| 94.0  97.32 ±  0.78   99.0| n=536
+sn_fitnesses:
+|168.0  5864.77 ± 663.58  6000.43| n=600
+tc_fitnesses:
+|107.0  135.57 ±  9.02  161.0| n=600
+-----------------------------------------------------------
+Generation: 261
+Evaluation time: 1.6816
+Reproduction time: 5.75528
+-----------------------------------------------------------
+Generation: 262
+Evaluation time: 1.66236
+Reproduction time: 5.81608
+-----------------------------------------------------------
+Generation: 263
+Evaluation time: 1.69884
+Reproduction time: 5.58748
+-----------------------------------------------------------
+Generation: 264
+Evaluation time: 1.63009
+Reproduction time: 5.53495
+-----------------------------------------------------------
+Generation: 265
+Evaluation time: 1.60412
+Reproduction time: 5.82535
+-----------------------------------------------------------
+Generation: 266
+Evaluation time: 1.62042
+Reproduction time: 6.65903
+-----------------------------------------------------------
+Generation: 267
+Evaluation time: 1.5484
+Reproduction time: 4.75983
+-----------------------------------------------------------
+Generation: 268
+Evaluation time: 1.62304
+Reproduction time: 5.99587
+-----------------------------------------------------------
+Generation: 269
+Evaluation time: 1.53846
+Reproduction time: 5.69767
+-----------------------------------------------------------
+Generation: 270
+Evaluation time: 1.63502
+Reproduction time: 5.27763
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.88
+perfect_percent: 0.8716666666666667
+best_size: 94
+allpass_min_size: 94
+perfect_min_size: 94
+dist_allpass_sizes:
+| 94.0  96.82 ±  0.73   99.0| n=528
+dist_perfect_sizes:
+| 94.0  96.82 ±  0.73   99.0| n=523
+sn_fitnesses:
+|839.0  5884.2 ± 502.87  6000.43| n=600
+tc_fitnesses:
+| 72.0  116.14 ±  11.7  144.0| n=600
+-----------------------------------------------------------
+Generation: 271
+Evaluation time: 1.63089
+Reproduction time: 5.8023
+-----------------------------------------------------------
+Generation: 272
+Evaluation time: 1.69808
+Reproduction time: 4.87637
+-----------------------------------------------------------
+Generation: 273
+Evaluation time: 1.65269
+Reproduction time: 6.39122
+-----------------------------------------------------------
+Generation: 274
+Evaluation time: 1.54655
+Reproduction time: 5.66341
+-----------------------------------------------------------
+Generation: 275
+Evaluation time: 1.679
+Reproduction time: 4.85546
+-----------------------------------------------------------
+Generation: 276
+Evaluation time: 1.67816
+Reproduction time: 5.71743
+-----------------------------------------------------------
+Generation: 277
+Evaluation time: 1.60852
+Reproduction time: 5.94152
+-----------------------------------------------------------
+Generation: 278
+Evaluation time: 1.4998
+Reproduction time: 5.65748
+-----------------------------------------------------------
+Generation: 279
+Evaluation time: 1.67681
+Reproduction time: 4.71099
+-----------------------------------------------------------
+Generation: 280
+Evaluation time: 1.66824
+Reproduction time: 4.50618
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.87
+perfect_percent: 0.8566666666666667
+best_size: 94
+allpass_min_size: 94
+perfect_min_size: 94
+dist_allpass_sizes:
+| 94.0  96.44 ±   0.7   98.0| n=522
+dist_perfect_sizes:
+| 94.0  96.44 ±   0.7   98.0| n=514
+sn_fitnesses:
+|209.0  5842.89 ± 641.4  6000.43| n=600
+tc_fitnesses:
+|118.0  157.45 ± 11.69  191.0| n=600
+-----------------------------------------------------------
+Generation: 281
+Evaluation time: 1.52662
+Reproduction time: 4.11272
+-----------------------------------------------------------
+Generation: 282
+Evaluation time: 1.68358
+Reproduction time: 4.47729
+-----------------------------------------------------------
+Generation: 283
+Evaluation time: 1.64734
+Reproduction time: 6.07546
+-----------------------------------------------------------
+Generation: 284
+Evaluation time: 1.56515
+Reproduction time: 4.40663
+-----------------------------------------------------------
+Generation: 285
+Evaluation time: 1.64772
+Reproduction time: 5.89264
+-----------------------------------------------------------
+Generation: 286
+Evaluation time: 1.65514
+Reproduction time: 5.62184
+-----------------------------------------------------------
+Generation: 287
+Evaluation time: 1.62281
+Reproduction time: 5.34097
+-----------------------------------------------------------
+Generation: 288
+Evaluation time: 1.63209
+Reproduction time: 6.22613
+-----------------------------------------------------------
+Generation: 289
+Evaluation time: 1.65017
+Reproduction time: 4.09561
+-----------------------------------------------------------
+Generation: 290
+Evaluation time: 1.5925
+Reproduction time: 4.41311
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8933333333333333
+perfect_percent: 0.8883333333333333
+best_size: 94
+allpass_min_size: 94
+perfect_min_size: 94
+dist_allpass_sizes:
+| 94.0  96.15 ±  0.73   98.0| n=536
+dist_perfect_sizes:
+| 94.0  96.16 ±  0.73   98.0| n=533
+sn_fitnesses:
+|1563.0  5892.21 ± 489.03  6000.43| n=600
+tc_fitnesses:
+| 75.0  108.14 ± 11.08  135.0| n=600
+-----------------------------------------------------------
+Generation: 291
+Evaluation time: 1.60688
+Reproduction time: 6.49993
+-----------------------------------------------------------
+Generation: 292
+Evaluation time: 1.67665
+Reproduction time: 4.29279
+-----------------------------------------------------------
+Generation: 293
+Evaluation time: 1.64522
+Reproduction time: 4.33262
+-----------------------------------------------------------
+Generation: 294
+Evaluation time: 1.70016
+Reproduction time: 5.98941
+-----------------------------------------------------------
+Generation: 295
+Evaluation time: 1.56495
+Reproduction time: 5.77264
+-----------------------------------------------------------
+Generation: 296
+Evaluation time: 1.68588
+Reproduction time: 6.30561
+-----------------------------------------------------------
+Generation: 297
+Evaluation time: 1.68229
+Reproduction time: 5.73359
+-----------------------------------------------------------
+Generation: 298
+Evaluation time: 1.69472
+Reproduction time: 4.47964
+-----------------------------------------------------------
+Generation: 299
+Evaluation time: 1.70097
+Reproduction time: 4.67415
+-----------------------------------------------------------
+Generation: 300
+Evaluation time: 1.61389
+Reproduction time: 5.60298
+----
+SortedMetric:
+best_percent: 0.9999237060546875
+allpass_percent: 0.8916666666666667
+perfect_percent: 0.87
+best_size: 92
+allpass_min_size: 92
+perfect_min_size: 93
+dist_allpass_sizes:
+| 92.0  95.73 ±   0.6   97.0| n=535
+dist_perfect_sizes:
+| 93.0  95.76 ±  0.54   97.0| n=522
+sn_fitnesses:
+| 99.0  5872.73 ± 611.91  6000.47| n=600
+tc_fitnesses:
+| 96.0  127.63 ± 14.01  178.0| n=600
+-----------------------------------------------------------
+Generation: 301
+Evaluation time: 1.65238
+Reproduction time: 5.42224
+-----------------------------------------------------------
+Generation: 302
+Evaluation time: 1.64798
+Reproduction time: 4.35485
+-----------------------------------------------------------
+Generation: 303
+Evaluation time: 1.65829
+Reproduction time: 4.52726
+-----------------------------------------------------------
+Generation: 304
+Evaluation time: 1.67504
+Reproduction time: 4.92825
+-----------------------------------------------------------
+Generation: 305
+Evaluation time: 1.59827
+Reproduction time: 5.71456
+-----------------------------------------------------------
+Generation: 306
+Evaluation time: 1.61424
+Reproduction time: 6.07394
+-----------------------------------------------------------
+Generation: 307
+Evaluation time: 1.6309
+Reproduction time: 6.21811
+-----------------------------------------------------------
+Generation: 308
+Evaluation time: 1.62465
+Reproduction time: 5.13993
+-----------------------------------------------------------
+Generation: 309
+Evaluation time: 1.64004
+Reproduction time: 5.78447
+-----------------------------------------------------------
+Generation: 310
+Evaluation time: 1.57213
+Reproduction time: 5.46067
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8966666666666666
+perfect_percent: 0.875
+best_size: 93
+allpass_min_size: 93
+perfect_min_size: 93
+dist_allpass_sizes:
+| 93.0  95.57 ±  0.67   97.0| n=538
+dist_perfect_sizes:
+| 93.0  95.59 ±  0.66   97.0| n=525
+sn_fitnesses:
+|187.0  5862.32 ± 659.11  6000.45| n=600
+tc_fitnesses:
+|114.0  138.04 ±  8.87  166.0| n=600
+-----------------------------------------------------------
+Generation: 311
+Evaluation time: 1.56215
+Reproduction time: 4.97986
+-----------------------------------------------------------
+Generation: 312
+Evaluation time: 1.64673
+Reproduction time: 5.54728
+-----------------------------------------------------------
+Generation: 313
+Evaluation time: 1.67571
+Reproduction time: 4.53521
+-----------------------------------------------------------
+Generation: 314
+Evaluation time: 1.65657
+Reproduction time: 4.34561
+-----------------------------------------------------------
+Generation: 315
+Evaluation time: 1.59044
+Reproduction time: 4.20487
+-----------------------------------------------------------
+Generation: 316
+Evaluation time: 1.58007
+Reproduction time: 5.27308
+-----------------------------------------------------------
+Generation: 317
+Evaluation time: 1.60784
+Reproduction time: 6.00337
+-----------------------------------------------------------
+Generation: 318
+Evaluation time: 1.59559
+Reproduction time: 4.47268
+-----------------------------------------------------------
+Generation: 319
+Evaluation time: 1.59895
+Reproduction time: 5.64987
+-----------------------------------------------------------
+Generation: 320
+Evaluation time: 1.47269
+Reproduction time: 5.39756
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.895
+perfect_percent: 0.85
+best_size: 93
+allpass_min_size: 93
+perfect_min_size: 93
+dist_allpass_sizes:
+| 93.0  95.25 ±  0.73   97.0| n=537
+dist_perfect_sizes:
+| 93.0  95.29 ±  0.71   97.0| n=510
+sn_fitnesses:
+| 66.0  5868.19 ± 605.35  6000.45| n=600
+tc_fitnesses:
+| 92.0  132.18 ± 14.25  167.0| n=600
+-----------------------------------------------------------
+Generation: 321
+Evaluation time: 1.56641
+Reproduction time: 4.92876
+-----------------------------------------------------------
+Generation: 322
+Evaluation time: 1.68139
+Reproduction time: 5.87877
+-----------------------------------------------------------
+Generation: 323
+Evaluation time: 1.58687
+Reproduction time: 5.88642
+-----------------------------------------------------------
+Generation: 324
+Evaluation time: 1.61266
+Reproduction time: 4.1423
+-----------------------------------------------------------
+Generation: 325
+Evaluation time: 1.66109
+Reproduction time: 5.85542
+-----------------------------------------------------------
+Generation: 326
+Evaluation time: 1.59655
+Reproduction time: 5.50168
+-----------------------------------------------------------
+Generation: 327
+Evaluation time: 1.64521
+Reproduction time: 5.92761
+-----------------------------------------------------------
+Generation: 328
+Evaluation time: 1.64368
+Reproduction time: 5.43927
+-----------------------------------------------------------
+Generation: 329
+Evaluation time: 1.6142
+Reproduction time: 5.20345
+-----------------------------------------------------------
+Generation: 330
+Evaluation time: 1.72619
+Reproduction time: 5.61349
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8916666666666667
+perfect_percent: 0.865
+best_size: 93
+allpass_min_size: 93
+perfect_min_size: 93
+dist_allpass_sizes:
+| 93.0  94.86 ±   0.6   96.0| n=535
+dist_perfect_sizes:
+| 93.0  94.88 ±  0.59   96.0| n=519
+sn_fitnesses:
+|954.0  5866.15 ± 599.4  6000.45| n=600
+tc_fitnesses:
+|102.0  134.23 ± 10.27  168.0| n=600
+-----------------------------------------------------------
+Generation: 331
+Evaluation time: 1.59338
+Reproduction time: 5.44853
+-----------------------------------------------------------
+Generation: 332
+Evaluation time: 1.62943
+Reproduction time: 4.65448
+-----------------------------------------------------------
+Generation: 333
+Evaluation time: 1.71655
+Reproduction time: 4.62479
+-----------------------------------------------------------
+Generation: 334
+Evaluation time: 1.59424
+Reproduction time: 4.52714
+-----------------------------------------------------------
+Generation: 335
+Evaluation time: 1.58426
+Reproduction time: 4.13777
+-----------------------------------------------------------
+Generation: 336
+Evaluation time: 1.63564
+Reproduction time: 4.65443
+-----------------------------------------------------------
+Generation: 337
+Evaluation time: 1.63967
+Reproduction time: 5.06257
+-----------------------------------------------------------
+Generation: 338
+Evaluation time: 1.51027
+Reproduction time: 6.99761
+-----------------------------------------------------------
+Generation: 339
+Evaluation time: 1.60703
+Reproduction time: 4.4791
+-----------------------------------------------------------
+Generation: 340
+Evaluation time: 1.68037
+Reproduction time: 4.82501
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8883333333333333
+perfect_percent: 0.865
+best_size: 92
+allpass_min_size: 92
+perfect_min_size: 92
+dist_allpass_sizes:
+| 92.0  94.67 ±  0.59   96.0| n=533
+dist_perfect_sizes:
+| 92.0  94.67 ±  0.59   96.0| n=519
+sn_fitnesses:
+| 92.0  5843.1 ± 679.87  6000.47| n=600
+tc_fitnesses:
+|113.0  157.28 ±  11.3  188.0| n=600
+-----------------------------------------------------------
+Generation: 341
+Evaluation time: 1.6812
+Reproduction time: 5.69985
+-----------------------------------------------------------
+Generation: 342
+Evaluation time: 1.68929
+Reproduction time: 4.21663
+-----------------------------------------------------------
+Generation: 343
+Evaluation time: 1.6437
+Reproduction time: 4.07382
+-----------------------------------------------------------
+Generation: 344
+Evaluation time: 1.64086
+Reproduction time: 5.2532
+-----------------------------------------------------------
+Generation: 345
+Evaluation time: 1.6557
+Reproduction time: 6.21404
+-----------------------------------------------------------
+Generation: 346
+Evaluation time: 1.61131
+Reproduction time: 5.79284
+-----------------------------------------------------------
+Generation: 347
+Evaluation time: 1.5596
+Reproduction time: 5.32841
+-----------------------------------------------------------
+Generation: 348
+Evaluation time: 1.58172
+Reproduction time: 5.68166
+-----------------------------------------------------------
+Generation: 349
+Evaluation time: 1.65421
+Reproduction time: 5.33806
+-----------------------------------------------------------
+Generation: 350
+Evaluation time: 1.64679
+Reproduction time: 5.79118
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8966666666666666
+perfect_percent: 0.8833333333333333
+best_size: 92
+allpass_min_size: 92
+perfect_min_size: 92
+dist_allpass_sizes:
+| 92.0  94.46 ±  0.69   96.0| n=538
+dist_perfect_sizes:
+| 92.0  94.47 ±  0.68   96.0| n=530
+sn_fitnesses:
+| 59.0  5879.95 ± 570.53  6000.47| n=600
+tc_fitnesses:
+| 93.0  120.43 ±  8.47  144.0| n=600
+-----------------------------------------------------------
+Generation: 351
+Evaluation time: 1.66535
+Reproduction time: 6.1819
+-----------------------------------------------------------
+Generation: 352
+Evaluation time: 1.58793
+Reproduction time: 5.69489
+-----------------------------------------------------------
+Generation: 353
+Evaluation time: 1.67533
+Reproduction time: 5.88545
+-----------------------------------------------------------
+Generation: 354
+Evaluation time: 1.66217
+Reproduction time: 6.29406
+-----------------------------------------------------------
+Generation: 355
+Evaluation time: 1.62681
+Reproduction time: 6.04727
+-----------------------------------------------------------
+Generation: 356
+Evaluation time: 1.61866
+Reproduction time: 5.28203
+-----------------------------------------------------------
+Generation: 357
+Evaluation time: 1.66264
+Reproduction time: 5.36531
+-----------------------------------------------------------
+Generation: 358
+Evaluation time: 1.63867
+Reproduction time: 5.4939
+-----------------------------------------------------------
+Generation: 359
+Evaluation time: 1.65182
+Reproduction time: 4.15769
+-----------------------------------------------------------
+Generation: 360
+Evaluation time: 1.61985
+Reproduction time: 5.19036
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.9033333333333333
+perfect_percent: 0.895
+best_size: 92
+allpass_min_size: 92
+perfect_min_size: 92
+dist_allpass_sizes:
+| 92.0  94.11 ±  0.71   96.0| n=542
+dist_perfect_sizes:
+| 92.0  94.12 ±  0.71   96.0| n=537
+sn_fitnesses:
+|161.0  5838.77 ± 709.8  6000.47| n=600
+tc_fitnesses:
+|121.0  161.62 ± 13.38  196.0| n=600
+-----------------------------------------------------------
+Generation: 361
+Evaluation time: 1.63497
+Reproduction time: 6.23366
+-----------------------------------------------------------
+Generation: 362
+Evaluation time: 1.73613
+Reproduction time: 5.95113
+-----------------------------------------------------------
+Generation: 363
+Evaluation time: 1.66574
+Reproduction time: 6.12969
+-----------------------------------------------------------
+Generation: 364
+Evaluation time: 1.66454
+Reproduction time: 5.75481
+-----------------------------------------------------------
+Generation: 365
+Evaluation time: 1.63789
+Reproduction time: 4.97317
+-----------------------------------------------------------
+Generation: 366
+Evaluation time: 1.6065
+Reproduction time: 5.08504
+-----------------------------------------------------------
+Generation: 367
+Evaluation time: 1.72653
+Reproduction time: 4.84756
+-----------------------------------------------------------
+Generation: 368
+Evaluation time: 1.6792
+Reproduction time: 5.7667
+-----------------------------------------------------------
+Generation: 369
+Evaluation time: 1.67389
+Reproduction time: 5.59194
+-----------------------------------------------------------
+Generation: 370
+Evaluation time: 1.58109
+Reproduction time: 5.64375
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8933333333333333
+perfect_percent: 0.875
+best_size: 91
+allpass_min_size: 91
+perfect_min_size: 91
+dist_allpass_sizes:
+| 91.0  93.75 ±  0.57   95.0| n=536
+dist_perfect_sizes:
+| 91.0  93.76 ±  0.57   95.0| n=525
+sn_fitnesses:
+| 82.0  5874.02 ± 580.22  6000.48| n=600
+tc_fitnesses:
+| 96.0  126.38 ±  10.8  155.0| n=600
+-----------------------------------------------------------
+Generation: 371
+Evaluation time: 1.60753
+Reproduction time: 5.9977
+-----------------------------------------------------------
+Generation: 372
+Evaluation time: 1.69871
+Reproduction time: 4.52551
+-----------------------------------------------------------
+Generation: 373
+Evaluation time: 1.69176
+Reproduction time: 6.19228
+-----------------------------------------------------------
+Generation: 374
+Evaluation time: 1.68136
+Reproduction time: 4.59037
+-----------------------------------------------------------
+Generation: 375
+Evaluation time: 1.6946
+Reproduction time: 6.20417
+-----------------------------------------------------------
+Generation: 376
+Evaluation time: 1.70397
+Reproduction time: 4.75875
+-----------------------------------------------------------
+Generation: 377
+Evaluation time: 1.62414
+Reproduction time: 5.95917
+-----------------------------------------------------------
+Generation: 378
+Evaluation time: 1.68338
+Reproduction time: 4.28124
+-----------------------------------------------------------
+Generation: 379
+Evaluation time: 1.7092
+Reproduction time: 4.2787
+-----------------------------------------------------------
+Generation: 380
+Evaluation time: 1.6886
+Reproduction time: 4.5223
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8933333333333333
+perfect_percent: 0.8733333333333333
+best_size: 91
+allpass_min_size: 91
+perfect_min_size: 91
+dist_allpass_sizes:
+| 91.0  93.62 ±  0.63   95.0| n=536
+dist_perfect_sizes:
+| 91.0  93.63 ±  0.62   95.0| n=524
+sn_fitnesses:
+|1013.0  5878.43 ± 577.26  6000.48| n=600
+tc_fitnesses:
+|101.0  121.96 ±  8.34  142.0| n=600
+-----------------------------------------------------------
+Generation: 381
+Evaluation time: 1.6242
+Reproduction time: 4.77669
+-----------------------------------------------------------
+Generation: 382
+Evaluation time: 1.71151
+Reproduction time: 4.32168
+-----------------------------------------------------------
+Generation: 383
+Evaluation time: 1.70959
+Reproduction time: 4.40038
+-----------------------------------------------------------
+Generation: 384
+Evaluation time: 1.71236
+Reproduction time: 6.05162
+-----------------------------------------------------------
+Generation: 385
+Evaluation time: 1.73699
+Reproduction time: 5.91027
+-----------------------------------------------------------
+Generation: 386
+Evaluation time: 1.69361
+Reproduction time: 6.04695
+-----------------------------------------------------------
+Generation: 387
+Evaluation time: 1.74008
+Reproduction time: 5.58623
+-----------------------------------------------------------
+Generation: 388
+Evaluation time: 1.68827
+Reproduction time: 6.03445
+-----------------------------------------------------------
+Generation: 389
+Evaluation time: 1.75272
+Reproduction time: 4.51086
+-----------------------------------------------------------
+Generation: 390
+Evaluation time: 1.74716
+Reproduction time: 4.16504
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8933333333333333
+perfect_percent: 0.87
+best_size: 91
+allpass_min_size: 91
+perfect_min_size: 91
+dist_allpass_sizes:
+| 91.0  93.43 ±  0.69   95.0| n=536
+dist_perfect_sizes:
+| 91.0  93.44 ±  0.69   95.0| n=522
+sn_fitnesses:
+|315.0  5887.59 ± 533.9  6000.48| n=600
+tc_fitnesses:
+| 82.0  112.8 ± 11.08  148.0| n=600
+-----------------------------------------------------------
+Generation: 391
+Evaluation time: 1.72306
+Reproduction time: 5.76348
+-----------------------------------------------------------
+Generation: 392
+Evaluation time: 1.71194
+Reproduction time: 5.69577
+-----------------------------------------------------------
+Generation: 393
+Evaluation time: 1.76398
+Reproduction time: 4.68581
+-----------------------------------------------------------
+Generation: 394
+Evaluation time: 1.64689
+Reproduction time: 4.73169
+-----------------------------------------------------------
+Generation: 395
+Evaluation time: 1.62452
+Reproduction time: 4.74412
+-----------------------------------------------------------
+Generation: 396
+Evaluation time: 1.72686
+Reproduction time: 6.28369
+-----------------------------------------------------------
+Generation: 397
+Evaluation time: 1.76781
+Reproduction time: 5.95877
+-----------------------------------------------------------
+Generation: 398
+Evaluation time: 1.66043
+Reproduction time: 5.08918
+-----------------------------------------------------------
+Generation: 399
+Evaluation time: 1.65779
+Reproduction time: 4.36473
+-----------------------------------------------------------
+Generation: 400
+Evaluation time: 1.66972
+Reproduction time: 4.38082
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8966666666666666
+perfect_percent: 0.845
+best_size: 91
+allpass_min_size: 91
+perfect_min_size: 91
+dist_allpass_sizes:
+| 91.0  93.06 ±  0.69   95.0| n=538
+dist_perfect_sizes:
+| 91.0  93.08 ±  0.68   95.0| n=507
+sn_fitnesses:
+|229.0  5836.76 ± 703.33  6000.48| n=600
+tc_fitnesses:
+|117.0  163.64 ± 13.25  197.0| n=600
+-----------------------------------------------------------
+Generation: 401
+Evaluation time: 1.64697
+Reproduction time: 4.85473
+-----------------------------------------------------------
+Generation: 402
+Evaluation time: 1.64016
+Reproduction time: 4.36485
+-----------------------------------------------------------
+Generation: 403
+Evaluation time: 1.70294
+Reproduction time: 6.82122
+-----------------------------------------------------------
+Generation: 404
+Evaluation time: 1.62958
+Reproduction time: 6.92117
+-----------------------------------------------------------
+Generation: 405
+Evaluation time: 1.71868
+Reproduction time: 4.85823
+-----------------------------------------------------------
+Generation: 406
+Evaluation time: 1.69737
+Reproduction time: 5.09649
+-----------------------------------------------------------
+Generation: 407
+Evaluation time: 1.69499
+Reproduction time: 5.44438
+-----------------------------------------------------------
+Generation: 408
+Evaluation time: 1.62864
+Reproduction time: 6.19636
+-----------------------------------------------------------
+Generation: 409
+Evaluation time: 1.66703
+Reproduction time: 6.48366
+-----------------------------------------------------------
+Generation: 410
+Evaluation time: 1.64645
+Reproduction time: 5.9403
+----
+SortedMetric:
+best_percent: 0.9999847412109375
+allpass_percent: 0.9016666666666666
+perfect_percent: 0.835
+best_size: 90
+allpass_min_size: 90
+perfect_min_size: 90
+dist_allpass_sizes:
+| 90.0  92.67 ±  0.61   94.0| n=541
+dist_perfect_sizes:
+| 90.0  92.69 ±  0.59   94.0| n=501
+sn_fitnesses:
+|609.0  5871.38 ± 578.31  6000.5| n=600
+tc_fitnesses:
+| 89.0  129.03 ± 15.13  170.0| n=600
+-----------------------------------------------------------
+Generation: 411
+Evaluation time: 1.58469
+Reproduction time: 7.11749
+-----------------------------------------------------------
+Generation: 412
+Evaluation time: 1.70094
+Reproduction time: 5.98297
+-----------------------------------------------------------
+Generation: 413
+Evaluation time: 1.76681
+Reproduction time: 6.08931
+-----------------------------------------------------------
+Generation: 414
+Evaluation time: 1.76551
+Reproduction time: 5.65188
+-----------------------------------------------------------
+Generation: 415
+Evaluation time: 1.70388
+Reproduction time: 6.36618
+-----------------------------------------------------------
+Generation: 416
+Evaluation time: 1.74579
+Reproduction time: 6.43362
+-----------------------------------------------------------
+Generation: 417
+Evaluation time: 1.70317
+Reproduction time: 4.16071
+-----------------------------------------------------------
+Generation: 418
+Evaluation time: 1.67218
+Reproduction time: 4.7955
+-----------------------------------------------------------
+Generation: 419
+Evaluation time: 1.70452
+Reproduction time: 4.65522
+-----------------------------------------------------------
+Generation: 420
+Evaluation time: 1.7391
+Reproduction time: 4.18212
+----
+SortedMetric:
+best_percent: 0.9999847412109375
+allpass_percent: 0.8733333333333333
+perfect_percent: 0.805
+best_size: 90
+allpass_min_size: 90
+perfect_min_size: 90
+dist_allpass_sizes:
+| 90.0  92.45 ±  0.72   94.0| n=524
+dist_perfect_sizes:
+| 90.0  92.49 ±  0.69   94.0| n=483
+sn_fitnesses:
+|150.0  5883.55 ± 581.57  6000.5| n=600
+tc_fitnesses:
+| 93.0  116.85 ±  7.52  139.0| n=600
+-----------------------------------------------------------
+Generation: 421
+Evaluation time: 1.58312
+Reproduction time: 5.99129
+-----------------------------------------------------------
+Generation: 422
+Evaluation time: 1.75086
+Reproduction time: 5.79351
+-----------------------------------------------------------
+Generation: 423
+Evaluation time: 1.75887
+Reproduction time: 5.82745
+-----------------------------------------------------------
+Generation: 424
+Evaluation time: 1.66499
+Reproduction time: 5.97209
+-----------------------------------------------------------
+Generation: 425
+Evaluation time: 1.68365
+Reproduction time: 6.01971
+-----------------------------------------------------------
+Generation: 426
+Evaluation time: 1.78186
+Reproduction time: 5.5371
+-----------------------------------------------------------
+Generation: 427
+Evaluation time: 1.68241
+Reproduction time: 4.5352
+-----------------------------------------------------------
+Generation: 428
+Evaluation time: 1.78229
+Reproduction time: 5.94078
+-----------------------------------------------------------
+Generation: 429
+Evaluation time: 1.67986
+Reproduction time: 4.36621
+-----------------------------------------------------------
+Generation: 430
+Evaluation time: 1.7286
+Reproduction time: 4.52562
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8883333333333333
+perfect_percent: 0.8016666666666666
+best_size: 89
+allpass_min_size: 89
+perfect_min_size: 89
+dist_allpass_sizes:
+| 89.0  92.12 ±  0.72   94.0| n=533
+dist_perfect_sizes:
+| 89.0  92.17 ±  0.71   94.0| n=481
+sn_fitnesses:
+| 42.0  5867.16 ± 623.07  6000.52| n=600
+tc_fitnesses:
+|102.0  133.25 ±  9.26  162.0| n=600
+-----------------------------------------------------------
+Generation: 431
+Evaluation time: 1.63564
+Reproduction time: 5.22971
+-----------------------------------------------------------
+Generation: 432
+Evaluation time: 1.67675
+Reproduction time: 5.63439
+-----------------------------------------------------------
+Generation: 433
+Evaluation time: 1.79204
+Reproduction time: 4.55867
+-----------------------------------------------------------
+Generation: 434
+Evaluation time: 1.80198
+Reproduction time: 5.93941
+-----------------------------------------------------------
+Generation: 435
+Evaluation time: 1.74873
+Reproduction time: 4.48508
+-----------------------------------------------------------
+Generation: 436
+Evaluation time: 1.75008
+Reproduction time: 5.4537
+-----------------------------------------------------------
+Generation: 437
+Evaluation time: 1.69581
+Reproduction time: 6.33692
+-----------------------------------------------------------
+Generation: 438
+Evaluation time: 1.71339
+Reproduction time: 5.90902
+-----------------------------------------------------------
+Generation: 439
+Evaluation time: 1.75772
+Reproduction time: 5.29205
+-----------------------------------------------------------
+Generation: 440
+Evaluation time: 1.71538
+Reproduction time: 5.36486
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.885
+perfect_percent: 0.7816666666666666
+best_size: 89
+allpass_min_size: 89
+perfect_min_size: 89
+dist_allpass_sizes:
+| 89.0  91.75 ±  0.59   93.0| n=531
+dist_perfect_sizes:
+| 89.0  91.77 ±  0.56   93.0| n=469
+sn_fitnesses:
+|125.0  5830.31 ± 728.26  6000.52| n=600
+tc_fitnesses:
+|140.0  170.11 ±  8.58  192.0| n=600
+-----------------------------------------------------------
+Generation: 441
+Evaluation time: 1.65371
+Reproduction time: 4.95474
+-----------------------------------------------------------
+Generation: 442
+Evaluation time: 1.65335
+Reproduction time: 4.00292
+-----------------------------------------------------------
+Generation: 443
+Evaluation time: 1.76151
+Reproduction time: 3.81869
+-----------------------------------------------------------
+Generation: 444
+Evaluation time: 1.73785
+Reproduction time: 5.72125
+-----------------------------------------------------------
+Generation: 445
+Evaluation time: 1.78377
+Reproduction time: 4.26011
+-----------------------------------------------------------
+Generation: 446
+Evaluation time: 1.69618
+Reproduction time: 4.48605
+-----------------------------------------------------------
+Generation: 447
+Evaluation time: 1.71644
+Reproduction time: 4.33323
+-----------------------------------------------------------
+Generation: 448
+Evaluation time: 1.76609
+Reproduction time: 4.43274
+-----------------------------------------------------------
+Generation: 449
+Evaluation time: 1.73781
+Reproduction time: 3.88556
+-----------------------------------------------------------
+Generation: 450
+Evaluation time: 1.76072
+Reproduction time: 3.70414
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.9033333333333333
+perfect_percent: 0.79
+best_size: 89
+allpass_min_size: 89
+perfect_min_size: 89
+dist_allpass_sizes:
+| 89.0  91.57 ±  0.68   93.0| n=542
+dist_perfect_sizes:
+| 89.0  91.61 ±  0.66   93.0| n=474
+sn_fitnesses:
+|144.0  5848.2 ± 718.21  6000.52| n=600
+tc_fitnesses:
+|122.0  152.23 ±  9.47  178.0| n=600
+-----------------------------------------------------------
+Generation: 451
+Evaluation time: 1.65109
+Reproduction time: 4.90845
+-----------------------------------------------------------
+Generation: 452
+Evaluation time: 1.80447
+Reproduction time: 4.00415
+-----------------------------------------------------------
+Generation: 453
+Evaluation time: 1.80924
+Reproduction time: 4.07993
+-----------------------------------------------------------
+Generation: 454
+Evaluation time: 1.75654
+Reproduction time: 5.51829
+-----------------------------------------------------------
+Generation: 455
+Evaluation time: 1.73845
+Reproduction time: 5.85843
+-----------------------------------------------------------
+Generation: 456
+Evaluation time: 1.67449
+Reproduction time: 5.26797
+-----------------------------------------------------------
+Generation: 457
+Evaluation time: 1.73862
+Reproduction time: 5.96864
+-----------------------------------------------------------
+Generation: 458
+Evaluation time: 1.68709
+Reproduction time: 4.11206
+-----------------------------------------------------------
+Generation: 459
+Evaluation time: 1.79
+Reproduction time: 3.97268
+-----------------------------------------------------------
+Generation: 460
+Evaluation time: 1.75853
+Reproduction time: 4.27235
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.88
+perfect_percent: 0.845
+best_size: 89
+allpass_min_size: 89
+perfect_min_size: 89
+dist_allpass_sizes:
+| 89.0  91.43 ±  0.68   93.0| n=528
+dist_perfect_sizes:
+| 89.0  91.43 ±  0.69   93.0| n=507
+sn_fitnesses:
+| 56.0  5828.3 ± 748.49  6000.52| n=600
+tc_fitnesses:
+|124.0  172.12 ± 10.52  200.0| n=600
+-----------------------------------------------------------
+Generation: 461
+Evaluation time: 1.60616
+Reproduction time: 5.76119
+-----------------------------------------------------------
+Generation: 462
+Evaluation time: 1.69179
+Reproduction time: 4.33523
+-----------------------------------------------------------
+Generation: 463
+Evaluation time: 1.74578
+Reproduction time: 4.32685
+-----------------------------------------------------------
+Generation: 464
+Evaluation time: 1.66741
+Reproduction time: 4.33214
+-----------------------------------------------------------
+Generation: 465
+Evaluation time: 1.73282
+Reproduction time: 4.72222
+-----------------------------------------------------------
+Generation: 466
+Evaluation time: 1.70901
+Reproduction time: 4.54388
+-----------------------------------------------------------
+Generation: 467
+Evaluation time: 1.72063
+Reproduction time: 5.53141
+-----------------------------------------------------------
+Generation: 468
+Evaluation time: 1.70455
+Reproduction time: 5.01963
+-----------------------------------------------------------
+Generation: 469
+Evaluation time: 1.75158
+Reproduction time: 5.14436
+-----------------------------------------------------------
+Generation: 470
+Evaluation time: 1.68587
+Reproduction time: 5.36867
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.9083333333333333
+perfect_percent: 0.8633333333333333
+best_size: 88
+allpass_min_size: 88
+perfect_min_size: 88
+dist_allpass_sizes:
+| 88.0  91.17 ±  0.72   93.0| n=545
+dist_perfect_sizes:
+| 88.0  91.17 ±  0.73   93.0| n=518
+sn_fitnesses:
+| 58.0  5909.17 ± 500.65  6000.53| n=600
+tc_fitnesses:
+| 67.0  91.26 ±  6.98  109.0| n=600
+-----------------------------------------------------------
+Generation: 471
+Evaluation time: 1.65022
+Reproduction time: 6.54095
+-----------------------------------------------------------
+Generation: 472
+Evaluation time: 1.73544
+Reproduction time: 5.56073
+-----------------------------------------------------------
+Generation: 473
+Evaluation time: 1.77916
+Reproduction time: 5.85011
+-----------------------------------------------------------
+Generation: 474
+Evaluation time: 1.6794
+Reproduction time: 5.89901
+-----------------------------------------------------------
+Generation: 475
+Evaluation time: 1.70811
+Reproduction time: 5.8996
+-----------------------------------------------------------
+Generation: 476
+Evaluation time: 1.673
+Reproduction time: 5.20165
+-----------------------------------------------------------
+Generation: 477
+Evaluation time: 1.76198
+Reproduction time: 5.26072
+-----------------------------------------------------------
+Generation: 478
+Evaluation time: 1.78994
+Reproduction time: 3.81629
+-----------------------------------------------------------
+Generation: 479
+Evaluation time: 1.75416
+Reproduction time: 5.49564
+-----------------------------------------------------------
+Generation: 480
+Evaluation time: 1.8224
+Reproduction time: 5.48363
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8933333333333333
+perfect_percent: 0.83
+best_size: 88
+allpass_min_size: 88
+perfect_min_size: 88
+dist_allpass_sizes:
+| 88.0  90.78 ±  0.58   92.0| n=536
+dist_perfect_sizes:
+| 88.0  90.78 ±  0.58   92.0| n=498
+sn_fitnesses:
+| 37.0  5866.04 ± 650.52  6000.53| n=600
+tc_fitnesses:
+|101.0  134.39 ± 13.44  174.0| n=600
+-----------------------------------------------------------
+Generation: 481
+Evaluation time: 1.73109
+Reproduction time: 4.66145
+-----------------------------------------------------------
+Generation: 482
+Evaluation time: 1.70275
+Reproduction time: 4.21874
+-----------------------------------------------------------
+Generation: 483
+Evaluation time: 1.74968
+Reproduction time: 4.38604
+-----------------------------------------------------------
+Generation: 484
+Evaluation time: 1.80866
+Reproduction time: 4.47403
+-----------------------------------------------------------
+Generation: 485
+Evaluation time: 1.77103
+Reproduction time: 4.26492
+-----------------------------------------------------------
+Generation: 486
+Evaluation time: 1.75669
+Reproduction time: 4.45598
+-----------------------------------------------------------
+Generation: 487
+Evaluation time: 1.77106
+Reproduction time: 4.56557
+-----------------------------------------------------------
+Generation: 488
+Evaluation time: 1.65748
+Reproduction time: 4.54522
+-----------------------------------------------------------
+Generation: 489
+Evaluation time: 1.79807
+Reproduction time: 5.08415
+-----------------------------------------------------------
+Generation: 490
+Evaluation time: 1.70473
+Reproduction time: 4.46793
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8966666666666666
+perfect_percent: 0.8433333333333334
+best_size: 88
+allpass_min_size: 88
+perfect_min_size: 88
+dist_allpass_sizes:
+| 88.0  90.62 ±  0.67   92.0| n=538
+dist_perfect_sizes:
+| 88.0  90.62 ±  0.67   92.0| n=506
+sn_fitnesses:
+| 72.0  5866.21 ± 633.41  6000.53| n=600
+tc_fitnesses:
+|107.0  134.23 ± 11.18  168.0| n=600
+-----------------------------------------------------------
+Generation: 491
+Evaluation time: 1.7314
+Reproduction time: 5.04674
+-----------------------------------------------------------
+Generation: 492
+Evaluation time: 1.62695
+Reproduction time: 5.6671
+-----------------------------------------------------------
+Generation: 493
+Evaluation time: 1.70035
+Reproduction time: 5.73987
+-----------------------------------------------------------
+Generation: 494
+Evaluation time: 1.73039
+Reproduction time: 6.05862
+-----------------------------------------------------------
+Generation: 495
+Evaluation time: 1.75052
+Reproduction time: 4.82507
+-----------------------------------------------------------
+Generation: 496
+Evaluation time: 1.70844
+Reproduction time: 3.86675
+-----------------------------------------------------------
+Generation: 497
+Evaluation time: 1.76225
+Reproduction time: 4.30176
+-----------------------------------------------------------
+Generation: 498
+Evaluation time: 1.70753
+Reproduction time: 5.74319
+-----------------------------------------------------------
+Generation: 499
+Evaluation time: 1.72509
+Reproduction time: 5.47465
+-----------------------------------------------------------
+Generation: 500
+Evaluation time: 1.7836
+Reproduction time: 5.08436
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8916666666666667
+perfect_percent: 0.8416666666666667
+best_size: 88
+allpass_min_size: 88
+perfect_min_size: 88
+dist_allpass_sizes:
+| 88.0   90.4 ±  0.77   92.0| n=535
+dist_perfect_sizes:
+| 88.0  90.43 ±  0.76   92.0| n=505
+sn_fitnesses:
+|1459.0  5895.35 ± 485.36  6000.53| n=600
+tc_fitnesses:
+| 77.0  105.09 ± 10.13  146.0| n=600
+-----------------------------------------------------------
+Generation: 501
+Evaluation time: 1.71548
+Reproduction time: 6.46668
+-----------------------------------------------------------
+Generation: 502
+Evaluation time: 1.75199
+Reproduction time: 4.0971
+-----------------------------------------------------------
+Generation: 503
+Evaluation time: 1.64582
+Reproduction time: 4.53657
+-----------------------------------------------------------
+Generation: 504
+Evaluation time: 1.76602
+Reproduction time: 6.21504
+-----------------------------------------------------------
+Generation: 505
+Evaluation time: 1.75836
+Reproduction time: 5.33003
+-----------------------------------------------------------
+Generation: 506
+Evaluation time: 1.78019
+Reproduction time: 5.87815
+-----------------------------------------------------------
+Generation: 507
+Evaluation time: 1.77948
+Reproduction time: 6.00917
+-----------------------------------------------------------
+Generation: 508
+Evaluation time: 1.70188
+Reproduction time: 6.08794
+-----------------------------------------------------------
+Generation: 509
+Evaluation time: 1.57921
+Reproduction time: 5.95634
+-----------------------------------------------------------
+Generation: 510
+Evaluation time: 1.70094
+Reproduction time: 5.36602
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.88
+perfect_percent: 0.8333333333333334
+best_size: 88
+allpass_min_size: 88
+perfect_min_size: 88
+dist_allpass_sizes:
+| 88.0   90.1 ±  0.76   92.0| n=528
+dist_perfect_sizes:
+| 88.0  90.12 ±  0.76   92.0| n=500
+sn_fitnesses:
+|112.0  5849.92 ± 679.89  6000.53| n=600
+tc_fitnesses:
+|115.0  150.52 ± 11.69  180.0| n=600
+-----------------------------------------------------------
+Generation: 511
+Evaluation time: 1.68533
+Reproduction time: 5.97217
+-----------------------------------------------------------
+Generation: 512
+Evaluation time: 1.66993
+Reproduction time: 5.75702
+-----------------------------------------------------------
+Generation: 513
+Evaluation time: 1.70687
+Reproduction time: 5.37212
+-----------------------------------------------------------
+Generation: 514
+Evaluation time: 1.70038
+Reproduction time: 6.87631
+-----------------------------------------------------------
+Generation: 515
+Evaluation time: 1.77986
+Reproduction time: 4.74334
+-----------------------------------------------------------
+Generation: 516
+Evaluation time: 1.65746
+Reproduction time: 6.01245
+-----------------------------------------------------------
+Generation: 517
+Evaluation time: 1.79266
+Reproduction time: 6.0338
+-----------------------------------------------------------
+Generation: 518
+Evaluation time: 1.74407
+Reproduction time: 5.31778
+-----------------------------------------------------------
+Generation: 519
+Evaluation time: 1.7269
+Reproduction time: 5.35499
+-----------------------------------------------------------
+Generation: 520
+Evaluation time: 1.55942
+Reproduction time: 4.20075
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8983333333333333
+perfect_percent: 0.8183333333333334
+best_size: 88
+allpass_min_size: 88
+perfect_min_size: 88
+dist_allpass_sizes:
+| 88.0  89.73 ±  0.59   91.0| n=539
+dist_perfect_sizes:
+| 88.0  89.74 ±  0.59   91.0| n=491
+sn_fitnesses:
+|513.0  5882.89 ± 550.21  6000.53| n=600
+tc_fitnesses:
+| 81.0  117.56 ± 10.84  150.0| n=600
+-----------------------------------------------------------
+Generation: 521
+Evaluation time: 1.66686
+Reproduction time: 6.25072
+-----------------------------------------------------------
+Generation: 522
+Evaluation time: 1.70861
+Reproduction time: 4.24646
+-----------------------------------------------------------
+Generation: 523
+Evaluation time: 1.71252
+Reproduction time: 5.46269
+-----------------------------------------------------------
+Generation: 524
+Evaluation time: 1.7327
+Reproduction time: 5.86611
+-----------------------------------------------------------
+Generation: 525
+Evaluation time: 1.70505
+Reproduction time: 5.90601
+-----------------------------------------------------------
+Generation: 526
+Evaluation time: 1.75893
+Reproduction time: 4.46728
+-----------------------------------------------------------
+Generation: 527
+Evaluation time: 1.72285
+Reproduction time: 4.69916
+-----------------------------------------------------------
+Generation: 528
+Evaluation time: 1.651
+Reproduction time: 5.86629
+-----------------------------------------------------------
+Generation: 529
+Evaluation time: 1.70246
+Reproduction time: 5.61292
+-----------------------------------------------------------
+Generation: 530
+Evaluation time: 1.71418
+Reproduction time: 4.64441
+----
+SortedMetric:
+best_percent: 0.999908447265625
+allpass_percent: 0.8883333333333333
+perfect_percent: 0.815
+best_size: 87
+allpass_min_size: 87
+perfect_min_size: 87
+dist_allpass_sizes:
+| 87.0  89.55 ±  0.68   91.0| n=533
+dist_perfect_sizes:
+| 87.0  89.59 ±  0.66   91.0| n=489
+sn_fitnesses:
+|193.0  5856.85 ± 647.32  6000.55| n=600
+tc_fitnesses:
+|112.0  143.6 ±  9.76  167.0| n=600
+-----------------------------------------------------------
+Generation: 531
+Evaluation time: 1.69883
+Reproduction time: 4.6992
+-----------------------------------------------------------
+Generation: 532
+Evaluation time: 1.76314
+Reproduction time: 4.24591
+-----------------------------------------------------------
+Generation: 533
+Evaluation time: 1.78352
+Reproduction time: 5.44745
+-----------------------------------------------------------
+Generation: 534
+Evaluation time: 1.71436
+Reproduction time: 4.10089
+-----------------------------------------------------------
+Generation: 535
+Evaluation time: 1.78115
+Reproduction time: 4.35655
+-----------------------------------------------------------
+Generation: 536
+Evaluation time: 1.74296
+Reproduction time: 4.42463
+-----------------------------------------------------------
+Generation: 537
+Evaluation time: 1.63868
+Reproduction time: 4.42992
+-----------------------------------------------------------
+Generation: 538
+Evaluation time: 1.6517
+Reproduction time: 4.13409
+-----------------------------------------------------------
+Generation: 539
+Evaluation time: 1.63505
+Reproduction time: 4.84237
+-----------------------------------------------------------
+Generation: 540
+Evaluation time: 1.61727
+Reproduction time: 6.08778
+----
+SortedMetric:
+best_percent: 0.999908447265625
+allpass_percent: 0.8833333333333333
+perfect_percent: 0.8183333333333334
+best_size: 87
+allpass_min_size: 87
+perfect_min_size: 87
+dist_allpass_sizes:
+| 87.0   89.3 ±  0.69   91.0| n=530
+dist_perfect_sizes:
+| 87.0  89.34 ±  0.68   91.0| n=491
+sn_fitnesses:
+|341.0  5865.71 ± 600.18  6000.55| n=600
+tc_fitnesses:
+| 94.0  134.74 ± 10.49  167.0| n=600
+-----------------------------------------------------------
+Generation: 541
+Evaluation time: 1.6418
+Reproduction time: 4.95255
+-----------------------------------------------------------
+Generation: 542
+Evaluation time: 1.72339
+Reproduction time: 4.66419
+-----------------------------------------------------------
+Generation: 543
+Evaluation time: 1.75645
+Reproduction time: 6.15283
+-----------------------------------------------------------
+Generation: 544
+Evaluation time: 1.70892
+Reproduction time: 4.67549
+-----------------------------------------------------------
+Generation: 545
+Evaluation time: 1.68245
+Reproduction time: 4.31317
+-----------------------------------------------------------
+Generation: 546
+Evaluation time: 1.74076
+Reproduction time: 4.90364
+-----------------------------------------------------------
+Generation: 547
+Evaluation time: 1.74053
+Reproduction time: 4.22527
+-----------------------------------------------------------
+Generation: 548
+Evaluation time: 1.74404
+Reproduction time: 4.39384
+-----------------------------------------------------------
+Generation: 549
+Evaluation time: 1.64689
+Reproduction time: 4.559
+-----------------------------------------------------------
+Generation: 550
+Evaluation time: 1.55631
+Reproduction time: 4.40296
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.87
+perfect_percent: 0.8316666666666667
+best_size: 87
+allpass_min_size: 87
+perfect_min_size: 87
+dist_allpass_sizes:
+| 87.0  89.07 ±  0.66   91.0| n=522
+dist_perfect_sizes:
+| 87.0  89.08 ±  0.67   91.0| n=499
+sn_fitnesses:
+|164.0  5860.07 ± 624.9  6000.55| n=600
+tc_fitnesses:
+| 95.0  140.38 ± 15.84  177.0| n=600
+-----------------------------------------------------------
+Generation: 551
+Evaluation time: 1.70687
+Reproduction time: 4.66933
+-----------------------------------------------------------
+Generation: 552
+Evaluation time: 1.67328
+Reproduction time: 3.96033
+-----------------------------------------------------------
+Generation: 553
+Evaluation time: 1.68481
+Reproduction time: 4.20795
+-----------------------------------------------------------
+Generation: 554
+Evaluation time: 1.6104
+Reproduction time: 4.2269
+-----------------------------------------------------------
+Generation: 555
+Evaluation time: 1.66179
+Reproduction time: 6.08736
+-----------------------------------------------------------
+Generation: 556
+Evaluation time: 1.6433
+Reproduction time: 6.00306
+-----------------------------------------------------------
+Generation: 557
+Evaluation time: 1.62443
+Reproduction time: 4.39772
+-----------------------------------------------------------
+Generation: 558
+Evaluation time: 1.63006
+Reproduction time: 4.45962
+-----------------------------------------------------------
+Generation: 559
+Evaluation time: 1.7385
+Reproduction time: 4.75782
+-----------------------------------------------------------
+Generation: 560
+Evaluation time: 1.63289
+Reproduction time: 5.52165
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8616666666666667
+perfect_percent: 0.8133333333333334
+best_size: 86
+allpass_min_size: 86
+perfect_min_size: 86
+dist_allpass_sizes:
+| 86.0  88.77 ±  0.53   90.0| n=517
+dist_perfect_sizes:
+| 86.0  88.77 ±  0.53   90.0| n=488
+sn_fitnesses:
+|337.0  5876.4 ± 599.49  6000.57| n=600
+tc_fitnesses:
+| 97.0  124.05 ±  8.42  151.0| n=600
+-----------------------------------------------------------
+Generation: 561
+Evaluation time: 1.72277
+Reproduction time: 4.58882
+-----------------------------------------------------------
+Generation: 562
+Evaluation time: 1.71711
+Reproduction time: 5.61201
+-----------------------------------------------------------
+Generation: 563
+Evaluation time: 1.72821
+Reproduction time: 5.99398
+-----------------------------------------------------------
+Generation: 564
+Evaluation time: 1.71712
+Reproduction time: 3.96188
+-----------------------------------------------------------
+Generation: 565
+Evaluation time: 1.57914
+Reproduction time: 5.67098
+-----------------------------------------------------------
+Generation: 566
+Evaluation time: 1.61903
+Reproduction time: 4.3036
+-----------------------------------------------------------
+Generation: 567
+Evaluation time: 1.65093
+Reproduction time: 4.46609
+-----------------------------------------------------------
+Generation: 568
+Evaluation time: 1.64262
+Reproduction time: 5.02494
+-----------------------------------------------------------
+Generation: 569
+Evaluation time: 1.72194
+Reproduction time: 4.62296
+-----------------------------------------------------------
+Generation: 570
+Evaluation time: 1.65931
+Reproduction time: 4.10484
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.9116666666666666
+perfect_percent: 0.86
+best_size: 86
+allpass_min_size: 86
+perfect_min_size: 86
+dist_allpass_sizes:
+| 86.0  88.68 ±  0.64   90.0| n=547
+dist_perfect_sizes:
+| 86.0   88.7 ±  0.62   90.0| n=516
+sn_fitnesses:
+|267.0  5890.82 ± 592.43  6000.57| n=600
+tc_fitnesses:
+| 79.0  109.66 ±  11.3  139.0| n=600
+-----------------------------------------------------------
+Generation: 571
+Evaluation time: 1.71641
+Reproduction time: 5.52605
+-----------------------------------------------------------
+Generation: 572
+Evaluation time: 1.68377
+Reproduction time: 3.97815
+-----------------------------------------------------------
+Generation: 573
+Evaluation time: 1.68176
+Reproduction time: 6.09918
+-----------------------------------------------------------
+Generation: 574
+Evaluation time: 1.78215
+Reproduction time: 4.15415
+-----------------------------------------------------------
+Generation: 575
+Evaluation time: 1.67836
+Reproduction time: 4.54396
+-----------------------------------------------------------
+Generation: 576
+Evaluation time: 1.74799
+Reproduction time: 4.30119
+-----------------------------------------------------------
+Generation: 577
+Evaluation time: 1.73194
+Reproduction time: 4.27074
+-----------------------------------------------------------
+Generation: 578
+Evaluation time: 1.67882
+Reproduction time: 5.47618
+-----------------------------------------------------------
+Generation: 579
+Evaluation time: 1.59707
+Reproduction time: 5.11831
+-----------------------------------------------------------
+Generation: 580
+Evaluation time: 1.6322
+Reproduction time: 5.36535
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8883333333333333
+perfect_percent: 0.83
+best_size: 86
+allpass_min_size: 86
+perfect_min_size: 86
+dist_allpass_sizes:
+| 86.0  88.53 ±  0.66   90.0| n=533
+dist_perfect_sizes:
+| 86.0  88.55 ±  0.65   90.0| n=498
+sn_fitnesses:
+|1026.0  5872.34 ± 586.85  6000.57| n=600
+tc_fitnesses:
+|102.0  128.12 ± 10.39  155.0| n=600
+-----------------------------------------------------------
+Generation: 581
+Evaluation time: 1.6642
+Reproduction time: 5.8088
+-----------------------------------------------------------
+Generation: 582
+Evaluation time: 1.73939
+Reproduction time: 5.14875
+-----------------------------------------------------------
+Generation: 583
+Evaluation time: 1.74622
+Reproduction time: 5.8131
+-----------------------------------------------------------
+Generation: 584
+Evaluation time: 1.6981
+Reproduction time: 5.32611
+-----------------------------------------------------------
+Generation: 585
+Evaluation time: 1.73859
+Reproduction time: 4.21333
+-----------------------------------------------------------
+Generation: 586
+Evaluation time: 1.72687
+Reproduction time: 5.59467
+-----------------------------------------------------------
+Generation: 587
+Evaluation time: 1.68697
+Reproduction time: 4.39408
+-----------------------------------------------------------
+Generation: 588
+Evaluation time: 1.67995
+Reproduction time: 3.8569
+-----------------------------------------------------------
+Generation: 589
+Evaluation time: 1.64073
+Reproduction time: 5.59024
+-----------------------------------------------------------
+Generation: 590
+Evaluation time: 1.67569
+Reproduction time: 4.35303
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8916666666666667
+perfect_percent: 0.8666666666666667
+best_size: 86
+allpass_min_size: 86
+perfect_min_size: 86
+dist_allpass_sizes:
+| 86.0  88.41 ±  0.67   90.0| n=535
+dist_perfect_sizes:
+| 86.0  88.42 ±  0.67   90.0| n=520
+sn_fitnesses:
+| 90.0  5866.73 ± 643.23  6000.57| n=600
+tc_fitnesses:
+|102.0  133.74 ±  9.95  161.0| n=600
+-----------------------------------------------------------
+Generation: 591
+Evaluation time: 1.64386
+Reproduction time: 4.98049
+-----------------------------------------------------------
+Generation: 592
+Evaluation time: 1.72362
+Reproduction time: 4.17348
+-----------------------------------------------------------
+Generation: 593
+Evaluation time: 1.69087
+Reproduction time: 5.49774
+-----------------------------------------------------------
+Generation: 594
+Evaluation time: 1.6504
+Reproduction time: 4.49359
+-----------------------------------------------------------
+Generation: 595
+Evaluation time: 1.67319
+Reproduction time: 5.98145
+-----------------------------------------------------------
+Generation: 596
+Evaluation time: 1.71936
+Reproduction time: 4.78091
+-----------------------------------------------------------
+Generation: 597
+Evaluation time: 1.61843
+Reproduction time: 4.6516
+-----------------------------------------------------------
+Generation: 598
+Evaluation time: 1.67621
+Reproduction time: 4.37219
+-----------------------------------------------------------
+Generation: 599
+Evaluation time: 1.69825
+Reproduction time: 4.2771
+-----------------------------------------------------------
+Generation: 600
+Evaluation time: 1.67494
+Reproduction time: 3.91522
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.9
+perfect_percent: 0.8666666666666667
+best_size: 86
+allpass_min_size: 86
+perfect_min_size: 86
+dist_allpass_sizes:
+| 86.0  88.17 ±  0.64   90.0| n=540
+dist_perfect_sizes:
+| 86.0  88.18 ±  0.64   90.0| n=520
+sn_fitnesses:
+|289.0  5872.99 ± 608.03  6000.57| n=600
+tc_fitnesses:
+|105.0  127.48 ±  8.73  158.0| n=600
+-----------------------------------------------------------
+Generation: 601
+Evaluation time: 1.66236
+Reproduction time: 6.62434
+-----------------------------------------------------------
+Generation: 602
+Evaluation time: 1.74953
+Reproduction time: 4.16032
+-----------------------------------------------------------
+Generation: 603
+Evaluation time: 1.70299
+Reproduction time: 4.42795
+-----------------------------------------------------------
+Generation: 604
+Evaluation time: 1.72291
+Reproduction time: 4.21727
+-----------------------------------------------------------
+Generation: 605
+Evaluation time: 1.66574
+Reproduction time: 5.97904
+-----------------------------------------------------------
+Generation: 606
+Evaluation time: 1.76866
+Reproduction time: 4.30239
+-----------------------------------------------------------
+Generation: 607
+Evaluation time: 1.73639
+Reproduction time: 4.29862
+-----------------------------------------------------------
+Generation: 608
+Evaluation time: 1.72926
+Reproduction time: 5.6577
+-----------------------------------------------------------
+Generation: 609
+Evaluation time: 1.71661
+Reproduction time: 5.33324
+-----------------------------------------------------------
+Generation: 610
+Evaluation time: 1.57312
+Reproduction time: 5.68263
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8916666666666667
+perfect_percent: 0.8433333333333334
+best_size: 86
+allpass_min_size: 86
+perfect_min_size: 86
+dist_allpass_sizes:
+| 86.0  87.87 ±  0.47   89.0| n=535
+dist_perfect_sizes:
+| 86.0  87.87 ±  0.47   89.0| n=506
+sn_fitnesses:
+| 85.0  5843.45 ± 719.62  6000.57| n=600
+tc_fitnesses:
+|127.0  157.03 ±  9.64  184.0| n=600
+-----------------------------------------------------------
+Generation: 611
+Evaluation time: 1.6071
+Reproduction time: 4.8752
+-----------------------------------------------------------
+Generation: 612
+Evaluation time: 1.74506
+Reproduction time: 3.89332
+-----------------------------------------------------------
+Generation: 613
+Evaluation time: 1.78651
+Reproduction time: 5.64356
+-----------------------------------------------------------
+Generation: 614
+Evaluation time: 1.72351
+Reproduction time: 4.36464
+-----------------------------------------------------------
+Generation: 615
+Evaluation time: 1.66029
+Reproduction time: 4.40841
+-----------------------------------------------------------
+Generation: 616
+Evaluation time: 1.69572
+Reproduction time: 4.43816
+-----------------------------------------------------------
+Generation: 617
+Evaluation time: 1.6812
+Reproduction time: 5.46656
+-----------------------------------------------------------
+Generation: 618
+Evaluation time: 1.71933
+Reproduction time: 5.26593
+-----------------------------------------------------------
+Generation: 619
+Evaluation time: 1.67435
+Reproduction time: 4.21911
+-----------------------------------------------------------
+Generation: 620
+Evaluation time: 1.663
+Reproduction time: 5.94248
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.89
+perfect_percent: 0.8516666666666667
+best_size: 86
+allpass_min_size: 86
+perfect_min_size: 86
+dist_allpass_sizes:
+| 86.0  87.74 ±  0.56   89.0| n=534
+dist_perfect_sizes:
+| 86.0  87.76 ±  0.55   89.0| n=511
+sn_fitnesses:
+|337.0  5870.17 ± 608.48  6000.57| n=600
+tc_fitnesses:
+|104.0  130.31 ±  9.41  154.0| n=600
+-----------------------------------------------------------
+Generation: 621
+Evaluation time: 1.62178
+Reproduction time: 5.2085
+-----------------------------------------------------------
+Generation: 622
+Evaluation time: 1.57944
+Reproduction time: 4.45989
+-----------------------------------------------------------
+Generation: 623
+Evaluation time: 1.73706
+Reproduction time: 4.47817
+-----------------------------------------------------------
+Generation: 624
+Evaluation time: 1.68297
+Reproduction time: 4.09658
+-----------------------------------------------------------
+Generation: 625
+Evaluation time: 1.74059
+Reproduction time: 4.17428
+-----------------------------------------------------------
+Generation: 626
+Evaluation time: 1.62644
+Reproduction time: 4.27348
+-----------------------------------------------------------
+Generation: 627
+Evaluation time: 1.73348
+Reproduction time: 3.96131
+-----------------------------------------------------------
+Generation: 628
+Evaluation time: 1.65762
+Reproduction time: 3.96722
+-----------------------------------------------------------
+Generation: 629
+Evaluation time: 1.63316
+Reproduction time: 5.31538
+-----------------------------------------------------------
+Generation: 630
+Evaluation time: 1.63252
+Reproduction time: 5.96451
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.875
+perfect_percent: 0.8616666666666667
+best_size: 85
+allpass_min_size: 85
+perfect_min_size: 85
+dist_allpass_sizes:
+| 85.0  87.66 ±  0.59   89.0| n=525
+dist_perfect_sizes:
+| 85.0  87.67 ±  0.59   89.0| n=517
+sn_fitnesses:
+| 57.0  5806.95 ± 799.63  6000.58| n=600
+tc_fitnesses:
+|139.0  193.52 ± 12.49  228.0| n=600
+-----------------------------------------------------------
+Generation: 631
+Evaluation time: 1.681
+Reproduction time: 4.45686
+-----------------------------------------------------------
+Generation: 632
+Evaluation time: 1.63563
+Reproduction time: 3.58061
+-----------------------------------------------------------
+Generation: 633
+Evaluation time: 1.67476
+Reproduction time: 5.52831
+-----------------------------------------------------------
+Generation: 634
+Evaluation time: 1.72797
+Reproduction time: 5.91008
+-----------------------------------------------------------
+Generation: 635
+Evaluation time: 1.67741
+Reproduction time: 4.24925
+-----------------------------------------------------------
+Generation: 636
+Evaluation time: 1.61189
+Reproduction time: 4.01369
+-----------------------------------------------------------
+Generation: 637
+Evaluation time: 1.69758
+Reproduction time: 4.32845
+-----------------------------------------------------------
+Generation: 638
+Evaluation time: 1.59598
+Reproduction time: 4.04423
+-----------------------------------------------------------
+Generation: 639
+Evaluation time: 1.54483
+Reproduction time: 4.38734
+-----------------------------------------------------------
+Generation: 640
+Evaluation time: 1.63643
+Reproduction time: 4.70766
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8783333333333333
+perfect_percent: 0.8666666666666667
+best_size: 85
+allpass_min_size: 85
+perfect_min_size: 85
+dist_allpass_sizes:
+| 85.0  87.57 ±  0.62   89.0| n=527
+dist_perfect_sizes:
+| 85.0  87.58 ±  0.63   89.0| n=520
+sn_fitnesses:
+|186.0  5826.72 ± 721.28  6000.58| n=600
+tc_fitnesses:
+|115.0  173.75 ±  12.8  205.0| n=600
+-----------------------------------------------------------
+Generation: 641
+Evaluation time: 1.67469
+Reproduction time: 4.57722
+-----------------------------------------------------------
+Generation: 642
+Evaluation time: 1.71998
+Reproduction time: 3.72855
+-----------------------------------------------------------
+Generation: 643
+Evaluation time: 1.7477
+Reproduction time: 4.23266
+-----------------------------------------------------------
+Generation: 644
+Evaluation time: 1.69439
+Reproduction time: 6.2271
+-----------------------------------------------------------
+Generation: 645
+Evaluation time: 1.68045
+Reproduction time: 5.29443
+-----------------------------------------------------------
+Generation: 646
+Evaluation time: 1.67817
+Reproduction time: 5.51962
+-----------------------------------------------------------
+Generation: 647
+Evaluation time: 1.73662
+Reproduction time: 5.65478
+-----------------------------------------------------------
+Generation: 648
+Evaluation time: 1.62789
+Reproduction time: 5.50751
+-----------------------------------------------------------
+Generation: 649
+Evaluation time: 1.5789
+Reproduction time: 5.70705
+-----------------------------------------------------------
+Generation: 650
+Evaluation time: 1.63852
+Reproduction time: 4.72526
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8916666666666667
+perfect_percent: 0.865
+best_size: 85
+allpass_min_size: 85
+perfect_min_size: 85
+dist_allpass_sizes:
+| 85.0  87.43 ±  0.66   89.0| n=535
+dist_perfect_sizes:
+| 85.0  87.44 ±  0.65   89.0| n=519
+sn_fitnesses:
+| 54.0  5862.88 ± 633.64  6000.58| n=600
+tc_fitnesses:
+|106.0  137.61 ± 10.73  167.0| n=600
+-----------------------------------------------------------
+Generation: 651
+Evaluation time: 1.68905
+Reproduction time: 4.81271
+-----------------------------------------------------------
+Generation: 652
+Evaluation time: 1.7047
+Reproduction time: 3.91467
+-----------------------------------------------------------
+Generation: 653
+Evaluation time: 1.78173
+Reproduction time: 3.94621
+-----------------------------------------------------------
+Generation: 654
+Evaluation time: 1.68963
+Reproduction time: 4.67572
+-----------------------------------------------------------
+Generation: 655
+Evaluation time: 1.63912
+Reproduction time: 5.73212
+-----------------------------------------------------------
+Generation: 656
+Evaluation time: 1.65339
+Reproduction time: 5.61321
+-----------------------------------------------------------
+Generation: 657
+Evaluation time: 1.63448
+Reproduction time: 6.16269
+-----------------------------------------------------------
+Generation: 658
+Evaluation time: 1.63723
+Reproduction time: 5.86796
+-----------------------------------------------------------
+Generation: 659
+Evaluation time: 1.7101
+Reproduction time: 4.12141
+-----------------------------------------------------------
+Generation: 660
+Evaluation time: 1.66655
+Reproduction time: 4.5942
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.875
+perfect_percent: 0.8516666666666667
+best_size: 85
+allpass_min_size: 85
+perfect_min_size: 85
+dist_allpass_sizes:
+| 85.0  87.25 ±  0.66   89.0| n=525
+dist_perfect_sizes:
+| 85.0  87.25 ±  0.66   89.0| n=511
+sn_fitnesses:
+| 61.0  5810.69 ± 820.14  6000.58| n=600
+tc_fitnesses:
+|147.0  189.79 ± 10.14  217.0| n=600
+-----------------------------------------------------------
+Generation: 661
+Evaluation time: 1.70715
+Reproduction time: 5.73567
+-----------------------------------------------------------
+Generation: 662
+Evaluation time: 1.60424
+Reproduction time: 4.14061
+-----------------------------------------------------------
+Generation: 663
+Evaluation time: 1.68286
+Reproduction time: 4.18451
+-----------------------------------------------------------
+Generation: 664
+Evaluation time: 1.63711
+Reproduction time: 5.08862
+-----------------------------------------------------------
+Generation: 665
+Evaluation time: 1.63715
+Reproduction time: 4.69441
+-----------------------------------------------------------
+Generation: 666
+Evaluation time: 1.65519
+Reproduction time: 4.56978
+-----------------------------------------------------------
+Generation: 667
+Evaluation time: 1.63346
+Reproduction time: 4.75995
+-----------------------------------------------------------
+Generation: 668
+Evaluation time: 1.62947
+Reproduction time: 5.54467
+-----------------------------------------------------------
+Generation: 669
+Evaluation time: 1.71094
+Reproduction time: 5.71894
+-----------------------------------------------------------
+Generation: 670
+Evaluation time: 1.64202
+Reproduction time: 5.38222
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8783333333333333
+perfect_percent: 0.8333333333333334
+best_size: 85
+allpass_min_size: 85
+perfect_min_size: 85
+dist_allpass_sizes:
+| 85.0  87.01 ±  0.58   89.0| n=527
+dist_perfect_sizes:
+| 85.0  87.02 ±  0.57   89.0| n=500
+sn_fitnesses:
+|414.0  5845.99 ± 667.09  6000.58| n=600
+tc_fitnesses:
+|124.0  154.49 ±  8.83  183.0| n=600
+-----------------------------------------------------------
+Generation: 671
+Evaluation time: 1.60665
+Reproduction time: 5.81993
+-----------------------------------------------------------
+Generation: 672
+Evaluation time: 1.77292
+Reproduction time: 3.61875
+-----------------------------------------------------------
+Generation: 673
+Evaluation time: 1.69089
+Reproduction time: 5.87817
+-----------------------------------------------------------
+Generation: 674
+Evaluation time: 1.70289
+Reproduction time: 3.89595
+-----------------------------------------------------------
+Generation: 675
+Evaluation time: 1.73637
+Reproduction time: 3.95195
+-----------------------------------------------------------
+Generation: 676
+Evaluation time: 1.72484
+Reproduction time: 3.75353
+-----------------------------------------------------------
+Generation: 677
+Evaluation time: 1.68395
+Reproduction time: 5.77851
+-----------------------------------------------------------
+Generation: 678
+Evaluation time: 1.72559
+Reproduction time: 4.28742
+-----------------------------------------------------------
+Generation: 679
+Evaluation time: 1.7217
+Reproduction time: 5.1644
+-----------------------------------------------------------
+Generation: 680
+Evaluation time: 1.71922
+Reproduction time: 4.0662
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8966666666666666
+perfect_percent: 0.84
+best_size: 85
+allpass_min_size: 85
+perfect_min_size: 85
+dist_allpass_sizes:
+| 85.0  86.84 ±  0.49   88.0| n=538
+dist_perfect_sizes:
+| 85.0  86.87 ±  0.46   88.0| n=504
+sn_fitnesses:
+|163.0  5850.73 ± 704.31  6000.58| n=600
+tc_fitnesses:
+|123.0  149.76 ±  8.88  176.0| n=600
+-----------------------------------------------------------
+Generation: 681
+Evaluation time: 1.60281
+Reproduction time: 6.03479
+-----------------------------------------------------------
+Generation: 682
+Evaluation time: 1.59113
+Reproduction time: 5.68634
+-----------------------------------------------------------
+Generation: 683
+Evaluation time: 1.68372
+Reproduction time: 5.38433
+-----------------------------------------------------------
+Generation: 684
+Evaluation time: 1.66644
+Reproduction time: 4.17726
+-----------------------------------------------------------
+Generation: 685
+Evaluation time: 1.74958
+Reproduction time: 3.97361
+-----------------------------------------------------------
+Generation: 686
+Evaluation time: 1.71194
+Reproduction time: 5.39357
+-----------------------------------------------------------
+Generation: 687
+Evaluation time: 1.7092
+Reproduction time: 4.14932
+-----------------------------------------------------------
+Generation: 688
+Evaluation time: 1.69577
+Reproduction time: 4.03734
+-----------------------------------------------------------
+Generation: 689
+Evaluation time: 1.62912
+Reproduction time: 4.20877
+-----------------------------------------------------------
+Generation: 690
+Evaluation time: 1.78035
+Reproduction time: 4.05671
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8966666666666666
+perfect_percent: 0.8566666666666667
+best_size: 85
+allpass_min_size: 85
+perfect_min_size: 85
+dist_allpass_sizes:
+| 85.0  86.77 ±  0.54   88.0| n=538
+dist_perfect_sizes:
+| 85.0  86.79 ±  0.52   88.0| n=514
+sn_fitnesses:
+| 21.0  5858.37 ± 721.25  6000.58| n=600
+tc_fitnesses:
+|119.0  142.12 ±  8.26  166.0| n=600
+-----------------------------------------------------------
+Generation: 691
+Evaluation time: 1.60579
+Reproduction time: 4.86353
+-----------------------------------------------------------
+Generation: 692
+Evaluation time: 1.6083
+Reproduction time: 5.72777
+-----------------------------------------------------------
+Generation: 693
+Evaluation time: 1.68488
+Reproduction time: 4.23597
+-----------------------------------------------------------
+Generation: 694
+Evaluation time: 1.74741
+Reproduction time: 4.15846
+-----------------------------------------------------------
+Generation: 695
+Evaluation time: 1.77138
+Reproduction time: 4.25104
+-----------------------------------------------------------
+Generation: 696
+Evaluation time: 1.65921
+Reproduction time: 6.16489
+-----------------------------------------------------------
+Generation: 697
+Evaluation time: 1.65035
+Reproduction time: 4.60806
+-----------------------------------------------------------
+Generation: 698
+Evaluation time: 1.64664
+Reproduction time: 4.77398
+-----------------------------------------------------------
+Generation: 699
+Evaluation time: 1.66938
+Reproduction time: 5.73095
+-----------------------------------------------------------
+Generation: 700
+Evaluation time: 1.75282
+Reproduction time: 5.70765
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8833333333333333
+perfect_percent: 0.835
+best_size: 85
+allpass_min_size: 85
+perfect_min_size: 85
+dist_allpass_sizes:
+| 85.0  86.67 ±   0.6   88.0| n=530
+dist_perfect_sizes:
+| 85.0  86.71 ±  0.58   88.0| n=501
+sn_fitnesses:
+| 48.0  5814.74 ± 791.59  6000.58| n=600
+tc_fitnesses:
+|145.0  185.75 ± 10.09  209.0| n=600
+-----------------------------------------------------------
+Generation: 701
+Evaluation time: 1.58804
+Reproduction time: 4.48382
+-----------------------------------------------------------
+Generation: 702
+Evaluation time: 1.5619
+Reproduction time: 4.11461
+-----------------------------------------------------------
+Generation: 703
+Evaluation time: 1.70858
+Reproduction time: 5.48669
+-----------------------------------------------------------
+Generation: 704
+Evaluation time: 1.75899
+Reproduction time: 4.42363
+-----------------------------------------------------------
+Generation: 705
+Evaluation time: 1.71121
+Reproduction time: 3.95597
+-----------------------------------------------------------
+Generation: 706
+Evaluation time: 1.66483
+Reproduction time: 4.30784
+-----------------------------------------------------------
+Generation: 707
+Evaluation time: 1.68128
+Reproduction time: 4.31711
+-----------------------------------------------------------
+Generation: 708
+Evaluation time: 1.63558
+Reproduction time: 5.49073
+-----------------------------------------------------------
+Generation: 709
+Evaluation time: 1.73163
+Reproduction time: 4.11419
+-----------------------------------------------------------
+Generation: 710
+Evaluation time: 1.72248
+Reproduction time: 4.12417
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8816666666666667
+perfect_percent: 0.81
+best_size: 84
+allpass_min_size: 84
+perfect_min_size: 84
+dist_allpass_sizes:
+| 84.0  86.55 ±  0.63   88.0| n=529
+dist_perfect_sizes:
+| 84.0  86.61 ±  0.62   88.0| n=486
+sn_fitnesses:
+|423.0  5830.16 ± 676.02  6000.6| n=600
+tc_fitnesses:
+|124.0  170.33 ± 12.55  198.0| n=600
+-----------------------------------------------------------
+Generation: 711
+Evaluation time: 1.67996
+Reproduction time: 4.57116
+-----------------------------------------------------------
+Generation: 712
+Evaluation time: 1.63975
+Reproduction time: 4.3484
+-----------------------------------------------------------
+Generation: 713
+Evaluation time: 1.70112
+Reproduction time: 5.90998
+-----------------------------------------------------------
+Generation: 714
+Evaluation time: 1.75003
+Reproduction time: 6.071
+-----------------------------------------------------------
+Generation: 715
+Evaluation time: 1.68961
+Reproduction time: 6.05381
+-----------------------------------------------------------
+Generation: 716
+Evaluation time: 1.71171
+Reproduction time: 4.08987
+-----------------------------------------------------------
+Generation: 717
+Evaluation time: 1.67821
+Reproduction time: 4.53999
+-----------------------------------------------------------
+Generation: 718
+Evaluation time: 1.68683
+Reproduction time: 4.00718
+-----------------------------------------------------------
+Generation: 719
+Evaluation time: 1.71259
+Reproduction time: 3.83857
+-----------------------------------------------------------
+Generation: 720
+Evaluation time: 1.71996
+Reproduction time: 4.32922
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8883333333333333
+perfect_percent: 0.8166666666666667
+best_size: 84
+allpass_min_size: 84
+perfect_min_size: 84
+dist_allpass_sizes:
+| 84.0  86.42 ±  0.65   88.0| n=533
+dist_perfect_sizes:
+| 84.0  86.47 ±  0.65   88.0| n=490
+sn_fitnesses:
+|283.0  5829.13 ± 692.22  6000.6| n=600
+tc_fitnesses:
+|121.0  171.37 ± 15.78  215.0| n=600
+-----------------------------------------------------------
+Generation: 721
+Evaluation time: 1.72949
+Reproduction time: 4.96677
+-----------------------------------------------------------
+Generation: 722
+Evaluation time: 1.78233
+Reproduction time: 4.263
+-----------------------------------------------------------
+Generation: 723
+Evaluation time: 1.69236
+Reproduction time: 5.09267
+-----------------------------------------------------------
+Generation: 724
+Evaluation time: 1.74851
+Reproduction time: 4.52181
+-----------------------------------------------------------
+Generation: 725
+Evaluation time: 1.75441
+Reproduction time: 4.14178
+-----------------------------------------------------------
+Generation: 726
+Evaluation time: 1.70709
+Reproduction time: 4.01441
+-----------------------------------------------------------
+Generation: 727
+Evaluation time: 1.7231
+Reproduction time: 4.20563
+-----------------------------------------------------------
+Generation: 728
+Evaluation time: 1.66921
+Reproduction time: 4.29416
+-----------------------------------------------------------
+Generation: 729
+Evaluation time: 1.70196
+Reproduction time: 5.7945
+-----------------------------------------------------------
+Generation: 730
+Evaluation time: 1.71096
+Reproduction time: 4.38521
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8933333333333333
+perfect_percent: 0.8133333333333334
+best_size: 84
+allpass_min_size: 84
+perfect_min_size: 84
+dist_allpass_sizes:
+| 84.0  86.26 ±  0.66   88.0| n=536
+dist_perfect_sizes:
+| 84.0   86.3 ±  0.67   88.0| n=488
+sn_fitnesses:
+| 15.0  5850.34 ± 687.41  6000.6| n=600
+tc_fitnesses:
+|117.0  150.16 ±  12.1  178.0| n=600
+-----------------------------------------------------------
+Generation: 731
+Evaluation time: 1.59487
+Reproduction time: 4.9745
+-----------------------------------------------------------
+Generation: 732
+Evaluation time: 1.62784
+Reproduction time: 4.22678
+-----------------------------------------------------------
+Generation: 733
+Evaluation time: 1.72991
+Reproduction time: 4.41573
+-----------------------------------------------------------
+Generation: 734
+Evaluation time: 1.74752
+Reproduction time: 4.01495
+-----------------------------------------------------------
+Generation: 735
+Evaluation time: 1.66213
+Reproduction time: 4.24795
+-----------------------------------------------------------
+Generation: 736
+Evaluation time: 1.69192
+Reproduction time: 5.71324
+-----------------------------------------------------------
+Generation: 737
+Evaluation time: 1.74839
+Reproduction time: 4.25333
+-----------------------------------------------------------
+Generation: 738
+Evaluation time: 1.68381
+Reproduction time: 4.08067
+-----------------------------------------------------------
+Generation: 739
+Evaluation time: 1.76498
+Reproduction time: 4.34343
+-----------------------------------------------------------
+Generation: 740
+Evaluation time: 1.66269
+Reproduction time: 5.43585
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8066666666666666
+perfect_percent: 0.785
+best_size: 84
+allpass_min_size: 84
+perfect_min_size: 84
+dist_allpass_sizes:
+| 84.0  86.05 ±  0.58   88.0| n=484
+dist_perfect_sizes:
+| 84.0  86.06 ±  0.58   88.0| n=471
+sn_fitnesses:
+|295.0  5865.88 ± 626.48  6000.6| n=600
+tc_fitnesses:
+|110.0  134.58 ±  9.99  194.0| n=600
+-----------------------------------------------------------
+Generation: 741
+Evaluation time: 1.63398
+Reproduction time: 6.04262
+-----------------------------------------------------------
+Generation: 742
+Evaluation time: 1.74738
+Reproduction time: 4.09154
+-----------------------------------------------------------
+Generation: 743
+Evaluation time: 1.68241
+Reproduction time: 6.09523
+-----------------------------------------------------------
+Generation: 744
+Evaluation time: 1.79368
+Reproduction time: 6.25709
+-----------------------------------------------------------
+Generation: 745
+Evaluation time: 1.73908
+Reproduction time: 4.13971
+-----------------------------------------------------------
+Generation: 746
+Evaluation time: 1.64959
+Reproduction time: 3.89093
+-----------------------------------------------------------
+Generation: 747
+Evaluation time: 1.68619
+Reproduction time: 4.85503
+-----------------------------------------------------------
+Generation: 748
+Evaluation time: 1.66784
+Reproduction time: 5.56702
+-----------------------------------------------------------
+Generation: 749
+Evaluation time: 1.69998
+Reproduction time: 4.04408
+-----------------------------------------------------------
+Generation: 750
+Evaluation time: 1.73128
+Reproduction time: 4.40668
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.885
+perfect_percent: 0.8483333333333334
+best_size: 84
+allpass_min_size: 84
+perfect_min_size: 84
+dist_allpass_sizes:
+| 84.0  85.89 ±  0.44   87.0| n=531
+dist_perfect_sizes:
+| 84.0  85.89 ±  0.43   87.0| n=509
+sn_fitnesses:
+|103.0  5834.58 ± 737.95  6000.6| n=600
+tc_fitnesses:
+|122.0  165.92 ± 10.15  195.0| n=600
+-----------------------------------------------------------
+Generation: 751
+Evaluation time: 1.60946
+Reproduction time: 4.57257
+-----------------------------------------------------------
+Generation: 752
+Evaluation time: 1.76477
+Reproduction time: 4.47584
+-----------------------------------------------------------
+Generation: 753
+Evaluation time: 1.71601
+Reproduction time: 5.51931
+-----------------------------------------------------------
+Generation: 754
+Evaluation time: 1.75108
+Reproduction time: 3.75811
+-----------------------------------------------------------
+Generation: 755
+Evaluation time: 1.67866
+Reproduction time: 4.02095
+-----------------------------------------------------------
+Generation: 756
+Evaluation time: 1.69609
+Reproduction time: 5.99857
+-----------------------------------------------------------
+Generation: 757
+Evaluation time: 1.6718
+Reproduction time: 5.47495
+-----------------------------------------------------------
+Generation: 758
+Evaluation time: 1.68696
+Reproduction time: 5.34559
+-----------------------------------------------------------
+Generation: 759
+Evaluation time: 1.69401
+Reproduction time: 4.381
+-----------------------------------------------------------
+Generation: 760
+Evaluation time: 1.7252
+Reproduction time: 4.57009
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8783333333333333
+perfect_percent: 0.855
+best_size: 84
+allpass_min_size: 84
+perfect_min_size: 84
+dist_allpass_sizes:
+| 84.0  85.82 ±  0.48   87.0| n=527
+dist_perfect_sizes:
+| 84.0  85.83 ±  0.46   87.0| n=513
+sn_fitnesses:
+|111.0  5855.09 ± 648.34  6000.6| n=600
+tc_fitnesses:
+|114.0  145.41 ±  9.38  173.0| n=600
+-----------------------------------------------------------
+Generation: 761
+Evaluation time: 1.5684
+Reproduction time: 5.66565
+-----------------------------------------------------------
+Generation: 762
+Evaluation time: 1.74812
+Reproduction time: 3.91507
+-----------------------------------------------------------
+Generation: 763
+Evaluation time: 1.72523
+Reproduction time: 4.20805
+-----------------------------------------------------------
+Generation: 764
+Evaluation time: 1.76503
+Reproduction time: 4.14996
+-----------------------------------------------------------
+Generation: 765
+Evaluation time: 1.67065
+Reproduction time: 4.34005
+-----------------------------------------------------------
+Generation: 766
+Evaluation time: 1.68592
+Reproduction time: 4.20725
+-----------------------------------------------------------
+Generation: 767
+Evaluation time: 1.72361
+Reproduction time: 3.81637
+-----------------------------------------------------------
+Generation: 768
+Evaluation time: 1.70933
+Reproduction time: 4.34278
+-----------------------------------------------------------
+Generation: 769
+Evaluation time: 1.75035
+Reproduction time: 3.9121
+-----------------------------------------------------------
+Generation: 770
+Evaluation time: 1.65344
+Reproduction time: 4.12094
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.885
+perfect_percent: 0.8516666666666667
+best_size: 84
+allpass_min_size: 84
+perfect_min_size: 84
+dist_allpass_sizes:
+| 84.0  85.77 ±  0.54   87.0| n=531
+dist_perfect_sizes:
+| 84.0   85.8 ±  0.51   87.0| n=511
+sn_fitnesses:
+|175.0  5833.29 ± 715.81  6000.6| n=600
+tc_fitnesses:
+|130.0  167.22 ± 10.17  195.0| n=600
+-----------------------------------------------------------
+Generation: 771
+Evaluation time: 1.62143
+Reproduction time: 4.63978
+-----------------------------------------------------------
+Generation: 772
+Evaluation time: 1.76427
+Reproduction time: 3.93201
+-----------------------------------------------------------
+Generation: 773
+Evaluation time: 1.75891
+Reproduction time: 3.54842
+-----------------------------------------------------------
+Generation: 774
+Evaluation time: 1.6658
+Reproduction time: 4.08746
+-----------------------------------------------------------
+Generation: 775
+Evaluation time: 1.68438
+Reproduction time: 3.93586
+-----------------------------------------------------------
+Generation: 776
+Evaluation time: 1.68986
+Reproduction time: 5.04624
+-----------------------------------------------------------
+Generation: 777
+Evaluation time: 1.64693
+Reproduction time: 4.08437
+-----------------------------------------------------------
+Generation: 778
+Evaluation time: 1.64039
+Reproduction time: 4.09071
+-----------------------------------------------------------
+Generation: 779
+Evaluation time: 1.63658
+Reproduction time: 4.33993
+-----------------------------------------------------------
+Generation: 780
+Evaluation time: 1.75452
+Reproduction time: 5.23553
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8966666666666666
+perfect_percent: 0.8383333333333334
+best_size: 84
+allpass_min_size: 84
+perfect_min_size: 84
+dist_allpass_sizes:
+| 84.0  85.68 ±  0.59   87.0| n=538
+dist_perfect_sizes:
+| 84.0  85.73 ±  0.55   87.0| n=503
+sn_fitnesses:
+|117.0  5893.92 ± 506.46  6000.6| n=600
+tc_fitnesses:
+| 74.0  106.6 ± 10.05  131.0| n=600
+-----------------------------------------------------------
+Generation: 781
+Evaluation time: 1.54483
+Reproduction time: 6.11315
+-----------------------------------------------------------
+Generation: 782
+Evaluation time: 1.76216
+Reproduction time: 4.31238
+-----------------------------------------------------------
+Generation: 783
+Evaluation time: 1.69311
+Reproduction time: 4.38513
+-----------------------------------------------------------
+Generation: 784
+Evaluation time: 1.69077
+Reproduction time: 4.20245
+-----------------------------------------------------------
+Generation: 785
+Evaluation time: 1.70756
+Reproduction time: 4.50009
+-----------------------------------------------------------
+Generation: 786
+Evaluation time: 1.69461
+Reproduction time: 5.14912
+-----------------------------------------------------------
+Generation: 787
+Evaluation time: 1.76844
+Reproduction time: 4.50977
+-----------------------------------------------------------
+Generation: 788
+Evaluation time: 1.69
+Reproduction time: 4.1598
+-----------------------------------------------------------
+Generation: 789
+Evaluation time: 1.67801
+Reproduction time: 4.90372
+-----------------------------------------------------------
+Generation: 790
+Evaluation time: 1.71575
+Reproduction time: 4.5548
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.885
+perfect_percent: 0.855
+best_size: 84
+allpass_min_size: 84
+perfect_min_size: 84
+dist_allpass_sizes:
+| 84.0  85.62 ±  0.61   87.0| n=531
+dist_perfect_sizes:
+| 84.0  85.65 ±  0.58   87.0| n=513
+sn_fitnesses:
+| 51.0  5842.85 ± 686.12  6000.6| n=600
+tc_fitnesses:
+|120.0  157.66 ± 11.35  188.0| n=600
+-----------------------------------------------------------
+Generation: 791
+Evaluation time: 1.74167
+Reproduction time: 4.84006
+-----------------------------------------------------------
+Generation: 792
+Evaluation time: 1.61499
+Reproduction time: 4.20519
+-----------------------------------------------------------
+Generation: 793
+Evaluation time: 1.70511
+Reproduction time: 3.9209
+-----------------------------------------------------------
+Generation: 794
+Evaluation time: 1.72896
+Reproduction time: 4.19496
+-----------------------------------------------------------
+Generation: 795
+Evaluation time: 1.73569
+Reproduction time: 4.04767
+-----------------------------------------------------------
+Generation: 796
+Evaluation time: 1.72505
+Reproduction time: 4.27743
+-----------------------------------------------------------
+Generation: 797
+Evaluation time: 1.6353
+Reproduction time: 4.378
+-----------------------------------------------------------
+Generation: 798
+Evaluation time: 1.7448
+Reproduction time: 4.00337
+-----------------------------------------------------------
+Generation: 799
+Evaluation time: 1.69643
+Reproduction time: 4.01064
+-----------------------------------------------------------
+Generation: 800
+Evaluation time: 1.65854
+Reproduction time: 5.36243
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8716666666666667
+perfect_percent: 0.8566666666666667
+best_size: 84
+allpass_min_size: 84
+perfect_min_size: 84
+dist_allpass_sizes:
+| 84.0  85.53 ±  0.62   87.0| n=523
+dist_perfect_sizes:
+| 84.0  85.54 ±   0.6   87.0| n=514
+sn_fitnesses:
+|829.0  5846.58 ± 616.0  6000.6| n=600
+tc_fitnesses:
+|112.0  153.92 ± 13.03  188.0| n=600
+-----------------------------------------------------------
+Generation: 801
+Evaluation time: 1.63888
+Reproduction time: 4.65818
+-----------------------------------------------------------
+Generation: 802
+Evaluation time: 1.75176
+Reproduction time: 4.05629
+-----------------------------------------------------------
+Generation: 803
+Evaluation time: 1.64599
+Reproduction time: 5.67163
+-----------------------------------------------------------
+Generation: 804
+Evaluation time: 1.73196
+Reproduction time: 3.99921
+-----------------------------------------------------------
+Generation: 805
+Evaluation time: 1.74314
+Reproduction time: 3.91439
+-----------------------------------------------------------
+Generation: 806
+Evaluation time: 1.69604
+Reproduction time: 3.96831
+-----------------------------------------------------------
+Generation: 807
+Evaluation time: 1.69104
+Reproduction time: 5.45487
+-----------------------------------------------------------
+Generation: 808
+Evaluation time: 1.68014
+Reproduction time: 5.58852
+-----------------------------------------------------------
+Generation: 809
+Evaluation time: 1.72648
+Reproduction time: 5.50237
+-----------------------------------------------------------
+Generation: 810
+Evaluation time: 1.67839
+Reproduction time: 5.14385
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8833333333333333
+perfect_percent: 0.8633333333333333
+best_size: 84
+allpass_min_size: 84
+perfect_min_size: 84
+dist_allpass_sizes:
+| 84.0  85.42 ±  0.62   87.0| n=530
+dist_perfect_sizes:
+| 84.0  85.42 ±  0.62   87.0| n=518
+sn_fitnesses:
+|1147.0  5860.03 ± 615.61  6000.6| n=600
+tc_fitnesses:
+|100.0  140.48 ± 11.17  166.0| n=600
+-----------------------------------------------------------
+Generation: 811
+Evaluation time: 1.5918
+Reproduction time: 4.88907
+-----------------------------------------------------------
+Generation: 812
+Evaluation time: 1.66021
+Reproduction time: 4.04028
+-----------------------------------------------------------
+Generation: 813
+Evaluation time: 1.61978
+Reproduction time: 4.30744
+-----------------------------------------------------------
+Generation: 814
+Evaluation time: 1.66559
+Reproduction time: 4.23097
+-----------------------------------------------------------
+Generation: 815
+Evaluation time: 1.67108
+Reproduction time: 5.41298
+-----------------------------------------------------------
+Generation: 816
+Evaluation time: 1.6721
+Reproduction time: 5.97849
+-----------------------------------------------------------
+Generation: 817
+Evaluation time: 1.67564
+Reproduction time: 4.24323
+-----------------------------------------------------------
+Generation: 818
+Evaluation time: 1.72316
+Reproduction time: 4.22301
+-----------------------------------------------------------
+Generation: 819
+Evaluation time: 1.71162
+Reproduction time: 4.31996
+-----------------------------------------------------------
+Generation: 820
+Evaluation time: 1.66402
+Reproduction time: 4.40212
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.9
+perfect_percent: 0.8683333333333333
+best_size: 84
+allpass_min_size: 84
+perfect_min_size: 84
+dist_allpass_sizes:
+| 84.0   85.3 ±  0.61   87.0| n=540
+dist_perfect_sizes:
+| 84.0  85.31 ±  0.61   87.0| n=521
+sn_fitnesses:
+|230.0  5877.76 ± 594.77  6000.6| n=600
+tc_fitnesses:
+| 97.0  122.76 ±  8.26  144.0| n=600
+-----------------------------------------------------------
+Generation: 821
+Evaluation time: 1.62095
+Reproduction time: 6.50692
+-----------------------------------------------------------
+Generation: 822
+Evaluation time: 1.76628
+Reproduction time: 5.62634
+-----------------------------------------------------------
+Generation: 823
+Evaluation time: 1.69146
+Reproduction time: 6.19815
+-----------------------------------------------------------
+Generation: 824
+Evaluation time: 1.75916
+Reproduction time: 6.27232
+-----------------------------------------------------------
+Generation: 825
+Evaluation time: 1.70019
+Reproduction time: 5.93621
+-----------------------------------------------------------
+Generation: 826
+Evaluation time: 1.63728
+Reproduction time: 5.58169
+-----------------------------------------------------------
+Generation: 827
+Evaluation time: 1.69901
+Reproduction time: 5.287
+-----------------------------------------------------------
+Generation: 828
+Evaluation time: 1.69194
+Reproduction time: 5.21029
+-----------------------------------------------------------
+Generation: 829
+Evaluation time: 1.69219
+Reproduction time: 4.56818
+-----------------------------------------------------------
+Generation: 830
+Evaluation time: 1.66947
+Reproduction time: 5.32143
+----
+SortedMetric:
+best_percent: 0.999908447265625
+allpass_percent: 0.875
+perfect_percent: 0.835
+best_size: 83
+allpass_min_size: 83
+perfect_min_size: 83
+dist_allpass_sizes:
+| 83.0  85.09 ±  0.58   87.0| n=525
+dist_perfect_sizes:
+| 83.0  85.11 ±  0.56   87.0| n=501
+sn_fitnesses:
+|172.0  5803.34 ± 777.94  6000.62| n=600
+tc_fitnesses:
+|131.0  197.16 ± 19.35  232.0| n=600
+-----------------------------------------------------------
+Generation: 831
+Evaluation time: 1.61566
+Reproduction time: 4.20774
+-----------------------------------------------------------
+Generation: 832
+Evaluation time: 1.79811
+Reproduction time: 4.25917
+-----------------------------------------------------------
+Generation: 833
+Evaluation time: 1.5753
+Reproduction time: 4.13707
+-----------------------------------------------------------
+Generation: 834
+Evaluation time: 1.71596
+Reproduction time: 5.8351
+-----------------------------------------------------------
+Generation: 835
+Evaluation time: 1.76627
+Reproduction time: 4.00454
+-----------------------------------------------------------
+Generation: 836
+Evaluation time: 1.65703
+Reproduction time: 4.25992
+-----------------------------------------------------------
+Generation: 837
+Evaluation time: 1.68632
+Reproduction time: 4.3327
+-----------------------------------------------------------
+Generation: 838
+Evaluation time: 1.68764
+Reproduction time: 4.46182
+-----------------------------------------------------------
+Generation: 839
+Evaluation time: 1.66985
+Reproduction time: 4.47715
+-----------------------------------------------------------
+Generation: 840
+Evaluation time: 1.71922
+Reproduction time: 4.38577
+----
+SortedMetric:
+best_percent: 0.999908447265625
+allpass_percent: 0.8866666666666667
+perfect_percent: 0.8466666666666667
+best_size: 82
+allpass_min_size: 82
+perfect_min_size: 83
+dist_allpass_sizes:
+| 82.0  84.89 ±  0.48   86.0| n=532
+dist_perfect_sizes:
+| 83.0  84.92 ±  0.41   86.0| n=508
+sn_fitnesses:
+| 74.0  5828.88 ± 741.65  6000.63| n=600
+tc_fitnesses:
+|134.0  171.64 ± 10.65  198.0| n=600
+-----------------------------------------------------------
+Generation: 841
+Evaluation time: 1.66432
+Reproduction time: 4.89703
+-----------------------------------------------------------
+Generation: 842
+Evaluation time: 1.6664
+Reproduction time: 4.54501
+-----------------------------------------------------------
+Generation: 843
+Evaluation time: 1.68692
+Reproduction time: 3.83235
+-----------------------------------------------------------
+Generation: 844
+Evaluation time: 1.77965
+Reproduction time: 4.0318
+-----------------------------------------------------------
+Generation: 845
+Evaluation time: 1.70849
+Reproduction time: 3.95857
+-----------------------------------------------------------
+Generation: 846
+Evaluation time: 1.73121
+Reproduction time: 4.54441
+-----------------------------------------------------------
+Generation: 847
+Evaluation time: 1.76551
+Reproduction time: 5.61221
+-----------------------------------------------------------
+Generation: 848
+Evaluation time: 1.72562
+Reproduction time: 4.34645
+-----------------------------------------------------------
+Generation: 849
+Evaluation time: 1.7323
+Reproduction time: 4.52536
+-----------------------------------------------------------
+Generation: 850
+Evaluation time: 1.69722
+Reproduction time: 4.14449
+----
+SortedMetric:
+best_percent: 0.999908447265625
+allpass_percent: 0.8883333333333333
+perfect_percent: 0.8283333333333334
+best_size: 82
+allpass_min_size: 82
+perfect_min_size: 83
+dist_allpass_sizes:
+| 82.0  84.81 ±  0.54   86.0| n=533
+dist_perfect_sizes:
+| 83.0  84.88 ±  0.43   86.0| n=497
+sn_fitnesses:
+| 88.0  5881.9 ± 555.17  6000.63| n=600
+tc_fitnesses:
+| 95.0  118.62 ±  7.42  139.0| n=600
+-----------------------------------------------------------
+Generation: 851
+Evaluation time: 1.63218
+Reproduction time: 5.07145
+-----------------------------------------------------------
+Generation: 852
+Evaluation time: 1.75415
+Reproduction time: 4.06276
+-----------------------------------------------------------
+Generation: 853
+Evaluation time: 1.65581
+Reproduction time: 3.79641
+-----------------------------------------------------------
+Generation: 854
+Evaluation time: 1.78225
+Reproduction time: 4.44643
+-----------------------------------------------------------
+Generation: 855
+Evaluation time: 1.68948
+Reproduction time: 5.99145
+-----------------------------------------------------------
+Generation: 856
+Evaluation time: 1.63998
+Reproduction time: 6.01666
+-----------------------------------------------------------
+Generation: 857
+Evaluation time: 1.67859
+Reproduction time: 4.01025
+-----------------------------------------------------------
+Generation: 858
+Evaluation time: 1.68286
+Reproduction time: 4.40367
+-----------------------------------------------------------
+Generation: 859
+Evaluation time: 1.69046
+Reproduction time: 4.06788
+-----------------------------------------------------------
+Generation: 860
+Evaluation time: 1.75807
+Reproduction time: 4.33804
+----
+SortedMetric:
+best_percent: 0.999908447265625
+allpass_percent: 0.885
+perfect_percent: 0.8266666666666667
+best_size: 82
+allpass_min_size: 82
+perfect_min_size: 83
+dist_allpass_sizes:
+| 82.0  84.78 ±  0.57   86.0| n=531
+dist_perfect_sizes:
+| 83.0  84.85 ±  0.48   86.0| n=496
+sn_fitnesses:
+|957.0  5854.68 ± 614.3  6000.63| n=600
+tc_fitnesses:
+|109.0  145.84 ± 11.09  179.0| n=600
+-----------------------------------------------------------
+Generation: 861
+Evaluation time: 1.62474
+Reproduction time: 4.51534
+-----------------------------------------------------------
+Generation: 862
+Evaluation time: 1.65368
+Reproduction time: 3.79554
+-----------------------------------------------------------
+Generation: 863
+Evaluation time: 1.70749
+Reproduction time: 4.36488
+-----------------------------------------------------------
+Generation: 864
+Evaluation time: 1.75253
+Reproduction time: 4.39853
+-----------------------------------------------------------
+Generation: 865
+Evaluation time: 1.73048
+Reproduction time: 4.3561
+-----------------------------------------------------------
+Generation: 866
+Evaluation time: 1.70064
+Reproduction time: 5.6068
+-----------------------------------------------------------
+Generation: 867
+Evaluation time: 1.6847
+Reproduction time: 5.8336
+-----------------------------------------------------------
+Generation: 868
+Evaluation time: 1.56163
+Reproduction time: 4.42359
+-----------------------------------------------------------
+Generation: 869
+Evaluation time: 1.68163
+Reproduction time: 5.66905
+-----------------------------------------------------------
+Generation: 870
+Evaluation time: 1.58976
+Reproduction time: 5.87458
+----
+SortedMetric:
+best_percent: 0.999908447265625
+allpass_percent: 0.8816666666666667
+perfect_percent: 0.8166666666666667
+best_size: 82
+allpass_min_size: 82
+perfect_min_size: 83
+dist_allpass_sizes:
+| 82.0  84.69 ±  0.61   86.0| n=529
+dist_perfect_sizes:
+| 83.0  84.78 ±  0.52   86.0| n=490
+sn_fitnesses:
+|193.0  5844.41 ± 665.0  6000.63| n=600
+tc_fitnesses:
+|115.0  156.11 ± 11.28  185.0| n=600
+-----------------------------------------------------------
+Generation: 871
+Evaluation time: 1.73156
+Reproduction time: 6.15953
+-----------------------------------------------------------
+Generation: 872
+Evaluation time: 1.74353
+Reproduction time: 5.80447
+-----------------------------------------------------------
+Generation: 873
+Evaluation time: 1.67611
+Reproduction time: 5.75621
+-----------------------------------------------------------
+Generation: 874
+Evaluation time: 1.73559
+Reproduction time: 5.2627
+-----------------------------------------------------------
+Generation: 875
+Evaluation time: 1.66685
+Reproduction time: 5.73131
+-----------------------------------------------------------
+Generation: 876
+Evaluation time: 1.64675
+Reproduction time: 5.79854
+-----------------------------------------------------------
+Generation: 877
+Evaluation time: 1.6785
+Reproduction time: 3.84013
+-----------------------------------------------------------
+Generation: 878
+Evaluation time: 1.67565
+Reproduction time: 3.85925
+-----------------------------------------------------------
+Generation: 879
+Evaluation time: 1.73605
+Reproduction time: 4.11969
+-----------------------------------------------------------
+Generation: 880
+Evaluation time: 1.76913
+Reproduction time: 5.85604
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8866666666666667
+perfect_percent: 0.86
+best_size: 83
+allpass_min_size: 83
+perfect_min_size: 83
+dist_allpass_sizes:
+| 83.0   84.7 ±  0.57   86.0| n=532
+dist_perfect_sizes:
+| 83.0  84.72 ±  0.55   86.0| n=516
+sn_fitnesses:
+| 81.0  5806.21 ± 782.57  6000.62| n=600
+tc_fitnesses:
+|151.0  194.32 ± 11.92  222.0| n=600
+-----------------------------------------------------------
+Generation: 881
+Evaluation time: 1.58208
+Reproduction time: 4.37283
+-----------------------------------------------------------
+Generation: 882
+Evaluation time: 1.60589
+Reproduction time: 4.13768
+-----------------------------------------------------------
+Generation: 883
+Evaluation time: 1.54577
+Reproduction time: 4.42198
+-----------------------------------------------------------
+Generation: 884
+Evaluation time: 1.69095
+Reproduction time: 3.93512
+-----------------------------------------------------------
+Generation: 885
+Evaluation time: 1.76494
+Reproduction time: 5.48973
+-----------------------------------------------------------
+Generation: 886
+Evaluation time: 1.7721
+Reproduction time: 5.69007
+-----------------------------------------------------------
+Generation: 887
+Evaluation time: 1.70347
+Reproduction time: 4.05791
+-----------------------------------------------------------
+Generation: 888
+Evaluation time: 1.68236
+Reproduction time: 4.34401
+-----------------------------------------------------------
+Generation: 889
+Evaluation time: 1.58102
+Reproduction time: 5.93126
+-----------------------------------------------------------
+Generation: 890
+Evaluation time: 1.72582
+Reproduction time: 4.16079
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.865
+perfect_percent: 0.8466666666666667
+best_size: 83
+allpass_min_size: 83
+perfect_min_size: 83
+dist_allpass_sizes:
+| 83.0  84.63 ±  0.56   86.0| n=519
+dist_perfect_sizes:
+| 83.0  84.64 ±  0.56   86.0| n=508
+sn_fitnesses:
+|528.0  5851.18 ± 636.64  6000.62| n=600
+tc_fitnesses:
+|114.0  149.33 ± 11.17  179.0| n=600
+-----------------------------------------------------------
+Generation: 891
+Evaluation time: 1.61985
+Reproduction time: 4.56682
+-----------------------------------------------------------
+Generation: 892
+Evaluation time: 1.65404
+Reproduction time: 3.7566
+-----------------------------------------------------------
+Generation: 893
+Evaluation time: 1.76322
+Reproduction time: 4.24701
+-----------------------------------------------------------
+Generation: 894
+Evaluation time: 1.77773
+Reproduction time: 5.55098
+-----------------------------------------------------------
+Generation: 895
+Evaluation time: 1.73979
+Reproduction time: 4.52836
+-----------------------------------------------------------
+Generation: 896
+Evaluation time: 1.69981
+Reproduction time: 5.90758
+-----------------------------------------------------------
+Generation: 897
+Evaluation time: 1.77942
+Reproduction time: 5.47826
+-----------------------------------------------------------
+Generation: 898
+Evaluation time: 1.78447
+Reproduction time: 5.88861
+-----------------------------------------------------------
+Generation: 899
+Evaluation time: 1.67546
+Reproduction time: 4.52978
+-----------------------------------------------------------
+Generation: 900
+Evaluation time: 1.75397
+Reproduction time: 5.49815
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8833333333333333
+perfect_percent: 0.8433333333333334
+best_size: 83
+allpass_min_size: 83
+perfect_min_size: 83
+dist_allpass_sizes:
+| 83.0  84.54 ±  0.61   86.0| n=530
+dist_perfect_sizes:
+| 83.0  84.57 ±   0.6   86.0| n=506
+sn_fitnesses:
+|136.0  5826.89 ± 755.94  6000.62| n=600
+tc_fitnesses:
+|117.0  173.63 ± 10.83  201.0| n=600
+-----------------------------------------------------------
+Generation: 901
+Evaluation time: 1.57367
+Reproduction time: 6.00559
+-----------------------------------------------------------
+Generation: 902
+Evaluation time: 1.59267
+Reproduction time: 4.7505
+-----------------------------------------------------------
+Generation: 903
+Evaluation time: 1.58031
+Reproduction time: 5.4842
+-----------------------------------------------------------
+Generation: 904
+Evaluation time: 1.57821
+Reproduction time: 5.74159
+-----------------------------------------------------------
+Generation: 905
+Evaluation time: 1.68464
+Reproduction time: 4.25859
+-----------------------------------------------------------
+Generation: 906
+Evaluation time: 1.55182
+Reproduction time: 5.51301
+-----------------------------------------------------------
+Generation: 907
+Evaluation time: 1.64344
+Reproduction time: 5.45725
+-----------------------------------------------------------
+Generation: 908
+Evaluation time: 1.61323
+Reproduction time: 5.25285
+-----------------------------------------------------------
+Generation: 909
+Evaluation time: 1.69507
+Reproduction time: 5.49991
+-----------------------------------------------------------
+Generation: 910
+Evaluation time: 1.64416
+Reproduction time: 4.38133
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.895
+perfect_percent: 0.8066666666666666
+best_size: 83
+allpass_min_size: 83
+perfect_min_size: 83
+dist_allpass_sizes:
+| 83.0  84.39 ±  0.64   86.0| n=537
+dist_perfect_sizes:
+| 83.0  84.45 ±  0.61   86.0| n=484
+sn_fitnesses:
+|140.0  5848.94 ± 718.95  6000.62| n=600
+tc_fitnesses:
+|117.0  151.6 ± 10.89  186.0| n=600
+-----------------------------------------------------------
+Generation: 911
+Evaluation time: 1.58878
+Reproduction time: 6.04478
+-----------------------------------------------------------
+Generation: 912
+Evaluation time: 1.69611
+Reproduction time: 5.39766
+-----------------------------------------------------------
+Generation: 913
+Evaluation time: 1.60874
+Reproduction time: 4.06876
+-----------------------------------------------------------
+Generation: 914
+Evaluation time: 1.66967
+Reproduction time: 5.54036
+-----------------------------------------------------------
+Generation: 915
+Evaluation time: 1.69677
+Reproduction time: 5.99829
+-----------------------------------------------------------
+Generation: 916
+Evaluation time: 1.71511
+Reproduction time: 4.44886
+-----------------------------------------------------------
+Generation: 917
+Evaluation time: 1.66599
+Reproduction time: 5.6496
+-----------------------------------------------------------
+Generation: 918
+Evaluation time: 1.698
+Reproduction time: 4.301
+-----------------------------------------------------------
+Generation: 919
+Evaluation time: 1.7102
+Reproduction time: 4.51963
+-----------------------------------------------------------
+Generation: 920
+Evaluation time: 1.7033
+Reproduction time: 4.96439
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8866666666666667
+perfect_percent: 0.8233333333333334
+best_size: 83
+allpass_min_size: 83
+perfect_min_size: 83
+dist_allpass_sizes:
+| 83.0  84.31 ±  0.61   86.0| n=532
+dist_perfect_sizes:
+| 83.0  84.35 ±   0.6   86.0| n=494
+sn_fitnesses:
+| 81.0  5850.41 ± 673.5  6000.62| n=600
+tc_fitnesses:
+|113.0  150.11 ± 11.63  181.0| n=600
+-----------------------------------------------------------
+Generation: 921
+Evaluation time: 1.61471
+Reproduction time: 4.51154
+-----------------------------------------------------------
+Generation: 922
+Evaluation time: 1.66532
+Reproduction time: 3.93415
+-----------------------------------------------------------
+Generation: 923
+Evaluation time: 1.59818
+Reproduction time: 4.22756
+-----------------------------------------------------------
+Generation: 924
+Evaluation time: 1.60717
+Reproduction time: 5.79116
+-----------------------------------------------------------
+Generation: 925
+Evaluation time: 1.73112
+Reproduction time: 4.21467
+-----------------------------------------------------------
+Generation: 926
+Evaluation time: 1.75091
+Reproduction time: 4.37983
+-----------------------------------------------------------
+Generation: 927
+Evaluation time: 1.74799
+Reproduction time: 6.0146
+-----------------------------------------------------------
+Generation: 928
+Evaluation time: 1.75812
+Reproduction time: 5.85772
+-----------------------------------------------------------
+Generation: 929
+Evaluation time: 1.733
+Reproduction time: 5.69426
+-----------------------------------------------------------
+Generation: 930
+Evaluation time: 1.60098
+Reproduction time: 5.90358
+----
+SortedMetric:
+best_percent: 0.9998626708984375
+allpass_percent: 0.88
+perfect_percent: 0.8216666666666667
+best_size: 82
+allpass_min_size: 82
+perfect_min_size: 83
+dist_allpass_sizes:
+| 82.0  84.19 ±  0.58   86.0| n=528
+dist_perfect_sizes:
+| 83.0  84.22 ±  0.57   86.0| n=493
+sn_fitnesses:
+|294.0  5843.57 ± 704.91  6000.63| n=600
+tc_fitnesses:
+|112.0  156.95 ± 10.98  184.0| n=600
+-----------------------------------------------------------
+Generation: 931
+Evaluation time: 1.58112
+Reproduction time: 5.93049
+-----------------------------------------------------------
+Generation: 932
+Evaluation time: 1.63117
+Reproduction time: 4.32262
+-----------------------------------------------------------
+Generation: 933
+Evaluation time: 1.70848
+Reproduction time: 3.717
+-----------------------------------------------------------
+Generation: 934
+Evaluation time: 1.69483
+Reproduction time: 3.96319
+-----------------------------------------------------------
+Generation: 935
+Evaluation time: 1.74847
+Reproduction time: 4.3462
+-----------------------------------------------------------
+Generation: 936
+Evaluation time: 1.67634
+Reproduction time: 3.87848
+-----------------------------------------------------------
+Generation: 937
+Evaluation time: 1.72343
+Reproduction time: 5.86761
+-----------------------------------------------------------
+Generation: 938
+Evaluation time: 1.68574
+Reproduction time: 5.35714
+-----------------------------------------------------------
+Generation: 939
+Evaluation time: 1.60237
+Reproduction time: 5.85673
+-----------------------------------------------------------
+Generation: 940
+Evaluation time: 1.72896
+Reproduction time: 5.02541
+----
+SortedMetric:
+best_percent: 0.9999847412109375
+allpass_percent: 0.8733333333333333
+perfect_percent: 0.8166666666666667
+best_size: 82
+allpass_min_size: 82
+perfect_min_size: 83
+dist_allpass_sizes:
+| 82.0  84.03 ±  0.48   85.0| n=524
+dist_perfect_sizes:
+| 83.0  84.05 ±  0.46   85.0| n=490
+sn_fitnesses:
+|378.0  5881.46 ± 585.25  6000.63| n=600
+tc_fitnesses:
+| 67.0  119.06 ± 14.87  156.0| n=600
+-----------------------------------------------------------
+Generation: 941
+Evaluation time: 1.57765
+Reproduction time: 5.74449
+-----------------------------------------------------------
+Generation: 942
+Evaluation time: 1.67512
+Reproduction time: 5.50054
+-----------------------------------------------------------
+Generation: 943
+Evaluation time: 1.62808
+Reproduction time: 4.37368
+-----------------------------------------------------------
+Generation: 944
+Evaluation time: 1.60418
+Reproduction time: 5.33819
+-----------------------------------------------------------
+Generation: 945
+Evaluation time: 1.75691
+Reproduction time: 3.7205
+-----------------------------------------------------------
+Generation: 946
+Evaluation time: 1.70659
+Reproduction time: 5.56443
+-----------------------------------------------------------
+Generation: 947
+Evaluation time: 1.75389
+Reproduction time: 4.75244
+-----------------------------------------------------------
+Generation: 948
+Evaluation time: 1.8178
+Reproduction time: 5.35018
+-----------------------------------------------------------
+Generation: 949
+Evaluation time: 1.73619
+Reproduction time: 3.961
+-----------------------------------------------------------
+Generation: 950
+Evaluation time: 1.69375
+Reproduction time: 4.30317
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.87
+perfect_percent: 0.8016666666666666
+best_size: 82
+allpass_min_size: 82
+perfect_min_size: 82
+dist_allpass_sizes:
+| 82.0  83.89 ±  0.39   85.0| n=522
+dist_perfect_sizes:
+| 82.0  83.91 ±  0.37   85.0| n=481
+sn_fitnesses:
+|262.0  5838.43 ± 682.05  6000.63| n=600
+tc_fitnesses:
+|128.0  162.09 ± 10.51  190.0| n=600
+-----------------------------------------------------------
+Generation: 951
+Evaluation time: 1.62875
+Reproduction time: 4.22138
+-----------------------------------------------------------
+Generation: 952
+Evaluation time: 1.64755
+Reproduction time: 3.8837
+-----------------------------------------------------------
+Generation: 953
+Evaluation time: 1.66254
+Reproduction time: 3.94315
+-----------------------------------------------------------
+Generation: 954
+Evaluation time: 1.57626
+Reproduction time: 4.53806
+-----------------------------------------------------------
+Generation: 955
+Evaluation time: 1.79461
+Reproduction time: 4.04817
+-----------------------------------------------------------
+Generation: 956
+Evaluation time: 1.66023
+Reproduction time: 3.89365
+-----------------------------------------------------------
+Generation: 957
+Evaluation time: 1.68833
+Reproduction time: 4.46321
+-----------------------------------------------------------
+Generation: 958
+Evaluation time: 1.69018
+Reproduction time: 4.13822
+-----------------------------------------------------------
+Generation: 959
+Evaluation time: 1.57593
+Reproduction time: 4.02714
+-----------------------------------------------------------
+Generation: 960
+Evaluation time: 1.69891
+Reproduction time: 3.55694
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8866666666666667
+perfect_percent: 0.8166666666666667
+best_size: 82
+allpass_min_size: 82
+perfect_min_size: 82
+dist_allpass_sizes:
+| 82.0  83.87 ±  0.47   85.0| n=532
+dist_perfect_sizes:
+| 82.0  83.91 ±  0.43   85.0| n=490
+sn_fitnesses:
+|116.0  5813.01 ± 769.63  6000.63| n=600
+tc_fitnesses:
+|146.0  187.52 ± 13.13  228.0| n=600
+-----------------------------------------------------------
+Generation: 961
+Evaluation time: 1.56598
+Reproduction time: 4.498
+-----------------------------------------------------------
+Generation: 962
+Evaluation time: 1.59898
+Reproduction time: 4.02915
+-----------------------------------------------------------
+Generation: 963
+Evaluation time: 1.57468
+Reproduction time: 3.9043
+-----------------------------------------------------------
+Generation: 964
+Evaluation time: 1.66714
+Reproduction time: 4.11799
+-----------------------------------------------------------
+Generation: 965
+Evaluation time: 1.63205
+Reproduction time: 4.88048
+-----------------------------------------------------------
+Generation: 966
+Evaluation time: 1.6162
+Reproduction time: 3.58935
+-----------------------------------------------------------
+Generation: 967
+Evaluation time: 1.61696
+Reproduction time: 4.90688
+-----------------------------------------------------------
+Generation: 968
+Evaluation time: 1.70648
+Reproduction time: 3.98711
+-----------------------------------------------------------
+Generation: 969
+Evaluation time: 1.67995
+Reproduction time: 4.03777
+-----------------------------------------------------------
+Generation: 970
+Evaluation time: 1.5111
+Reproduction time: 4.11023
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8516666666666667
+perfect_percent: 0.8266666666666667
+best_size: 82
+allpass_min_size: 82
+perfect_min_size: 82
+dist_allpass_sizes:
+| 82.0  83.83 ±  0.44   85.0| n=511
+dist_perfect_sizes:
+| 82.0  83.84 ±  0.42   85.0| n=496
+sn_fitnesses:
+|457.0  5835.56 ± 709.84  6000.63| n=600
+tc_fitnesses:
+|131.0  164.95 ± 10.78  194.0| n=600
+-----------------------------------------------------------
+Generation: 971
+Evaluation time: 1.61788
+Reproduction time: 4.12492
+-----------------------------------------------------------
+Generation: 972
+Evaluation time: 1.54063
+Reproduction time: 3.58723
+-----------------------------------------------------------
+Generation: 973
+Evaluation time: 1.61158
+Reproduction time: 3.73898
+-----------------------------------------------------------
+Generation: 974
+Evaluation time: 1.60313
+Reproduction time: 3.73173
+-----------------------------------------------------------
+Generation: 975
+Evaluation time: 1.55485
+Reproduction time: 4.55919
+-----------------------------------------------------------
+Generation: 976
+Evaluation time: 1.63439
+Reproduction time: 5.16813
+-----------------------------------------------------------
+Generation: 977
+Evaluation time: 1.58273
+Reproduction time: 3.74353
+-----------------------------------------------------------
+Generation: 978
+Evaluation time: 1.63702
+Reproduction time: 5.11263
+-----------------------------------------------------------
+Generation: 979
+Evaluation time: 1.65101
+Reproduction time: 3.79393
+-----------------------------------------------------------
+Generation: 980
+Evaluation time: 1.50358
+Reproduction time: 3.31346
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.87
+perfect_percent: 0.8533333333333334
+best_size: 82
+allpass_min_size: 82
+perfect_min_size: 82
+dist_allpass_sizes:
+| 82.0  83.79 ±  0.48   85.0| n=522
+dist_perfect_sizes:
+| 82.0  83.81 ±  0.46   85.0| n=512
+sn_fitnesses:
+|208.0  5867.93 ± 607.2  6000.63| n=600
+tc_fitnesses:
+| 99.0  132.6 ± 10.58  162.0| n=600
+-----------------------------------------------------------
+Generation: 981
+Evaluation time: 1.4947
+Reproduction time: 3.90858
+-----------------------------------------------------------
+Generation: 982
+Evaluation time: 1.53534
+Reproduction time: 5.02155
+-----------------------------------------------------------
+Generation: 983
+Evaluation time: 1.54412
+Reproduction time: 3.07384
+-----------------------------------------------------------
+Generation: 984
+Evaluation time: 1.59806
+Reproduction time: 4.00719
+-----------------------------------------------------------
+Generation: 985
+Evaluation time: 1.65958
+Reproduction time: 4.76261
+-----------------------------------------------------------
+Generation: 986
+Evaluation time: 1.53536
+Reproduction time: 3.43581
+-----------------------------------------------------------
+Generation: 987
+Evaluation time: 1.57793
+Reproduction time: 4.32714
+-----------------------------------------------------------
+Generation: 988
+Evaluation time: 1.64748
+Reproduction time: 4.43175
+-----------------------------------------------------------
+Generation: 989
+Evaluation time: 1.60214
+Reproduction time: 3.50377
+-----------------------------------------------------------
+Generation: 990
+Evaluation time: 1.44814
+Reproduction time: 3.89539
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.88
+perfect_percent: 0.8416666666666667
+best_size: 82
+allpass_min_size: 82
+perfect_min_size: 82
+dist_allpass_sizes:
+| 82.0  83.75 ±  0.51   85.0| n=528
+dist_perfect_sizes:
+| 82.0  83.78 ±  0.49   85.0| n=505
+sn_fitnesses:
+|558.0  5853.25 ± 673.45  6000.63| n=600
+tc_fitnesses:
+|118.0  147.29 ±  9.31  180.0| n=600
+-----------------------------------------------------------
+Generation: 991
+Evaluation time: 1.44055
+Reproduction time: 4.13377
+-----------------------------------------------------------
+Generation: 992
+Evaluation time: 1.50132
+Reproduction time: 3.27302
+-----------------------------------------------------------
+Generation: 993
+Evaluation time: 1.5756
+Reproduction time: 4.52491
+-----------------------------------------------------------
+Generation: 994
+Evaluation time: 1.48352
+Reproduction time: 4.53625
+-----------------------------------------------------------
+Generation: 995
+Evaluation time: 1.54834
+Reproduction time: 3.61575
+-----------------------------------------------------------
+Generation: 996
+Evaluation time: 1.45714
+Reproduction time: 3.8801
+-----------------------------------------------------------
+Generation: 997
+Evaluation time: 1.54228
+Reproduction time: 3.76068
+-----------------------------------------------------------
+Generation: 998
+Evaluation time: 1.57171
+Reproduction time: 3.49883
+-----------------------------------------------------------
+Generation: 999
+Evaluation time: 1.62296
+Reproduction time: 3.91168
+-----------------------------------------------------------
+Generation: 1000
+Evaluation time: 1.40716
+Reproduction time: 3.30905
+----
+SortedMetric:
+best_percent: 1.0
+allpass_percent: 0.8816666666666667
+perfect_percent: 0.8316666666666667
+best_size: 82
+allpass_min_size: 82
+perfect_min_size: 82
+dist_allpass_sizes:
+| 82.0  83.69 ±  0.55   85.0| n=529
+dist_perfect_sizes:
+| 82.0  83.74 ±  0.52   85.0| n=499
+sn_fitnesses:
+| 60.0  5848.21 ± 689.9  6000.63| n=600
+tc_fitnesses:
+|108.0  152.32 ± 10.79  182.0| n=600

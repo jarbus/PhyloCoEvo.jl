@@ -1,0 +1,321 @@
+80c11b02786c5315d4d6bf7c687d020db4fe0bd9
+-----------------------------------------------------------
+Generation: 1
+Evaluation time: 34.50864
+Reproduction time: 0.0
+----
+Tree Statistics for species b
+Number of nodes: 200
+Distance to MRCA:
+   |  0.0    0.0 ±   0.0    0.0| n=0
+Per-distance fitness statistics:
+Per-distance interaction statistics:
+Total distance statistics:
+     |  0.0    0.0 ±   0.0    0.0| n=200
+----
+Tree Statistics for species a
+Number of nodes: 20000
+Distance to MRCA:
+   |  0.0    0.0 ±   0.0    0.0| n=0
+Per-distance fitness statistics:
+Per-distance interaction statistics:
+Total distance statistics:
+     |  0.0    0.0 ±   0.0    0.0| n=20000
+----
+SortedMetric:
+Best sorter percentage: 0.0610198974609375
+Best sorter size: 41
+Sorted fitnesses:
+  |1747.0  2064.4 ± 66.57  2313.0| n=20000
+Test case fitnesses:
+  |  0.0  113560.05 ± 36403.71  199971.0| n=200
+len evaluation.records: 20000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 2
+Evaluation time: 22.78485
+Reproduction time: 24.11197
+----
+Tree Statistics for species b
+Number of nodes: 200
+Distance to MRCA:
+   |  0.0    0.0 ±   0.0    0.0| n=0
+Per-distance fitness statistics:
+Per-distance interaction statistics:
+Total distance statistics:
+     |  0.0    0.8 ±  0.75    2.0| n=502
+----
+Tree Statistics for species a
+Number of nodes: 20000
+Distance to MRCA:
+   |  0.0    0.0 ±   0.0    0.0| n=0
+Per-distance fitness statistics:
+Per-distance interaction statistics:
+Total distance statistics:
+     |  0.0    0.8 ±  0.75    2.0| n=49880
+----
+SortedMetric:
+Best sorter percentage: 0.1468353271484375
+Best sorter size: 51
+Sorted fitnesses:
+  |1523.0  1809.16 ± 81.54  2097.0| n=20000
+Test case fitnesses:
+  |70655.0  139084.38 ± 34970.82  223995.0| n=200
+len evaluation.records: 20000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 3
+Evaluation time: 22.35173
+Reproduction time: 7.34192
+----
+Tree Statistics for species b
+Number of nodes: 252
+Distance to MRCA:
+   |  0.0    0.0 ±   0.0    0.0| n=0
+Per-distance fitness statistics:
+Per-distance interaction statistics:
+Total distance statistics:
+     |  0.0   1.54 ±  1.11    4.0| n=1256
+----
+Tree Statistics for species a
+Number of nodes: 26353
+Distance to MRCA:
+   |  0.0    0.0 ±   0.0    0.0| n=0
+Per-distance fitness statistics:
+Per-distance interaction statistics:
+Total distance statistics:
+     |  0.0   1.61 ±  1.16    4.0| n=135487
+----
+SortedMetric:
+Best sorter percentage: 0.152496337890625
+Best sorter size: 50
+Sorted fitnesses:
+  |1122.0  1477.64 ± 101.28  1877.0| n=20000
+Test case fitnesses:
+  |120469.0  172235.71 ± 24349.53  225796.0| n=200
+len evaluation.records: 20000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 4
+Evaluation time: 23.55845
+Reproduction time: 7.59594
+----
+Tree Statistics for species b
+Number of nodes: 290
+Distance to MRCA:
+   |  0.0    0.0 ±   0.0    0.0| n=0
+Per-distance fitness statistics:
+Per-distance interaction statistics:
+Total distance statistics:
+     |  0.0   2.25 ±  1.52    6.0| n=2274
+----
+Tree Statistics for species a
+Number of nodes: 30997
+Distance to MRCA:
+   |  0.0    0.0 ±   0.0    0.0| n=0
+Per-distance fitness statistics:
+Per-distance interaction statistics:
+Total distance statistics:
+     |  0.0   2.39 ±  1.58    6.0| n=261703
+----
+SortedMetric:
+Best sorter percentage: 0.152496337890625
+Best sorter size: 50
+Sorted fitnesses:
+  |885.0  1244.39 ± 111.06  1726.0| n=20000
+Test case fitnesses:
+  |135820.0  195561.3 ± 20631.64  234922.0| n=200
+len evaluation.records: 20000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 5
+Evaluation time: 21.62961
+Reproduction time: 7.94895
+----
+Tree Statistics for species b
+Number of nodes: 327
+Distance to MRCA:
+   |  0.0    0.0 ±   0.0    0.0| n=0
+Per-distance fitness statistics:
+Per-distance interaction statistics:
+Total distance statistics:
+     |  0.0   3.02 ±  1.92    8.0| n=3819
+----
+Tree Statistics for species a
+Number of nodes: 34743
+Distance to MRCA:
+   |  0.0    0.0 ±   0.0    0.0| n=0
+Per-distance fitness statistics:
+Per-distance interaction statistics:
+Total distance statistics:
+     |  0.0   3.18 ±  2.02    8.0| n=427149
+----
+SortedMetric:
+Best sorter percentage: 0.209197998046875
+Best sorter size: 50
+Sorted fitnesses:
+  |647.0  1067.41 ± 121.02  1643.0| n=20000
+Test case fitnesses:
+  |168247.0  213259.2 ± 15649.11  250140.0| n=200
+len evaluation.records: 20000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 6
+Evaluation time: 23.9368
+Reproduction time: 7.75021
+----
+Tree Statistics for species b
+Number of nodes: 341
+Distance to MRCA:
+   |  0.0    0.0 ±   0.0    0.0| n=0
+Per-distance fitness statistics:
+Per-distance interaction statistics:
+Total distance statistics:
+     |  0.0    3.8 ±  2.37   10.0| n=5435
+----
+Tree Statistics for species a
+Number of nodes: 37768
+Distance to MRCA:
+   |  0.0    0.0 ±   0.0    0.0| n=0
+Per-distance fitness statistics:
+Per-distance interaction statistics:
+Total distance statistics:
+     |  0.0   3.97 ±  2.46   10.0| n=626368
+----
+SortedMetric:
+Best sorter percentage: 0.116119384765625
+Best sorter size: 55
+Sorted fitnesses:
+  |596.0  961.28 ± 125.26  1572.0| n=20000
+Test case fitnesses:
+  |172795.0  223871.88 ± 13513.98  250056.0| n=200
+len evaluation.records: 20000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 7
+Evaluation time: 21.39973
+Reproduction time: 8.06285
+----
+Tree Statistics for species b
+Number of nodes: 356
+Distance to MRCA:
+   |  0.0    0.0 ±   0.0    0.0| n=0
+Per-distance fitness statistics:
+Per-distance interaction statistics:
+Total distance statistics:
+     |  0.0   4.77 ±  2.87   12.0| n=7942
+----
+Tree Statistics for species a
+Number of nodes: 40382
+Distance to MRCA:
+   |  0.0    0.0 ±   0.0    0.0| n=0
+Per-distance fitness statistics:
+Per-distance interaction statistics:
+Total distance statistics:
+     |  0.0    4.8 ±  2.91   12.0| n=869092
+----
+SortedMetric:
+Best sorter percentage: 0.116119384765625
+Best sorter size: 55
+Sorted fitnesses:
+  |541.0  884.52 ± 128.59  1462.0| n=20000
+Test case fitnesses:
+  |173771.0  231548.49 ± 11707.94  252959.0| n=200
+len evaluation.records: 20000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 8
+Evaluation time: 22.8896
+Reproduction time: 6.83159
+----
+Tree Statistics for species b
+Number of nodes: 390
+Distance to MRCA:
+   |  0.0    0.0 ±   0.0    0.0| n=0
+Per-distance fitness statistics:
+Per-distance interaction statistics:
+Total distance statistics:
+     |  0.0   5.81 ±  3.31   14.0| n=11474
+----
+Tree Statistics for species a
+Number of nodes: 42646
+Distance to MRCA:
+   |  0.0    0.0 ±   0.0    0.0| n=0
+Per-distance fitness statistics:
+Per-distance interaction statistics:
+Total distance statistics:
+     |  0.0   5.67 ±  3.37   14.0| n=1165194
+----
+SortedMetric:
+Best sorter percentage: 0.165191650390625
+Best sorter size: 49
+Sorted fitnesses:
+  |471.0  824.03 ± 126.23  1430.0| n=20000
+Test case fitnesses:
+  |203020.0  237596.76 ± 10034.27  259540.0| n=200
+len evaluation.records: 20000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 9
+Evaluation time: 21.22184
+Reproduction time: 8.03226
+----
+Tree Statistics for species b
+Number of nodes: 416
+Distance to MRCA:
+   |  0.0    0.0 ±   0.0    0.0| n=0
+Per-distance fitness statistics:
+Per-distance interaction statistics:
+Total distance statistics:
+     |  0.0   6.59 ±   3.6   15.0| n=15430
+----
+Tree Statistics for species a
+Number of nodes: 44363
+Distance to MRCA:
+   |  0.0    0.0 ±   0.0    0.0| n=0
+Per-distance fitness statistics:
+Per-distance interaction statistics:
+Total distance statistics:
+     |  0.0   6.64 ±  3.83   16.0| n=1541969
+----
+SortedMetric:
+Best sorter percentage: 0.1819610595703125
+Best sorter size: 49
+Sorted fitnesses:
+  |362.0  774.0 ± 128.35  1355.0| n=20000
+Test case fitnesses:
+  |208956.0  242600.02 ± 8862.32  259201.0| n=200
+len evaluation.records: 20000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 10
+Evaluation time: 21.34246
+Reproduction time: 7.94662
+----
+Tree Statistics for species b
+Number of nodes: 418
+Distance to MRCA:
+   |  0.0    0.0 ±   0.0    0.0| n=0
+Per-distance fitness statistics:
+Per-distance interaction statistics:
+Total distance statistics:
+     |  0.0   7.73 ±  4.11   17.0| n=20194
+----
+Tree Statistics for species a
+Number of nodes: 45889
+Distance to MRCA:
+   |  0.0    0.0 ±   0.0    0.0| n=0
+Per-distance fitness statistics:
+Per-distance interaction statistics:
+Total distance statistics:
+     |  0.0   7.69 ±  4.28   18.0| n=2043093
+----
+SortedMetric:
+Best sorter percentage: 0.13427734375
+Best sorter size: 50
+Sorted fitnesses:
+  |335.0  738.75 ± 132.7  1277.0| n=20000
+Test case fitnesses:
+  |211817.0  246125.4 ± 7626.49  263441.0| n=200
+len evaluation.records: 20000
+len evaluation.records: 200

@@ -1,0 +1,69 @@
+80c11b02786c5315d4d6bf7c687d020db4fe0bd9
+-----------------------------------------------------------
+Generation: 1
+Evaluation time: 2.66205
+Reproduction time: 0.0
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 2
+Evaluation time: 0.549
+Reproduction time: 5.95283
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 3
+Evaluation time: 0.5433
+Reproduction time: 0.58505
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 4
+Evaluation time: 0.48609
+Reproduction time: 0.59562
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 5
+Evaluation time: 0.48855
+Reproduction time: 0.59457
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 6
+Evaluation time: 0.5032
+Reproduction time: 0.65644
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 7
+Evaluation time: 0.49238
+Reproduction time: 0.59724
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 8
+Evaluation time: 0.4832
+Reproduction time: 0.59346
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 9
+Evaluation time: 0.49982
+Reproduction time: 0.66536
+len evaluation.records: 2000
+len evaluation.records: 200
+-----------------------------------------------------------
+Generation: 10
+Evaluation time: 0.50657
+Reproduction time: 0.62011
+----
+SortedMetric:
+Best sorter percentage: 0.1977081298828125
+Best sorter size: 65
+Sorted fitnesses:
+  |443.0  773.22 ± 126.46  1169.0| n=2000
+Test case fitnesses:
+  |22383.0  24267.84 ± 833.23  25973.0| n=200
+len evaluation.records: 2000
+len evaluation.records: 200
