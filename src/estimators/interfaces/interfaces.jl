@@ -1,7 +1,7 @@
 export estimate!
 
 function estimate!(
-    estimator::Vector{Estimator},
+    estimator::Vector{<:Estimator},
     individual_outcomes::Dict{Int, <:AbstractDict{Int, Float64}},
     species::Vector{<:AbstractSpecies};)
     for estimator in estimator
