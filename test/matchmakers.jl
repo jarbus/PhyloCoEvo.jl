@@ -4,7 +4,6 @@ using PhyloCoEvo.MatchMakers: RandomCohortMatchMaker, ParentsVsChildrenMatchMake
 function test_random_cohort_matches(pop_sizes::Vector{Int},
                                     n_matches_per_ind::Vector{Int};
                                     n_samples::Int=0,
-                                    include_children::Bool=false,
                                     gen::Int=2,
                                     n_gens_before_sampling::Int=1,
                                     n_expected_samples::Int=0,
@@ -12,20 +11,20 @@ function test_random_cohort_matches(pop_sizes::Vector{Int},
     "Function goes over each species pair and tests that the correct number of matches are made.
     The number of matches made between two species is the same for all species pairs.
     The number of matches made by an individual is the same for all individuals in a species.
-    Arguments:
-        include_children::Bool: If true, split pop between pop and children, otherwise only use pop 
     "
     @assert length(pop_sizes) == length(n_matches_per_ind)
+    # We can handle two species with different pop sizes, or n species with the same pop size
+    @assert length(pop_sizes) == 2 || length(Set(pop_sizes)) == 1
     # With random cohort matches, the number of matches made between two species is the same
     # for all species pairs.
     @assert length(Set(ps * nm for (ps, nm) in zip(pop_sizes, n_matches_per_ind))) == 1
     # each pair has the same num of matches
     n_species_pairs = length(pop_sizes) * (length(pop_sizes) - 1) / 2 
-    if gen > 0
+    if gen > n_gens_before_sampling
         n_expected_matches_per_species_pair = pop_sizes[1] * n_matches_per_ind[1] + n_expected_samples
         n_expected_total_matches = n_expected_matches_per_species_pair * n_species_pairs
     else
-        n_expected_matches_per_species_pair = pop_sizes[1] * n_matches_per_ind[2]
+        n_expected_matches_per_species_pair = length(pop_sizes) == 2 ? reduce(*,pop_sizes) : pop_sizes[1]^2
         n_expected_total_matches = sum(pop_sizes[i]*pop_sizes[j]
                                        for i in 1:length(pop_sizes)
                                        for j in (i+1):length(pop_sizes))
@@ -38,23 +37,20 @@ function test_random_cohort_matches(pop_sizes::Vector{Int},
         push!(pops, pop)
         id += pop_size
     end
-    if include_children
-        mids = [Int(ps / 2) for ps in pop_sizes]
-        species = [PhylogeneticSpecies("species$i", pop[1:mids[i]], pop[mids[i]+1:end]) for (i, pop) in enumerate(pops)]
-    else
-        species = [PhylogeneticSpecies("species$i", pop, typeof(pop)()) for (i, pop) in enumerate(pops)]
-    end
+    mids = [Int(ps / 2) for ps in pop_sizes]
+    species = [PhylogeneticSpecies("species$i", pop[1:mids[i]], pop[mids[i]+1:end]) for (i, pop) in enumerate(pops)]
     rng = StableRNG(1)
-    rcmm = RandomCohortMatchMaker(n_matches_per_ind=Dict(
+    # Create all pairwise matches
+    all_matches = []
+    for idx1 in 1:length(pop_sizes)-1
+        for idx2 in (idx1+1):length(pop_sizes)
+
+            rcmm = RandomCohortMatchMaker(n_matches_per_ind=Dict(
                                     "species$i"=>n_matches_per_ind[i] 
                                     for (i, pop) in enumerate(pops)),
                                   n_samples=n_samples,
                                   gen=gen,
                                   n_gens_before_sampling=n_gens_before_sampling)
-    # Create all pairwise matches
-    all_matches = []
-    for idx1 in 1:length(pop_sizes)-1
-        for idx2 in (idx1+1):length(pop_sizes)
             indicies = [idx1, idx2]
             matches = make_matches(rcmm, rng, "interaction1", species[idx1], species[idx2])
             append!(all_matches, matches)
@@ -79,21 +75,23 @@ end
 @testset "RandomCohortMatchMaker" begin
     @testset "10v10, 2 matches per ind" begin
         test_random_cohort_matches([10, 10], [2, 2], gen=2)
-        test_random_cohort_matches([20, 20], [4, 4], gen=2, include_children=true)
+        test_random_cohort_matches([20, 20], [4, 4], gen=2)
+        # TODO add more tests
     end
     @testset "100v10" begin
-        test_random_cohort_matches([100, 10], [1, 10], gen=2, n_samples=10, n_expected_samples=10)
         # test all vs all for first gen
         test_random_cohort_matches([100, 10], [1, 10], gen=0, n_samples=10, n_expected_samples=0)
         # test no samples for second gen
         test_random_cohort_matches([100, 10], [1, 10], gen=1, n_gens_before_sampling=10, n_samples=10, n_expected_samples=0)
-        test_random_cohort_matches([100, 10], [2, 20], gen=2, include_children=true)
+        test_random_cohort_matches([100, 10], [1, 10], gen=2, n_samples=10, n_expected_samples=10)
+        test_random_cohort_matches([100, 10], [2, 20], gen=2)
         test_random_cohort_matches([100, 10], [5, 50], gen=2)
-        test_random_cohort_matches([100, 10], [10, 100], gen=2, include_children=true)
+        test_random_cohort_matches([100, 10], [10, 100], gen=2)
     end
     @testset "3SpeciesSameSizeSameNumMatches" begin
+        test_random_cohort_matches([100,100,100], [1,1,1], gen=0, n_samples=10, n_expected_samples=0)
         test_random_cohort_matches([100,100,100], [1,1,1], gen=2, n_samples=10, n_expected_samples=10)
-        test_random_cohort_matches([100,100,100], [10,10,10], gen=2, include_children=true, n_samples=10, n_expected_samples=10)
+        test_random_cohort_matches([100,100,100], [10,10,10], gen=2, n_samples=10, n_expected_samples=10)
         test_random_cohort_matches([100,100,100], [100,100,100], gen=2)
     end
 end

@@ -166,12 +166,23 @@ function estimate!(
             if ind_j.id ∈ keys(estimator.cached_outcomes) &&
                ind_j.id ∈ keys(estimator.cached_outcomes[ind_i.id])
     ]
+
+    current_interactions = [
+        (ind_i.id, ind_j.id)
+        for ind_i in [speciesa.population; speciesa.children] 
+            if ind_i.id ∈ keys(individual_outcomes)
+        for ind_j in [speciesb.population; speciesb.children] 
+            if ind_j.id ∈ keys(individual_outcomes[ind_i.id])
+    ]
+
     all_interactions = [ 
         (ind_i.id, ind_j.id)
         for ind_i in [speciesa.population; speciesa.children]
         for ind_j in [speciesb.population; speciesb.children]]
 
     unevaluated_interactions = setdiff(all_interactions, evaluated_interactions)
+    cached_interactions = setdiff(evaluated_interactions, current_interactions)
+
     # TODO add tests in test/estimator.jl
     
     # Compute estimates for sampled interactions
@@ -183,6 +194,9 @@ function estimate!(
             speciesb.tree,
             estimator.cached_outcomes,
             k=estimator.k, max_dist=estimator.max_dist)
+
+        sample_estimated_outcomes = estimates_to_outcomes(sample_estimates)
+        two_layer_merge!(individual_outcomes, sample_estimated_outcomes, warn=true)
 
         # Compare sample estimates to actual outcomes
         esma, esmb = measure_estimation_samples(sample_estimates, sampled_individual_outcomes)
@@ -209,6 +223,11 @@ function estimate!(
     # merge estimated_individual_outcomes into individual_outcomes
     two_layer_merge!(individual_outcomes, estimated_individual_outcomes, warn=true)
 
+    # Add cached interactions to individual_outcomes
+    for (id1, id2) in cached_interactions
+        individual_outcomes[id1][id2] = estimator.cached_outcomes[id1][id2]
+        individual_outcomes[id2][id1] = estimator.cached_outcomes[id2][id1]
+    end
 end
 
 function estimate!(estimator::PhylogeneticEstimator,
@@ -218,4 +237,3 @@ function estimate!(estimator::PhylogeneticEstimator,
     speciesb = find_species_by_id(estimator.speciesb_id, species)
     estimate!(estimator, individual_outcomes, speciesa, speciesb)
 end
-

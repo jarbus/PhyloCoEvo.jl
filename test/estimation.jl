@@ -2,6 +2,7 @@ using PhylogeneticTrees
 using DataStructures: SortedDict
 using PhyloCoEvo.Estimators.Phylogenetic: weighted_average_outcome, RelatedOutcome, find_k_nearest_interactions, two_layer_merge!, estimate!, compute_estimates, PhylogeneticEstimator
 using CoEvo.Names
+using LRUCache: LRU
 
 @testset "estimation.jl" begin
 @testset "WeightedAverage" begin
@@ -148,6 +149,57 @@ end
     @test individual_outcomes[2][4] == 0.5
     @test individual_outcomes[4][2] == 0.5
     end
+    @testset "EstimateFromChildren" begin
+    # Make two species
+    #  A             B
+    #  1             3
+    #  |             |
+    #  2             4
+    #
+    #  Estimate 1v4, 2v3 from 1v3 and 2v4
+    #  1v3 : 0, 1 
+    #  2v4 : 0, 1
+    #  All outcomes are 0, 1
+    species = make_dummy_phylo_species([1, 1], [1, 1])
+    phyloestimator = PhylogeneticEstimator("species1","species2",1, 10)
+    individual_outcomes = Dict(1=>Dict(3=>0.), 2=>Dict(4=>0.), 3=>Dict(1=>1.), 4=>Dict(2=>1.))
+    estimate!(phyloestimator, individual_outcomes, species)
+    for i in 1:2
+        for j in 3:4
+            @test i ∈ keys(individual_outcomes[j])
+            @test individual_outcomes[i][j] == 0
+            @test individual_outcomes[j][i] == 1
+        end
+    end
+    end
+    @testset "EstimatorCache" begin
+    # Make two species
+    #  A             B
+    #  1             3
+    #  |             |
+    #  2             4
+    #
+    #  Estimator cached 1v3, evaluates 2v3 and 1v4, estimates 2v4
+    #  1v4 : 0, 1 
+    #  2v3 : 0, 1
+    species = make_dummy_phylo_species([1, 1], [1, 1])
+    phyloestimator = PhylogeneticEstimator("species1","species2",1, 10)
+    phyloestimator.cached_outcomes[1]=Dict(3=>0.)
+    phyloestimator.cached_outcomes[3]=Dict(1=>1.)
+    individual_outcomes = Dict(2=>Dict(3=>0.), 3=>Dict(2=>1.), 4=>Dict(1=>1. ), 1=>Dict(4=>0.))
+    estimate!(phyloestimator, individual_outcomes, species)
+    for i in 1:2
+        for j in 3:4
+            @test i ∈ keys(individual_outcomes[j])
+            @test individual_outcomes[i][j] == 0
+            @test individual_outcomes[j][i] == 1
+        end
+    end
+    end
+
+
+    # Test estimator cache
+    
 
     # TODO add more tests
 end

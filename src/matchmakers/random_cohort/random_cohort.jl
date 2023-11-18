@@ -43,17 +43,24 @@ function CoEvo.MatchMakers.make_matches(
     """Create `matchmaker.n_matches` random matches between the two species. Log all interactions
     as randomly sampled in the phylogeneticspecies."""
 
-    matchmaker.gen += 1
+    # We assume all pairwise matchups between species will happen each generation, so
+    # we only increment the whenever we see a specific pair of species
+    species_ids = [species1.id, species2.id]
+    sorted_keys = sort(collect(keys(matchmaker.n_matches_per_ind)))
+    if sorted_keys[1] ∈ species_ids && sorted_keys[2] ∈ species_ids
+        matchmaker.gen += 1
+    end
     n_samples = matchmaker.gen > matchmaker.n_gens_before_sampling ? matchmaker.n_samples : 0 
 
-    if matchmaker.gen == 1
+    if matchmaker.gen <= matchmaker.n_gens_before_sampling
         allvsall_mm = AllvsAllMatchMaker([:population,:children])
         return make_matches(allvsall_mm, rng, interaction_id, [species1, species2])
     end
 
-
-    ids_1 = get_individual_ids_from_cohorts(species1, matchmaker)
-    ids_2 = get_individual_ids_from_cohorts(species2, matchmaker)
+    ids_1 = shuffle(rng, get_individual_ids_from_cohorts(species1, matchmaker))
+    ids_2 = shuffle(rng, get_individual_ids_from_cohorts(species2, matchmaker))
+    child_ids_1 = Set(ind.id for ind in species1.children)
+    child_ids_2 = Set(ind.id for ind in species2.children)
     n_matches_per_ind1 = matchmaker.n_matches_per_ind[species1.id]
     n_matches_per_ind2 = matchmaker.n_matches_per_ind[species2.id]
     @assert length(ids_2) % n_matches_per_ind1 == 0 "species $(species2.id) of len $(length(ids_1)) not divisible by $(n_matches_per_ind1)"
@@ -68,29 +75,30 @@ function CoEvo.MatchMakers.make_matches(
     # shuffle cohorts
     cohorts_1 = shuffle!(rng, cohorts_1)
     cohorts_2 = shuffle!(rng, cohorts_2)
-    match_ids = Set((id_1, id_2) for (ids_1, ids_2) in zip(cohorts_1, cohorts_2)
-                    for (id_1, id_2) in vec(collect(Iterators.product(ids_1, ids_2))))
-    
-    # Choose n_random_samples between members of non-corresponding cohorts
-    non_cohort_samples1 = Set()
-    non_cohort_samples2 = Set()
-    for i in 1:n_samples
-        c1, c2 = two_rand(rng, 1:length(cohorts_1))
-        # cohorts_1 contains ids from species2, 
-        # cohorts_2 contains ids from species1
-        id_2 = rand(rng, cohorts_1[c1])
-        id_1 = rand(rng, cohorts_2[c2])
-        push!(non_cohort_samples1, (id_1, id_2))
-        push!(non_cohort_samples2, (id_2, id_1))
+    match_ids = Set((id_1, id_2) for (ids_1, ids_2) in zip(cohorts_2, cohorts_1)
+                                 for (id_1, id_2) in Iterators.product(ids_1, ids_2))
+    if n_samples == 0
+        matches = [BasicMatch(interaction_id, [id_1, id_2]) for (id_1, id_2) in match_ids]
+        return matches
     end
 
-    # Update phylogenetic species
+    # Add sampled interaction set
     if species2.id ∉ keys(species1.randomly_sampled_interactions)
         species1.randomly_sampled_interactions[species2.id] = Set{Tuple{Int,Int}}()
     end
     if species1.id ∉ keys(species2.randomly_sampled_interactions)
         species2.randomly_sampled_interactions[species1.id] = Set{Tuple{Int,Int}}()
     end
+
+    children_matchups = Set((id_1, id_2) for (id_1, id_2) in vec(collect(Iterators.product(child_ids_1, child_ids_2))))
+    non_matched_children_matchups = shuffle(rng, setdiff(children_matchups, match_ids) |> collect)
+    @assert length(children_matchups) > 0 "No children matchups"
+    @assert length(non_matched_children_matchups) > n_samples "length(non_matched_children_matchups) $(length(non_matched_children_matchups)) > n_samples $(n_samples)"
+
+    # Add random samples to species if they exist
+    non_cohort_samples1 = non_matched_children_matchups[1:n_samples]
+    non_cohort_samples2 = [(id_2, id_1) for (id_1, id_2) in non_cohort_samples1]
+    
     union!(species1.randomly_sampled_interactions[species2.id], non_cohort_samples1)
     union!(species2.randomly_sampled_interactions[species1.id], non_cohort_samples2)
 
