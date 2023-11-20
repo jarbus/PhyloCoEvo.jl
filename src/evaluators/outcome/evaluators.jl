@@ -14,13 +14,13 @@ using CoEvo.Observers: Observation
 struct OutcomeScalarFitnessEvaluation <: CoEvo.Evaluators.Evaluation
     species_id::String
     records::Vector{ScalarFitnessRecord}
-    outcomes::Dict{Int, Dict{Int, Float64}}
+    outcomes::AbstractDict{Int, <:AbstractDict{Int, Float64}}
 end
 
 struct OutcomeNSGAIIEvaluation <: Evaluation
     species_id::String
     records::Vector{NSGAIIRecord}
-    outcomes::Dict{Int, Dict{Int, Float64}}
+    outcomes::AbstractDict{Int, <:AbstractDict{Int, Float64}}
 end
 
 Base.@kwdef struct OutcomeScalarFitnessEvaluator <: CoEvo.Evaluators.Evaluator 

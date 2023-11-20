@@ -1,3 +1,7 @@
+function has_outcome(outcomes::AbstractDict{Int, <:AbstractDict{Int, Float64}}, ida::Int, idb::Int)
+    """Check if the interaction between `ida` and `idb` is in `outcomes`"""
+    return ida ∈ keys(outcomes) && idb ∈ keys(outcomes[ida])
+end
 function find_k_nearest_interactions(
     ida::Int,
     idb::Int,
@@ -158,33 +162,23 @@ function estimate!(
     end
 
     # Compute all unevaluated interactions between the two species
-    evaluated_interactions = [
-        (ind_i.id, ind_j.id)
-        for ind_i in [speciesa.population; speciesa.children] 
-            if ind_i.id ∈ keys(estimator.cached_outcomes)
-        for ind_j in [speciesb.population; speciesb.children] 
-            if ind_j.id ∈ keys(estimator.cached_outcomes) &&
-               ind_j.id ∈ keys(estimator.cached_outcomes[ind_i.id])
-    ]
+    unevaluated_interactions = Vector{Tuple{Int64, Int64}}()
+    cached_interactions = Vector{Tuple{Int64, Int64}}()
 
-    current_interactions = [
-        (ind_i.id, ind_j.id)
-        for ind_i in [speciesa.population; speciesa.children] 
-            if ind_i.id ∈ keys(individual_outcomes)
-        for ind_j in [speciesb.population; speciesb.children] 
-            if ind_j.id ∈ keys(individual_outcomes[ind_i.id])
-    ]
+    # Get all cached interactions and all unevaluated outcomes
+    for ind_a in [speciesa.population; speciesa.children]
+        for ind_b in [speciesb.population; speciesb.children]
+            # We only care about outcomes that haven't been evaluated
+            if !has_outcome(individual_outcomes, ind_a.id, ind_b.id)
+                if has_outcome(estimator.cached_outcomes, ind_a.id, ind_b.id)
+                    push!(cached_interactions, (ind_a.id, ind_b.id))
+                else
+                    push!(unevaluated_interactions, (ind_a.id, ind_b.id))
+                end
+            end
+        end
+    end
 
-    all_interactions = [ 
-        (ind_i.id, ind_j.id)
-        for ind_i in [speciesa.population; speciesa.children]
-        for ind_j in [speciesb.population; speciesb.children]]
-
-    unevaluated_interactions = setdiff(all_interactions, evaluated_interactions)
-    cached_interactions = setdiff(evaluated_interactions, current_interactions)
-
-    # TODO add tests in test/estimator.jl
-    
     # Compute estimates for sampled interactions
     if has_sampled_interactions
         # Estimate sampled interactions
@@ -212,7 +206,7 @@ function estimate!(
         speciesb.measurements[PhylogeneticEstimationSampleMeasurement][speciesa.id] = esmb
     end
 
-    # Compute estimates for the rest of the interactions
+    # Compute estimates for all unevaluated interactions
     estimates = compute_estimates(
                             unevaluated_interactions,
                             speciesa.tree,
@@ -228,6 +222,11 @@ function estimate!(
         individual_outcomes[id1][id2] = estimator.cached_outcomes[id1][id2]
         individual_outcomes[id2][id1] = estimator.cached_outcomes[id2][id1]
     end
+    # assert all interactions are evaluated
+    # for (id1, id2) in all_interactions
+    #     @assert id1 in keys(individual_outcomes) "id1 $(id1) not in individual_outcomes"
+    #     @assert id2 in keys(individual_outcomes[id1]) "id2 $(id2) not in individual_outcomes[$(id1)]"
+    # end
 end
 
 function estimate!(estimator::PhylogeneticEstimator,
@@ -236,4 +235,7 @@ function estimate!(estimator::PhylogeneticEstimator,
     speciesa = find_species_by_id(estimator.speciesa_id, species)
     speciesb = find_species_by_id(estimator.speciesb_id, species)
     estimate!(estimator, individual_outcomes, speciesa, speciesb)
+    # assert each individual_outcome has the same number of interactions
+    unique_interaction_counts = Set(length(v) for v in values(individual_outcomes))
+    @assert length(unique_interaction_counts) == 1 "individual_outcomes have different number of interactions $(unique_interaction_counts)"
 end
