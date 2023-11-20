@@ -5,6 +5,37 @@ using CoEvo.Individuals.Basic: BasicIndividual
 using CoEvo.Evaluators.ScalarFitness: ScalarFitnessRecord
 using PhyloCoEvo.Evaluators.Outcome: OutcomeScalarFitnessEvaluation
 using CoEvo.Genotypes.Vectors: BasicVectorGenotype
+using PhyloCoEvo.Selectors.Lexicase: fast_max_filter!
+
+@testset "fast_max_filter!" begin
+    source_ids = [1,2,3,4,5]
+    n_source_ids = length(source_ids)
+    target_ids = [0,0,0,0,0]
+    outcomes = Dict(1=>Dict(6=>0.,7=>0.,8=>0.,9=>0.,10=>0.),
+                    2=>Dict(6=>1.,7=>0.,8=>0.,9=>0.,10=>0.),
+                    3=>Dict(6=>1.,7=>0.,8=>1.,9=>0.,10=>0.),
+                    4=>Dict(6=>1.,7=>0.,8=>1.,9=>1.,10=>0.),
+                    5=>Dict(6=>1.,7=>0.,8=>1.,9=>1.,10=>1.))
+    n_target_ids = fast_max_filter!(source_ids, n_source_ids, target_ids, outcomes, 6)
+    @test target_ids == [2,3,4,5,0]
+    @test n_target_ids == 4
+    source_ids, target_ids = target_ids, source_ids
+    n_source_ids, n_target_ids = n_target_ids, n_source_ids
+
+    n_source_ids = fast_max_filter!(source_ids, n_source_ids, target_ids, outcomes, 9)
+    @test target_ids[1:n_source_ids] == [4,5]
+    source_ids, target_ids = target_ids, source_ids
+
+    n_source_ids = fast_max_filter!(source_ids, n_source_ids, target_ids, outcomes, 7)
+    @test target_ids[1:n_source_ids] == [4,5]
+    source_ids, target_ids = target_ids, source_ids
+
+    n_source_ids = fast_max_filter!(source_ids, n_source_ids, target_ids, outcomes, 10)
+    @test target_ids[1:n_source_ids] == [5,]
+    source_ids, target_ids = target_ids, source_ids
+
+
+end
 
 @testset "LexicaseSelection" begin
     function get_parents(outcomes; n_parents=1000)

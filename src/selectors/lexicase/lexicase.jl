@@ -14,6 +14,30 @@ Base.@kwdef struct LexicaseSelector <: Selector
     n_parents::Int
 end
 
+function fast_max_filter!(source_ids::Vector{Int},
+        n_source_ids::Int,
+        target_ids::Vector{Int},
+        outcomes::AbstractDict{Int,<:AbstractDict{Int,Float64}},
+        test_case::Int)
+    """Copies the ids from source_ids to target_ids that have the best fitness on the test case.
+    """
+    cur_max = -Inf
+    n_target_ids = 0
+    for i in 1:n_source_ids
+        @inbounds id = source_ids[i]
+        @inbounds outcome = outcomes[id][test_case]
+        if outcome > cur_max
+            cur_max = outcome
+            @inbounds target_ids[1] = id
+            n_target_ids = 1
+        elseif outcome == cur_max
+            n_target_ids += 1
+            @inbounds target_ids[n_target_ids] = id
+        end
+    end
+    return n_target_ids
+end
+
 """
     lexicase_select(rng::AbstractRNG, all_ids::Set{Int}, all_test_cases::Set{Int}, outcomes::AbstractDict{Int,AbstractDict{Int,Float64}})
     
@@ -33,17 +57,20 @@ function lexicase_select(
     all_ids::Set{Int},
     all_test_cases::Set{Int},
     outcomes::AbstractDict{Int,<:AbstractDict{Int,Float64}})
-    ids = copy(all_ids)
+    source_ids = collect(all_ids)
+    n_source_ids = length(source_ids)
+    target_ids = Vector{Int}(undef, length(source_ids))
     test_cases = copy(all_test_cases)
-    while length(ids) > 1 && length(test_cases) > 0
+    while n_source_ids > 1 && length(test_cases) > 0
         # sample a test case without replacement
         rand_test_case = pop!(test_cases, rand(rng, test_cases))
         # out of the remaining ids, choose the ones that have the best fitness on the test case
-        best_outcome = maximum(outcomes[id][rand_test_case] for id in ids)
-        ids = filter(id -> outcomes[id][rand_test_case] == best_outcome, ids)
+        n_source_ids = fast_max_filter!(source_ids, n_source_ids, target_ids, outcomes, rand_test_case)
+        # swap source and target ids
+        source_ids, target_ids = target_ids, source_ids
     end
     # There is either one id left, or no test cases left. For both cases we can choose one at random
-    rand(rng, ids)
+    rand(rng, source_ids[1:n_source_ids])
 end
 
 """
@@ -67,6 +94,7 @@ function select(
     new_population::Vector{<:I},
     evaluation::OutcomeScalarFitnessEvaluation
 ) where I<:Individual
+    start = time()
     ids = Set(individual.id for individual in new_population)
     id_to_index = Dict(new_population[i].id => i for i in eachindex(new_population))
     test_cases = Set(test_id for id in ids for test_id in keys(evaluation.outcomes[id]))
@@ -75,6 +103,8 @@ function select(
         new_parent_id = lexicase_select(random_number_generator, ids, test_cases, evaluation.outcomes)
         parents[i] = new_population[id_to_index[new_parent_id]]
     end
+    endtime = time()
+    println("Lexicase selection took $(endtime - start) seconds")
     return parents  
 end
 
