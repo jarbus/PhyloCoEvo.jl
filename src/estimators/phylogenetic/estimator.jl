@@ -50,7 +50,6 @@ function find_k_nearest_interactions(
         error("Interaction $(n1.id),$(n2.id) already in dictionary")
     end
     queue = [QueueElement(n1, n2, 0, nothing, true)]
-    seen = Set{Tuple{Int, Int}}()
     iters = 0
     # TODO: Profile and optimize
     while length(queue) > 0
@@ -58,17 +57,19 @@ function find_k_nearest_interactions(
         el.dist > max_dist && break
         iters += 1
         ids = (el.indA.id, el.indB.id)
-        push!(seen, ids)
         # If the interaction is in the set of outcomes, add it to the list and break if we have enough
-        @assert ids[1] in keys(individual_outcomes) "id1 $(ids[1]) not in individual_outcomes"
-        @assert ids[2] in keys(individual_outcomes) "id2 $(ids[2]) not in individual_outcomes"
-        if ids[2] in keys(individual_outcomes[ids[1]]) && ids[1] in keys(individual_outcomes[ids[2]])
-            outcomea = individual_outcomes[ids[1]][ids[2]]
-            outcomeb = individual_outcomes[ids[2]][ids[1]]
-            push!(k_nearest_interactions, RelatedOutcome(ids[1], ids[2], el.dist, outcomea, outcomeb))
-            length(k_nearest_interactions) >= k && break
+        # @assert ids[1] in keys(individual_outcomes) "id1 $(ids[1]) not in individual_outcomes"
+        # @assert ids[2] in keys(individual_outcomes) "id2 $(ids[2]) not in individual_outcomes"
+
+        outcomes1 = get(individual_outcomes[ids[1]], ids[2], nothing)
+        if !isnothing(outcomes1)
+            outcomes2 = get(individual_outcomes[ids[2]], ids[1], nothing)
+            if !isnothing(outcomes2)
+                push!(k_nearest_interactions, RelatedOutcome(ids[1], ids[2], el.dist, outcomes1, outcomes2))
+                length(k_nearest_interactions) >= k && break
+            end
         end
-        
+
         # Add parent interactions to queue first, as they are more likely to be found:
         # 1. Results from previous generations can be cached
         # 2. For "all vs best" or "all vs parents", we expect parent interactions to 
@@ -96,7 +97,6 @@ function find_k_nearest_interactions(
         end
     end
     0 == length(k_nearest_interactions) && error("Found 0 interactions for $(ida),$(idb)")
-    @assert length(seen) == iters "Seen set does not match number of iterations"
     return k_nearest_interactions
 end
 
@@ -117,7 +117,8 @@ function compute_estimates(
     """
     estimates = Vector{EstimatedOutcome}(undef, length(pairs))
 
-    for (i, (ida, idb)) in enumerate(pairs)
+    Threads.@threads for i in eachindex(pairs)
+        (ida, idb) = pairs[i]
         nearest = find_k_nearest_interactions(ida, idb, treeA, treeB, individual_outcomes, k, max_dist=max_dist)
         estimates[i] = EstimatedOutcome(ida, idb, nearest)
     end
@@ -164,6 +165,10 @@ function estimate!(
     # Compute all unevaluated interactions between the two species
     unevaluated_interactions = Vector{Tuple{Int64, Int64}}()
     cached_interactions = Vector{Tuple{Int64, Int64}}()
+    # We create a copy of the cached outcomes for use in parallel threads
+    # This is because we don't want to lock the cache while we are computing
+    # estimates in parallel
+    nonlocking_cache = Dict{Int,Dict{Int,Float64}}(k=>v for (k,v) in estimator.cached_outcomes)
 
     # Get all cached interactions and all unevaluated outcomes
     for ind_a in [speciesa.population; speciesa.children]
@@ -186,7 +191,7 @@ function estimate!(
             sampled_interactions,
             speciesa.tree,
             speciesb.tree,
-            estimator.cached_outcomes,
+            nonlocking_cache,
             k=estimator.k, max_dist=estimator.max_dist)
 
         sample_estimated_outcomes = estimates_to_outcomes(sample_estimates)
@@ -211,7 +216,7 @@ function estimate!(
                             unevaluated_interactions,
                             speciesa.tree,
                             speciesb.tree,
-                            estimator.cached_outcomes,
+                            nonlocking_cache,
                             k=estimator.k, max_dist=estimator.max_dist)
     estimated_individual_outcomes = estimates_to_outcomes(estimates)
     # merge estimated_individual_outcomes into individual_outcomes

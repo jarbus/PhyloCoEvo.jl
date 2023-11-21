@@ -40,7 +40,7 @@ using PhyloCoEvo.Utils: initialize_x
         species_id1::String = "a",
         species_id2::String = "b",
         interaction_id::String = "NumbersGame{Sum}",
-        default_vector::Vector{Float64} = fill(0.0, 1),
+        num_tests_per_parasite::Int = 10,
         n_elite::Int = 10
     )
         eco_creator = BasicEcosystemCreator(
@@ -65,7 +65,7 @@ using PhyloCoEvo.Utils: initialize_x
                     id = species_id2,
                     n_population = n_pop,
                     n_children = n_pop,
-                    genotype_creator = SortingNetworkTestCaseGenotypeCreator(20, 4),
+                    genotype_creator = SortingNetworkTestCaseGenotypeCreator(num_tests_per_parasite, 4),
                     phenotype_creator = SortingNetworkTestCasePhenotypeCreator(4),
                     individual_creator = BasicIndividualCreator(),
                     evaluator = OutcomeScalarFitnessEvaluator(),
@@ -94,7 +94,7 @@ using PhyloCoEvo.Utils: initialize_x
             reporters = Reporter[
                 # BasicReporter(metric = AllSpeciesFitness()),
                 # BasicReporter(metric = GenotypeSum()),
-                BasicReporter(metric = SortedMetric(),
+                BasicReporter(metric = SortedMetric(num_tests_per_parasite=num_tests_per_parasite),
                               save_interval = 1,
                               print_interval = 1)
             ],
