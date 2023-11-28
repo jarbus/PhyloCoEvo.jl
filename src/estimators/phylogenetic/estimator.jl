@@ -162,6 +162,7 @@ function estimate!(
         end
     end
 
+
     # Compute all unevaluated interactions between the two species
     unevaluated_interactions = Vector{Tuple{Int64, Int64}}()
     cached_interactions = Vector{Tuple{Int64, Int64}}()
@@ -183,6 +184,24 @@ function estimate!(
             end
         end
     end
+    
+    # Measure the number of cached, estimated, sampled,
+    # and evaluated interactions between the two species
+    n_cached = length(cached_interactions)
+    n_unevaluated = length(unevaluated_interactions)
+    n_sampled = has_sampled_interactions ? length(sampled_interactions) : 0
+    total_number_of_interactions = reduce(*,[sum(length.([s.population, s.children]))
+                                             for s in [speciesa, speciesb]])
+    num_evaluated = total_number_of_interactions - n_unevaluated - n_cached
+    m = EstimateCacheEvalSampleMeasurement(n_unevaluated, num_evaluated, n_cached, n_sampled)
+    get!(speciesa.measurements,
+        EstimateCacheEvalSampleMeasurement,
+        Dict{String, Any}())[speciesb.id] = m
+    get!(speciesb.measurements,
+        EstimateCacheEvalSampleMeasurement,
+        Dict{String, Any}())[speciesa.id] = m
+
+
 
     # Compute estimates for sampled interactions
     if has_sampled_interactions
@@ -200,15 +219,13 @@ function estimate!(
         # Compare sample estimates to actual outcomes
         esma, esmb = measure_estimation_samples(sample_estimates, sampled_individual_outcomes)
 
-        # Add metrics to species
-        if PhylogeneticEstimationSampleMeasurement ∉ keys(speciesa.measurements)
-            speciesa.measurements[PhylogeneticEstimationSampleMeasurement] = Dict{String, Any}()
-        end
-        if PhylogeneticEstimationSampleMeasurement ∉ keys(speciesb.measurements)
-            speciesb.measurements[PhylogeneticEstimationSampleMeasurement] = Dict{String, Any}()
-        end
-        speciesa.measurements[PhylogeneticEstimationSampleMeasurement][speciesb.id] = esma
-        speciesb.measurements[PhylogeneticEstimationSampleMeasurement][speciesa.id] = esmb
+        # Add metrics to species, creating a new dict for the measurement if necessary
+        get!(speciesa.measurements,
+            PhylogeneticEstimationSampleMeasurement,
+            Dict{String, Any}())[speciesb.id] = esma
+        get!(speciesb.measurements,
+            PhylogeneticEstimationSampleMeasurement,
+            Dict{String, Any}())[speciesa.id] = esmb
     end
 
     # Compute estimates for all unevaluated interactions
@@ -227,11 +244,6 @@ function estimate!(
         individual_outcomes[id1][id2] = estimator.cached_outcomes[id1][id2]
         individual_outcomes[id2][id1] = estimator.cached_outcomes[id2][id1]
     end
-    # assert all interactions are evaluated
-    # for (id1, id2) in all_interactions
-    #     @assert id1 in keys(individual_outcomes) "id1 $(id1) not in individual_outcomes"
-    #     @assert id2 in keys(individual_outcomes[id1]) "id2 $(id2) not in individual_outcomes[$(id1)]"
-    # end
 end
 
 function estimate!(estimator::PhylogeneticEstimator,

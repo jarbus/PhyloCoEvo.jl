@@ -5,6 +5,7 @@ export estimate!
 using ..Estimators: Estimator
 using ...Species.Phylogenetic: PhylogeneticSpecies
 using ...Metrics.PhylogeneticEstimator: PhylogeneticEstimationSampleMeasurement
+using ...Metrics.EstimateCacheEvalSample: EstimateCacheEvalSampleMeasurement
 
 import ..Estimators: estimate!    
 

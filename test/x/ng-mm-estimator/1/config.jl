@@ -24,6 +24,7 @@ using PhyloCoEvo.SpeciesCreators.Phylogenetic: PhylogeneticSpeciesCreator
 using PhyloCoEvo.Estimators.Phylogenetic: PhylogeneticEstimator
 using PhyloCoEvo.Estimators: Estimator
 using PhyloCoEvo.Metrics.PhylogeneticEstimator: PhylogeneticEstimatorMetric
+using PhyloCoEvo.Metrics.EstimateCacheEvalSample: EstimateCacheEvalSampleMetric
 
 XDIR = initialize_x(dirname(@__FILE__))
 function dummy_eco_creator(;
@@ -91,9 +92,9 @@ function dummy_eco_creator(;
                 BasicReporter(metric = PhylogeneticEstimatorMetric(),
                               save_interval = 1,
                               print_interval = 1),
-                # BasicReporter(metric = TreeStatisticsMetric(),
-                #               save_interval = 1,
-                #               print_interval = 1)
+                BasicReporter(metric = EstimateCacheEvalSampleMetric(),
+                              save_interval = 1,
+                              print_interval = 1)
             ],
             archiver = BasicArchiver(archive_path = XDIR),
         ),
@@ -120,7 +121,7 @@ end
                                       n_samples=500,
                                       n_gens_before_sampling=10)
         eco_creator = dummy_eco_creator(n_pop=n_pop, matchmaker=rcmm)
-        eco = evolve!(eco_creator, n_generations=10)
+        eco = evolve!(eco_creator, n_generations=20)
         @test true
     end
 
@@ -131,7 +132,7 @@ end
         n_pop = 50 # 50 parents, 50 children
         pvcmm = ParentsVsChildrenMatchMaker(n_samples=500)
         eco_creator = dummy_eco_creator(n_pop=n_pop, matchmaker=pvcmm)
-        eco = evolve!(eco_creator, n_generations=10)
+        eco = evolve!(eco_creator, n_generations=20)
         @test true
     end
 

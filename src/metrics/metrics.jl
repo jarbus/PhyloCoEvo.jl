@@ -6,7 +6,10 @@ using .TreeStatistics
 include("./sorting-network/metrics.jl")
 using .SortingNetwork
 
-include("./phylogeneticestimator/metrics.jl")
+include("./phylogeneticestimator/estimationsample.jl")
 using .PhylogeneticEstimator
+
+include("./phylogeneticestimator/estimatecacheevalsample.jl")
+using .EstimateCacheEvalSample
 
 end
