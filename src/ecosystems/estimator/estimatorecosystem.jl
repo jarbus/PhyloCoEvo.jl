@@ -37,6 +37,8 @@ Base.@kwdef struct EstimatorEcosystemCreator <: EcosystemCreator
 end
 
 show(io::IO, c::EstimatorEcosystemCreator) = show(io, c.basic)
+Base.getproperty(e::EstimatorEcosystemCreator, p::Symbol) =
+    p ∈ (:estimators, :basic) ?  getfield(e,p) : getproperty(getfield(e,:basic),p)
 
    
 function create_ecosystem(
