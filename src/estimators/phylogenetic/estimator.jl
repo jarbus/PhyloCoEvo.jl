@@ -166,10 +166,6 @@ function estimate!(
     # Compute all unevaluated interactions between the two species
     unevaluated_interactions = Vector{Tuple{Int64, Int64}}()
     cached_interactions = Vector{Tuple{Int64, Int64}}()
-    # We create a copy of the cached outcomes for use in parallel threads
-    # This is because we don't want to lock the cache while we are computing
-    # estimates in parallel
-    nonlocking_cache = Dict{Int,Dict{Int,Float64}}(k=>v for (k,v) in estimator.cached_outcomes)
 
     # Get all cached interactions and all unevaluated outcomes
     for ind_a in [speciesa.population; speciesa.children]
@@ -201,8 +197,16 @@ function estimate!(
         EstimateCacheEvalSampleMeasurement,
         Dict{String, Any}())[speciesa.id] = m
 
+    # Skip estimation if there are no unevaluated interactions
+    if n_sampled == 0 && n_unevaluated == 0
+        return
+    end
 
 
+    # We create a copy of the cached outcomes for use in parallel threads
+    # This is because we don't want to lock the cache while we are computing
+    # estimates in parallel
+    nonlocking_cache = Dict{Int,Dict{Int,Float64}}(k=>v for (k,v) in estimator.cached_outcomes)
     # Compute estimates for sampled interactions
     if has_sampled_interactions
         # Estimate sampled interactions
@@ -252,7 +256,4 @@ function estimate!(estimator::PhylogeneticEstimator,
     speciesa = find_species_by_id(estimator.speciesa_id, species)
     speciesb = find_species_by_id(estimator.speciesb_id, species)
     estimate!(estimator, individual_outcomes, speciesa, speciesb)
-    # assert each individual_outcome has the same number of interactions
-    unique_interaction_counts = Set(length(v) for v in values(individual_outcomes))
-    @assert length(unique_interaction_counts) == 1 "individual_outcomes have different number of interactions $(unique_interaction_counts)"
 end
