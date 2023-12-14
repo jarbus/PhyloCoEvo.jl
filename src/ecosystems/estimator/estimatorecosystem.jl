@@ -37,6 +37,7 @@ Base.@kwdef struct EstimatorEcosystemCreator <: EcosystemCreator
 end
 
 show(io::IO, c::EstimatorEcosystemCreator) = show(io, c.basic)
+# Forwards all properties to basic except for estimators
 Base.getproperty(e::EstimatorEcosystemCreator, p::Symbol) =
     p ∈ (:estimators, :basic) ?  getfield(e,p) : getproperty(getfield(e,:basic),p)
 
@@ -50,7 +51,9 @@ function create_ecosystem(
 )
     individual_outcomes = get_individual_outcomes(results)
 
+    start = time()
     estimate!(ecosystem_creator.estimators, individual_outcomes, ecosystem.species)
+    println("Estimation time: ", time() - start)
 
     observations = Observation[]
 

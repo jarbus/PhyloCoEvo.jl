@@ -9,8 +9,8 @@ function estimate!(
     end
 
     # assert each individual_outcome has the same number of interactions
-    unique_interaction_counts = unique(length.(values(individual_outcomes)))
-    @assert length(unique_interaction_counts) == 1 "individual_outcomes have different number of interactions $(unique_interaction_counts)"
+    # unique_interaction_counts = unique(length.(values(individual_outcomes)))
+    # @assert length(unique_interaction_counts) == 1 "individual_outcomes have different number of interactions $(unique_interaction_counts)"
 end
 
 

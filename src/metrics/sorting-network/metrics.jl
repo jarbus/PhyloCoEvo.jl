@@ -94,6 +94,7 @@ function compute_network_metrics(metric::SortedMetric,
     allpass_scores = [get!(metric.hash_cache, network(ind.genotype)) do
         percent_sorted(ind.genotype)
     end for ind in allpass_inds]
+    #allpass_scores = [NaN for _ in allpass_inds]
     dist_allpass_sizes = BasicStatisticalMeasurement(allpass_sizes)
     
     # Compute perfect sorting network stats

@@ -15,7 +15,11 @@ struct PhylogeneticDistanceData
 end
 PhylogeneticDistanceData() = PhylogeneticDistanceData(nothing, Dict(), Dict())
 function PhylogeneticDistanceData(tree::PhylogeneticTree, ids::Set{Int}) 
-    mrca, pairwise_distances, mrca_distances = compute_pairwise_distances!(tree, ids; remove_unreachable_nodes=true, max_distance=11)
+    if rand() < 0.05 # purge unreachable nodes every twenty iterations or so
+        mrca, pairwise_distances, mrca_distances = compute_pairwise_distances!(tree, ids; remove_unreachable_nodes=true, max_distance=11)
+    else
+        mrca, pairwise_distances, mrca_distances = nothing, Dict(), Dict()
+    end
     PhylogeneticDistanceData(mrca, pairwise_distances, mrca_distances)
 end
 

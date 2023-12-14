@@ -99,7 +99,6 @@ function select(
         parents[i] = new_population[new_parent_idx]
     end
     endtime = time()
-    println("Lexicase selection took $(endtime - start) seconds")
     return parents  
 end
 
