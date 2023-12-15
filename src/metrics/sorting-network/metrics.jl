@@ -66,7 +66,7 @@ function compute_network_metrics(metric::SortedMetric,
     sn_fitnesses = [r.fitness for r in evaluation.records]
     best_id = evaluation.records[argmax(sn_fitnesses)].id
     pop_idx = findfirst(ind -> ind.id == best_id, species.population)
-    if pop_idx == nothing 
+    if isnothing(pop_idx)
         child_idx = findfirst(ind -> ind.id == best_id, species.children)
         best_genotype = species.children[child_idx].genotype
     else
