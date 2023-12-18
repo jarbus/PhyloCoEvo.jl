@@ -17,7 +17,7 @@ using CoEvo.States.Basic: BasicCoevolutionaryStateCreator
 using CoEvo.Counters.Basic: BasicCounter
 using CoEvo.MatchMakers: MatchMaker
 using CoEvo.Performers.Basic: BasicPerformer
-using PhyloCoEvo.MatchMakers: ParentsVsChildrenMatchMaker, RandomCohortMatchMaker
+using PhyloCoEvo.MatchMakers: ParentsVsAllMatchMaker, RandomCohortMatchMaker
 
 XDIR = initialize_x(dirname(@__FILE__))
 function dummy_eco_creator(;
@@ -110,9 +110,9 @@ end
     # Remove all folders in experiment directory for second experiment
     rm(datapath, recursive=true)
     mkdir(datapath)
-    @testset "ParentsVsChildrenMatchMaker" begin
+    @testset "ParentsVsAllMatchMaker" begin
         n_pop = 50 # 50 parents, 50 children
-        pvcmm = ParentsVsChildrenMatchMaker(n_samples=10)
+        pvcmm = ParentsVsAllMatchMaker(n_samples=10)
         eco_creator = dummy_eco_creator(n_pop=n_pop, matchmaker=pvcmm)
         eco = evolve!(eco_creator, n_generations=2)
         @test true

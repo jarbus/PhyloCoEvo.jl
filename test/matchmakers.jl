@@ -1,6 +1,6 @@
 using CoEvo.Individuals.Basic: BasicIndividual
 using CoEvo.Genotypes.Vectors: BasicVectorGenotype
-using PhyloCoEvo.MatchMakers: RandomCohortMatchMaker, ParentsVsChildrenMatchMaker
+using PhyloCoEvo.MatchMakers: RandomCohortMatchMaker, ParentsVsAllMatchMaker
 function test_random_cohort_matches(pop_sizes::Vector{Int},
                                     n_matches_per_ind::Vector{Int};
                                     n_samples::Int=0,
@@ -133,7 +133,7 @@ function test_parent_v_children_matches(n_parents::Vector{Int},
     # Create species based on n_parents and n_children
     species = make_dummy_phylo_species(n_parents, n_children, first_gen=all_vs_all_expected)
     rng = StableRNG(1)
-    pvcmm = ParentsVsChildrenMatchMaker(n_samples=n_samples)
+    pvcmm = ParentsVsAllMatchMaker(n_samples=n_samples)
 
     # Create all parent v child matches across all species
     all_matches = []
@@ -175,7 +175,7 @@ function test_parent_v_children_matches(n_parents::Vector{Int},
 end
 
 
-@testset "ParentsVsChildrenMatchMaker" begin
+@testset "ParentsVsAllMatchMaker" begin
     test_parent_v_children_matches([10, 10], [10, 10], n_samples=1)
     test_parent_v_children_matches([10, 10], [10, 10], n_samples=1, all_vs_all_expected=true)
     test_parent_v_children_matches([10, 10], [100, 100], n_samples=100)

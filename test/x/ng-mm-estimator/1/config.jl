@@ -18,7 +18,7 @@ using CoEvo.Counters.Basic: BasicCounter
 using CoEvo.MatchMakers: MatchMaker
 using CoEvo.Performers.Basic: BasicPerformer
 using PhyloCoEvo.Evaluators.Outcome: OutcomeScalarFitnessEvaluator
-using PhyloCoEvo.MatchMakers: ParentsVsChildrenMatchMaker, RandomCohortMatchMaker
+using PhyloCoEvo.MatchMakers: ParentsVsAllMatchMaker, RandomCohortMatchMaker
 using PhyloCoEvo.Ecosystems.EstimatorEcosystem: EstimatorEcosystemCreator
 using PhyloCoEvo.SpeciesCreators.Phylogenetic: PhylogeneticSpeciesCreator
 using PhyloCoEvo.Estimators.Phylogenetic: PhylogeneticEstimator
@@ -128,9 +128,9 @@ end
     # Remove all folders in experiment directory for second experiment
     rm(datapath, recursive=true)
     mkdir(datapath)
-    @testset "ParentsVsChildrenMatchMaker" begin
+    @testset "ParentsVsAllMatchMaker" begin
         n_pop = 50 # 50 parents, 50 children
-        pvcmm = ParentsVsChildrenMatchMaker(n_samples=500)
+        pvcmm = ParentsVsAllMatchMaker(n_samples=500)
         eco_creator = dummy_eco_creator(n_pop=n_pop, matchmaker=pvcmm)
         eco = evolve!(eco_creator, n_generations=20)
         @test true

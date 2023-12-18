@@ -1,5 +1,5 @@
-module ParentsVsChildren
-export ParentsVsChildrenMatchMaker, make_matches
+module ParentsVsAll
+export ParentsVsAllMatchMaker, make_matches
 
 using Random
 using CoEvo
@@ -9,8 +9,8 @@ using CoEvo.MatchMakers.AllvsAll: AllvsAllMatchMaker, make_matches
 using CoEvo.Matches.Basic: BasicMatch
 using CoEvo.Species: AbstractSpecies
 
-Base.@kwdef struct ParentsVsChildrenMatchMaker <: MatchMaker
-    """Make matches between parents and children. All individuals
+Base.@kwdef struct ParentsVsAllMatchMaker <: MatchMaker
+    """Make matches between parents vs union(parents, children). All individuals
     in species.population are considered parents, and all individuals
     in species.children are considered children.
     
@@ -23,7 +23,7 @@ end
 
 
 function CoEvo.MatchMakers.make_matches(
-    matchmaker::ParentsVsChildrenMatchMaker, 
+    matchmaker::ParentsVsAllMatchMaker, 
     rng::AbstractRNG,
     interaction_id::String, 
     species1::AbstractSpecies, 
@@ -80,7 +80,7 @@ function CoEvo.MatchMakers.make_matches(
 end
 
 function CoEvo.MatchMakers.make_matches(
-    matchmaker::ParentsVsChildrenMatchMaker,
+    matchmaker::ParentsVsAllMatchMaker,
     rng::AbstractRNG,
     interaction_id::String,
     all_species::Vector{<:AbstractSpecies}
