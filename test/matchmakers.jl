@@ -1,6 +1,6 @@
 using CoEvo.Individuals.Basic: BasicIndividual
 using CoEvo.Genotypes.Vectors: BasicVectorGenotype
-using PhyloCoEvo.MatchMakers: RandomCohortMatchMaker, ParentsVsAllMatchMaker
+using PhyloCoEvo.MatchMakers: RandomCohortMatchMaker, ParentsVsAllMatchMaker, RandomParentsVsChildrenMatchMaker
 function test_random_cohort_matches(pop_sizes::Vector{Int},
                                     n_matches_per_ind::Vector{Int};
                                     n_samples::Int=0,
@@ -181,4 +181,84 @@ end
     test_parent_v_children_matches([10, 10], [100, 100], n_samples=100)
     test_parent_v_children_matches([10, 10, 10], [10, 10, 10], n_samples=1)
     test_parent_v_children_matches([10, 10, 10], [10, 10, 10], n_samples=1, all_vs_all_expected=true)
+end
+
+function test_random_parents_v_children_matches(n_parents::Vector{Int},
+                                        n_children::Vector{Int};
+                                        n_samples::Int,
+                                        n_cvc_per_child::Int=0,
+                                        all_vs_all_expected::Bool=false)
+    @assert length(n_parents) == length(n_children)
+
+    n_species_pairs = length(n_parents) * (length(n_parents) - 1) / 2 
+    if all_vs_all_expected
+        n_expected_total_matches = 0
+        for idx1 in 1:length(n_parents)-1
+            for idx2 in (idx1+1):length(n_parents)
+                n_expected_total_matches += (n_parents[idx1] + n_children[idx1]) * (n_parents[idx2] + n_children[idx2])
+            end
+        end
+    else
+        # pairwise matches between species
+        n_expected_total_matches = 0
+        # Count parents vs children
+        for i in 1:length(n_parents), j in [1:(i-1);(i+1):length(n_parents)]
+            n_expected_total_matches += n_parents[i] * n_children[j]
+            # we double count child v child matches, so subtract them out half the time
+            i < j && (n_expected_total_matches -= n_parents[i] * n_cvc_per_child)
+        end
+        n_expected_total_matches += n_samples * n_species_pairs
+    end
+    # Create species based on n_parents and n_children
+    species = make_dummy_phylo_species(n_parents, n_children, first_gen=all_vs_all_expected)
+    rng = StableRNG(1)
+    pvcmm = RandomParentsVsChildrenMatchMaker(n_cvc_per_child = n_cvc_per_child, n_samples=n_samples)
+
+    # Create all parent v child matches across all species
+    all_matches = []
+    for idx1 in 1:length(species)-1
+        for idx2 in (idx1+1):length(species)
+            matches = make_matches(pvcmm, rng, "interaction1", species[idx1], species[idx2])
+            append!(all_matches, matches)
+
+            if all_vs_all_expected
+                @test length(matches) == (n_parents[idx1] + n_children[idx1]) * (n_parents[idx2] + n_children[idx2])
+                continue
+            end
+            @test length(matches) == ((n_parents[idx1] * n_children[idx2])) +
+                                     ((n_parents[idx2] * n_children[idx1])) -
+                                     (n_parents[idx1] * n_cvc_per_child) +
+                                     n_samples
+            wrong_num_matches = false
+            for (i, s) in enumerate(species[[idx1,idx2]])
+                wrong_num_matches = false
+                # assert each child is matched up with the entire pop
+                for ind in s.children
+                    num_made_matches_for_c = length([1 for m in matches if ind.id in m.individual_ids])
+                    # each child should be matched up with at least n_parents - 1 individuals
+                    if num_made_matches_for_c < length(s.population) - 1
+                        wrong_num_matches = true
+                        @assert false "individual $(ind.id) made $(num_made_matches_for_c) matches, expected $(length(s.population))"
+                    end
+                end
+                # assert each member of the population is match up with at least one child
+                for ind in s.population
+                    num_made_matches_for_p = length([1 for m in matches if ind.id in m.individual_ids])
+                    if num_made_matches_for_p < 2
+                        wrong_num_matches = true
+                        @assert false "individual $(ind.id) made $(num_made_matches_for_p) matches, expected at least 2"
+                    end
+                end
+                @test !wrong_num_matches
+            end
+        end
+    end
+    @test length(all_matches) == n_expected_total_matches
+    all_matches
+end
+@testset "RandomParentsVsChildrenMatchMaker" begin
+    test_random_parents_v_children_matches([10,10],[10,10], n_samples=0)
+    test_random_parents_v_children_matches([10,10],[10,10], n_samples=0, all_vs_all_expected=true)
+    test_random_parents_v_children_matches([10,10],[10,10], n_samples=0, n_cvc_per_child=3)
+    test_random_parents_v_children_matches([100,100],[100,100], n_samples=100, n_cvc_per_child=10)
 end
