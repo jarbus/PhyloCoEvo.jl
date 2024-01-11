@@ -4,6 +4,7 @@ export EstimatorEcosystemCreator, create_ecosystem, evolve!
 
 import CoEvo.Ecosystems: create_ecosystem, evolve!
 
+using Serialization
 using DataStructures: SortedDict
 using Random: AbstractRNG
 using StableRNGs: StableRNG
@@ -87,11 +88,42 @@ using JLD2: @save
 function evolve!(
     estimator_ecosystem_creator::EstimatorEcosystemCreator;
     n_generations::Int = 100,
+    check_interval = 1000,
+    check_name = "checkpoint.jls"
 )
-    basic = estimator_ecosystem_creator.basic
-    ecosystem = create_ecosystem(estimator_ecosystem_creator.basic)
     last_reproduce_time = 0.0
-    for generation in 1:n_generations
+
+    # TODO This is bad and should be changed
+    # This code is just to get the experiment directory
+    # for use in checkpointing, we assume the basic archiver
+    # follows the path XDIR/data/archiver.jld2, and we save
+    # the checkpoint in XDIR/data
+    archiver_path = estimator_ecosystem_creator.basic.archiver.archive_path
+    data_dir = dirname(archiver_path) 
+    @assert endswith(data_dir, "data")
+
+    check_path = joinpath(data_dir, check_name)
+    tmp_check_path = check_path*"-tmp"
+    archiver_check_path = joinpath(data_dir, "archiver-checkpoint.jld2")
+    tmp_archiver_check_path = joinpath(data_dir, "archiver-checkpoint.jld2-tmp")
+
+    if isfile(check_path)
+	println("DESERIALIZING CHECKPOINT")
+        check = deserialize(check_path)
+	estimator_ecosystem_creator = check["ecosystem_creator"]
+	ecosystem = check["ecosystem"]
+	start_gen = check["generation"] + 1
+    	basic = estimator_ecosystem_creator.basic
+	mv(archiver_check_path, archiver_path, force=true)
+	println("RESUMING FROM $start_gen")
+    else
+	println("CREATING NEW RUN")
+    	basic = estimator_ecosystem_creator.basic
+    	ecosystem = create_ecosystem(basic)
+	start_gen = 1
+    end
+
+    for generation in start_gen:n_generations
         eval_time_start = time()
         phenotype_creators = [
             species_creator.phenotype_creator 
@@ -117,6 +149,26 @@ function evolve!(
         last_reproduce_time_start = time()
         ecosystem = create_ecosystem(estimator_ecosystem_creator, generation, ecosystem, results, reports)
         last_reproduce_time = time() - last_reproduce_time_start
+	if generation % check_interval == 1
+	    println("Serializing on generation $generation")
+	    # We write to a temporary path, then overwrite the previous checkpoint 
+	    # by renaming the file. We are almost guaranteed to never corrupt a prior
+	    # checkpoint by renaming the file.
+	    serialize(tmp_check_path, Dict(
+			          "ecosystem_creator"=>estimator_ecosystem_creator,
+				  "ecosystem" => ecosystem,
+				  "generation" => generation))
+        
+	    println("Verifying checkpoint integrity on $generation")
+	    Serialization.deserialize(tmp_check_path)     # Check checkpoint integrity 
+	    println("Integrity verified")
+	    # make a checkpoint of the archiver without overriding previous checkpoint
+	    cp(archiver_path, tmp_archiver_check_path, force=true)
+	    # quickly rename temporary checkpoints to main checkpoint files
+	    mv(tmp_archiver_check_path, archiver_check_path, force=true)
+	    mv(tmp_check_path, check_path, force=true)  # If we can deserialize with no errors
+				                  # then overwrite prior check
+	end
     end
 
     return ecosystem
