@@ -1,10 +1,22 @@
 #!/bin/bash
+# To start n_seeds trials:
+#   ./run $(seq 1 n_seeds) 
+# To run trial 1 and 3:
+#  ./run 1 3
 set -e
 
+# confirm all arguments are numbers
+for i in $@; do
+    if ! [[ $i =~ ^[0-9]+$ ]]; then
+        echo "Error: $i is not a number"
+        exit 1
+    fi
+done
+
 function create_seeds {
-    nseeds=$1
-    dir=$2
-    for i in $(seq 1 $nseeds); do
+    dir=$1
+    # seeds is a list of numbers, the remaining arguments
+    for i in ${@:2}; do
         seed=$RANDOM
         # create seed dir if it doesn't exist
         if [ ! -d "$dir/$i" ]; then
@@ -16,15 +28,14 @@ function create_seeds {
 }
 
 function run_seeds {
-    nseeds=$1
-    dir=$2
+    dir=$1
     # iterate over all children directories
     # and run config.jl in each
-    for i in $(seq 1 $nseeds); do
+    for i in ${@:2}; do
         if [ -d "$dir/$i" ] && [ -f "$dir/$i/config.jl" ]; then
             runlog="$dir/$i/run.log"
             git rev-parse HEAD > $runlog
-            julia $dir/$i/config.jl >> $runlog &
+            julia -t 4 $dir/$i/config.jl >> $runlog &
         fi
     done
 }
@@ -34,7 +45,6 @@ if [ $# -eq 0 ]; then
     exit 1
 fi
 
-nseeds=$1
 # find directories or symlinks
 xdirs=$(find . -mindepth 2 -maxdepth 2 -type d -o -type l | sort -r | fzf --multi)
 
@@ -46,8 +56,8 @@ echo "Start time: $(date)"
 IFS=$'\n'
 for xdir in $xdirs; do
     echo "Running $xdir"
-    create_seeds $nseeds $xdir
-    run_seeds $nseeds $xdir
+    create_seeds $xdir $@
+    run_seeds $xdir $@
 
 done
 unset IFS
