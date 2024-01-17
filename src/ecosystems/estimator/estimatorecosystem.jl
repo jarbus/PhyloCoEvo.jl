@@ -114,7 +114,7 @@ function evolve!(
 	ecosystem = check["ecosystem"]
 	start_gen = check["generation"] + 1
     	basic = estimator_ecosystem_creator.basic
-	mv(archiver_check_path, archiver_path, force=true)
+	cp(archiver_check_path, archiver_path, force=true)
 	println("RESUMING FROM $start_gen")
     else
 	println("CREATING NEW RUN")
